@@ -1,0 +1,45 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Blog RaqZpl Solutions",
+    "home_page_url": "https://raqz.pl/pl/blog",
+    "feed_url": "https://raqz.pl/pl/feed.json",
+    "description": "Wiedza, tutoriale i aktualności od RaqZpl Solutions",
+    "author": {
+        "name": "RaqZpl Solutions",
+        "url": "https://raqz.pl"
+    },
+    "items": [
+        {
+            "id": "https://raqz.pl/pl/blog/nowoczesny-rozwoj-web-2025",
+            "content_html": "Odkryj najnowsze trendy w rozwoju webowym na 2025 rok, w tym React 19, postępy w TypeScript i nowoczesne narzędzia budowania.",
+            "url": "https://raqz.pl/pl/blog/nowoczesny-rozwoj-web-2025",
+            "title": "Nowoczesny Rozwój Web w 2025: Trendy i Najlepsze Praktyki",
+            "summary": "Kompleksowy przewodnik po nowoczesnych praktykach rozwoju web, frameworkach i narzędziach kształtujących branżę w 2025 roku.",
+            "image": "https://raqz.pl/images/blog/web-dev-2025.jpg",
+            "date_modified": "2025-12-01T00:00:00.000Z",
+            "author": {
+                "name": "Zespół RaqZpl"
+            },
+            "tags": [
+                "Web Development",
+                "Technology"
+            ]
+        },
+        {
+            "id": "https://raqz.pl/pl/blog/wprowadzenie-do-automatyzacji-ai",
+            "content_html": "Dowiedz się, jak wdrożyć automatyzację AI w procesach biznesowych Twojej firmy z praktycznymi przykładami i najlepszymi praktykami.",
+            "url": "https://raqz.pl/pl/blog/wprowadzenie-do-automatyzacji-ai",
+            "title": "Wprowadzenie do Automatyzacji AI w Twojej Firmie",
+            "summary": "Odkryj podstawy automatyzacji AI i zobacz, jak może przekształcić operacje biznesowe, zwiększyć efektywność i obniżyć koszty.",
+            "image": "https://raqz.pl/images/blog/ai-automation.jpg",
+            "date_modified": "2025-11-15T00:00:00.000Z",
+            "author": {
+                "name": "Zespół RaqZpl"
+            },
+            "tags": [
+                "AI & Machine Learning",
+                "Automation"
+            ]
+        }
+    ]
+}

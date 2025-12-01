@@ -1,0 +1,138 @@
+import { useParams, Navigate } from 'react-router-dom'
+import { RiCheckLine } from 'react-icons/ri'
+import { useTranslation } from 'react-i18next'
+import servicesData from '../data/services.json'
+import SEOHead from '../components/SEOHead'
+
+export default function ServiceDetailPage() {
+  const { serviceId } = useParams<{ serviceId: string }>()
+  const { t, i18n } = useTranslation()
+  const langPrefix = i18n.language === 'en' ? '' : `/${i18n.language}`
+  
+  // Find the service across all categories
+  let service = null
+  let category = null
+  
+  for (const cat of servicesData.serviceCategories) {
+    const foundService = cat.services.find(s => s.id === serviceId)
+    if (foundService) {
+      service = foundService
+      category = cat
+      break
+    }
+  }
+
+  if (!service || !category) {
+    return <Navigate to={`${langPrefix}/services`} replace />
+  }
+
+  return (
+    <div className="bg-white pt-20">
+      <SEOHead
+        title={`${t(`servicesDropdown.services.${serviceId}.name`)} - ${t('services.title')} - ${t('meta.title')}`}
+        description={t(`serviceDetails.${serviceId}.description`)}
+        path={`/services/${serviceId}`}
+      />
+      {/* Header */}
+      <div className="bg-gray-50 px-6 py-24 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-base font-semibold leading-7 text-primary-600">{t(`serviceCategories.${category.id}`)}</p>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            {t(`servicesDropdown.services.${serviceId}.name`)}
+          </h1>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            {t(`serviceDetails.${serviceId}.description`)}
+          </p>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
+            
+            {/* Features */}
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900">{t('serviceDetail.featuresTitle')}</h2>
+              <p className="mt-4 text-gray-600">
+                {t('serviceDetail.featuresIntro')}
+              </p>
+              <ul role="list" className="mt-8 space-y-4">
+                {(t(`serviceDetails.${serviceId}.features`, { returnObjects: true }) as string[]).map((feature: string, index: number) => (
+                  <li key={index} className="flex gap-x-3">
+                    <RiCheckLine className="mt-1 h-5 w-5 flex-none text-primary-600" aria-hidden="true" />
+                    <span className="text-gray-600">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Technologies & Pricing */}
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900">{t('serviceDetail.technologiesTitle')}</h2>
+              <p className="mt-4 text-gray-600">
+                {t('serviceDetail.technologiesIntro')}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {service.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="inline-flex items-center rounded-md bg-primary-50 px-2 py-1 text-xs font-medium text-primary-700 ring-1 ring-inset ring-primary-700/10"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-8">
+                <h3 className="text-lg font-bold tracking-tight text-gray-900">{t('serviceDetail.pricingTitle')}</h3>
+                {/* <p className="mt-2 text-2xl font-bold text-primary-600">{t(`serviceDetails.${serviceId}.pricing`)}</p> */}
+                <p className="mt-2 text-sm text-gray-600">
+                  {t('serviceDetail.pricingNote')}
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <a
+                  href="/#contact"
+                  className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+                >
+                  {t('serviceDetail.getStarted')}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Related Services */}
+      <div className="bg-gray-50 px-6 py-24 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 text-center mb-12">
+            {t('serviceDetail.otherServices')} - {t(`serviceCategories.${category.id}`)}
+          </h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {category.services
+              .filter(s => s.id !== serviceId)
+              .map((relatedService) => (
+                <div
+                  key={relatedService.id}
+                  className="relative overflow-hidden rounded-lg bg-white px-6 py-8 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <h3 className="text-lg font-semibold text-gray-900">{t(`servicesDropdown.services.${relatedService.id}.name`)}</h3>
+                  <p className="mt-2 text-sm text-gray-600">{t(`servicesDropdown.services.${relatedService.id}.shortDescription`)}</p>
+                  {/* <p className="mt-4 text-sm font-medium text-primary-600">{t(`serviceDetails.${relatedService.id}.pricing`)}</p> */}
+                  <a
+                    href={`/services/${relatedService.id}`}
+                    className="absolute inset-0"
+                    aria-label={`${t('services.learnMore')} ${t(`servicesDropdown.services.${relatedService.id}.name`)}`}
+                  />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

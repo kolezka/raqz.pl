@@ -1,0 +1,36 @@
+{
+  "name": "RaqZpl Solutions",
+  "tagline": "Innovative Software Solutions for Modern Businesses",
+  "description": "We create cutting-edge software tools for mobile, web, and shop solutions that solve real-world business problems.",
+  "services": [
+    {
+      "id": "mobile",
+      "title": "Mobile Development",
+      "description": "Native and cross-platform mobile applications that deliver exceptional user experiences.",
+      "icon": "DevicePhoneMobileIcon"
+    },
+    {
+      "id": "web",
+      "title": "Web Solutions", 
+      "description": "Modern web applications built with the latest technologies for scalability and performance.",
+      "icon": "GlobeAltIcon"
+    },
+    {
+      "id": "ecommerce",
+      "title": "E-commerce Solutions",
+      "description": "Complete shop solutions with inventory management, payment processing, and analytics.",
+      "icon": "ShoppingCartIcon"
+    },
+    {
+      "id": "consulting",
+      "title": "Technical Consulting",
+      "description": "Expert guidance on technology choices, architecture design, and digital transformation.",
+      "icon": "LightBulbIcon"
+    }
+  ],
+  "contact": {
+    "email": "hello@raqzpl.dev",
+    "phone": "+1 (555) 123-4567",
+    "address": "Remote & On-site"
+  }
+}

@@ -1,0 +1,50 @@
+import { useTranslation } from 'react-i18next'
+import AnimatedBackground from './AnimatedBackground'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
+
+export default function Hero() {
+  const { t } = useTranslation()
+
+  const titleAnimation = useScrollAnimation<HTMLHeadingElement>('fade-up', { delay: 0 })
+  const subtitleAnimation = useScrollAnimation<HTMLParagraphElement>('fade-up', { delay: 100 })
+  const ctaAnimation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 200 })
+
+  return (
+    <section id="home" className="relative isolate px-6 pt-20 lg:px-8 min-h-screen flex items-center">
+      {/* Animated Background */}
+      <div className="absolute inset-0 -z-10">
+        <AnimatedBackground />
+      </div>
+      <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div className="text-center">
+          <h1
+            ref={titleAnimation.ref}
+            className={`text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl ${titleAnimation.className}`}
+          >
+            {t('hero.title')}
+          </h1>
+          <p
+            ref={subtitleAnimation.ref}
+            className={`mt-6 text-lg leading-8 text-gray-600 ${subtitleAnimation.className}`}
+          >
+            {t('hero.subtitle')}
+          </p>
+          <div
+            ref={ctaAnimation.ref}
+            className={`mt-10 flex items-center justify-center gap-x-6 ${ctaAnimation.className}`}
+          >
+            <a
+              href="#services"
+              className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95"
+            >
+              {t('hero.getStarted')}
+            </a>
+            <a href="#about" className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors duration-200">
+              {t('hero.learnMore')} <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

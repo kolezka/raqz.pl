@@ -1,0 +1,66 @@
+{
+  "en": [
+    {
+      "id": "ai-machine-learning",
+      "name": "AI & Machine Learning",
+      "slug": "AI & Machine Learning",
+      "description": "Articles about artificial intelligence and machine learning technologies"
+    },
+    {
+      "id": "automation",
+      "name": "Automation",
+      "slug": "Automation",
+      "description": "Business process automation and workflow optimization"
+    },
+    {
+      "id": "web-development",
+      "name": "Web Development",
+      "slug": "Web Development",
+      "description": "Modern web development techniques and frameworks"
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "slug": "Technology",
+      "description": "Latest technology trends and innovations"
+    },
+    {
+      "id": "blockchain",
+      "name": "Blockchain",
+      "slug": "Blockchain",
+      "description": "Blockchain development and Web3 technologies"
+    }
+  ],
+  "pl": [
+    {
+      "id": "ai-machine-learning",
+      "name": "AI & Machine Learning",
+      "slug": "AI & Machine Learning",
+      "description": "Artykuły o sztucznej inteligencji i uczeniu maszynowym"
+    },
+    {
+      "id": "automation",
+      "name": "Automation",
+      "slug": "Automation",
+      "description": "Automatyzacja procesów biznesowych i optymalizacja przepływów pracy"
+    },
+    {
+      "id": "web-development",
+      "name": "Web Development",
+      "slug": "Web Development",
+      "description": "Nowoczesne techniki i frameworki do rozwoju webowego"
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "slug": "Technology",
+      "description": "Najnowsze trendy i innowacje technologiczne"
+    },
+    {
+      "id": "blockchain",
+      "name": "Blockchain",
+      "slug": "Blockchain",
+      "description": "Rozwój blockchain i technologie Web3"
+    }
+  ]
+}

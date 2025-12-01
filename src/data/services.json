@@ -1,0 +1,336 @@
+{
+  "serviceCategories": [
+    {
+      "id": "specialized-solutions",
+      "name": "Specialized Solutions",
+      "description": "Cutting-edge technology solutions",
+      "icon": "CpuChipIcon",
+      "services": [
+        {
+          "id": "ai-integrations",
+          "name": "AI Integrations",
+          "shortDescription": "Automation, Agents, and Generative AI solutions",
+          "description": "Leverage the power of artificial intelligence to automate processes, create intelligent agents, and implement generative AI solutions.",
+          "features": [
+            "Process automation with AI",
+            "Intelligent chatbots and agents",
+            "Generative AI applications",
+            "Machine learning model integration",
+            "Natural language processing"
+          ],
+          "technologies": [
+            "OpenAI",
+            "TensorFlow",
+            "PyTorch",
+            "Hugging Face",
+            "LangChain"
+          ],
+          "pricing": "Starting from $5,000"
+        },
+        {
+          "id": "blockchain-development",
+          "name": "Blockchain Development",
+          "shortDescription": "Web3 applications, smart contracts, and DeFi solutions",
+          "description": "Comprehensive blockchain development services including Web3 authentication, wallet integrations, smart contracts, and decentralized applications across multiple blockchain networks.",
+          "features": [
+            "Web3 authentication systems",
+            "Multi-chain wallet integrations",
+            "Smart contract development",
+            "DeFi protocol implementations",
+            "NFT marketplace development",
+            "Token standards (ERC-20, SPL)",
+            "Cross-chain bridge solutions"
+          ],
+          "technologies": [
+            "Ethereum",
+            "Solana",
+            "Cosmos",
+            "MetaMask",
+            "Phantom",
+            "WalletConnect",
+            "Coinbase Wallet",
+            "Keplr",
+            "Prisma",
+            "Express.js"
+          ],
+          "pricing": "Starting from $8,000"
+        }
+      ]
+    },
+    {
+      "id": "development",
+      "name": "Development",
+      "description": "Custom software development solutions",
+      "icon": "CodeBracketIcon",
+      "services": [
+        
+        {
+          "id": "web-development",
+          "name": "Web Development",
+          "shortDescription": "Modern web applications with cutting-edge technologies",
+          "description": "We build scalable, performant web applications using the latest frameworks and technologies. From simple websites to complex web platforms, we deliver solutions that drive business growth.",
+          "features": [
+            "React, Vue, Angular applications",
+            "Node.js, Python, PHP backends",
+            "Progressive Web Apps (PWA)",
+            "Responsive design",
+            "API development and integration"
+          ],
+          "technologies": [
+            "React",
+            "Vue",
+            "Angular",
+            "Node.js",
+            "Python",
+            "TypeScript"
+          ],
+          "pricing": "Starting from $5,000"
+        },
+        {
+          "id": "mobile-development",
+          "name": "Mobile Development",
+          "shortDescription": "Native and cross-platform mobile applications",
+          "description": "Create powerful mobile applications that provide exceptional user experiences across iOS and Android platforms.",
+          "features": [
+            "Native iOS and Android apps",
+            "Cross-platform React Native apps",
+            "Flutter development",
+            "App Store optimization",
+            "Push notifications and analytics"
+          ],
+          "technologies": [
+            "React Native",
+            "Flutter",
+            "Swift",
+            "Kotlin",
+            "Expo"
+          ],
+          "pricing": "Starting from $8,000"
+        },
+        {
+          "id": "ecommerce-development",
+          "name": "E-Commerce Development",
+          "shortDescription": "Complete online store solutions with modern features",
+          "description": "Full-featured e-commerce platforms with inventory management, payment processing, and analytics.",
+          "features": [
+            "Custom e-commerce platforms",
+            "Shopify and WooCommerce development",
+            "Payment gateway integration",
+            "Inventory management systems",
+            "Order tracking and analytics"
+          ],
+          "technologies": [
+            "Shopify",
+            "WooCommerce",
+            "Stripe",
+            "PayPal",
+            "Magento"
+          ],
+          "pricing": "Starting from $7,000"
+        },
+        {
+          "id": "software-development",
+          "name": "Software Development",
+          "shortDescription": "Custom software solutions for enterprise needs",
+          "description": "Enterprise-grade software solutions tailored to your specific business requirements and workflow optimization.",
+          "features": [
+            "Desktop applications",
+            "Enterprise software systems",
+            "Workflow automation",
+            "Database design and optimization",
+            "Third-party integrations"
+          ],
+          "technologies": ["Java", "C#", ".NET", "Python", "Go", "PostgreSQL"],
+          "pricing": "Starting from $10,000"
+        },
+        
+        {
+          "id": "legacy-refactoring",
+          "name": "Legacy Code Refactoring",
+          "shortDescription": "Modernize and optimize legacy codebases",
+          "description": "Transform outdated legacy systems into modern, maintainable, and scalable applications.",
+          "features": [
+            "Code modernization",
+            "Architecture restructuring",
+            "Technology stack upgrades",
+            "Performance improvements",
+            "Documentation and testing"
+          ],
+          "technologies": [
+            "Modern frameworks",
+            "Microservices",
+            "API design",
+            "Testing frameworks"
+          ],
+          "pricing": "Starting from $4,000"
+        }
+      ]
+    },
+
+    {
+      "id": "messaging-bots",
+      "name": "Messaging Bots",
+      "description": "Custom bots for popular messaging platforms",
+      "icon": "RobotIcon",
+      "services": [
+        {
+          "id": "discord-bots",
+          "name": "Discord Bots",
+          "shortDescription": "Custom Discord bots for automation and engagement",
+          "description": "Create powerful Discord bots to automate server management, enhance user engagement, and provide custom functionality for your community.",
+          "features": [
+            "Custom command development",
+            "Server moderation automation",
+            "User engagement features",
+            "Integration with external APIs",
+            "Music and entertainment bots"
+          ],
+          "technologies": [
+            "Discord.js",
+            "Python",
+            "Node.js",
+            "Discord API",
+            "Slash Commands"
+          ],
+          "pricing": "Starting from $1,500"
+        },
+        {
+          "id": "telegram-bots",
+          "name": "Telegram Bots",
+          "shortDescription": "Intelligent Telegram bots for business automation",
+          "description": "Develop sophisticated Telegram bots for customer support, business automation, and interactive user experiences.",
+          "features": [
+            "Custom clients",
+            "Customer support automation",
+            "Payment processing integration",
+            "Inline keyboards and menus",
+            "File and media handling",
+            "Multi-language support"
+          ],
+          "technologies": [
+            "Telegram Bot API",
+            "Python",
+            "Node.js",
+            "Webhooks",
+            "Inline Queries"
+          ],
+          "pricing": "Starting from $1,500"
+        },
+        {
+          "id": "signal-bots",
+          "name": "Signal Bots",
+          "shortDescription": "Privacy-focused Signal bots for secure communication",
+          "description": "Build secure Signal bots that prioritize privacy while delivering automated messaging and communication features.",
+          "features": [
+            "End-to-end encrypted messaging",
+            "Automated responses",
+            "Group management features",
+            "Privacy-focused integrations",
+            "Secure notifications"
+          ],
+          "technologies": [
+            "Signal API",
+            "Python",
+            "Signal Protocol",
+            "Secure APIs",
+            "Encryption"
+          ],
+          "pricing": "Starting from $2,000"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure",
+      "description": "Scalable and reliable infrastructure solutions",
+      "icon": "ServerIcon",
+      "services": [
+        {
+          "id": "hosting-solutions",
+          "name": "Hosting Solutions",
+          "shortDescription": "Reliable and scalable hosting infrastructure",
+          "description": "Comprehensive hosting solutions from shared hosting to enterprise cloud infrastructure with 99.9% uptime guarantee.",
+          "features": [
+            "Cloud hosting (AWS, Google Cloud, Azure)",
+            "VPS and dedicated servers",
+            "CDN implementation",
+            "SSL certificate management",
+            "Automated backups"
+          ],
+          "technologies": [
+            "AWS",
+            "Google Cloud",
+            "Azure",
+            "Docker",
+            "Kubernetes"
+          ],
+          "pricing": "Starting from $50/month"
+        },
+        {
+          "id": "performance-optimization",
+          "name": "Performance Optimization",
+          "shortDescription": "Speed up your applications and websites",
+          "description": "Comprehensive performance analysis and optimization to ensure your applications run at peak efficiency.",
+          "features": [
+            "Website speed optimization",
+            "Database performance tuning",
+            "Code optimization and refactoring",
+            "Caching implementation",
+            "Load balancing setup"
+          ],
+          "technologies": ["Redis", "Memcached", "Nginx", "Apache", "MongoDB"],
+          "pricing": "Starting from $2,000"
+        },
+        {
+          "id": "migrations",
+          "name": "Migrations",
+          "shortDescription": "Seamless platform and data migrations",
+          "description": "Safe and efficient migration services with zero downtime and complete data integrity.",
+          "features": [
+            "Cloud platform migrations",
+            "Database migrations",
+            "Application modernization",
+            "Legacy system upgrades",
+            "Data migration and validation"
+          ],
+          "technologies": [
+            "Docker",
+            "Kubernetes",
+            "Terraform",
+            "Ansible",
+            "Jenkins"
+          ],
+          "pricing": "Starting from $3,000"
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "name": "Support",
+      "description": "Ongoing maintenance and support services",
+      "icon": "WrenchScrewdriverIcon",
+      "services": [
+        {
+          "id": "maintenance-support",
+          "name": "Maintenance & Support",
+          "shortDescription": "Comprehensive ongoing support for your applications",
+          "description": "Keep your applications running smoothly with our comprehensive maintenance and support services.",
+          "features": [
+            "24/7 monitoring and support",
+            "Regular security updates",
+            "Bug fixes and patches",
+            "Performance monitoring",
+            "Backup and disaster recovery"
+          ],
+          "technologies": [
+            "Monitoring tools",
+            "Security scanners",
+            "Backup systems",
+            "Alert systems"
+          ],
+          "pricing": "Starting from $200/month"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+import { useParams, Navigate, Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { MDXProvider } from '@mdx-js/react'
+import { format } from 'date-fns'
+import { useBlogPost } from '../hooks/useBlogPost'
+import { useBlogPostMeta } from '../hooks/useBlogPosts'
+import { mdxComponents } from '../components/blog/MDXComponents'
+import BlogSEOHead from '../components/blog/BlogSEOHead'
+import RelatedPosts from '../components/blog/RelatedPosts'
+
+export default function BlogPostPage() {
+  const { slug } = useParams<{ slug: string }>()
+  const { i18n, t } = useTranslation()
+  const language = i18n.language as 'en' | 'pl'
+
+  const { post, loading: mdxLoading, error } = useBlogPost(slug || '', language)
+  const { post: metadata, loading: metaLoading } = useBlogPostMeta(slug || '', language)
+
+  console.log(slug, language)
+
+  console.log('📄 BlogPostPage state:', { slug, language, mdxLoading, metaLoading, hasPost: !!post, hasMetadata: !!metadata, error })
+
+  // Loading state
+  if (mdxLoading || metaLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">{t('blog.loading', 'Loading...')}</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Error or not found
+
+  console.log({error, post, metadata})
+
+  if (error || !post || !metadata) {
+    return <Navigate to={language === 'pl' ? '/pl/blog' : '/blog'} replace />
+  }
+
+  const { Component } = post
+
+  // Format date
+  const publishedDate = metadata.date ? format(new Date(metadata.date), 'MMMM d, yyyy') : ''
+  const updatedDate = metadata.lastModified ? format(new Date(metadata.lastModified), 'MMMM d, yyyy') : null
+
+  return (
+    <>
+      <BlogSEOHead post={metadata} />
+
+      <div className="min-h-screen bg-white">
+        {/* Hero Section with Cover Image */}
+        <div className="relative bg-gray-900 h-96">
+          <img
+            src={metadata.coverImage}
+            alt={metadata.coverImageAlt}
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-end pb-12">
+            {/* Breadcrumbs */}
+            <nav className="flex mb-4" aria-label="Breadcrumb">
+              <ol className="inline-flex items-center space-x-1 md:space-x-3">
+                <li className="inline-flex items-center">
+                  <Link to={language === 'pl' ? '/pl' : '/'} className="text-gray-300 hover:text-white">
+                    {t('navigation.home', 'Home')}
+                  </Link>
+                </li>
+                <li>
+                  <div className="flex items-center">
+                    <span className="mx-2 text-gray-400">/</span>
+                    <Link to={language === 'pl' ? '/pl/blog' : '/blog'} className="text-gray-300 hover:text-white">
+                      {t('navigation.blog', 'Blog')}
+                    </Link>
+                  </div>
+                </li>
+              </ol>
+            </nav>
+
+            {/* Categories */}
+            <div className="flex flex-wrap gap-2 mb-4">
+              {metadata.categories.map((category) => (
+                <span
+                  key={category}
+                  className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-600 text-white"
+                >
+                  {category}
+                </span>
+              ))}
+            </div>
+
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              {metadata.title}
+            </h1>
+
+            {/* Meta info */}
+            <div className="flex flex-wrap items-center gap-4 text-gray-300 text-sm">
+              <div className="flex items-center">
+                <span>{t('blog.by', 'By')} {metadata.author}</span>
+              </div>
+              <span>•</span>
+              <div className="flex items-center">
+                <span>{t('blog.publishedOn', 'Published on')} {publishedDate}</span>
+              </div>
+              {updatedDate && (
+                <>
+                  <span>•</span>
+                  <div className="flex items-center">
+                    <span>{t('blog.updatedOn', 'Updated')} {updatedDate}</span>
+                  </div>
+                </>
+              )}
+              <span>•</span>
+              <div className="flex items-center">
+                <span>{t('blog.readingTime', '{{time}} min read', { time: metadata.readingTime })}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Article Content */}
+        <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          {/* Excerpt */}
+          {metadata.excerpt && (
+            <div className="text-xl text-gray-600 italic mb-8 pb-8 border-b border-gray-200">
+              {metadata.excerpt}
+            </div>
+          )}
+
+          {/* MDX Content */}
+          <div className="prose prose-lg max-w-none">
+            <MDXProvider components={mdxComponents}>
+              {Component && <Component />}
+            </MDXProvider>
+          </div>
+
+          {/* Tags */}
+          {metadata.tags.length > 0 && (
+            <div className="mt-12 pt-8 border-t border-gray-200">
+              <h3 className="text-sm font-semibold text-gray-900 mb-3">{t('blog.tags', 'Tags')}</h3>
+              <div className="flex flex-wrap gap-2">
+                {metadata.tags.map((tag) => (
+                  <Link
+                    key={tag}
+                    to={`${language === 'pl' ? '/pl' : ''}/blog/tag/${tag}`}
+                    className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
+                  >
+                    #{tag}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Related Posts */}
+          <RelatedPosts currentPost={metadata} />
+        </article>
+
+        {/* Back to Blog */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          <Link
+            to={language === 'pl' ? '/pl/blog' : '/blog'}
+            className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
+          >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            {t('blog.backToBlog', 'Back to Blog')}
+          </Link>
+        </div>
+      </div>
+    </>
+  )
+}
