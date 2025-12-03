@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/refs */
 import {
   RiCodeLine,
   RiServerLine,
@@ -46,13 +47,11 @@ export default function Services() {
           <dl className="flex flex-wrap gap-8 lg:gap-x-12 lg:gap-y-8 justify-center">
             {servicesData.serviceCategories.map((category, index) => {
               const IconComponent = iconMap[category.icon as keyof typeof iconMap]
-              const cardAnimation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: index * 100 })
 
               return (
                 <div
                   key={category.id}
-                  ref={cardAnimation.ref}
-                  className={`relative pl-16 flex-shrink-0 w-full sm:w-80 lg:w-96 ${cardAnimation.className}`}
+                  className="relative pl-16 flex-shrink-0 w-full sm:w-80 lg:w-96 opacity-0 animate-fade-up"
                   style={staggerStyles[index]}
                 >
                   <dt className="text-base font-semibold leading-7 text-gray-900">

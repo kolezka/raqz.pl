@@ -1,10 +1,9 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import Fuse from 'fuse.js'
 import type { BlogPost } from '../types/blog'
 
 export function useBlogSearch(posts: BlogPost[]) {
   const [query, setQuery] = useState('')
-  const [results, setResults] = useState<BlogPost[]>(posts)
 
   // Create Fuse instance for fuzzy search
   const fuse = useMemo(() => {
@@ -22,14 +21,14 @@ export function useBlogSearch(posts: BlogPost[]) {
     })
   }, [posts])
 
-  useEffect(() => {
+  // Compute results directly without state
+  const results = useMemo(() => {
     if (!query.trim()) {
-      setResults(posts)
-      return
+      return posts
     }
 
     const searchResults = fuse.search(query)
-    setResults(searchResults.map(result => result.item))
+    return searchResults.map(result => result.item)
   }, [query, fuse, posts])
 
   return { query, setQuery, results }

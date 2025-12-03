@@ -28,7 +28,10 @@ export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
   } = options;
 
   const elementRef = useRef<T>(null);
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(() => {
+    // Initialize as visible if disabled or reduced motion is preferred
+    return disabled || (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  });
   const [hasAnimated, setHasAnimated] = useState<boolean>(false);
   const prefersReducedMotion = useReducedMotion();
 
@@ -37,7 +40,8 @@ export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
 
     // Skip if disabled, no element, or user prefers reduced motion
     if (disabled || !element || prefersReducedMotion) {
-      setIsVisible(true);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIsVisible(prev => prev ? prev : true);
       return;
     }
 
@@ -48,7 +52,7 @@ export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
 
     // Check if IntersectionObserver is supported
     if (!('IntersectionObserver' in window)) {
-      setIsVisible(true);
+      setIsVisible(prev => prev ? prev : true);
       return;
     }
 

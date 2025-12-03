@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/refs */
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import companyData from '../data/company.json'

@@ -65,7 +65,7 @@ export default function Header() {
       ];
       return items;
     },
-    [langPrefix, i18n.language]
+    [t, langPrefix]
   );
 
   // Check if user is still in the hero section

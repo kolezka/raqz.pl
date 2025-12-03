@@ -1,11 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-interface FeatureDisabledProps {
-  feature: string;
-}
-
-export default function FeatureDisabled({ feature }: FeatureDisabledProps) {
+export default function FeatureDisabled() {
   const { t, i18n } = useTranslation();
   const langPrefix = i18n.language === 'en' ? '' : `/${i18n.language}`;
 

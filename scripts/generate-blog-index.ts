@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, writeFileSync, existsSync } from 'fs'
+import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
@@ -69,7 +69,6 @@ function generateBlogIndex() {
   // Ensure output directory exists
   const outputDir = join(process.cwd(), 'src', 'data')
   if (!existsSync(outputDir)) {
-    const { mkdirSync } = require('fs')
     mkdirSync(outputDir, { recursive: true })
   }
 

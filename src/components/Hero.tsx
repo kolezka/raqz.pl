@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/refs */
 import { useTranslation } from 'react-i18next'
 import AnimatedBackground from './AnimatedBackground'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
