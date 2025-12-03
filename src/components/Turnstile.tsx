@@ -1,5 +1,6 @@
 import { Turnstile as CloudflareTurnstile } from '@marsidev/react-turnstile'
 import { useTranslation } from 'react-i18next'
+import { memo } from 'react'
 
 interface TurnstileProps {
   onVerify: (token: string) => void
@@ -7,7 +8,7 @@ interface TurnstileProps {
   onExpire?: () => void
 }
 
-export default function Turnstile({ onVerify, onError, onExpire }: TurnstileProps) {
+export default memo(function Turnstile({ onVerify, onError, onExpire }: TurnstileProps) {
   const { i18n } = useTranslation()
   const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY
 
@@ -31,4 +32,4 @@ export default function Turnstile({ onVerify, onError, onExpire }: TurnstileProp
       />
     </div>
   )
-}
+})

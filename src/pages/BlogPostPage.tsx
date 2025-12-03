@@ -16,9 +16,18 @@ export default function BlogPostPage() {
   const { post, loading: mdxLoading, error } = useBlogPost(slug || '', language)
   const { post: metadata, loading: metaLoading } = useBlogPostMeta(slug || '', language)
 
-  console.log(slug, language)
-
-  console.log('📄 BlogPostPage state:', { slug, language, mdxLoading, metaLoading, hasPost: !!post, hasMetadata: !!metadata, error })
+  // Development-only logging
+  if (import.meta.env.DEV) {
+    console.log('📄 BlogPostPage state:', {
+      slug,
+      language,
+      mdxLoading,
+      metaLoading,
+      hasPost: !!post,
+      hasMetadata: !!metadata,
+      error,
+    })
+  }
 
   // Loading state
   if (mdxLoading || metaLoading) {
@@ -33,9 +42,6 @@ export default function BlogPostPage() {
   }
 
   // Error or not found
-
-  console.log({error, post, metadata})
-
   if (error || !post || !metadata) {
     return <Navigate to={language === 'pl' ? '/pl/blog' : '/blog'} replace />
   }
@@ -44,7 +50,9 @@ export default function BlogPostPage() {
 
   // Format date
   const publishedDate = metadata.date ? format(new Date(metadata.date), 'MMMM d, yyyy') : ''
-  const updatedDate = metadata.lastModified ? format(new Date(metadata.lastModified), 'MMMM d, yyyy') : null
+  const updatedDate = metadata.lastModified
+    ? format(new Date(metadata.lastModified), 'MMMM d, yyyy')
+    : null
 
   return (
     <>
@@ -57,6 +65,10 @@ export default function BlogPostPage() {
             src={metadata.coverImage}
             alt={metadata.coverImageAlt}
             className="absolute inset-0 w-full h-full object-cover opacity-60"
+            loading="eager"
+            decoding="async"
+            width="1920"
+            height="384"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
 
@@ -65,14 +77,20 @@ export default function BlogPostPage() {
             <nav className="flex mb-4" aria-label="Breadcrumb">
               <ol className="inline-flex items-center space-x-1 md:space-x-3">
                 <li className="inline-flex items-center">
-                  <Link to={language === 'pl' ? '/pl' : '/'} className="text-gray-300 hover:text-white">
+                  <Link
+                    to={language === 'pl' ? '/pl' : '/'}
+                    className="text-gray-300 hover:text-white"
+                  >
                     {t('navigation.home', 'Home')}
                   </Link>
                 </li>
                 <li>
                   <div className="flex items-center">
                     <span className="mx-2 text-gray-400">/</span>
-                    <Link to={language === 'pl' ? '/pl/blog' : '/blog'} className="text-gray-300 hover:text-white">
+                    <Link
+                      to={language === 'pl' ? '/pl/blog' : '/blog'}
+                      className="text-gray-300 hover:text-white"
+                    >
                       {t('navigation.blog', 'Blog')}
                     </Link>
                   </div>
@@ -82,7 +100,7 @@ export default function BlogPostPage() {
 
             {/* Categories */}
             <div className="flex flex-wrap gap-2 mb-4">
-              {metadata.categories.map((category) => (
+              {metadata.categories.map(category => (
                 <span
                   key={category}
                   className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-600 text-white"
@@ -93,30 +111,36 @@ export default function BlogPostPage() {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {metadata.title}
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{metadata.title}</h1>
 
             {/* Meta info */}
             <div className="flex flex-wrap items-center gap-4 text-gray-300 text-sm">
               <div className="flex items-center">
-                <span>{t('blog.by', 'By')} {metadata.author}</span>
+                <span>
+                  {t('blog.by', 'By')} {metadata.author}
+                </span>
               </div>
               <span>•</span>
               <div className="flex items-center">
-                <span>{t('blog.publishedOn', 'Published on')} {publishedDate}</span>
+                <span>
+                  {t('blog.publishedOn', 'Published on')} {publishedDate}
+                </span>
               </div>
               {updatedDate && (
                 <>
                   <span>•</span>
                   <div className="flex items-center">
-                    <span>{t('blog.updatedOn', 'Updated')} {updatedDate}</span>
+                    <span>
+                      {t('blog.updatedOn', 'Updated')} {updatedDate}
+                    </span>
                   </div>
                 </>
               )}
               <span>•</span>
               <div className="flex items-center">
-                <span>{t('blog.readingTime', '{{time}} min read', { time: metadata.readingTime })}</span>
+                <span>
+                  {t('blog.readingTime', '{{time}} min read', { time: metadata.readingTime })}
+                </span>
               </div>
             </div>
           </div>
@@ -133,9 +157,7 @@ export default function BlogPostPage() {
 
           {/* MDX Content */}
           <div className="prose prose-lg max-w-none">
-            <MDXProvider components={mdxComponents}>
-              {Component && <Component />}
-            </MDXProvider>
+            <MDXProvider components={mdxComponents}>{Component && <Component />}</MDXProvider>
           </div>
 
           {/* Tags */}
@@ -143,7 +165,7 @@ export default function BlogPostPage() {
             <div className="mt-12 pt-8 border-t border-gray-200">
               <h3 className="text-sm font-semibold text-gray-900 mb-3">{t('blog.tags', 'Tags')}</h3>
               <div className="flex flex-wrap gap-2">
-                {metadata.tags.map((tag) => (
+                {metadata.tags.map(tag => (
                   <Link
                     key={tag}
                     to={`${language === 'pl' ? '/pl' : ''}/blog/tag/${tag}`}
@@ -167,7 +189,12 @@ export default function BlogPostPage() {
             className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
           >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
             {t('blog.backToBlog', 'Back to Blog')}
           </Link>

@@ -1,4 +1,4 @@
-import type { AnimationVariant, AnimationConfig } from '../types/animations';
+import type { AnimationVariant, AnimationConfig } from '../types/animations'
 
 /**
  * Animation duration constants (in milliseconds)
@@ -8,7 +8,7 @@ export const ANIMATION_DURATION = {
   NORMAL: 400,
   SLOW: 600,
   EXTRA_SLOW: 800,
-} as const;
+} as const
 
 /**
  * Animation delay constants (in milliseconds)
@@ -18,7 +18,7 @@ export const ANIMATION_DELAY = {
   SHORT: 100,
   MEDIUM: 200,
   LONG: 300,
-} as const;
+} as const
 
 /**
  * Stagger delay constants (in milliseconds)
@@ -28,7 +28,7 @@ export const STAGGER_DELAY = {
   NORMAL: 100,
   RELAXED: 150,
   LOOSE: 200,
-} as const;
+} as const
 
 /**
  * Animation easing functions
@@ -38,7 +38,7 @@ export const ANIMATION_EASING = {
   EASE_IN: 'cubic-bezier(0.4, 0, 1, 1)',
   EASE_IN_OUT: 'cubic-bezier(0.4, 0, 0.6, 1)',
   LINEAR: 'linear',
-} as const;
+} as const
 
 /**
  * Default animation configurations for each variant
@@ -98,18 +98,18 @@ export const ANIMATION_CONFIGS: Record<AnimationVariant, AnimationConfig> = {
     delay: ANIMATION_DELAY.NONE,
     easing: ANIMATION_EASING.EASE_OUT,
   },
-};
+}
 
 /**
  * Get animation class name from variant
  */
 export function getAnimationClassName(variant: AnimationVariant): string {
-  return `animate-${variant}`;
+  return `animate-${variant}`
 }
 
 /**
  * Combine multiple class names, filtering out falsy values
  */
 export function cn(...classes: (string | boolean | undefined | null)[]): string {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(' ')
 }

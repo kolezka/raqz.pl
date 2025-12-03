@@ -21,7 +21,7 @@ i18n
     resources,
     fallbackLng: 'en',
     debug: import.meta.env.DEV,
-    
+
     detection: {
       order: ['path', 'localStorage', 'navigator', 'htmlTag'],
       lookupFromPathIndex: 0,
@@ -32,7 +32,7 @@ i18n
     },
 
     supportedLngs: ['en', 'pl'],
-    
+
     react: {
       useSuspense: false,
     },

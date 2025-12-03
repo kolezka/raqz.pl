@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import type { BlogPost } from '../types/blog'
 
 export function useBlogPosts(language: string) {
@@ -10,11 +10,11 @@ export function useBlogPosts(language: string) {
 
     // Dynamically import the blog index
     import('../data/blog-index.json')
-      .then((module) => {
+      .then(module => {
         const blogIndex = module.default as { en: BlogPost[]; pl: BlogPost[] }
         setPosts(blogIndex[language as 'en' | 'pl'] || [])
       })
-      .catch((error) => {
+      .catch(error => {
         console.error('Error loading blog posts:', error)
         setPosts([])
       })
@@ -23,7 +23,10 @@ export function useBlogPosts(language: string) {
       })
   }, [language])
 
-  return { posts, loading }
+  // Memoize posts array to prevent Fuse.js recreation in useBlogSearch
+  const memoizedPosts = useMemo(() => posts, [posts])
+
+  return { posts: memoizedPosts, loading }
 }
 
 // Hook to get a single post's metadata by slug
@@ -55,9 +58,7 @@ export function usePostsByCategory(category: string, language: string) {
 // Hook to get posts by tag
 export function usePostsByTag(tag: string, language: string) {
   const { posts, loading } = useBlogPosts(language)
-  const filtered = posts.filter(p =>
-    p.tags.some(t => t.toLowerCase() === tag.toLowerCase())
-  )
+  const filtered = posts.filter(p => p.tags.some(t => t.toLowerCase() === tag.toLowerCase()))
 
   return { posts: filtered, loading }
 }

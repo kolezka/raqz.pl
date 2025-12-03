@@ -18,13 +18,7 @@
             "Machine learning model integration",
             "Natural language processing"
           ],
-          "technologies": [
-            "OpenAI",
-            "TensorFlow",
-            "PyTorch",
-            "Hugging Face",
-            "LangChain"
-          ],
+          "technologies": ["OpenAI", "TensorFlow", "PyTorch", "Hugging Face", "LangChain"],
           "pricing": "Starting from $5,000"
         },
         {
@@ -63,7 +57,6 @@
       "description": "Custom software development solutions",
       "icon": "CodeBracketIcon",
       "services": [
-        
         {
           "id": "web-development",
           "name": "Web Development",
@@ -76,14 +69,7 @@
             "Responsive design",
             "API development and integration"
           ],
-          "technologies": [
-            "React",
-            "Vue",
-            "Angular",
-            "Node.js",
-            "Python",
-            "TypeScript"
-          ],
+          "technologies": ["React", "Vue", "Angular", "Node.js", "Python", "TypeScript"],
           "pricing": "Starting from $5,000"
         },
         {
@@ -98,13 +84,7 @@
             "App Store optimization",
             "Push notifications and analytics"
           ],
-          "technologies": [
-            "React Native",
-            "Flutter",
-            "Swift",
-            "Kotlin",
-            "Expo"
-          ],
+          "technologies": ["React Native", "Flutter", "Swift", "Kotlin", "Expo"],
           "pricing": "Starting from $8,000"
         },
         {
@@ -119,13 +99,7 @@
             "Inventory management systems",
             "Order tracking and analytics"
           ],
-          "technologies": [
-            "Shopify",
-            "WooCommerce",
-            "Stripe",
-            "PayPal",
-            "Magento"
-          ],
+          "technologies": ["Shopify", "WooCommerce", "Stripe", "PayPal", "Magento"],
           "pricing": "Starting from $7,000"
         },
         {
@@ -143,7 +117,7 @@
           "technologies": ["Java", "C#", ".NET", "Python", "Go", "PostgreSQL"],
           "pricing": "Starting from $10,000"
         },
-        
+
         {
           "id": "legacy-refactoring",
           "name": "Legacy Code Refactoring",
@@ -185,13 +159,7 @@
             "Integration with external APIs",
             "Music and entertainment bots"
           ],
-          "technologies": [
-            "Discord.js",
-            "Python",
-            "Node.js",
-            "Discord API",
-            "Slash Commands"
-          ],
+          "technologies": ["Discord.js", "Python", "Node.js", "Discord API", "Slash Commands"],
           "pricing": "Starting from $1,500"
         },
         {
@@ -207,13 +175,7 @@
             "File and media handling",
             "Multi-language support"
           ],
-          "technologies": [
-            "Telegram Bot API",
-            "Python",
-            "Node.js",
-            "Webhooks",
-            "Inline Queries"
-          ],
+          "technologies": ["Telegram Bot API", "Python", "Node.js", "Webhooks", "Inline Queries"],
           "pricing": "Starting from $1,500"
         },
         {
@@ -228,13 +190,7 @@
             "Privacy-focused integrations",
             "Secure notifications"
           ],
-          "technologies": [
-            "Signal API",
-            "Python",
-            "Signal Protocol",
-            "Secure APIs",
-            "Encryption"
-          ],
+          "technologies": ["Signal API", "Python", "Signal Protocol", "Secure APIs", "Encryption"],
           "pricing": "Starting from $2,000"
         }
       ]
@@ -257,13 +213,7 @@
             "SSL certificate management",
             "Automated backups"
           ],
-          "technologies": [
-            "AWS",
-            "Google Cloud",
-            "Azure",
-            "Docker",
-            "Kubernetes"
-          ],
+          "technologies": ["AWS", "Google Cloud", "Azure", "Docker", "Kubernetes"],
           "pricing": "Starting from $50/month"
         },
         {
@@ -293,13 +243,7 @@
             "Legacy system upgrades",
             "Data migration and validation"
           ],
-          "technologies": [
-            "Docker",
-            "Kubernetes",
-            "Terraform",
-            "Ansible",
-            "Jenkins"
-          ],
+          "technologies": ["Docker", "Kubernetes", "Terraform", "Ansible", "Jenkins"],
           "pricing": "Starting from $3,000"
         }
       ]

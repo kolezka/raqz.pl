@@ -16,7 +16,7 @@ export const FEATURES: FeatureFlags = {
   SHOW_ALL_BLOG_POSTS: false,
   BLOG_SEARCH_ENABLED: true,
   BLOG_CATEGORIES_ENABLED: true,
-};
+}
 ```
 
 ## Available Flags
@@ -29,16 +29,19 @@ export const FEATURES: FeatureFlags = {
 Master toggle for the entire blog section.
 
 **When `false`:**
+
 - Blog routes (`/blog`, `/pl/blog`) are disabled and return 404
 - Blog navigation link is hidden from header (both desktop and mobile)
 - Latest blog posts section is hidden from homepage
 
 **When `true`:**
+
 - All blog features are accessible
 - Blog navigation appears in header
 - Latest posts appear on homepage
 
 **Affects:**
+
 - `src/App.tsx` - Blog route registration
 - `src/components/Header.tsx` - Navigation links
 - `src/pages/HomePage.tsx` - Latest blog posts component
@@ -51,15 +54,18 @@ Master toggle for the entire blog section.
 Controls whether to show all blog posts or only featured posts on the blog list page.
 
 **When `false`:**
+
 - Only posts marked with `featured: true` in frontmatter are displayed on main blog page
 - Category and tag pages still show all posts
 
 **When `true`:**
+
 - All published posts are displayed
 - Featured posts appear in a separate "Featured" section
 - Non-featured posts appear in an "All Posts" section below
 
 **Affects:**
+
 - `src/pages/BlogListPage.tsx` - Post filtering logic
 
 ### `BLOG_SEARCH_ENABLED`
@@ -175,10 +181,12 @@ if (FEATURES.YOUR_NEW_FLAG) {
 Test with both English and Polish routes:
 
 **English:**
+
 - `/` - Homepage
 - `/blog` - Blog list page
 
 **Polish:**
+
 - `/pl` - Homepage (Polish)
 - `/pl/blog` - Blog list page (Polish)
 

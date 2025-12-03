@@ -100,26 +100,28 @@ export default function BlogSEOHead({ post }: BlogSEOHeadProps) {
         : new Date(post.date).toISOString(),
       author: {
         '@type': 'Organization',
-        name: post.author
+        name: post.author,
       },
       publisher: {
         '@type': 'Organization',
         name: 'RaqZpl Solutions',
         logo: {
           '@type': 'ImageObject',
-          url: `${baseUrl}/logo.png`
-        }
+          url: `${baseUrl}/logo.png`,
+        },
       },
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': canonicalUrl
+        '@id': canonicalUrl,
       },
       keywords: post.tags.join(', '),
-      articleSection: post.categories.join(', ')
+      articleSection: post.categories.join(', '),
     }
 
     // Add or update JSON-LD script tag
-    let scriptTag = document.querySelector('script[type="application/ld+json"]') as HTMLScriptElement
+    let scriptTag = document.querySelector(
+      'script[type="application/ld+json"]'
+    ) as HTMLScriptElement
     if (!scriptTag) {
       scriptTag = document.createElement('script')
       scriptTag.type = 'application/ld+json'

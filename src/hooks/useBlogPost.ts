@@ -59,7 +59,7 @@ export function useBlogPost(slug: string, language: string) {
         if (isMounted) {
           setPost({
             Component: module.default,
-            frontmatter: module.frontmatter
+            frontmatter: module.frontmatter,
           })
           setError(null)
           setLoading(false)

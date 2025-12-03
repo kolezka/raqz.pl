@@ -13,11 +13,11 @@ export function useBlogSearch(posts: BlogPost[]) {
         { name: 'description', weight: 1.5 },
         { name: 'excerpt', weight: 1 },
         { name: 'tags', weight: 1 },
-        { name: 'categories', weight: 1 }
+        { name: 'categories', weight: 1 },
       ],
       threshold: 0.3,
       includeScore: true,
-      minMatchCharLength: 2
+      minMatchCharLength: 2,
     })
   }, [posts])
 

@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -18,11 +15,11 @@ export default {
           700: '#7e22ce',
           800: '#6b21a8',
           900: '#581c87',
-        }
+        },
       },
       animation: {
         // Background animations
-        'float': 'float 6s ease-in-out infinite',
+        float: 'float 6s ease-in-out infinite',
         'float-reverse': 'float-reverse 8s ease-in-out infinite',
         'float-slow': 'float 8s ease-in-out infinite',
         'float-reverse-slow': 'float-reverse 10s ease-in-out infinite',
@@ -41,8 +38,8 @@ export default {
 
         // Interactive animations
         'button-press': 'button-press 0.1s cubic-bezier(0.4, 0, 1, 1)',
-        'shimmer': 'shimmer 2s linear infinite',
-        'wiggle': 'wiggle 0.5s ease-in-out',
+        shimmer: 'shimmer 2s linear infinite',
+        wiggle: 'wiggle 0.5s ease-in-out',
         'bounce-gentle': 'bounce-gentle 0.6s ease-in-out',
       },
       keyframes: {
@@ -64,91 +61,91 @@ export default {
         'fade-up': {
           '0%': {
             opacity: '0',
-            transform: 'translateY(20px)'
+            transform: 'translateY(20px)',
           },
           '100%': {
             opacity: '1',
-            transform: 'translateY(0)'
+            transform: 'translateY(0)',
           },
         },
         'fade-down': {
           '0%': {
             opacity: '0',
-            transform: 'translateY(-20px)'
+            transform: 'translateY(-20px)',
           },
           '100%': {
             opacity: '1',
-            transform: 'translateY(0)'
+            transform: 'translateY(0)',
           },
         },
         'fade-left': {
           '0%': {
             opacity: '0',
-            transform: 'translateX(20px)'
+            transform: 'translateX(20px)',
           },
           '100%': {
             opacity: '1',
-            transform: 'translateX(0)'
+            transform: 'translateX(0)',
           },
         },
         'fade-right': {
           '0%': {
             opacity: '0',
-            transform: 'translateX(-20px)'
+            transform: 'translateX(-20px)',
           },
           '100%': {
             opacity: '1',
-            transform: 'translateX(0)'
+            transform: 'translateX(0)',
           },
         },
         'zoom-in': {
           '0%': {
             opacity: '0',
-            transform: 'scale(0.95)'
+            transform: 'scale(0.95)',
           },
           '100%': {
             opacity: '1',
-            transform: 'scale(1)'
+            transform: 'scale(1)',
           },
         },
         'zoom-out': {
           '0%': {
             opacity: '0',
-            transform: 'scale(1.05)'
+            transform: 'scale(1.05)',
           },
           '100%': {
             opacity: '1',
-            transform: 'scale(1)'
+            transform: 'scale(1)',
           },
         },
         'scale-in': {
           '0%': {
             opacity: '0',
-            transform: 'scale(0.9)'
+            transform: 'scale(0.9)',
           },
           '100%': {
             opacity: '1',
-            transform: 'scale(1)'
+            transform: 'scale(1)',
           },
         },
         'slide-up': {
           '0%': {
             opacity: '0',
-            transform: 'translateY(30px)'
+            transform: 'translateY(30px)',
           },
           '100%': {
             opacity: '1',
-            transform: 'translateY(0)'
+            transform: 'translateY(0)',
           },
         },
         'flip-up': {
           '0%': {
             opacity: '0',
-            transform: 'perspective(400px) rotateX(90deg)'
+            transform: 'perspective(400px) rotateX(90deg)',
           },
           '100%': {
             opacity: '1',
-            transform: 'perspective(400px) rotateX(0deg)'
+            transform: 'perspective(400px) rotateX(0deg)',
           },
         },
 
@@ -159,10 +156,10 @@ export default {
         },
         shimmer: {
           '0%': {
-            backgroundPosition: '-200% center'
+            backgroundPosition: '-200% center',
           },
           '100%': {
-            backgroundPosition: '200% center'
+            backgroundPosition: '200% center',
           },
         },
         wiggle: {
@@ -180,7 +177,7 @@ export default {
             animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
           },
         },
-      }
+      },
     },
   },
   plugins: [],

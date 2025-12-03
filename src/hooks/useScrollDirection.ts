@@ -40,7 +40,8 @@ export const useScrollDirection = (threshold: number = 10): UseScrollDirectionRe
       }
     }
 
-    window.addEventListener('scroll', onScroll)
+    // Add passive flag for better scroll performance
+    window.addEventListener('scroll', onScroll, { passive: true })
 
     return () => window.removeEventListener('scroll', onScroll)
   }, [threshold])

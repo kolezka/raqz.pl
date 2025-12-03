@@ -1,11 +1,11 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
 @theme {
   --color-primary-50: #f4faf7;
   --color-primary-500: #43e8d8;
   --color-primary-600: #40e0d0;
-  --color-primary-700: 	#40e0d0;
+  --color-primary-700: #40e0d0;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-reverse: float-reverse 8s ease-in-out infinite;
@@ -26,17 +26,35 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-  25% { transform: translateY(-20px) translateX(10px) rotate(1deg); }
-  50% { transform: translateY(-10px) translateX(-15px) rotate(-1deg); }
-  75% { transform: translateY(-30px) translateX(5px) rotate(0.5deg); }
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-15px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-30px) translateX(5px) rotate(0.5deg);
+  }
 }
 
 @keyframes float-reverse {
-  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-  25% { transform: translateY(20px) translateX(-10px) rotate(-1deg); }
-  50% { transform: translateY(10px) translateX(15px) rotate(1deg); }
-  75% { transform: translateY(30px) translateX(-5px) rotate(-0.5deg); }
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(20px) translateX(-10px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(10px) translateX(15px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(30px) translateX(-5px) rotate(-0.5deg);
+  }
 }
 
 /* Scroll animation keyframes */

@@ -1,20 +1,20 @@
 ---
-title: "Wprowadzenie do Automatyzacji AI w Twojej Firmie"
-slug: "wprowadzenie-do-automatyzacji-ai"
-date: "2025-11-15"
-lastModified: "2025-11-20"
-author: "Zespół RaqZpl"
-description: "Dowiedz się, jak wdrożyć automatyzację AI w procesach biznesowych Twojej firmy z praktycznymi przykładami i najlepszymi praktykami."
-excerpt: "Odkryj podstawy automatyzacji AI i zobacz, jak może przekształcić operacje biznesowe, zwiększyć efektywność i obniżyć koszty."
-coverImage: "/images/blog/ai-automation.jpg"
-coverImageAlt: "Diagram przepływu pracy automatyzacji AI"
-categories: ["AI & Machine Learning", "Automation"]
-tags: ["ai", "automatyzacja", "biznes", "produktywność"]
+title: 'Wprowadzenie do Automatyzacji AI w Twojej Firmie'
+slug: 'wprowadzenie-do-automatyzacji-ai'
+date: '2025-11-15'
+lastModified: '2025-11-20'
+author: 'Zespół RaqZpl'
+description: 'Dowiedz się, jak wdrożyć automatyzację AI w procesach biznesowych Twojej firmy z praktycznymi przykładami i najlepszymi praktykami.'
+excerpt: 'Odkryj podstawy automatyzacji AI i zobacz, jak może przekształcić operacje biznesowe, zwiększyć efektywność i obniżyć koszty.'
+coverImage: '/images/blog/ai-automation.jpg'
+coverImageAlt: 'Diagram przepływu pracy automatyzacji AI'
+categories: ['AI & Machine Learning', 'Automation']
+tags: ['ai', 'automatyzacja', 'biznes', 'produktywność']
 featured: true
 published: true
 seo:
-  keywords: "automatyzacja AI, automatyzacja biznesowa, agenci AI, automatyzacja przepływów pracy, sztuczna inteligencja"
-relatedPosts: ["nowoczesny-rozwoj-web-2025"]
+  keywords: 'automatyzacja AI, automatyzacja biznesowa, agenci AI, automatyzacja przepływów pracy, sztuczna inteligencja'
+relatedPosts: ['nowoczesny-rozwoj-web-2025']
 ---
 
 ## Wprowadzenie
@@ -49,6 +49,7 @@ Systemy AI mogą osiągnąć niemal idealną dokładność w wielu zadaniach, el
 ### 1. Zidentyfikuj Możliwości Automatyzacji
 
 Szukaj zadań, które są:
+
 - Powtarzalne i czasochłonne
 - Oparte na regułach lub wzorcach
 - Dużej objętości
@@ -76,13 +77,16 @@ async function routeInquiry(inquiry: string) {
 
   const response = await openai.chat.completions.create({
     model: 'gpt-4',
-    messages: [{
-      role: 'system',
-      content: 'Sklasyfikuj to zapytanie jako: sprzedaż, wsparcie lub rozliczenia'
-    }, {
-      role: 'user',
-      content: inquiry
-    }]
+    messages: [
+      {
+        role: 'system',
+        content: 'Sklasyfikuj to zapytanie jako: sprzedaż, wsparcie lub rozliczenia',
+      },
+      {
+        role: 'user',
+        content: inquiry,
+      },
+    ],
   })
 
   return response.choices[0].message.content

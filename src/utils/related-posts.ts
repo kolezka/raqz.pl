@@ -8,22 +8,18 @@ function calculateSimilarity(post1: BlogPost, post2: BlogPost): number {
   let score = 0
 
   // Same category: +10 points per match
-  const categoryMatches = post1.categories.filter(c =>
-    post2.categories.includes(c)
-  ).length
+  const categoryMatches = post1.categories.filter(c => post2.categories.includes(c)).length
   score += categoryMatches * 10
 
   // Same tag: +5 points per match
-  const tagMatches = post1.tags.filter(t =>
-    post2.tags.includes(t)
-  ).length
+  const tagMatches = post1.tags.filter(t => post2.tags.includes(t)).length
   score += tagMatches * 5
 
   // Recency bonus (max 30 points)
   // Posts published closer together get higher scores
-  const daysDiff = Math.abs(
-    new Date(post1.date).getTime() - new Date(post2.date).getTime()
-  ) / (1000 * 60 * 60 * 24)
+  const daysDiff =
+    Math.abs(new Date(post1.date).getTime() - new Date(post2.date).getTime()) /
+    (1000 * 60 * 60 * 24)
   score += Math.max(0, 30 - daysDiff)
 
   return score
@@ -40,10 +36,8 @@ export function getRelatedPosts(
 ): BlogPost[] {
   // 1. Try manual related posts first (from frontmatter)
   if (currentPost.relatedPosts && currentPost.relatedPosts.length > 0) {
-    const manual = allPosts.filter(p =>
-      currentPost.relatedPosts?.includes(p.slug) &&
-      p.slug !== currentPost.slug &&
-      p.published
+    const manual = allPosts.filter(
+      p => currentPost.relatedPosts?.includes(p.slug) && p.slug !== currentPost.slug && p.published
     )
     if (manual.length >= count) {
       return manual.slice(0, count)
@@ -55,7 +49,7 @@ export function getRelatedPosts(
     .filter(p => p.slug !== currentPost.slug && p.published)
     .map(post => ({
       post,
-      score: calculateSimilarity(currentPost, post)
+      score: calculateSimilarity(currentPost, post),
     }))
     .sort((a, b) => b.score - a.score)
 

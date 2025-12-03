@@ -1,55 +1,59 @@
-import Turnstile from "./Turnstile";
-import { useScrollAnimation } from "../hooks/useScrollAnimation";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
+/* eslint-disable react-hooks/refs */
+import Turnstile from './Turnstile'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { useState, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export const ContactForm = () => {
-
   const { t } = useTranslation()
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+    name: '',
+    email: '',
+    company: '',
+    message: '',
+  })
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
-  const formAnimation = useScrollAnimation<HTMLFormElement>("fade-up", {
+  const formAnimation = useScrollAnimation<HTMLFormElement>('fade-up', {
     delay: 100,
-  });
+  })
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const { name, value } = e.target
+      setFormData(prev => ({ ...prev, [name]: value }))
+    },
+    []
+  )
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault()
 
-    if (!turnstileToken) {
-      alert(t("contact.captchaRequired"));
-      return;
-    }
+      if (!turnstileToken) {
+        alert(t('contact.captchaRequired'))
+        return
+      }
 
-    alert("Thank you for your message! We will get back to you soon.");
-    setFormData({ name: "", email: "", company: "", message: "" });
-    setTurnstileToken(null);
-  };
+      alert('Thank you for your message! We will get back to you soon.')
+      setFormData({ name: '', email: '', company: '', message: '' })
+      setTurnstileToken(null)
+    },
+    [turnstileToken, t]
+  )
 
-  const handleTurnstileVerify = (token: string) => {
-    setTurnstileToken(token);
-  };
+  const handleTurnstileVerify = useCallback((token: string) => {
+    setTurnstileToken(token)
+  }, [])
 
-  const handleTurnstileError = () => {
-    setTurnstileToken(null);
-  };
+  const handleTurnstileError = useCallback(() => {
+    setTurnstileToken(null)
+  }, [])
 
-  const handleTurnstileExpire = () => {
-    setTurnstileToken(null);
-  };
+  const handleTurnstileExpire = useCallback(() => {
+    setTurnstileToken(null)
+  }, [])
 
   return (
     <form
@@ -59,11 +63,8 @@ export const ContactForm = () => {
     >
       <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
         <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-semibold leading-6 text-gray-900"
-          >
-            {t("contact.name")}
+          <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900">
+            {t('contact.name')}
           </label>
           <div className="mt-2.5">
             <input
@@ -79,11 +80,8 @@ export const ContactForm = () => {
           </div>
         </div>
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-semibold leading-6 text-gray-900"
-          >
-            {t("contact.email")}
+          <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+            {t('contact.email')}
           </label>
           <div className="mt-2.5">
             <input
@@ -99,10 +97,7 @@ export const ContactForm = () => {
           </div>
         </div>
         <div className="sm:col-span-2">
-          <label
-            htmlFor="company"
-            className="block text-sm font-semibold leading-6 text-gray-900"
-          >
+          <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
             Company
           </label>
           <div className="mt-2.5">
@@ -118,11 +113,8 @@ export const ContactForm = () => {
           </div>
         </div>
         <div className="sm:col-span-2">
-          <label
-            htmlFor="message"
-            className="block text-sm font-semibold leading-6 text-gray-900"
-          >
-            {t("contact.message")}
+          <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
+            {t('contact.message')}
           </label>
           <div className="mt-2.5">
             <textarea
@@ -150,9 +142,9 @@ export const ContactForm = () => {
           disabled={!turnstileToken}
           className="block w-full rounded-md bg-primary-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
-          {t("contact.send")}
+          {t('contact.send')}
         </button>
       </div>
     </form>
-  );
-};
+  )
+}

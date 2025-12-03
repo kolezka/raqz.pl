@@ -4,21 +4,25 @@ import { createElement } from 'react'
 import { Link } from 'react-router-dom'
 
 // Custom heading components with anchor links
-function Heading({ level, children, ...props }: HTMLAttributes<HTMLHeadingElement> & { level: 1 | 2 | 3 | 4 | 5 | 6 }) {
+function Heading({
+  level,
+  children,
+  ...props
+}: HTMLAttributes<HTMLHeadingElement> & { level: 1 | 2 | 3 | 4 | 5 | 6 }) {
   const tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-  const id = typeof children === 'string'
-    ? children.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-    : undefined
+  const id =
+    typeof children === 'string' ? children.toLowerCase().replace(/[^a-z0-9]+/g, '-') : undefined
 
-  const className = level === 1
-    ? 'text-4xl font-bold mt-8 mb-4 text-gray-900'
-    : level === 2
-    ? 'text-3xl font-bold mt-8 mb-4 text-gray-900 border-b border-gray-200 pb-2'
-    : level === 3
-    ? 'text-2xl font-semibold mt-6 mb-3 text-gray-800'
-    : level === 4
-    ? 'text-xl font-semibold mt-4 mb-2 text-gray-800'
-    : 'text-lg font-medium mt-3 mb-2 text-gray-700'
+  const className =
+    level === 1
+      ? 'text-4xl font-bold mt-8 mb-4 text-gray-900'
+      : level === 2
+        ? 'text-3xl font-bold mt-8 mb-4 text-gray-900 border-b border-gray-200 pb-2'
+        : level === 3
+          ? 'text-2xl font-semibold mt-6 mb-3 text-gray-800'
+          : level === 4
+            ? 'text-xl font-semibold mt-4 mb-2 text-gray-800'
+            : 'text-lg font-medium mt-3 mb-2 text-gray-700'
 
   return createElement(tag, { id, className, ...props }, children)
 }
@@ -33,7 +37,11 @@ function P({ children, ...props }: HTMLAttributes<HTMLParagraphElement>) {
 }
 
 // Custom link component
-function A({ href, children, ...props }: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) {
+function A({
+  href,
+  children,
+  ...props
+}: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) {
   const isExternal = href?.startsWith('http')
 
   if (isExternal) {
@@ -88,7 +96,10 @@ function Li({ children, ...props }: HTMLAttributes<HTMLLIElement>) {
 // Custom code block component
 function Pre({ children, ...props }: HTMLAttributes<HTMLPreElement>) {
   return (
-    <pre className="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto mb-6 text-sm" {...props}>
+    <pre
+      className="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto mb-6 text-sm"
+      {...props}
+    >
       {children}
     </pre>
   )
@@ -96,7 +107,10 @@ function Pre({ children, ...props }: HTMLAttributes<HTMLPreElement>) {
 
 function Code({ children, ...props }: HTMLAttributes<HTMLElement>) {
   return (
-    <code className="bg-gray-100 text-primary-600 px-1.5 py-0.5 rounded text-sm font-mono" {...props}>
+    <code
+      className="bg-gray-100 text-primary-600 px-1.5 py-0.5 rounded text-sm font-mono"
+      {...props}
+    >
       {children}
     </code>
   )
@@ -105,7 +119,10 @@ function Code({ children, ...props }: HTMLAttributes<HTMLElement>) {
 // Custom blockquote component
 function Blockquote({ children, ...props }: HTMLAttributes<HTMLQuoteElement>) {
   return (
-    <blockquote className="border-l-4 border-primary-500 pl-4 py-2 my-6 italic text-gray-700 bg-gray-50 rounded-r" {...props}>
+    <blockquote
+      className="border-l-4 border-primary-500 pl-4 py-2 my-6 italic text-gray-700 bg-gray-50 rounded-r"
+      {...props}
+    >
       {children}
     </blockquote>
   )
@@ -115,7 +132,10 @@ function Blockquote({ children, ...props }: HTMLAttributes<HTMLQuoteElement>) {
 function Table({ children, ...props }: HTMLAttributes<HTMLTableElement>) {
   return (
     <div className="overflow-x-auto mb-6">
-      <table className="min-w-full divide-y divide-gray-200 border border-gray-200 rounded-lg" {...props}>
+      <table
+        className="min-w-full divide-y divide-gray-200 border border-gray-200 rounded-lg"
+        {...props}
+      >
         {children}
       </table>
     </div>
@@ -139,16 +159,15 @@ function Tbody({ children, ...props }: HTMLAttributes<HTMLTableSectionElement>) 
 }
 
 function Tr({ children, ...props }: HTMLAttributes<HTMLTableRowElement>) {
-  return (
-    <tr {...props}>
-      {children}
-    </tr>
-  )
+  return <tr {...props}>{children}</tr>
 }
 
 function Th({ children, ...props }: HTMLAttributes<HTMLTableCellElement>) {
   return (
-    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" {...props}>
+    <th
+      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+      {...props}
+    >
       {children}
     </th>
   )
@@ -168,7 +187,14 @@ function Hr(props: HTMLAttributes<HTMLHRElement>) {
 }
 
 // Custom image component with lazy loading
-function Img({ src, alt, ...props }: DetailedHTMLProps<HTMLAttributes<HTMLImageElement> & { src?: string; alt?: string }, HTMLImageElement>) {
+function Img({
+  src,
+  alt,
+  ...props
+}: DetailedHTMLProps<
+  HTMLAttributes<HTMLImageElement> & { src?: string; alt?: string },
+  HTMLImageElement
+>) {
   return (
     <img
       src={src}

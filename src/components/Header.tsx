@@ -1,108 +1,112 @@
-import { useMemo, useState } from "react";
-import { Dialog, DialogPanel } from "@headlessui/react";
-import { RiMenuLine, RiCloseLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import clsx from "clsx";
-import ServicesDropdown from "./ServicesDropdown";
-import LanguageSwitcher from "./LanguageSwitcher";
-import { useScrollDirection } from "../hooks/useScrollDirection";
-import { FEATURES } from "../config/features";
+import { useMemo, useState, memo, useEffect } from 'react'
+import { Dialog, DialogPanel } from '@headlessui/react'
+import { RiMenuLine, RiCloseLine } from 'react-icons/ri'
+import { Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import clsx from 'clsx'
+import ServicesDropdown from './ServicesDropdown'
+import LanguageSwitcher from './LanguageSwitcher'
+import { useScrollDirection } from '../hooks/useScrollDirection'
+import { FEATURES } from '../config/features'
 
 const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId.replace("#", ""));
+  const element = document.getElementById(sectionId.replace('#', ''))
   if (element) {
-    const headerOffset = 80; // Adjust based on your header height
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    const headerOffset = 80 // Adjust based on your header height
+    const elementPosition = element.getBoundingClientRect().top
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: "smooth"
-    });
+      behavior: 'smooth',
+    })
   }
-};
+}
 
-export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { scrollDirection, scrollY } = useScrollDirection(15);
-  const { t, i18n } = useTranslation();
+export default memo(function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { scrollDirection, scrollY } = useScrollDirection(15)
+  const { t, i18n } = useTranslation()
+  const location = useLocation()
 
   // Get language prefix for URLs
   const langPrefix = useMemo(
-    () => (i18n.language === "en" ? "" : `/${i18n.language}`),
+    () => (i18n.language === 'en' ? '' : `/${i18n.language}`),
     [i18n.language]
-  );
+  )
 
-  const navigation = useMemo(
-    () => {
-      const items = [
-        { name: t("navigation.home"), href: `${langPrefix}/`, type: "link" },
-        {
-          name: t("navigation.services"),
-          href: `${langPrefix}/services`,
-          type: "dropdown",
-        },
-        ...(FEATURES.BLOG_ENABLED
-          ? [
-              {
-                name: t("navigation.blog"),
-                href: `${langPrefix}/blog`,
-                type: "link" as const,
-              },
-            ]
-          : []),
-        {
-          name: t("navigation.about"),
-          href: `${langPrefix}/#about`,
-          type: "anchor",
-        },
-        {
-          name: t("navigation.contact"),
-          href: `${langPrefix}/#contact`,
-          type: "anchor",
-        },
-      ];
-      return items;
-    },
-    [t, langPrefix]
-  );
+  // Handle hash navigation after route change
+  useEffect(() => {
+    if (location.hash) {
+      // Small delay to ensure page has loaded
+      setTimeout(() => {
+        scrollToSection(location.hash.substring(1))
+      }, 100)
+    }
+  }, [location])
+
+  const navigation = useMemo(() => {
+    const items = [
+      { name: t('navigation.home'), href: `${langPrefix}/`, type: 'link' },
+      {
+        name: t('navigation.about'),
+        href: `${langPrefix}/#about`,
+        type: 'anchor',
+      },
+      {
+        name: t('navigation.services'),
+        href: `${langPrefix}/services`,
+        type: 'dropdown',
+      },
+      ...(FEATURES.BLOG_ENABLED
+        ? [
+            {
+              name: t('navigation.blog'),
+              href: `${langPrefix}/blog`,
+              type: 'link' as const,
+            },
+          ]
+        : []),
+      ...(FEATURES.CONTACT
+        ? [
+            {
+              name: t('navigation.contact'),
+              href: `${langPrefix}/#contact`,
+              type: 'anchor',
+            },
+          ]
+        : []),
+    ]
+    return items
+  }, [t, langPrefix])
 
   // Check if user is still in the hero section
-  const isInHeroSection = useMemo(
-    () => scrollY < window.innerHeight,
-    [scrollY]
-  );
+  const isInHeroSection = useMemo(() => scrollY < window.innerHeight, [scrollY])
 
   // Only allow hiding when we're well past the hero section (200px buffer)
-  const canHideHeader = useMemo(
-    () => scrollY > window.innerHeight + 200,
-    [scrollY]
-  );
+  const canHideHeader = useMemo(() => scrollY > window.innerHeight + 200, [scrollY])
 
   // Header visibility logic when fixed
   // Show when: scrolling up, can't hide yet, or mobile menu open
   const shouldShowFixedHeader = useMemo(
-    () => scrollDirection === "up" || !canHideHeader || mobileMenuOpen,
+    () => scrollDirection === 'up' || !canHideHeader || mobileMenuOpen,
     [scrollDirection, canHideHeader, mobileMenuOpen]
-  );
+  )
 
   return (
     <header
       className={clsx(
-        "top-0 left-0 right-0 z-50 border-b",
+        'top-0 left-0 right-0 z-50 border-b',
         // Position: absolute in hero, fixed outside
-        isInHeroSection ? "absolute" : "fixed",
+        isInHeroSection ? 'absolute' : 'fixed',
         // Background styling - consistent style in hero section
         isInHeroSection
-          ? "backdrop-blur-md border-none"
-          : "bg-white/50 backdrop-blur-md border-gray-200/20",
+          ? 'backdrop-blur-md border-none'
+          : 'bg-white/50 backdrop-blur-md border-gray-200/20',
         // Visibility - only hide when we can and when scrolling down
-        !isInHeroSection && !shouldShowFixedHeader
-          ? "-translate-y-full"
-          : "translate-y-0",
+        !isInHeroSection && !shouldShowFixedHeader ? '-translate-y-full' : 'translate-y-0',
         // Only animate translate, not position changes
-        "transition-transform duration-150 ease-in-out"
+        'transition-transform duration-150 ease-in-out'
       )}
     >
       <nav
@@ -116,7 +120,7 @@ export default function Header() {
             aria-label={t('navigation.home', 'Home')}
           >
             <span
-              className="text-2xl font-bold transition-all duration-300 text-primary-500 inline-block group-hover:scale-105 group-hover:rotate-1"
+              className="text-2xl font-bold transition-all duration-300 text-primary-700 inline-block group-hover:scale-105 group-hover:rotate-1"
               aria-hidden="true"
             >
               raqz.pl
@@ -134,11 +138,11 @@ export default function Header() {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
+          {navigation.map(item => (
             <div key={item.name}>
-              {item.type === "dropdown" ? (
+              {item.type === 'dropdown' ? (
                 <ServicesDropdown />
-              ) : item.type === "link" ? (
+              ) : item.type === 'link' ? (
                 <Link
                   to={item.href}
                   className="text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 hover:text-primary-600 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary-600 after:transition-all after:duration-300 hover:after:w-full"
@@ -146,13 +150,12 @@ export default function Header() {
                   {item.name}
                 </Link>
               ) : (
-                <button
-                  type="button"
-                  onClick={() => scrollToSection(item.href.split("#")[1])}
+                <Link
+                  to={item.href}
                   className="text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 hover:text-primary-600 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary-600 after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.name}
-                </button>
+                </Link>
               )}
             </div>
           ))}
@@ -168,11 +171,7 @@ export default function Header() {
           </button> */}
         </div>
       </nav>
-      <Dialog
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
+      <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10 bg-gray-900/25" />
         <DialogPanel
           transition
@@ -184,7 +183,9 @@ export default function Header() {
               className="-m-1.5 p-1.5"
               aria-label={t('navigation.home', 'Home')}
             >
-              <span className="text-xl font-bold text-primary-600" aria-hidden="true">RaqZpl</span>
+              <span className="text-xl font-bold text-primary-600" aria-hidden="true">
+                RaqZpl
+              </span>
             </Link>
             <button
               type="button"
@@ -198,8 +199,8 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                {navigation.map((item) =>
-                  item.type === "link" ? (
+                {navigation.map(item =>
+                  item.type === 'link' || item.type === 'anchor' ? (
                     <Link
                       key={item.name}
                       to={item.href}
@@ -208,7 +209,7 @@ export default function Header() {
                     >
                       {item.name}
                     </Link>
-                  ) : item.type === "dropdown" ? (
+                  ) : (
                     <Link
                       key={item.name}
                       to={`${langPrefix}/services`}
@@ -217,32 +218,17 @@ export default function Header() {
                     >
                       {item.name}
                     </Link>
-                  ) : (
-                    <button
-                      type="button"
-                      key={item.name}
-                      onClick={() => {
-                        scrollToSection(item.href.split("#")[1]);
-                        setMobileMenuOpen(false);
-                      }}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 text-left w-full"
-                    >
-                      {item.name}
-                    </button>
                   )
                 )}
               </div>
               <div className="py-6">
-                <button
-                  type="button"
-                  onClick={() => {
-                    scrollToSection("contact");
-                    setMobileMenuOpen(false);
-                  }}
+                <Link
+                  to={`${langPrefix}/#contact`}
+                  onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 text-left w-full"
                 >
-                  {t("navigation.getStarted")}
-                </button>
+                  {t('navigation.getStarted')}
+                </Link>
               </div>
               <div className="px-4 py-3 border-t border-gray-200">
                 <LanguageSwitcher />
@@ -252,5 +238,5 @@ export default function Header() {
         </DialogPanel>
       </Dialog>
     </header>
-  );
-}
+  )
+})

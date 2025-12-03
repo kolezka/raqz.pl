@@ -1,10 +1,4 @@
-import {
-  RiCodeLine,
-  RiServerLine,
-  RiCpuLine,
-  RiToolsLine,
-  RiRobotLine,
-} from 'react-icons/ri'
+import { RiCodeLine, RiServerLine, RiCpuLine, RiToolsLine, RiRobotLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import servicesData from '../data/services.json'
@@ -24,26 +18,21 @@ export default function AllServicesPage() {
 
   return (
     <div className="bg-white pt-20">
-      <SEOHead 
-        title={`${t('services.title')} - ${t('meta.title')}`}
-        path="/services" 
-      />
+      <SEOHead title={`${t('services.title')} - ${t('meta.title')}`} path="/services" />
       {/* Header */}
       <div className="bg-gray-50 px-6 py-24 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             {t('services.title')}
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            {t('services.description')}
-          </p>
+          <p className="mt-6 text-lg leading-8 text-gray-600">{t('services.description')}</p>
         </div>
       </div>
 
       {/* Services by Category */}
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
         <div className="space-y-24">
-          {servicesData.serviceCategories.map((category) => {
+          {servicesData.serviceCategories.map(category => {
             const IconComponent = iconMap[category.icon as keyof typeof iconMap]
             return (
               <div key={category.id}>
@@ -60,26 +49,50 @@ export default function AllServicesPage() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                  {category.services.map((service) => (
+                  {category.services.map(service => (
                     <div
                       key={service.id}
                       className="relative overflow-hidden rounded-lg bg-white p-8 shadow-sm ring-1 ring-gray-200 hover:shadow-lg transition-all duration-200"
                     >
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900">{t(`servicesDropdown.services.${service.id}.name`)}</h3>
-                        <p className="mt-2 text-sm text-gray-600">{t(`servicesDropdown.services.${service.id}.shortDescription`)}</p>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                          {t(`servicesDropdown.services.${service.id}.name`)}
+                        </h3>
+                        <p className="mt-2 text-sm text-gray-600">
+                          {t(`servicesDropdown.services.${service.id}.shortDescription`)}
+                        </p>
 
                         <div className="mt-4">
-                          <h4 className="text-sm font-medium text-gray-900">{t('services.keyFeatures')}</h4>
+                          <h4 className="text-sm font-medium text-gray-900">
+                            {t('services.keyFeatures')}
+                          </h4>
                           <ul className="mt-2 text-sm text-gray-600">
-                            {(t(`serviceDetails.${service.id}.features`, { returnObjects: true }) as string[]).slice(0, 3).map((feature: string, index: number) => (
-                              <li key={index} className="flex items-center">
-                                <span className="mr-2">•</span>
-                                {feature}
+                            {(
+                              t(`serviceDetails.${service.id}.features`, {
+                                returnObjects: true,
+                              }) as string[]
+                            )
+                              .slice(0, 3)
+                              .map((feature: string, index: number) => (
+                                <li key={index} className="flex items-center">
+                                  <span className="mr-2">•</span>
+                                  {feature}
+                                </li>
+                              ))}
+                            {(
+                              t(`serviceDetails.${service.id}.features`, {
+                                returnObjects: true,
+                              }) as string[]
+                            ).length > 3 && (
+                              <li className="text-gray-400">
+                                +{' '}
+                                {(
+                                  t(`serviceDetails.${service.id}.features`, {
+                                    returnObjects: true,
+                                  }) as string[]
+                                ).length - 3}{' '}
+                                {t('services.more')}
                               </li>
-                            ))}
-                            {(t(`serviceDetails.${service.id}.features`, { returnObjects: true }) as string[]).length > 3 && (
-                              <li className="text-gray-400">+ {(t(`serviceDetails.${service.id}.features`, { returnObjects: true }) as string[]).length - 3} {t('services.more')}</li>
                             )}
                           </ul>
                         </div>

@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 export default function FeatureDisabled() {
-  const { t, i18n } = useTranslation();
-  const langPrefix = i18n.language === 'en' ? '' : `/${i18n.language}`;
+  const { t, i18n } = useTranslation()
+  const langPrefix = i18n.language === 'en' ? '' : `/${i18n.language}`
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-gray-50">
@@ -38,5 +38,5 @@ export default function FeatureDisabled() {
         </Link>
       </div>
     </div>
-  );
+  )
 }

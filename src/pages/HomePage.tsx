@@ -1,11 +1,11 @@
-import Hero from "../components/Hero";
-import Services from "../components/Services";
-import About from "../components/About";
-import Contact from "../components/Contact";
-import SEOHead from "../components/SEOHead";
-import LatestBlogPosts from "../components/blog/LatestBlogPosts";
-import { FEATURES } from "../config/features";
-import AnimatedBackground from "../components/AnimatedBackground";
+import Hero from '../components/Hero'
+import Services from '../components/Services'
+import About from '../components/About'
+import Contact from '../components/Contact'
+import SEOHead from '../components/SEOHead'
+import LatestBlogPosts from '../components/blog/LatestBlogPosts'
+import { FEATURES } from '../config/features'
+import AnimatedBackground from '../components/AnimatedBackground'
 
 export default function HomePage() {
   return (
@@ -18,10 +18,9 @@ export default function HomePage() {
         <Hero />
         <Services />
         {FEATURES.BLOG_ENABLED && <LatestBlogPosts />}
-
         <About />
-        <Contact />
+        {FEATURES.CONTACT && <Contact />}
       </div>
     </>
-  );
+  )
 }

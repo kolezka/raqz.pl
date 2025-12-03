@@ -1,19 +1,19 @@
 ---
-title: "Nowoczesny Rozwój Web w 2025: Trendy i Najlepsze Praktyki"
-slug: "nowoczesny-rozwoj-web-2025"
-date: "2025-12-01"
-author: "Zespół RaqZpl"
-description: "Odkryj najnowsze trendy w rozwoju webowym na 2025 rok, w tym React 19, postępy w TypeScript i nowoczesne narzędzia budowania."
-excerpt: "Kompleksowy przewodnik po nowoczesnych praktykach rozwoju web, frameworkach i narzędziach kształtujących branżę w 2025 roku."
-coverImage: "/images/blog/web-dev-2025.jpg"
-coverImageAlt: "Nowoczesne środowisko pracy dewelopera web"
-categories: ["Web Development", "Technology"]
-tags: ["react", "typescript", "vite", "rozwoj-web"]
+title: 'Nowoczesny Rozwój Web w 2025: Trendy i Najlepsze Praktyki'
+slug: 'nowoczesny-rozwoj-web-2025'
+date: '2025-12-01'
+author: 'Zespół RaqZpl'
+description: 'Odkryj najnowsze trendy w rozwoju webowym na 2025 rok, w tym React 19, postępy w TypeScript i nowoczesne narzędzia budowania.'
+excerpt: 'Kompleksowy przewodnik po nowoczesnych praktykach rozwoju web, frameworkach i narzędziach kształtujących branżę w 2025 roku.'
+coverImage: '/images/blog/web-dev-2025.jpg'
+coverImageAlt: 'Nowoczesne środowisko pracy dewelopera web'
+categories: ['Web Development', 'Technology']
+tags: ['react', 'typescript', 'vite', 'rozwoj-web']
 featured: true
 published: true
 seo:
-  keywords: "rozwój web 2025, React 19, TypeScript, Vite, nowoczesne frameworki"
-relatedPosts: ["wprowadzenie-do-automatyzacji-ai"]
+  keywords: 'rozwój web 2025, React 19, TypeScript, Vite, nowoczesne frameworki'
+relatedPosts: ['wprowadzenie-do-automatyzacji-ai']
 ---
 
 ## Stan Rozwoju Web w 2025
@@ -70,6 +70,7 @@ Vite zrewolucjonizował doświadczenie deweloperskie:
 ### 1. Wykorzystaj Statyczną Generację Stron
 
 Dla stron z dużą ilością treści, statyczna generacja stron (SSG) oferuje:
+
 - Doskonałą wydajność SEO
 - Szybsze czasy ładowania
 - Niższe koszty hostingu
@@ -136,9 +137,9 @@ Implementuj efektywne cachowanie:
 
 ```typescript
 // Przykład cachowania Service Worker
-self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
+    caches.match(event.request).then(response => {
       return response || fetch(event.request)
     })
   )
@@ -172,7 +173,7 @@ import { z } from 'zod'
 
 const contactSchema = z.object({
   email: z.string().email(),
-  message: z.string().min(10).max(1000)
+  message: z.string().min(10).max(1000),
 })
 
 function validateContact(data: unknown) {

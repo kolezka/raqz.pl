@@ -35,7 +35,10 @@ export default function Hero() {
             >
               {t('hero.getStarted')}
             </a>
-            <a href="#about" className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors duration-200">
+            <a
+              href="#about"
+              className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors duration-200"
+            >
               {t('hero.learnMore')} <span aria-hidden="true">→</span>
             </a>
           </div>

@@ -1,20 +1,20 @@
 ---
-title: "Getting Started with AI Automation in Your Business"
-slug: "getting-started-with-ai-automation"
-date: "2025-11-15"
-lastModified: "2025-11-20"
-author: "RaqZpl Team"
-description: "Learn how to implement AI automation in your business workflows with practical examples and best practices."
-excerpt: "Discover the fundamentals of AI automation and how it can transform your business operations, increase efficiency, and reduce costs."
-coverImage: "/images/blog/ai-automation.jpg"
-coverImageAlt: "AI automation workflow diagram"
-categories: ["AI & Machine Learning", "Automation"]
-tags: ["ai", "automation", "business", "productivity"]
+title: 'Getting Started with AI Automation in Your Business'
+slug: 'getting-started-with-ai-automation'
+date: '2025-11-15'
+lastModified: '2025-11-20'
+author: 'RaqZpl Team'
+description: 'Learn how to implement AI automation in your business workflows with practical examples and best practices.'
+excerpt: 'Discover the fundamentals of AI automation and how it can transform your business operations, increase efficiency, and reduce costs.'
+coverImage: '/images/blog/ai-automation.jpg'
+coverImageAlt: 'AI automation workflow diagram'
+categories: ['AI & Machine Learning', 'Automation']
+tags: ['ai', 'automation', 'business', 'productivity']
 featured: true
 published: true
 seo:
-  keywords: "AI automation, business automation, AI agents, workflow automation, artificial intelligence"
-relatedPosts: ["modern-web-development-2025"]
+  keywords: 'AI automation, business automation, AI agents, workflow automation, artificial intelligence'
+relatedPosts: ['modern-web-development-2025']
 ---
 
 ## Introduction
@@ -49,6 +49,7 @@ AI systems can achieve near-perfect accuracy in many tasks, eliminating human er
 ### 1. Identify Automation Opportunities
 
 Look for tasks that are:
+
 - Repetitive and time-consuming
 - Rule-based or pattern-driven
 - High-volume
@@ -76,13 +77,16 @@ async function routeInquiry(inquiry: string) {
 
   const response = await openai.chat.completions.create({
     model: 'gpt-4',
-    messages: [{
-      role: 'system',
-      content: 'Categorize this inquiry into: sales, support, or billing'
-    }, {
-      role: 'user',
-      content: inquiry
-    }]
+    messages: [
+      {
+        role: 'system',
+        content: 'Categorize this inquiry into: sales, support, or billing',
+      },
+      {
+        role: 'user',
+        content: inquiry,
+      },
+    ],
   })
 
   return response.choices[0].message.content

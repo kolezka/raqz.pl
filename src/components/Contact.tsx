@@ -1,17 +1,15 @@
-import { useTranslation } from "react-i18next";
-import { useScrollAnimation } from "../hooks/useScrollAnimation";
-import { ContactForm } from "./ContactForm";
+/* eslint-disable react-hooks/refs */
+import { useTranslation } from 'react-i18next'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { ContactForm } from './ContactForm'
 
 export default function Contact() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  const headerAnimation = useScrollAnimation<HTMLDivElement>("fade-up");
+  const headerAnimation = useScrollAnimation<HTMLDivElement>('fade-up')
 
   return (
-    <section
-      id="contact"
-      className="relative isolate  px-6 py-24 sm:py-32 lg:px-8"
-    >
+    <section id="contact" className="relative isolate  px-6 py-24 sm:py-32 lg:px-8">
       {/* <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
         <div
           className="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
@@ -26,13 +24,11 @@ export default function Contact() {
         className={`mx-auto max-w-2xl text-center ${headerAnimation.className}`}
       >
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          {t("contact.title")}
+          {t('contact.title')}
         </h2>
-        <p className="mt-2 text-lg leading-8 text-gray-600">
-          {t("contact.subtitle")}
-        </p>
+        <p className="mt-2 text-lg leading-8 text-gray-600">{t('contact.subtitle')}</p>
       </div>
       <ContactForm />
     </section>
-  );
+  )
 }

@@ -1,27 +1,31 @@
 import { useTranslation } from 'react-i18next'
-import { useState } from 'react'
+import { useState, useMemo, memo } from 'react'
 import clsx from 'clsx'
 
-export default function LanguageSwitcher() {
+// Move languages array outside component to prevent recreation on every render
+const languages = [
+  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'pl', name: 'Polski', flag: '🇵🇱' },
+] as const
+
+export default memo(function LanguageSwitcher() {
   const { i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
 
-  const languages = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'pl', name: 'Polski', flag: '🇵🇱' },
-  ]
-
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0]
+  const currentLanguage = useMemo(
+    () => languages.find(lang => lang.code === i18n.language) || languages[0],
+    [i18n.language]
+  )
 
   const changeLanguage = (languageCode: string) => {
     i18n.changeLanguage(languageCode)
     setIsOpen(false)
-    
+
     // Update URL with language prefix
     const currentPath = window.location.pathname
     const pathWithoutLang = currentPath.replace(/^\/(en|pl)/, '') || '/'
     const newPath = languageCode === 'en' ? pathWithoutLang : `/${languageCode}${pathWithoutLang}`
-    
+
     window.history.replaceState({}, '', newPath)
   }
 
@@ -35,32 +39,21 @@ export default function LanguageSwitcher() {
         <span className="text-base">{currentLanguage.flag}</span>
         <span className="uppercase">{currentLanguage.code}</span>
         <svg
-          className={clsx(
-            'h-4 w-4 transition-transform duration-200',
-            isOpen && 'rotate-180'
-          )}
+          className={clsx('h-4 w-4 transition-transform duration-200', isOpen && 'rotate-180')}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
 
       {isOpen && (
         <>
-          <div
-            className="fixed inset-0 z-10"
-            onClick={() => setIsOpen(false)}
-          />
+          <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
           <div className="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-20">
             <div className="py-1">
-              {languages.map((language) => (
+              {languages.map(language => (
                 <button
                   type="button"
                   key={language.code}
@@ -80,4 +73,4 @@ export default function LanguageSwitcher() {
       )}
     </div>
   )
-}
+})

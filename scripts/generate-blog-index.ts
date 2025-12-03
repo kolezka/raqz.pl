@@ -10,7 +10,7 @@ const OUTPUT_FILE = join(process.cwd(), 'src', 'data', 'blog-index.json')
 function generateBlogIndex() {
   const index: BlogIndex = {
     en: [],
-    pl: []
+    pl: [],
   }
 
   const languages = ['en', 'pl'] as const
@@ -51,7 +51,7 @@ function generateBlogIndex() {
         readingTime: `${Math.ceil(stats.minutes)}`,
         seo: data.seo || { keywords: '' },
         relatedPosts: data.relatedPosts || [],
-        language: lang
+        language: lang,
       }
 
       // Only include published posts

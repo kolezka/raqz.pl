@@ -36,16 +36,16 @@ function generateRSSFeeds() {
       feedLinks: {
         rss2: `${SITE_URL}${lang === 'pl' ? '/pl' : ''}/feed.xml`,
         atom: `${SITE_URL}${lang === 'pl' ? '/pl' : ''}/atom.xml`,
-        json: `${SITE_URL}${lang === 'pl' ? '/pl' : ''}/feed.json`
+        json: `${SITE_URL}${lang === 'pl' ? '/pl' : ''}/feed.json`,
       },
       author: {
         name: 'RaqZpl Solutions',
-        link: SITE_URL
-      }
+        link: SITE_URL,
+      },
     })
 
     // Add posts to feed
-    posts.forEach((post) => {
+    posts.forEach(post => {
       const postUrl = `${SITE_URL}${lang === 'pl' ? '/pl' : ''}/blog/${post.slug}`
 
       feed.addItem({
@@ -56,12 +56,12 @@ function generateRSSFeeds() {
         content: post.description,
         author: [
           {
-            name: post.author
-          }
+            name: post.author,
+          },
         ],
         date: new Date(post.date),
         image: `${SITE_URL}${post.coverImage}`,
-        category: post.categories.map((cat) => ({ name: cat }))
+        category: post.categories.map(cat => ({ name: cat })),
       })
     })
 

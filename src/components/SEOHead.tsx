@@ -8,12 +8,7 @@ interface SEOHeadProps {
   path?: string
 }
 
-export default function SEOHead({ 
-  title, 
-  description, 
-  keywords,
-  path = ''
-}: SEOHeadProps) {
+export default function SEOHead({ title, description, keywords, path = '' }: SEOHeadProps) {
   const { t, i18n } = useTranslation()
 
   const defaultTitle = t('meta.title')
@@ -50,10 +45,10 @@ export default function SEOHead({
     }
 
     const setLinkTag = (rel: string, href: string, hrefLang?: string) => {
-      const selector = hrefLang 
-        ? `link[rel="${rel}"][hreflang="${hrefLang}"]` 
+      const selector = hrefLang
+        ? `link[rel="${rel}"][hreflang="${hrefLang}"]`
         : `link[rel="${rel}"]`
-      
+
       let link = document.querySelector(selector) as HTMLLinkElement
       if (!link) {
         link = document.createElement('link')
@@ -72,27 +67,26 @@ export default function SEOHead({
     const baseUrl = window.location.origin
     const langPrefix = i18n.language === 'en' ? '' : `/${i18n.language}`
     const canonicalUrl = `${baseUrl}${langPrefix}${path}`
-    
+
     // Set canonical URL
     setLinkTag('canonical', canonicalUrl)
-    
+
     // Set alternate language URLs
     setLinkTag('alternate', `${baseUrl}${path}`, 'en')
     setLinkTag('alternate', `${baseUrl}/pl${path}`, 'pl')
     setLinkTag('alternate', `${baseUrl}${path}`, 'x-default')
-    
+
     // Set Open Graph tags
     setPropertyTag('og:title', pageTitle)
     setPropertyTag('og:description', pageDescription)
     setPropertyTag('og:url', canonicalUrl)
     setPropertyTag('og:type', 'website')
     setPropertyTag('og:locale', i18n.language === 'pl' ? 'pl_PL' : 'en_US')
-    
+
     // Set Twitter Card tags
     setMetaTag('twitter:card', 'summary_large_image')
     setMetaTag('twitter:title', pageTitle)
     setMetaTag('twitter:description', pageDescription)
-
   }, [pageTitle, pageDescription, pageKeywords, i18n.language, path])
 
   return null

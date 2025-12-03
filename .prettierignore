@@ -1,0 +1,31 @@
+# Build outputs
+dist
+build
+.vite
+*.local
+
+# Dependencies
+node_modules
+
+# Generated files
+public/atom.xml
+public/feed.xml
+public/pl/atom.xml
+public/pl/feed.xml
+public/sitemap.xml
+
+# Lockfiles
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Cache
+.cache
+.turbo
+
+# Coverage
+coverage
+*.lcov
+
+# Logs
+*.log
