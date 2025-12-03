@@ -4,6 +4,7 @@ import About from '../components/About'
 import Contact from '../components/Contact'
 import SEOHead from '../components/SEOHead'
 import LatestBlogPosts from '../components/blog/LatestBlogPosts'
+import { FEATURES } from '../config/features'
 
 export default function HomePage() {
   return (
@@ -11,7 +12,7 @@ export default function HomePage() {
       <SEOHead path="/" />
       <Hero />
       <Services />
-      <LatestBlogPosts />
+      {FEATURES.BLOG_ENABLED && <LatestBlogPosts />}
       <About />
       <Contact />
     </>

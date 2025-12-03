@@ -1,4 +1,14 @@
 {
+  "common": {
+    "loading": "Ładowanie..."
+  },
+  "errors": {
+    "featureDisabled": {
+      "title": "Funkcja niedostępna",
+      "description": "Ta funkcja jest obecnie niedostępna.",
+      "goHome": "Przejdź do strony głównej"
+    }
+  },
   "navigation": {
     "home": "Strona główna",
     "services": "Usługi",
@@ -91,7 +101,7 @@
     "support": "Wsparcie"
   },
   "meta": {
-    "title": "Raqz.pl - Profesjonalny rozwój stron internetowych i rozwiązania IT",
+    "title": "raqz.pl -  Profesjonalny rozwój stron internetowych i rozwiązania IT",
     "description": "Profesjonalny rozwój stron internetowych, aplikacje mobilne, hosting i usługi infrastruktury IT. Niestandardowe rozwiązania dla nowoczesnych firm.",
     "keywords": "rozwój stron internetowych, rozwój aplikacji mobilnych, hosting, rozwiązania IT, rozwój oprogramowania"
   },

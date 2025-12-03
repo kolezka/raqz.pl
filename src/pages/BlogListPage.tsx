@@ -9,8 +9,7 @@ import {
 import BlogCard from "../components/blog/BlogCard";
 import SEOHead from "../components/SEOHead";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
-
-const showAllPosts = false
+import { FEATURES } from "../config/features";
 
 export default function BlogListPage() {
   const { category, tag } = useParams<{ category?: string; tag?: string }>();
@@ -99,8 +98,11 @@ export default function BlogListPage() {
 
             {/* Loading State */}
             {loading && (
-              <div className="text-center py-12">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
+              <div className="text-center py-12" role="status" aria-live="polite">
+                <div
+                  className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"
+                  aria-hidden="true"
+                />
                 <p className="mt-4 text-gray-600">
                   {t("blog.loading", "Loading articles...")}
                 </p>
@@ -136,7 +138,7 @@ export default function BlogListPage() {
             )}
 
             {/* All Posts Grid */}
-            {showAllPosts && !loading && posts.length > 0 && (
+            {FEATURES.SHOW_ALL_BLOG_POSTS && !loading && posts.length > 0 && (
               <div>
                 {!category && !tag && featuredPosts.length > 0 && (
                   <h2 className="text-2xl font-bold text-gray-900 mb-6">

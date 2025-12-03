@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { lazy, Suspense, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import Layout from './components/Layout'
+import FeatureDisabled from './components/FeatureDisabled'
 import './i18n'
+import { FEATURES } from './config/features'
 
 // Lazy load page components for better code splitting
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -13,11 +15,16 @@ const BlogPostPage = lazy(() => import('./pages/BlogPostPage'))
 
 // Loading component
 function PageLoader() {
+  const { t } = useTranslation()
+
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
-        <p className="mt-4 text-gray-600">Loading...</p>
+      <div className="text-center" role="status" aria-live="polite">
+        <div
+          className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"
+          aria-hidden="true"
+        />
+        <p className="mt-4 text-gray-600">{t('common.loading', 'Loading...')}</p>
       </div>
     </div>
   )
@@ -71,19 +78,35 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/services" element={<AllServicesPage />} />
             <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
-            <Route path="/blog" element={<BlogListPage />} />
-            <Route path="/blog/category/:category" element={<BlogListPage />} />
-            <Route path="/blog/tag/:tag" element={<BlogListPage />} />
-            <Route path="/blog/:slug" element={<BlogPostPage />} />
+
+            {/* Blog routes - conditionally rendered based on feature flag */}
+            {FEATURES.BLOG_ENABLED ? (
+              <>
+                <Route path="/blog" element={<BlogListPage />} />
+                <Route path="/blog/category/:category" element={<BlogListPage />} />
+                <Route path="/blog/tag/:tag" element={<BlogListPage />} />
+                <Route path="/blog/:slug" element={<BlogPostPage />} />
+              </>
+            ) : (
+              <Route path="/blog/*" element={<FeatureDisabled feature="blog" />} />
+            )}
 
             {/* Polish routes */}
             <Route path="/pl" element={<HomePage />} />
             <Route path="/pl/services" element={<AllServicesPage />} />
             <Route path="/pl/services/:serviceId" element={<ServiceDetailPage />} />
-            <Route path="/pl/blog" element={<BlogListPage />} />
-            <Route path="/pl/blog/category/:category" element={<BlogListPage />} />
-            <Route path="/pl/blog/tag/:tag" element={<BlogListPage />} />
-            <Route path="/pl/blog/:slug" element={<BlogPostPage />} />
+
+            {/* Blog routes (Polish) - conditionally rendered based on feature flag */}
+            {FEATURES.BLOG_ENABLED ? (
+              <>
+                <Route path="/pl/blog" element={<BlogListPage />} />
+                <Route path="/pl/blog/category/:category" element={<BlogListPage />} />
+                <Route path="/pl/blog/tag/:tag" element={<BlogListPage />} />
+                <Route path="/pl/blog/:slug" element={<BlogPostPage />} />
+              </>
+            ) : (
+              <Route path="/pl/blog/*" element={<FeatureDisabled feature="blog" />} />
+            )}
 
             {/* Fallback for unknown routes */}
             <Route path="*" element={<Navigate to="/" replace />} />

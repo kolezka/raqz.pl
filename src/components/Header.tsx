@@ -7,13 +7,18 @@ import clsx from "clsx";
 import ServicesDropdown from "./ServicesDropdown";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useScrollDirection } from "../hooks/useScrollDirection";
+import { FEATURES } from "../config/features";
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId.replace("#", ""));
   if (element) {
-    element.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
+    const headerOffset = 80; // Adjust based on your header height
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
     });
   }
 };
@@ -30,30 +35,37 @@ export default function Header() {
   );
 
   const navigation = useMemo(
-    () => [
-      { name: t("navigation.home"), href: `${langPrefix}/`, type: "link" },
-      {
-        name: t("navigation.services"),
-        href: `${langPrefix}/services`,
-        type: "dropdown",
-      },
-      {
-        name: t("navigation.blog"),
-        href: `${langPrefix}/blog`,
-        type: "link",
-      },
-      {
-        name: t("navigation.about"),
-        href: `${langPrefix}/#about`,
-        type: "anchor",
-      },
-      {
-        name: t("navigation.contact"),
-        href: `${langPrefix}/#contact`,
-        type: "anchor",
-      },
-    ],
-    [t, langPrefix]
+    () => {
+      const items = [
+        { name: t("navigation.home"), href: `${langPrefix}/`, type: "link" },
+        {
+          name: t("navigation.services"),
+          href: `${langPrefix}/services`,
+          type: "dropdown",
+        },
+        ...(FEATURES.BLOG_ENABLED
+          ? [
+              {
+                name: t("navigation.blog"),
+                href: `${langPrefix}/blog`,
+                type: "link" as const,
+              },
+            ]
+          : []),
+        {
+          name: t("navigation.about"),
+          href: `${langPrefix}/#about`,
+          type: "anchor",
+        },
+        {
+          name: t("navigation.contact"),
+          href: `${langPrefix}/#contact`,
+          type: "anchor",
+        },
+      ];
+      return items;
+    },
+    [langPrefix, i18n.language]
   );
 
   // Check if user is still in the hero section
@@ -98,8 +110,15 @@ export default function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5 group">
-            <span className="text-2xl font-bold transition-all duration-300 text-primary-600 inline-block group-hover:scale-105 group-hover:rotate-1">
+          <Link
+            to={`${langPrefix}/`}
+            className="-m-1.5 p-1.5 group"
+            aria-label={t('navigation.home', 'Home')}
+          >
+            <span
+              className="text-2xl font-bold transition-all duration-300 text-primary-600 inline-block group-hover:scale-105 group-hover:rotate-1"
+              aria-hidden="true"
+            >
               raqz.pl
             </span>
           </Link>
@@ -160,8 +179,12 @@ export default function Header() {
           className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition duration-300 ease-out data-closed:translate-x-full"
         >
           <div className="flex items-center justify-between">
-            <Link to="/" className="-m-1.5 p-1.5">
-              <span className="text-xl font-bold text-primary-600">RaqZpl</span>
+            <Link
+              to={`${langPrefix}/`}
+              className="-m-1.5 p-1.5"
+              aria-label={t('navigation.home', 'Home')}
+            >
+              <span className="text-xl font-bold text-primary-600" aria-hidden="true">RaqZpl</span>
             </Link>
             <button
               type="button"

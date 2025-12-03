@@ -1,4 +1,14 @@
 {
+  "common": {
+    "loading": "Loading..."
+  },
+  "errors": {
+    "featureDisabled": {
+      "title": "Feature Unavailable",
+      "description": "This feature is currently not available.",
+      "goHome": "Go to Homepage"
+    }
+  },
   "navigation": {
     "home": "Home",
     "services": "Services",
@@ -91,7 +101,7 @@
     "support": "Support"
   },
   "meta": {
-    "title": "Raqz.pl - Professional Web Development & IT Solutions",
+    "title": "raqz.pl -  Professional Web Development & IT Solutions",
     "description": "Professional web development, mobile apps, hosting, and IT infrastructure services. Custom solutions for modern businesses.",
     "keywords": "web development, mobile development, hosting, IT solutions, software development"
   },
