@@ -18,7 +18,7 @@ export default function About() {
   const value3Animation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 300 })
 
   return (
-    <section id="about" className="py-24 bg-gray-50 sm:py-32">
+    <section id="about" className="py-24  sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div ref={headerAnimation.ref} className={`mx-auto max-w-2xl lg:text-center ${headerAnimation.className}`}>
           <h2 className="text-base font-semibold leading-7 text-primary-600">{t('about.title')}</h2>

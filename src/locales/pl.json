@@ -83,7 +83,8 @@
     "name": "Imię",
     "email": "Email",
     "message": "Wiadomość",
-    "send": "Wyślij wiadomość"
+    "send": "Wyślij wiadomość",
+    "captchaRequired": "Proszę ukończyć weryfikację bezpieczeństwa przed wysłaniem."
   },
   "footer": {
     "description": "Kompleksowe rozwiązania IT – rozwój aplikacji, AI, blockchain, infrastruktura chmurowa i wsparcie 24/7 dla nowoczesnych, rosnących firm.",

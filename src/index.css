@@ -2,10 +2,10 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-primary-50: #eff6ff;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
+  --color-primary-50: #f4faf7;
+  --color-primary-500: #43e8d8;
+  --color-primary-600: #40e0d0;
+  --color-primary-700: 	#40e0d0;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-reverse: float-reverse 8s ease-in-out infinite;

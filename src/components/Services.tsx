@@ -32,7 +32,7 @@ export default function Services() {
   const ctaAnimation = useScrollAnimation<HTMLDivElement>('zoom-in', { delay: 200 })
 
   return (
-    <section id="services" className="py-24 bg-white sm:py-32">
+    <section id="services" className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div ref={headerAnimation.ref} className={`mx-auto max-w-2xl lg:text-center ${headerAnimation.className}`}>
           <h2 className="text-base font-semibold leading-7 text-primary-600">{t('services.title')}</h2>

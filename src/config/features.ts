@@ -37,7 +37,7 @@ export interface FeatureFlags {
  * Edit these values to enable/disable features
  */
 export const FEATURES: Readonly<FeatureFlags> = Object.freeze({
-  BLOG_ENABLED: true,
+  BLOG_ENABLED: false,
   SHOW_ALL_BLOG_POSTS: false,
   BLOG_SEARCH_ENABLED: true,
   BLOG_CATEGORIES_ENABLED: true,

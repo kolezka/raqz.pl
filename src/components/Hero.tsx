@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/refs */
 import { useTranslation } from 'react-i18next'
-import AnimatedBackground from './AnimatedBackground'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 export default function Hero() {
@@ -11,11 +10,7 @@ export default function Hero() {
   const ctaAnimation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 200 })
 
   return (
-    <section id="home" className="relative isolate px-6 pt-20 lg:px-8 min-h-screen flex items-center">
-      {/* Animated Background */}
-      <div className="absolute inset-0 -z-10">
-        <AnimatedBackground />
-      </div>
+    <section id="home" className="relative px-6 pt-20 lg:px-8 min-h-screen flex items-center">
       <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
         <div className="text-center">
           <h1

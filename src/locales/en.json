@@ -83,7 +83,8 @@
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "send": "Send Message"
+    "send": "Send Message",
+    "captchaRequired": "Please complete the security verification before submitting."
   },
   "footer": {
     "description": "Comprehensive IT solutions – app development, AI, blockchain, cloud infrastructure, and 24/7 support for modern, growing businesses.",

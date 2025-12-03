@@ -10,7 +10,7 @@
     "react-icons/**"
   ],
   "scripts": {
-"dev": "vite & npm run watch:blog",
+    "dev": "vite & npm run watch:blog",
     "prebuild": "npm run blog:index && npm run blog:rss",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
+    "@marsidev/react-turnstile": "^1.3.1",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
