@@ -34,13 +34,7 @@
             "DeFi protocol implementations",
             "Token standards (ERC-20, SPL)"
           ],
-          "technologies": [
-            "WalletConnect",
-            "Ethereum",
-            "Solana",
-            "gRPC",
-            "GO"
-          ],
+          "technologies": ["WalletConnect", "Ethereum", "Solana", "gRPC", "GO"],
           "pricing": "Starting from $8,000"
         }
       ]
@@ -111,11 +105,8 @@
           "technologies": ["GO", "Python", "Typescript", "Node.js", "Electron", "Postgresql"],
           "pricing": "Starting from $10,000"
         }
-      
       ]
     },
-
-    
 
     {
       "id": "messaging-bots",
@@ -238,6 +229,5 @@
         }
       ]
     }
-    
   ]
 }

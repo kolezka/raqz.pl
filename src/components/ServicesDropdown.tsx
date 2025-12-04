@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import servicesData from '../data/services.json'
-import clsx from 'clsx'
 
 // Move iconMap outside component to prevent recreation on every render
 const iconMap = {
@@ -39,11 +38,10 @@ export default memo(function ServicesDropdown() {
             className="fixed left-1/2 top-[5rem] -translate-x-1/2 z-50 max-w-5xl w-[min(100vw-2rem,64rem)] max-h-[80vh] rounded-xl bg-white/90 backdrop-blur-xl shadow-2xl ring-1 ring-gray-200/50 border border-gray-100/50 focus:outline-none overflow-y-auto overflow-x-hidden transition ease-out duration-200 data-closed:transform data-closed:opacity-0 data-closed:scale-95 data-closed:translate-y-[-16px]"
           >
             <div className="columns-1 sm:columns-2 gap-0 p-4">
-              {servicesData.serviceCategories.map((category) => {
+              {servicesData.serviceCategories.map(category => {
                 const IconComponent = iconMap[category.icon as keyof typeof iconMap]
                 return (
-                  <div key={category.id} className="break-inside-avoid bg-white overflow-hidden"
-                  >
+                  <div key={category.id} className="break-inside-avoid bg-white overflow-hidden">
                     <div className="px-4 py-3 bg-linear-to-r from-primary-50/80 to-primary-100/40">
                       <div className="flex items-center text-xs font-semibold text-gray-900">
                         <div className="p-1.5 bg-white/80 rounded-md mr-2 shadow-sm">
