@@ -132,51 +132,51 @@
     "services": {
       "ecommerce-development": {
         "name": "E-commerce",
-        "shortDescription": "Kompleksowe sklepy internetowe, które sprzedają – od zarządzania produktami po płatności i analitykę. Zwiększ konwersję dzięki intuicyjnemu UX."
+        "shortDescription": "Sklepy internetowe, które sprzedają – od zarządzania produktami po płatności i analitykę"
       },
       "web-development": {
         "name": "Aplikacje i strony internetowe",
-        "shortDescription": "Nowoczesne, responsywne aplikacje webowe – od landing pages po złożone platformy SaaS. Szybkie ładowanie, doskonałe UX i kod zgodny z najlepszymi praktykami."
+        "shortDescription": "Nowoczesne, responsywne aplikacje webowe – od landing pages po złożone platformy SaaS."
       },
       "mobile-development": {
         "name": "Aplikacje mobilne",
-        "shortDescription": "Natywne i cross-platformowe aplikacje mobilne, które użytkownicy pokochają. Płynne działanie na iOS i Android z optymalną wydajnością."
+        "shortDescription": "Natywne i cross-platformowe aplikacje mobilne, które użytkownicy pokochają"
       },
       "software-development": {
         "name": "Rozwój oprogramowania",
-        "shortDescription": "Dedykowane rozwiązania software'owe klasy enterprise – automatyzacja procesów, integracje systemowe i narzędzia szyte na miarę potrzeb Twojej firmy."
+        "shortDescription": "Dedykowane rozwiązania software'owe. Automatyzacja procesów, integracje systemowe i narzędzia."
       },
       "ai-integrations": {
         "name": "AI",
-        "shortDescription": "Automatyzacja procesów z wykorzystaniem AI – inteligentne agenty, chatboty i rozwiązania Generative AI, które oszczędzają czas i zwiększają efektywność."
+        "shortDescription": "Automatyzacja z wykorzystaniem AI. Inteligentne agenty, chatboty."
       },
       "legacy-refactoring": {
         "name": "Refaktoryzacja",
-        "shortDescription": "Modernizacja przestarzałego kodu – przekształcamy legacy systems w nowoczesne, skalowalne aplikacje. Redukcja długu technologicznego i wzrost wydajności."
+        "shortDescription": "Modernizacja kodu – przekształcamy legacy systems w nowoczesne, skalowalne aplikacje."
       },
       "discord-bots": {
         "name": "Boty Discord",
-        "shortDescription": "Niestandardowe boty Discord do automatyzacji moderacji i zwiększenia zaangażowania społeczności. Komendy, eventy i integracje z zewnętrznymi API."
+        "shortDescription": "Moderacja oparta o AI, komendy, eventy i integracje z zewnętrznymi API."
       },
       "telegram-bots": {
         "name": "Boty Telegram",
-        "shortDescription": "Inteligentne boty Telegram do obsługi klienta i automatyzacji biznesowej – płatności, powiadomienia, wielojęzyczność i zaawansowane klawiatury."
+        "shortDescription": "Obsługa klienta i automatyzacji biznesowej – płatności, powiadomienia, wielojęzyczność."
       },
       "signal-bots": {
         "name": "Boty Signal",
-        "shortDescription": "Bezpieczne boty Signal z szyfrowaniem end-to-end – prywatna komunikacja, automatyczne odpowiedzi i zarządzanie grupami bez kompromisów w zakresie bezpieczeństwa."
+        "shortDescription": "Bez kompromisów w zakresie bezpieczeństwa."
       },
       "blockchain-development": {
         "name": "Blockchain",
-        "shortDescription": "Rozwiązania Web3, smart kontrakty i aplikacje DeFi – wielosieciowe integracje portfeli, NFT marketplaces i zdecentralizowane platformy."
+        "shortDescription": "Web3, smart kontrakty i aplikacje DeFi. Wielosieciowe integracje portfeli, NFT marketplaces i zdecentralizowane platformy."
       },
       "hosting-solutions": {
         "name": "Rozwiązania hostingowe",
-        "shortDescription": "Infrastruktura hostingowa twojej strony, sklepu lub aplikacji. Dostosowana do faktycznych wymagań, zmniejszając Twój koszt utrzymania, bo czemu nie?"
+        "shortDescription": "Infrastruktura dopasowana do rzeczywistych potrzeb Twojej strony lub aplikacji. Optymalizacja kosztów przy zachowaniu pełnej wydajności."
       },
       "performance-optimization": {
         "name": "Optymalizacja wydajności",
-        "shortDescription": "Przyspiesz swoją strone, sklep lub aplikacje. Zwiększ widoczność swojej strony"
+        "shortDescription": "Przyspiesz swoją stronę, sklep lub aplikację. Zwiększ widoczność w Google i popraw doświadczenia użytkowników dzięki lepszym czasom ładowania."
       },
       "migrations": {
         "name": "Migracje",
@@ -221,7 +221,7 @@
       "pricing": "Ceny od 20 000 zł"
     },
     "mobile-development": {
-      "description": "Rozwijamy aplikacje mobilne, które użytkownicy uwielbiają używać codziennie. Natywne rozwiązania dla iOS i Android lub cross-platformowe z React Native i Flutter – zapewniamy płynność, wydajność i intuicyjny interfejs na każdym urządzeniu.",
+      "description": "Rozwijamy aplikacje mobilne, które użytkownicy uwielbiają używać codziennie. Natywne rozwiązania dla iOS i Android lub cross-platformowe z React Native.",
       "features": [
         "Natywne aplikacje iOS (Swift) i Android (Kotlin)",
         "Cross-platformowe aplikacje React Native i Flutter",
@@ -235,12 +235,9 @@
     "software-development": {
       "description": "Dostarczamy dedykowane rozwiązania software'owe klasy enterprise, które optymalizują procesy biznesowe i zwiększają efektywność operacyjną. Od systemów CRM/ERP po narzędzia automatyzacji – każde rozwiązanie szyte na miarę Twoich potrzeb.",
       "features": [
-        "Aplikacje desktopowe (Windows, macOS, Linux)",
         "Systemy software'owe dla przedsiębiorstw (CRM, ERP, WMS)",
         "Automatyzacja procesów i workflow management",
-        "Projektowanie i optymalizacja baz danych (SQL/NoSQL)",
-        "Integracje z systemami legacy i zewnętrznymi API",
-        "Dokumentacja techniczna i szkolenia dla zespołu"
+        "Integracje z systemami legacy i zewnętrznymi API"
       ],
       "pricing": "Ceny od 40 000 zł"
     },
@@ -248,11 +245,9 @@
       "description": "Budujemy sklepy internetowe, które sprzedają i rosną razem z Twoim biznesem. Pełnofunkcjonalne platformy e-commerce z zarządzaniem produktami, płatnościami, wysyłką i szczegółową analityką – wszystko w jednym miejscu.",
       "features": [
         "Niestandardowe platformy e-commerce dopasowane do branży",
-        "Rozwój i personalizacja Shopify, WooCommerce, Magento",
         "Integracja bramek płatności (Stripe, PayPal, Przelewy24)",
         "Systemy zarządzania magazynem (WMS) i integracje z hurtowniami",
-        "Śledzenie zamówień, analityka sprzedaży i raporty",
-        "Program lojalnościowy, kody rabatowe i cross-selling"
+        "Śledzenie zamówień, analityka sprzedaży i raporty"
       ],
       "pricing": "Ceny od 28 000 zł"
     },
@@ -261,10 +256,7 @@
       "features": [
         "Automatyzacja procesów biznesowych z wykorzystaniem AI",
         "Inteligentne chatboty i wirtualni asystenci dla klientów",
-        "Aplikacje generatywnej AI (GPT-4, Claude, custom models)",
-        "Integracja modeli uczenia maszynowego (ML) z istniejącymi systemami",
-        "Przetwarzanie języka naturalnego (NLP) i analiza sentymentu",
-        "AI agents dla automatyzacji zadań powtarzalnych"
+        "Integracja modeli ML z istniejącymi systemami"
       ],
       "pricing": "Ceny od 20 000 zł"
     },
@@ -334,10 +326,8 @@
       "description": "Zapewniamy kompleksowe rozwiązania hostingowe dostosowane do faktycznych wymagań Twojej aplikacji – od hostingu współdzielonego po infrastrukturę chmurową enterprise. Gwarantujemy 99,9% dostępności i stałe wsparcie techniczne.",
       "features": [
         "Hosting w chmurze (AWS, Google Cloud, Azure) z auto-scaling",
-        "Serwery VPS i dedykowane – pełna kontrola i wydajność",
+        "Przestrzeń hostingowa – pełna kontrola i wydajność",
         "Implementacja CDN (Cloudflare, AWS CloudFront) dla globalnego zasięgu",
-        "Zarządzanie certyfikatami SSL i zabezpieczenia HTTPS",
-        "Automatyczne kopie zapasowe i disaster recovery",
         "Monitoring 24/7 i alerty o incydentach"
       ],
       "pricing": "Ceny od 200 zł/miesiąc"

@@ -18,7 +18,7 @@
             "Machine learning model integration",
             "Natural language processing"
           ],
-          "technologies": ["OpenAI", "TensorFlow", "PyTorch", "Hugging Face", "LangChain"],
+          "technologies": ["OpenAI", "Claude Agent SDK", "PGVector", "Hugging Face", "LangChain"],
           "pricing": "Starting from $5,000"
         },
         {
@@ -27,25 +27,19 @@
           "shortDescription": "Web3 applications, smart contracts, and DeFi solutions",
           "description": "Comprehensive blockchain development services including Web3 authentication, wallet integrations, smart contracts, and decentralized applications across multiple blockchain networks.",
           "features": [
-            "Web3 authentication systems",
+            "Web3 applications",
             "Multi-chain wallet integrations",
+            "Cross-chain bridge solutions",
             "Smart contract development",
             "DeFi protocol implementations",
-            "NFT marketplace development",
-            "Token standards (ERC-20, SPL)",
-            "Cross-chain bridge solutions"
+            "Token standards (ERC-20, SPL)"
           ],
           "technologies": [
+            "WalletConnect",
             "Ethereum",
             "Solana",
-            "Cosmos",
-            "MetaMask",
-            "Phantom",
-            "WalletConnect",
-            "Coinbase Wallet",
-            "Keplr",
-            "Prisma",
-            "Express.js"
+            "gRPC",
+            "GO"
           ],
           "pricing": "Starting from $8,000"
         }
@@ -84,7 +78,7 @@
             "App Store optimization",
             "Push notifications and analytics"
           ],
-          "technologies": ["React Native", "Flutter", "Swift", "Kotlin", "Expo"],
+          "technologies": ["React Native", "Expo", "Swift", "Kotlin", "Android", "IOS"],
           "pricing": "Starting from $8,000"
         },
         {
@@ -99,7 +93,7 @@
             "Inventory management systems",
             "Order tracking and analytics"
           ],
-          "technologies": ["Shopify", "WooCommerce", "Stripe", "PayPal", "Magento"],
+          "technologies": ["Stripe", "PayPal", "Blockchain"],
           "pricing": "Starting from $7,000"
         },
         {
@@ -114,32 +108,14 @@
             "Database design and optimization",
             "Third-party integrations"
           ],
-          "technologies": ["Java", "C#", ".NET", "Python", "Go", "PostgreSQL"],
+          "technologies": ["GO", "Python", "Typescript", "Node.js", "Electron", "Postgresql"],
           "pricing": "Starting from $10,000"
-        },
-
-        {
-          "id": "legacy-refactoring",
-          "name": "Legacy Code Refactoring",
-          "shortDescription": "Modernize and optimize legacy codebases",
-          "description": "Transform outdated legacy systems into modern, maintainable, and scalable applications.",
-          "features": [
-            "Code modernization",
-            "Architecture restructuring",
-            "Technology stack upgrades",
-            "Performance improvements",
-            "Documentation and testing"
-          ],
-          "technologies": [
-            "Modern frameworks",
-            "Microservices",
-            "API design",
-            "Testing frameworks"
-          ],
-          "pricing": "Starting from $4,000"
         }
+      
       ]
     },
+
+    
 
     {
       "id": "messaging-bots",
@@ -159,7 +135,7 @@
             "Integration with external APIs",
             "Music and entertainment bots"
           ],
-          "technologies": ["Discord.js", "Python", "Node.js", "Discord API", "Slash Commands"],
+          "technologies": ["Discord.js", "Python", "Node.js", "Discord API"],
           "pricing": "Starting from $1,500"
         },
         {
@@ -230,24 +206,10 @@
           ],
           "technologies": ["Redis", "Memcached", "Nginx", "Apache", "MongoDB"],
           "pricing": "Starting from $2,000"
-        },
-        {
-          "id": "migrations",
-          "name": "Migrations",
-          "shortDescription": "Seamless platform and data migrations",
-          "description": "Safe and efficient migration services with zero downtime and complete data integrity.",
-          "features": [
-            "Cloud platform migrations",
-            "Database migrations",
-            "Application modernization",
-            "Legacy system upgrades",
-            "Data migration and validation"
-          ],
-          "technologies": ["Docker", "Kubernetes", "Terraform", "Ansible", "Jenkins"],
-          "pricing": "Starting from $3,000"
         }
       ]
     },
+
     {
       "id": "support",
       "name": "Support",
@@ -276,5 +238,6 @@
         }
       ]
     }
+    
   ]
 }

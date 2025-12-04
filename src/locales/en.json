@@ -24,22 +24,22 @@
     "readingTime": "{{time}} min read",
     "publishedOn": "Published on",
     "updatedOn": "Updated",
-    "by": "By",
+    "by": "Author:",
     "categories": "Categories",
     "tags": "Tags",
-    "relatedPosts": "Related Posts",
+    "relatedPosts": "Related Articles",
     "searchPlaceholder": "Search articles...",
     "latestPosts": "Latest from the Blog",
-    "featured": "Featured",
+    "featured": "Latest Posts",
     "allPosts": "All Posts",
     "noPosts": "No articles found",
     "noPostsDescription": "Try browsing other categories or check back later.",
     "loading": "Loading...",
     "backToBlog": "Back to Blog",
     "showing": "Showing",
-    "description": "Insights, tutorials, and updates from RaqZpl Solutions",
-    "browseCategory": "Browse all articles in",
-    "browseTag": "Browse all articles tagged with"
+    "description": "News, solutions and offtopic 🤓",
+    "browseCategory": "Browse all articles in category",
+    "browseTag": "Browse all articles tagged as"
   },
   "hero": {
     "title": "Innovative IT Solutions for Growing Businesses",
@@ -108,13 +108,13 @@
   },
   "servicesDropdown": {
     "categories": {
-      "development": {
-        "name": "Development",
-        "description": "Custom software development solutions"
-      },
       "specialized-solutions": {
         "name": "Specialized Solutions",
-        "description": "Cutting-edge technology solutions"
+        "description": "Modern technology solutions"
+      },
+      "development": {
+        "name": "Software Development",
+        "description": "Software development solutions"
       },
       "messaging-bots": {
         "name": "Messaging Bots",
@@ -130,61 +130,61 @@
       }
     },
     "services": {
+      "ecommerce-development": {
+        "name": "E-commerce",
+        "shortDescription": "Online stores that sell – from product management to payments and analytics"
+      },
       "web-development": {
-        "name": "Web Development",
-        "shortDescription": "Modern, responsive web applications – from landing pages to complex SaaS platforms. Fast loading, excellent UX, and code following best practices."
+        "name": "Web Apps & Websites",
+        "shortDescription": "Modern, responsive web applications – from landing pages to complex SaaS platforms."
       },
       "mobile-development": {
-        "name": "Mobile Development",
-        "shortDescription": "Native and cross-platform mobile apps that users love. Smooth performance on iOS and Android with optimal efficiency."
+        "name": "Mobile Apps",
+        "shortDescription": "Native and cross-platform mobile apps that users love"
       },
       "software-development": {
         "name": "Software Development",
-        "shortDescription": "Dedicated enterprise-grade software solutions – process automation, system integrations, and tools tailored to your business needs."
-      },
-      "ecommerce-development": {
-        "name": "E-Commerce Development",
-        "shortDescription": "Comprehensive online stores that sell – from product management to payments and analytics. Increase conversion with intuitive UX."
+        "shortDescription": "Dedicated software solutions. Process automation, system integrations and tools."
       },
       "ai-integrations": {
-        "name": "AI Integrations",
-        "shortDescription": "Process automation with AI – intelligent agents, chatbots, and Generative AI solutions that save time and boost efficiency."
+        "name": "AI",
+        "shortDescription": "Automation using AI. Intelligent agents, chatbots."
       },
       "legacy-refactoring": {
-        "name": "Legacy Code Refactoring",
-        "shortDescription": "Legacy code modernization – transforming outdated systems into modern, scalable applications. Technical debt reduction and performance boost."
+        "name": "Refactoring",
+        "shortDescription": "Code modernization – transforming legacy systems into modern, scalable applications."
       },
       "discord-bots": {
         "name": "Discord Bots",
-        "shortDescription": "Custom Discord bots for moderation automation and community engagement. Commands, events, and external API integrations."
+        "shortDescription": "AI-powered moderation, commands, events and external API integrations."
       },
       "telegram-bots": {
         "name": "Telegram Bots",
-        "shortDescription": "Intelligent Telegram bots for customer support and business automation – payments, notifications, multi-language, and advanced keyboards."
+        "shortDescription": "Customer support and business automation – payments, notifications, multi-language support."
       },
       "signal-bots": {
         "name": "Signal Bots",
-        "shortDescription": "Secure Signal bots with end-to-end encryption – private communication, automated responses, and group management without security compromises."
+        "shortDescription": "No compromises on security."
       },
       "blockchain-development": {
-        "name": "Blockchain Development",
-        "shortDescription": "Web3 solutions, smart contracts, and DeFi apps – multi-chain wallet integrations, NFT marketplaces, and decentralized platforms."
+        "name": "Blockchain",
+        "shortDescription": "Web3, smart contracts and DeFi apps. Multi-chain wallet integrations, NFT marketplaces and decentralized platforms."
       },
       "hosting-solutions": {
         "name": "Hosting Solutions",
-        "shortDescription": "Reliable and scalable hosting infrastructure"
+        "shortDescription": "Infrastructure tailored to your website or app's actual needs. Cost optimization while maintaining full performance."
       },
       "performance-optimization": {
         "name": "Performance Optimization",
-        "shortDescription": "Speed up your applications and websites"
+        "shortDescription": "Speed up your website, store or app. Increase Google visibility and improve user experience with better loading times."
       },
       "migrations": {
         "name": "Migrations",
-        "shortDescription": "Secure platform, database, and infrastructure migrations – zero downtime, full data integrity, and support at every stage."
+        "shortDescription": "Secure platform, database and infrastructure migrations – zero downtime, full data integrity and support at every stage."
       },
       "maintenance-support": {
         "name": "Maintenance & Support",
-        "shortDescription": "Comprehensive ongoing support for your applications",
+        "shortDescription": "Comprehensive, ongoing support – automatic problem detection and support that resolves issues within 24 hours of detection or report.",
         "description": "Keep your applications running smoothly with our comprehensive maintenance and support services.",
         "features": [
           "24/7 monitoring and support",
@@ -193,7 +193,7 @@
           "Performance monitoring",
           "Backup and disaster recovery"
         ],
-        "pricing": "Starting from $200/month"
+        "pricing": "Starting from 800 PLN/month"
       }
     }
   },
@@ -218,10 +218,10 @@
         "RESTful/GraphQL API development and integration",
         "SEO and Core Web Vitals optimization"
       ],
-      "pricing": "Starting from $5,000"
+      "pricing": "Starting from 20,000 PLN"
     },
     "mobile-development": {
-      "description": "We develop mobile applications that users love to use every day. Native solutions for iOS and Android or cross-platform with React Native and Flutter – ensuring smoothness, performance, and intuitive interface on every device.",
+      "description": "We develop mobile applications that users love to use every day. Native solutions for iOS and Android or cross-platform with React Native.",
       "features": [
         "Native iOS (Swift) and Android (Kotlin) apps",
         "Cross-platform React Native and Flutter apps",
@@ -230,43 +230,35 @@
         "Push notifications, analytics, and deep linking",
         "In-app payments and third-party integrations"
       ],
-      "pricing": "Starting from $8,000"
+      "pricing": "Starting from 32,000 PLN"
     },
     "software-development": {
       "description": "We deliver dedicated enterprise-grade software solutions that optimize business processes and increase operational efficiency. From CRM/ERP systems to automation tools – each solution tailored to your needs.",
       "features": [
-        "Desktop applications (Windows, macOS, Linux)",
         "Enterprise software systems (CRM, ERP, WMS)",
         "Process automation and workflow management",
-        "Database design and optimization (SQL/NoSQL)",
-        "Legacy system and external API integrations",
-        "Technical documentation and team training"
+        "Legacy system and external API integrations"
       ],
-      "pricing": "Starting from $10,000"
+      "pricing": "Starting from 40,000 PLN"
     },
     "ecommerce-development": {
       "description": "We build online stores that sell and grow with your business. Full-featured e-commerce platforms with product management, payments, shipping, and detailed analytics – all in one place.",
       "features": [
         "Custom e-commerce platforms tailored to your industry",
-        "Shopify, WooCommerce, Magento development and customization",
-        "Payment gateway integration (Stripe, PayPal, etc.)",
+        "Payment gateway integration (Stripe, PayPal, Przelewy24)",
         "Warehouse management systems (WMS) and supplier integrations",
-        "Order tracking, sales analytics, and reporting",
-        "Loyalty programs, discount codes, and cross-selling"
+        "Order tracking, sales analytics, and reporting"
       ],
-      "pricing": "Starting from $7,000"
+      "pricing": "Starting from 28,000 PLN"
     },
     "ai-integrations": {
       "description": "Harness the power of artificial intelligence to automate processes, reduce costs, and increase team productivity. We create intelligent agents, chatbots, and generative AI solutions tailored to your business specifics.",
       "features": [
         "Business process automation with AI",
         "Intelligent chatbots and virtual assistants for customers",
-        "Generative AI applications (GPT-4, Claude, custom models)",
-        "Machine learning (ML) model integration with existing systems",
-        "Natural language processing (NLP) and sentiment analysis",
-        "AI agents for repetitive task automation"
+        "ML model integration with existing systems"
       ],
-      "pricing": "Starting from $5,000"
+      "pricing": "Starting from 20,000 PLN"
     },
     "legacy-refactoring": {
       "description": "We modernize outdated legacy systems, eliminating technical debt and preparing your application for the future. Increasing performance, security, and maintainability without risking loss of critical business functionality.",
@@ -278,7 +270,7 @@
         "Complete technical documentation and test coverage",
         "Data migration and backward compatibility preservation"
       ],
-      "pricing": "Starting from $4,000"
+      "pricing": "Starting from 16,000 PLN"
     },
     "discord-bots": {
       "description": "We create advanced Discord bots that automate server management, increase community engagement, and deliver unique features. From moderation to games and external service integrations – everything tailored to your server.",
@@ -287,10 +279,10 @@
         "Moderation automation – filters, warnings, bans",
         "User engagement features (leveling, ranks, events)",
         "External API integration (Discord API, REST, WebSocket)",
-        "Music, games, and entertainment for the community",
+        "Music bots, games, and entertainment for the community",
         "Web dashboard for bot management"
       ],
-      "pricing": "Starting from $1,500"
+      "pricing": "Starting from 6,000 PLN"
     },
     "telegram-bots": {
       "description": "We develop intelligent Telegram bots for customer support automation, business processes, and user communication. Payments, notifications, multi-language support, and advanced inline keyboards – all in one bot.",
@@ -303,7 +295,7 @@
         "Multi-language support and localization",
         "Webhooks and CRM/ERP integrations"
       ],
-      "pricing": "Starting from $1,500"
+      "pricing": "Starting from 6,000 PLN"
     },
     "signal-bots": {
       "description": "We build secure Signal bots with the highest level of privacy and end-to-end encryption. Ideal for internal corporate communication, notifications, and automation where data security is a priority.",
@@ -315,7 +307,7 @@
         "Secure notifications and real-time alerts",
         "Self-hosted deployment for full control"
       ],
-      "pricing": "Starting from $2,000"
+      "pricing": "Starting from 8,000 PLN"
     },
     "blockchain-development": {
       "description": "Comprehensive blockchain development services – from Web3 applications and multi-chain wallet integrations to smart contracts and decentralized DeFi platforms. We support Ethereum, Solana, Cosmos, and other blockchain networks.",
@@ -328,19 +320,17 @@
         "Token standards (ERC-20, SPL) and tokenomics",
         "Cross-chain bridge solutions and interoperability"
       ],
-      "pricing": "Starting from $8,000"
+      "pricing": "Starting from 32,000 PLN"
     },
     "hosting-solutions": {
       "description": "We provide comprehensive hosting solutions tailored to your application's actual requirements – from shared hosting to enterprise cloud infrastructure. We guarantee 99.9% uptime and constant technical support.",
       "features": [
         "Cloud hosting (AWS, Google Cloud, Azure) with auto-scaling",
-        "VPS and dedicated servers – full control and performance",
+        "Hosting space – full control and performance",
         "CDN implementation (Cloudflare, AWS CloudFront) for global reach",
-        "SSL certificate management and HTTPS security",
-        "Automated backups and disaster recovery",
         "24/7 monitoring and incident alerts"
       ],
-      "pricing": "Starting from $50/month"
+      "pricing": "Starting from 200 PLN/month"
     },
     "performance-optimization": {
       "description": "Comprehensive application performance analysis and optimization – we identify bottlenecks, speed up loading, and reduce infrastructure costs. Increase conversion with a faster website and better Core Web Vitals.",
@@ -352,7 +342,7 @@
         "Load balancing configuration and horizontal scaling",
         "Core Web Vitals analysis and SEO improvement"
       ],
-      "pricing": "Starting from $2,000"
+      "pricing": "Starting from 8,000 PLN"
     },
     "migrations": {
       "description": "Safe and efficient platform, database, and infrastructure migrations without application downtime. Full support at every stage – from analysis through migration to data integrity verification.",
@@ -364,7 +354,7 @@
         "Data migration and validation (ETL processes)",
         "Rollback plan and disaster recovery strategy"
       ],
-      "pricing": "Starting from $3,000"
+      "pricing": "Starting from 12,000 PLN"
     },
     "maintenance-support": {
       "description": "Keep your applications running smoothly with our comprehensive maintenance and support services.",
@@ -375,7 +365,7 @@
         "Performance monitoring",
         "Backup and disaster recovery"
       ],
-      "pricing": "Starting from $200/month"
+      "pricing": "Starting from 800 PLN/month"
     }
   }
 }
