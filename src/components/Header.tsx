@@ -96,13 +96,11 @@ export default memo(function Header() {
   return (
     <header
       className={clsx(
-        'top-0 left-0 right-0 z-50 border-b',
+        'top-0 left-0 right-0 z-10 border-b',
         // Position: absolute in hero, fixed outside
         isInHeroSection ? 'absolute' : 'fixed',
         // Background styling - consistent style in hero section
-        isInHeroSection
-          ? 'backdrop-blur-md border-none'
-          : 'bg-white/50 backdrop-blur-md border-gray-200/20',
+        isInHeroSection ? 'border-none' : 'bg-white/50 border-gray-200/20',
         // Visibility - only hide when we can and when scrolling down
         !isInHeroSection && !shouldShowFixedHeader ? '-translate-y-full' : 'translate-y-0',
         // Only animate translate, not position changes
@@ -120,7 +118,7 @@ export default memo(function Header() {
             aria-label={t('navigation.home', 'Home')}
           >
             <span
-              className="text-2xl font-bold transition-all duration-300 text-primary-500 inline-block group-hover:scale-105 group-hover:rotate-1"
+              className="text-2xl font-bold transition-all duration-300 inline-block group-hover:scale-105 group-hover:rotate-1"
               aria-hidden="true"
             >
               raqz.pl
@@ -171,11 +169,11 @@ export default memo(function Header() {
           </button> */}
         </div>
       </nav>
-      <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+      <Dialog className="lg:hidden z-50" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10 bg-gray-900/25" />
         <DialogPanel
           transition
-          className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition duration-300 ease-out data-closed:translate-x-full"
+          className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition duration-150 translate-x-0 data-closed:translate-x-full"
         >
           <div className="flex items-center justify-between">
             <Link
@@ -184,7 +182,7 @@ export default memo(function Header() {
               aria-label={t('navigation.home', 'Home')}
             >
               <span className="text-xl font-bold text-primary-600" aria-hidden="true">
-                RaqZpl
+                raqz.pl
               </span>
             </Link>
             <button

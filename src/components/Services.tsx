@@ -41,7 +41,7 @@ export default memo(function Services() {
           <p className="text-gray-600 text-lg">{t('services.sectionDescription')}</p>
         </div>
         <div className="max-w-5xl mx-auto my-8">
-          <dl className="grid grid-cols-2 gap-8">
+          <dl className="grid md:grid-cols-2 gap-8">
             {servicesData.serviceCategories.slice(0, 4).map((category, index) => {
               const IconComponent = iconMap[category.icon as keyof typeof iconMap]
 

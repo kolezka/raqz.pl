@@ -56,7 +56,7 @@ export default memo(function LanguageSwitcher() {
 
             <PopoverPanel
               transition
-              className="absolute right-0 z-50 mt-2 w-40 rounded-xl bg-white/90 backdrop-blur-xl shadow-2xl ring-1 ring-gray-200/50 focus:outline-none overflow-hidden transition ease-out duration-200 data-closed:transform data-closed:opacity-0 data-closed:scale-95 data-closed:translate-y-[-16px]"
+              className="absolute left-0 z-50 mt-2 w-40 rounded-xl bg-white/90 backdrop-blur-xl shadow-2xl ring-1 ring-gray-200/50 focus:outline-none overflow-hidden transition ease-out duration-200 data-closed:transform data-closed:opacity-0 data-closed:scale-95 data-closed:translate-y-[-16px]"
             >
               <div className="py-1">
                 {languages.map(language => (
