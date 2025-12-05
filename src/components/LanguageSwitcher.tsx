@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { useState, useMemo, memo } from 'react'
-import clsx from 'clsx'
+import { useMemo, memo, useEffect } from 'react'
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
+import { RiArrowDownSLine } from 'react-icons/ri'
 
 // Move languages array outside component to prevent recreation on every render
 const languages = [
@@ -10,16 +11,15 @@ const languages = [
 
 export default memo(function LanguageSwitcher() {
   const { i18n } = useTranslation()
-  const [isOpen, setIsOpen] = useState(false)
 
   const currentLanguage = useMemo(
     () => languages.find(lang => lang.code === i18n.language) || languages[0],
     [i18n.language]
   )
 
-  const changeLanguage = (languageCode: string) => {
+  const changeLanguage = (languageCode: string, close: () => void) => {
     i18n.changeLanguage(languageCode)
-    setIsOpen(false)
+    close()
 
     // Update URL with language prefix
     const currentPath = window.location.pathname
@@ -30,47 +30,55 @@ export default memo(function LanguageSwitcher() {
   }
 
   return (
-    <div className="relative">
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-md transition-colors duration-300 text-gray-700 hover:text-gray-900 hover:bg-gray-100"
-      >
-        <span className="text-base">{currentLanguage.flag}</span>
-        <span className="uppercase">{currentLanguage.code}</span>
-        <svg
-          className={clsx('h-4 w-4 transition-transform duration-200', isOpen && 'rotate-180')}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
+    <Popover className="relative inline-block text-left">
+      {({ close, open }) => {
+        useEffect(() => {
+          if (open) {
+            const handleScroll = () => {
+              close()
+            }
 
-      {isOpen && (
-        <>
-          <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
-          <div className="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-20">
-            <div className="py-1">
-              {languages.map(language => (
-                <button
-                  type="button"
-                  key={language.code}
-                  onClick={() => changeLanguage(language.code)}
-                  className={clsx(
-                    'flex items-center gap-2 w-full px-4 py-2 text-sm text-left hover:bg-gray-100',
-                    i18n.language === language.code && 'bg-gray-50 text-primary-600'
-                  )}
-                >
-                  <span className="text-base">{language.flag}</span>
-                  <span>{language.name}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
-    </div>
+            window.addEventListener('scroll', handleScroll, { passive: true })
+
+            return () => {
+              window.removeEventListener('scroll', handleScroll)
+            }
+          }
+        }, [open, close])
+
+        return (
+          <>
+            <PopoverButton className="inline-flex w-full justify-center items-center text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 hover:text-gray-600 focus:outline-none cursor-pointer">
+              <span className="text-base mr-1">{currentLanguage.flag}</span>
+              <span className="uppercase mr-2">{currentLanguage.code}</span>
+              <RiArrowDownSLine className="-mr-1 h-5 w-5" aria-hidden="true" />
+            </PopoverButton>
+
+            <PopoverPanel
+              transition
+              className="absolute right-0 z-50 mt-2 w-40 rounded-xl bg-white/90 backdrop-blur-xl shadow-2xl ring-1 ring-gray-200/50 focus:outline-none overflow-hidden transition ease-out duration-200 data-closed:transform data-closed:opacity-0 data-closed:scale-95 data-closed:translate-y-[-16px]"
+            >
+              <div className="py-1">
+                {languages.map(language => (
+                  <button
+                    type="button"
+                    key={language.code}
+                    onClick={() => changeLanguage(language.code, close)}
+                    className={`flex items-center gap-3 w-full px-4 py-2 text-sm transition-all duration-200 hover:bg-primary-50/60 focus:bg-primary-50/60 focus:text-gray-900 text-left ${
+                      i18n.language === language.code
+                        ? 'bg-primary-50/60 text-primary-600 border-l-2 border-primary-300'
+                        : 'text-gray-700'
+                    }`}
+                  >
+                    <span className="text-base">{language.flag}</span>
+                    <span className="font-medium">{language.name}</span>
+                  </button>
+                ))}
+              </div>
+            </PopoverPanel>
+          </>
+        )
+      }}
+    </Popover>
   )
 })

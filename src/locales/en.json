@@ -42,14 +42,14 @@
     "browseTag": "Browse all articles tagged as"
   },
   "hero": {
-    "title": "Innovative IT Solutions for Growing Businesses",
+    "title": "IT for Growing Businesses",
     "subtitle": "Artificial Intelligence for process automation. Comprehensive IT solutions – from web and mobile apps to cloud infrastructure and 24/7 support.",
     "getStarted": "Explore Solutions",
-    "learnMore": "Learn More"
+    "learnMore": "Get to Know Us"
   },
   "about": {
     "title": "About Us",
-    "description": "Experienced developers and IT specialists passionate about technology and excellence.",
+    "description": "IT with passion for technology and excellence.",
     "subtitle": "We create innovative software solutions that help businesses thrive in the digital age. Every project is a partnership – your success is our success.",
     "values": {
       "innovation": {
@@ -72,8 +72,8 @@
     "learnMore": "Learn More",
     "startingFrom": "Starting from",
     "description": "Comprehensive software development and technology solutions to power your business growth.",
-    "sectionTitle": "Everything you need to build modern solutions",
-    "sectionDescription": "We offer comprehensive software development services tailored to your business needs.",
+    "sectionTitle": "Modern Solutions",
+    "sectionDescription": "Comprehensive software development services tailored to your business needs.",
     "keyFeatures": "Key Features:",
     "more": "more"
   },
@@ -312,15 +312,12 @@
     "blockchain-development": {
       "description": "Comprehensive blockchain development services – from Web3 applications and multi-chain wallet integrations to smart contracts and decentralized DeFi platforms. We support Ethereum, Solana, Cosmos, and other blockchain networks.",
       "features": [
-        "Web3 authentication systems (Sign-In with Ethereum)",
+        "Web3 authentication systems",
         "Multi-chain wallet integrations (MetaMask, Phantom, WalletConnect)",
-        "Smart contract development and audit (Solidity, Rust)",
-        "DeFi protocol implementations (staking, lending, AMM)",
-        "NFT marketplaces and collections (ERC-721, ERC-1155)",
-        "Token standards (ERC-20, SPL) and tokenomics",
-        "Cross-chain bridge solutions and interoperability"
-      ],
-      "pricing": "Starting from 32,000 PLN"
+        "Smart contracts (Solidity, Rust)",
+        "DeFi (staking, lending, AMM)",
+        "Token standards (ERC-20, SPL) and tokenomics"
+      ]
     },
     "hosting-solutions": {
       "description": "We provide comprehensive hosting solutions tailored to your application's actual requirements – from shared hosting to enterprise cloud infrastructure. We guarantee 99.9% uptime and constant technical support.",
@@ -329,8 +326,7 @@
         "Hosting space – full control and performance",
         "CDN implementation (Cloudflare, AWS CloudFront) for global reach",
         "24/7 monitoring and incident alerts"
-      ],
-      "pricing": "Starting from 200 PLN/month"
+      ]
     },
     "performance-optimization": {
       "description": "Comprehensive application performance analysis and optimization – we identify bottlenecks, speed up loading, and reduce infrastructure costs. Increase conversion with a faster website and better Core Web Vitals.",

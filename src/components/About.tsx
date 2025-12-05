@@ -24,11 +24,11 @@ export default function About() {
           ref={headerAnimation.ref}
           className={`mx-auto max-w-2xl lg:text-center ${headerAnimation.className}`}
         >
-          <h2 className="text-base font-semibold leading-7 text-primary-600">{t('about.title')}</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="font-semibold text-primary-600 text-md mb-2">{t('about.title')}</h2>
+          <p className="font-bold tracking-tight text-gray-900 text-5xl mb-4">
             {t('about.description')}
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">{t('about.subtitle')}</p>
+          <p className="text-gray-600 text-lg">{t('about.subtitle')}</p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
@@ -38,7 +38,7 @@ export default function About() {
               style={staggerStyles[0]}
             >
               <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                <div className="h-10 w-10 flex-none bg-primary-600 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 hover:scale-110 hover:rotate-12">
+                <div className="h-10 w-10 flex-none bg-primary-600 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 ">
                   1
                 </div>
                 {t('about.values.innovation.title')}
@@ -53,7 +53,7 @@ export default function About() {
               style={staggerStyles[1]}
             >
               <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                <div className="h-10 w-10 flex-none bg-primary-600 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 hover:scale-110 hover:rotate-12">
+                <div className="h-10 w-10 flex-none bg-primary-600 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 ">
                   2
                 </div>
                 {t('about.values.quality.title')}
@@ -68,7 +68,7 @@ export default function About() {
               style={staggerStyles[2]}
             >
               <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                <div className="h-10 w-10 flex-none bg-primary-600 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 hover:scale-110 hover:rotate-12">
+                <div className="h-10 w-10 flex-none bg-primary-600 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 ">
                   3
                 </div>
                 {t('about.values.partnership.title')}

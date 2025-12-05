@@ -120,7 +120,7 @@ export default memo(function Header() {
             aria-label={t('navigation.home', 'Home')}
           >
             <span
-              className="text-2xl font-bold transition-all duration-300 text-primary-700 inline-block group-hover:scale-105 group-hover:rotate-1"
+              className="text-2xl font-bold transition-all duration-300 text-primary-500 inline-block group-hover:scale-105 group-hover:rotate-1"
               aria-hidden="true"
             >
               raqz.pl

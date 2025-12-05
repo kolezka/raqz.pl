@@ -18,7 +18,14 @@
             "Machine learning model integration",
             "Natural language processing"
           ],
-          "technologies": ["OpenAI", "Claude Agent SDK", "PGVector", "Hugging Face", "LangChain"],
+          "technologies": [
+            "Claude Agent",
+            "Huginn",
+            "Flowise",
+            "Hugging Face",
+            "LangChain",
+            "PGVector"
+          ],
           "pricing": "Starting from $5,000"
         },
         {

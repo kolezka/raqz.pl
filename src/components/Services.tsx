@@ -29,63 +29,49 @@ export default memo(function Services() {
 
   return (
     <section id="services" className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto px-6 lg:px-8">
         <div
           ref={headerAnimation.ref}
-          className={`mx-auto max-w-2xl lg:text-center ${headerAnimation.className}`}
+          className={`mx-auto max-w-4xl lg:text-center ${headerAnimation.className}`}
         >
-          <h2 className="text-base font-semibold leading-7 text-primary-600">
-            {t('services.title')}
-          </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="font-semibold text-primary-500 text-md mb-2">{t('services.title')}</h2>
+          <p className="font-bold tracking-tight text-gray-900 text-5xl mb-4">
             {t('services.sectionTitle')}
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">{t('services.sectionDescription')}</p>
+          <p className="text-gray-600 text-lg">{t('services.sectionDescription')}</p>
         </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-6xl">
-          <dl className="flex flex-wrap gap-8 lg:gap-x-12 lg:gap-y-8 justify-center">
-            {servicesData.serviceCategories.map((category, index) => {
+        <div className="max-w-5xl mx-auto my-8">
+          <dl className="grid grid-cols-2 gap-8">
+            {servicesData.serviceCategories.slice(0, 4).map((category, index) => {
               const IconComponent = iconMap[category.icon as keyof typeof iconMap]
 
               return (
-                <div
-                  key={category.id}
-                  className="relative pl-16 flex-shrink-0 w-full sm:w-80 lg:w-96 opacity-0 animate-fade-up"
-                  style={staggerStyles[index]}
-                >
-                  <dt className="text-base font-semibold leading-7 text-gray-900">
-                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600 transition-transform duration-300 hover:scale-110 hover:rotate-6">
-                      <IconComponent className="h-6 w-6 text-white" aria-hidden="true" />
-                    </div>
-                    {t(`serviceCategories.${category.id}`)}
-                  </dt>
-                  <dd className="mt-2 text-base leading-7 text-gray-600">
-                    {t(`servicesDropdown.categories.${category.id}.description`)}
-                  </dd>
-                  <dd className="mt-4">
-                    <Link
-                      to="/services"
-                      className="text-sm font-semibold leading-6 text-primary-600 hover:text-primary-500 transition-colors duration-200 inline-flex items-center group"
-                    >
-                      {t('services.learnMore')}{' '}
-                      <span
-                        aria-hidden="true"
-                        className="group-hover:translate-x-1 transition-transform duration-200"
-                      >
-                        →
-                      </span>
-                    </Link>
-                  </dd>
-                </div>
+                <Link to="/services">
+                  <div
+                    key={category.id}
+                    className="group relative p-4 pl-16 hover:scale-105 transition-transform"
+                    style={staggerStyles[index]}
+                  >
+                    <dt className="text-base font-semibold leading-7 text-gray-900 ">
+                      <div className="absolute left-2 top-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-500 transition-transform duration-300">
+                        <IconComponent className="h-6 w-6 text-white" aria-hidden="true" />
+                      </div>
+                      {t(`serviceCategories.${category.id}`)}
+                    </dt>
+                    <dd className="mt-2 text-base leading-7 text-gray-600">
+                      {t(`servicesDropdown.categories.${category.id}.description`)}
+                    </dd>
+                  </div>
+                </Link>
               )
             })}
           </dl>
         </div>
 
-        <div ref={ctaAnimation.ref} className={`mt-16 text-center ${ctaAnimation.className}`}>
+        <div ref={ctaAnimation.ref} className={`text-center ${ctaAnimation.className}`}>
           <Link
             to="/services"
-            className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95 inline-block"
+            className="rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95 inline-block"
           >
             {t('services.viewAll')}
           </Link>

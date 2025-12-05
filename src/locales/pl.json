@@ -42,14 +42,14 @@
     "browseTag": "Przeglądaj wszystkie artykuły oznaczone jako"
   },
   "hero": {
-    "title": "Innowacyjne rozwiązania IT dla rosnących firm",
-    "subtitle": "Sztuczna Inteligencja do automatyzacji procesów. Kompleksowe rozwiązania IT – od aplikacji webowych i mobilnych po infrastrukturę chmurową i wsparcie 24/7.",
+    "title": "IT dla rosnących firm",
+    "subtitle": "Sztuczna Inteligencja do automatyzacji procesów. Kompleksowe rozwiązania IT – od aplikacji webowych\ni mobilnych po infrastrukturę chmurową i wsparcie 24/7.",
     "getStarted": "Zobacz rozwiązania",
     "learnMore": "Poznaj nas"
   },
   "about": {
     "title": "O nas",
-    "description": "Doświadczeni programiści i specjaliści IT z pasją do technologii i doskonałości.",
+    "description": "IT z pasją do technologii i doskonałości.",
     "subtitle": "Tworzymy innowacyjne rozwiązania software'owe, które pomagają firmom rozwijać się w erze cyfrowej. Każdy projekt traktujemy jako partnerstwo – Twój sukces to nasz sukces.",
     "values": {
       "innovation": {
@@ -72,8 +72,8 @@
     "learnMore": "Dowiedz się więcej",
     "startingFrom": "Ceny od",
     "description": "Kompleksowe rozwiązania rozwoju oprogramowania i technologii wspierające rozwój Twojego biznesu.",
-    "sectionTitle": "Wszystko czego potrzebujesz do tworzenia nowoczesnych rozwiązań",
-    "sectionDescription": "Oferujemy kompleksowe usługi rozwoju oprogramowania dostosowane do Twoich potrzeb biznesowych.",
+    "sectionTitle": "Nowoczesne rozwiązania",
+    "sectionDescription": "Kompleksowe usługi rozwoju oprogramowania dostosowane do potrzeb biznesowych.",
     "keyFeatures": "Główne funkcje:",
     "more": "więcej"
   },
@@ -312,15 +312,12 @@
     "blockchain-development": {
       "description": "Kompleksowe usługi rozwoju blockchain – od aplikacji Web3 i integracji portfeli multi-chain po smart kontrakty i zdecentralizowane platformy DeFi. Wspieramy Ethereum, Solana, Cosmos i inne sieci blockchain.",
       "features": [
-        "Systemy autentykacji Web3 (Sign-In with Ethereum)",
+        "Systemy autentykacji Web3",
         "Integracje portfeli multi-chain (MetaMask, Phantom, WalletConnect)",
-        "Rozwój i audyt smart kontraktów (Solidity, Rust)",
-        "Implementacje protokołów DeFi (staking, lending, AMM)",
-        "NFT marketplaces i kolekcje (ERC-721, ERC-1155)",
-        "Standardy tokenów (ERC-20, SPL) i tokenomika",
-        "Rozwiązania mostków cross-chain i interoperability"
-      ],
-      "pricing": "Ceny od 32 000 zł"
+        "Smart kontrakty (Solidity, Rust)",
+        "DeFi (staking, lending, AMM)",
+        "Standardy tokenów (ERC-20, SPL) i tokenomika"
+      ]
     },
     "hosting-solutions": {
       "description": "Zapewniamy kompleksowe rozwiązania hostingowe dostosowane do faktycznych wymagań Twojej aplikacji – od hostingu współdzielonego po infrastrukturę chmurową enterprise. Gwarantujemy 99,9% dostępności i stałe wsparcie techniczne.",
@@ -329,8 +326,7 @@
         "Przestrzeń hostingowa – pełna kontrola i wydajność",
         "Implementacja CDN (Cloudflare, AWS CloudFront) dla globalnego zasięgu",
         "Monitoring 24/7 i alerty o incydentach"
-      ],
-      "pricing": "Ceny od 200 zł/miesiąc"
+      ]
     },
     "performance-optimization": {
       "description": "Kompleksowa analiza i optymalizacja wydajności aplikacji – identyfikujemy bottlenecki, przyspieszamy ładowanie i redukujemy koszty infrastruktury. Zwiększ konwersję dzięki szybszej stronie i lepszym Core Web Vitals.",
