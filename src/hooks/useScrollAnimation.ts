@@ -98,7 +98,7 @@ export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
         observer.unobserve(element)
       }
     }
-  }, [threshold, rootMargin, triggerOnce, disabled, prefersReducedMotion])
+  }, [threshold, rootMargin, triggerOnce, disabled, prefersReducedMotion, delay, hasAnimated])
 
   // Build className based on visibility and animation variant
   const className = prefersReducedMotion
