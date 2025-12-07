@@ -1,4 +1,6 @@
-import { useTranslation } from 'react-i18next'
+'use client'
+
+import { useTranslations } from 'next-intl'
 
 interface BlogSearchProps {
   query: string
@@ -7,7 +9,7 @@ interface BlogSearchProps {
 }
 
 export default function BlogSearch({ query, setQuery, resultsCount }: BlogSearchProps) {
-  const { t } = useTranslation()
+  const t = useTranslations()
 
   return (
     <div className="mb-8">
@@ -32,7 +34,7 @@ export default function BlogSearch({ query, setQuery, resultsCount }: BlogSearch
           value={query}
           onChange={e => setQuery(e.target.value)}
           className="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-gray-900 placeholder-gray-500"
-          placeholder={t('blog.searchPlaceholder', 'Search articles...')}
+          placeholder={t('blog.searchPlaceholder')}
         />
         {query && (
           <button
@@ -54,7 +56,7 @@ export default function BlogSearch({ query, setQuery, resultsCount }: BlogSearch
       </div>
       {query && (
         <p className="mt-2 text-sm text-gray-600">
-          {t('blog.searchResults', 'Found {{count}} articles', { count: resultsCount })}
+          {t('blog.searchResults', { count: resultsCount })}
         </p>
       )}
     </div>

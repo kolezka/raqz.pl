@@ -1,36 +1,48 @@
-import { useParams, Navigate } from 'react-router-dom'
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { RiCheckLine } from 'react-icons/ri'
-import { useTranslation } from 'react-i18next'
-import { useMemo } from 'react'
-import servicesData from '../data/services.json'
-import SEOHead from '../components/SEOHead'
+import { getTranslations, getMessages } from 'next-intl/server'
+import servicesData from '@/data/services.json'
+import SEOHead from '@/components/SEOHead'
 
-export default function ServiceDetailPage() {
-  const { serviceId } = useParams<{ serviceId: string }>()
-  const { t, i18n } = useTranslation()
-  const langPrefix = i18n.language === 'en' ? '' : `/${i18n.language}`
+export {
+  generateStaticParams,
+  generateServiceMetadata as generateMetadata,
+} from '@/lib/generateServiceParams'
 
-  // Memoize service lookup to prevent re-computation on every render
-  const { service, category } = useMemo(
-    () =>
-      servicesData.serviceCategories
-        .flatMap(cat =>
-          cat.services.map(service =>
-            service.id === serviceId ? { service, category: cat } : null
-          )
-        )
-        .find(Boolean) || { service: null, category: null },
-    [serviceId]
-  )
-
-  if (!service || !category) {
-    return <Navigate to={`${langPrefix}/services`} replace />
+interface ServiceDetailsMessages {
+  serviceDetails?: {
+    [key: string]: {
+      features?: string[]
+    }
   }
+}
+
+export default async function ServiceDetailPage({
+  params,
+}: {
+  params: Promise<{ serviceId: string }>
+}) {
+  const { serviceId } = await params
+  const t = await getTranslations()
+  const messages = (await getMessages()) as ServiceDetailsMessages
+
+  const result = servicesData.serviceCategories
+    .flatMap(cat =>
+      cat.services.map(service => (service.id === serviceId ? { service, category: cat } : null))
+    )
+    .find(Boolean)
+
+  if (!result) {
+    notFound()
+  }
+
+  const { service, category } = result
 
   return (
     <div className="bg-white pt-20">
       <SEOHead
-        title={`${t(`servicesDropdown.services.${serviceId}.name`)} - ${t('services.title')} - ${t('meta.title')}`}
+        title={`${t(`navigation.servicesDropdown.services.${serviceId}.name`)} - ${t('services.title')} - ${t('meta.title')}`}
         description={t(`serviceDetails.${serviceId}.description`)}
         path={`/services/${serviceId}`}
       />
@@ -41,7 +53,7 @@ export default function ServiceDetailPage() {
             {t(`serviceCategories.${category.id}`)}
           </p>
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            {t(`servicesDropdown.services.${serviceId}.name`)}
+            {t(`navigation.servicesDropdown.services.${serviceId}.name`)}
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             {t(`serviceDetails.${serviceId}.description`)}
@@ -60,17 +72,17 @@ export default function ServiceDetailPage() {
               </h2>
               <p className="mt-4 text-gray-600">{t('serviceDetail.featuresIntro')}</p>
               <ul role="list" className="mt-8 space-y-4">
-                {(
-                  t(`serviceDetails.${serviceId}.features`, { returnObjects: true }) as string[]
-                ).map((feature: string, index: number) => (
-                  <li key={index} className="flex gap-x-3">
-                    <RiCheckLine
-                      className="mt-1 h-5 w-5 flex-none text-primary-600"
-                      aria-hidden="true"
-                    />
-                    <span className="text-gray-600">{feature}</span>
-                  </li>
-                ))}
+                {messages.serviceDetails?.[serviceId]?.features?.map(
+                  (feature: string, index: number) => (
+                    <li key={index} className="flex gap-x-3">
+                      <RiCheckLine
+                        className="mt-1 h-5 w-5 flex-none text-primary-600"
+                        aria-hidden="true"
+                      />
+                      <span className="text-gray-600">{feature}</span>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
 
@@ -95,7 +107,6 @@ export default function ServiceDetailPage() {
                 <h3 className="text-lg font-bold tracking-tight text-gray-900">
                   {t('serviceDetail.pricingTitle')}
                 </h3>
-                {/* <p className="mt-2 text-2xl font-bold text-primary-600">{t(`serviceDetails.${serviceId}.pricing`)}</p> */}
                 <p className="mt-2 text-sm text-gray-600">{t('serviceDetail.pricingNote')}</p>
               </div>
 
@@ -122,23 +133,20 @@ export default function ServiceDetailPage() {
             {category.services
               .filter(s => s.id !== serviceId)
               .map(relatedService => (
-                <div
+                <Link
                   key={relatedService.id}
+                  href={`/services/${relatedService.id}`}
                   className="relative overflow-hidden rounded-lg bg-white px-6 py-8 shadow-sm hover:shadow-md transition-shadow"
                 >
                   <h3 className="text-lg font-semibold text-gray-900">
-                    {t(`servicesDropdown.services.${relatedService.id}.name`)}
+                    {t(`navigation.servicesDropdown.services.${relatedService.id}.name`)}
                   </h3>
                   <p className="mt-2 text-sm text-gray-600">
-                    {t(`servicesDropdown.services.${relatedService.id}.shortDescription`)}
+                    {t(
+                      `navigation.servicesDropdown.services.${relatedService.id}.shortDescription`
+                    )}
                   </p>
-                  {/* <p className="mt-4 text-sm font-medium text-primary-600">{t(`serviceDetails.${relatedService.id}.pricing`)}</p> */}
-                  <a
-                    href={`/services/${relatedService.id}`}
-                    className="absolute inset-0"
-                    aria-label={`${t('services.learnMore')} ${t(`servicesDropdown.services.${relatedService.id}.name`)}`}
-                  />
-                </div>
+                </Link>
               ))}
           </div>
         </div>

@@ -1,8 +1,11 @@
+'use client'
+
 import { useMemo, useState, memo, useEffect } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { RiMenuLine, RiCloseLine } from 'react-icons/ri'
-import { Link, useLocation } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useTranslations, useLocale } from 'next-intl'
 import clsx from 'clsx'
 import ServicesDropdown from './ServicesDropdown'
 import LanguageSwitcher from './LanguageSwitcher'
@@ -10,6 +13,8 @@ import { useScrollDirection } from '../hooks/useScrollDirection'
 import { FEATURES } from '../config/features'
 
 const scrollToSection = (sectionId: string) => {
+  if (typeof window === 'undefined') return
+
   const element = document.getElementById(sectionId.replace('#', ''))
   if (element) {
     const headerOffset = 80 // Adjust based on your header height
@@ -25,43 +30,48 @@ const scrollToSection = (sectionId: string) => {
 
 export default memo(function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const { scrollDirection, scrollY } = useScrollDirection(15)
-  const { t, i18n } = useTranslation()
-  const location = useLocation()
+  const t = useTranslations('navigation')
+  const locale = useLocale()
+  const pathname = usePathname()
+
+  // Mark as mounted after hydration to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Get language prefix for URLs
-  const langPrefix = useMemo(
-    () => (i18n.language === 'en' ? '' : `/${i18n.language}`),
-    [i18n.language]
-  )
+  const langPrefix = useMemo(() => (locale === 'en' ? '' : `/${locale}`), [locale])
 
   // Handle hash navigation after route change
   useEffect(() => {
-    if (location.hash) {
+    const hash = window.location.hash
+    if (hash) {
       // Small delay to ensure page has loaded
       setTimeout(() => {
-        scrollToSection(location.hash.substring(1))
+        scrollToSection(hash.substring(1))
       }, 100)
     }
-  }, [location])
+  }, [pathname])
 
   const navigation = useMemo(() => {
     const items = [
-      { name: t('navigation.home'), href: `${langPrefix}/`, type: 'link' },
+      { name: t('home'), href: `${langPrefix}/`, type: 'link' },
       {
-        name: t('navigation.about'),
+        name: t('about'),
         href: `${langPrefix}/#about`,
         type: 'anchor',
       },
       {
-        name: t('navigation.services'),
+        name: t('services'),
         href: `${langPrefix}/services`,
         type: 'dropdown',
       },
       ...(FEATURES.BLOG_ENABLED
         ? [
             {
-              name: t('navigation.blog'),
+              name: t('blog'),
               href: `${langPrefix}/blog`,
               type: 'link' as const,
             },
@@ -70,7 +80,7 @@ export default memo(function Header() {
       ...(FEATURES.CONTACT
         ? [
             {
-              name: t('navigation.contact'),
+              name: t('contact'),
               href: `${langPrefix}/#contact`,
               type: 'anchor',
             },
@@ -81,10 +91,17 @@ export default memo(function Header() {
   }, [t, langPrefix])
 
   // Check if user is still in the hero section
-  const isInHeroSection = useMemo(() => scrollY < window.innerHeight, [scrollY])
+  // Use mounted to prevent hydration mismatch - assume in hero section until mounted
+  const isInHeroSection = useMemo(
+    () => !mounted || (typeof window !== 'undefined' && scrollY < window.innerHeight),
+    [scrollY, mounted]
+  )
 
   // Only allow hiding when we're well past the hero section (200px buffer)
-  const canHideHeader = useMemo(() => scrollY > window.innerHeight + 200, [scrollY])
+  const canHideHeader = useMemo(
+    () => mounted && typeof window !== 'undefined' && scrollY > window.innerHeight + 200,
+    [scrollY, mounted]
+  )
 
   // Header visibility logic when fixed
   // Show when: scrolling up, can't hide yet, or mobile menu open
@@ -112,11 +129,7 @@ export default memo(function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link
-            to={`${langPrefix}/`}
-            className="-m-1.5 p-1.5 group"
-            aria-label={t('navigation.home', 'Home')}
-          >
+          <Link href={`${langPrefix}/`} className="-m-1.5 p-1.5 group" aria-label={t('home')}>
             <span
               className="text-2xl font-bold transition-all duration-300 inline-block group-hover:scale-105 group-hover:rotate-1"
               aria-hidden="true"
@@ -142,14 +155,14 @@ export default memo(function Header() {
                 <ServicesDropdown />
               ) : item.type === 'link' ? (
                 <Link
-                  to={item.href}
+                  href={item.href}
                   className="text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 hover:text-primary-600 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary-600 after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.name}
                 </Link>
               ) : (
                 <Link
-                  to={item.href}
+                  href={item.href}
                   className="text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 hover:text-primary-600 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary-600 after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.name}
@@ -176,11 +189,7 @@ export default memo(function Header() {
           className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition duration-150 translate-x-0 data-closed:translate-x-full"
         >
           <div className="flex items-center justify-between">
-            <Link
-              to={`${langPrefix}/`}
-              className="-m-1.5 p-1.5"
-              aria-label={t('navigation.home', 'Home')}
-            >
+            <Link href={`${langPrefix}/`} className="-m-1.5 p-1.5" aria-label={t('home')}>
               <span className="text-xl font-bold text-primary-600" aria-hidden="true">
                 raqz.pl
               </span>
@@ -201,7 +210,7 @@ export default memo(function Header() {
                   item.type === 'link' || item.type === 'anchor' ? (
                     <Link
                       key={item.name}
-                      to={item.href}
+                      href={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 transition-all duration-200 hover:translate-x-1"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -210,7 +219,7 @@ export default memo(function Header() {
                   ) : (
                     <Link
                       key={item.name}
-                      to={`${langPrefix}/services`}
+                      href={`${langPrefix}/services`}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 transition-all duration-200 hover:translate-x-1"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -221,11 +230,11 @@ export default memo(function Header() {
               </div>
               <div className="py-6">
                 <Link
-                  to={`${langPrefix}/#contact`}
+                  href={`${langPrefix}/#contact`}
                   onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 text-left w-full"
                 >
-                  {t('navigation.getStarted')}
+                  {t('getStarted')}
                 </Link>
               </div>
               <div className="px-4 py-3 border-t border-gray-200">

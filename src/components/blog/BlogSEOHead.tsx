@@ -1,4 +1,5 @@
-import { useTranslation } from 'react-i18next'
+'use client'
+
 import { useEffect } from 'react'
 import type { BlogPost } from '../../types/blog'
 
@@ -7,7 +8,7 @@ interface BlogSEOHeadProps {
 }
 
 export default function BlogSEOHead({ post }: BlogSEOHeadProps) {
-  const { i18n } = useTranslation()
+  // locale from next-intl
 
   useEffect(() => {
     // Update document title
@@ -54,7 +55,7 @@ export default function BlogSEOHead({ post }: BlogSEOHeadProps) {
 
     // Construct URLs
     const baseUrl = window.location.origin
-    const langPrefix = i18n.language === 'en' ? '' : `/${i18n.language}`
+    const langPrefix = post.language === 'en' ? '' : `/${post.language}`
     const canonicalUrl = `${baseUrl}${langPrefix}/blog/${post.slug}`
 
     // Set canonical URL
@@ -71,7 +72,7 @@ export default function BlogSEOHead({ post }: BlogSEOHeadProps) {
     setPropertyTag('og:url', canonicalUrl)
     setPropertyTag('og:type', 'article')
     setPropertyTag('og:image', `${baseUrl}${post.coverImage}`)
-    setPropertyTag('og:locale', i18n.language === 'pl' ? 'pl_PL' : 'en_US')
+    setPropertyTag('og:locale', post.language === 'pl' ? 'pl_PL' : 'en_US')
     setPropertyTag('article:published_time', new Date(post.date).toISOString())
     if (post.lastModified) {
       setPropertyTag('article:modified_time', new Date(post.lastModified).toISOString())
@@ -137,7 +138,7 @@ export default function BlogSEOHead({ post }: BlogSEOHeadProps) {
         script.remove()
       }
     }
-  }, [post, i18n.language])
+  }, [post, post.language])
 
   return null
 }

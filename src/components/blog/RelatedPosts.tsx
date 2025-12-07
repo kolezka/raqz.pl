@@ -1,4 +1,6 @@
-import { useTranslation } from 'react-i18next'
+'use client'
+import { useLocale, useTranslations } from 'next-intl'
+
 import type { BlogPost } from '../../types/blog'
 import { getRelatedPosts } from '../../utils/related-posts'
 import { useBlogPosts } from '../../hooks/useBlogPosts'
@@ -10,8 +12,9 @@ interface RelatedPostsProps {
 }
 
 export default function RelatedPosts({ currentPost, count = 3 }: RelatedPostsProps) {
-  const { t, i18n } = useTranslation()
-  const language = i18n.language as 'en' | 'pl'
+  const locale = useLocale()
+  const t = useTranslations()
+  const language = locale as 'en' | 'pl'
   const { posts: allPosts } = useBlogPosts(language)
 
   // Get related posts using the algorithm
@@ -24,9 +27,7 @@ export default function RelatedPosts({ currentPost, count = 3 }: RelatedPostsPro
 
   return (
     <div className="mt-16 border-t border-gray-200 pt-12">
-      <h2 className="text-3xl font-bold text-gray-900 mb-8">
-        {t('blog.relatedPosts', 'Related Posts')}
-      </h2>
+      <h2 className="text-3xl font-bold text-gray-900 mb-8">{t('blog.relatedPosts')}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {relatedPosts.map(post => (
           <BlogCard key={post.slug} post={post} />

@@ -1,10 +1,12 @@
+'use client'
+
 /* eslint-disable react-hooks/refs */
-import { useTranslation } from 'react-i18next'
+import { useTranslations } from 'next-intl'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { ContactForm } from './ContactForm'
 
 export default function Contact() {
-  const { t } = useTranslation()
+  const t = useTranslations()
 
   const headerAnimation = useScrollAnimation<HTMLDivElement>('fade-up')
 

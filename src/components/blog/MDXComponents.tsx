@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import type { AnchorHTMLAttributes, DetailedHTMLProps, HTMLAttributes } from 'react'
 import { createElement } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 // Custom heading components with anchor links
 function Heading({
@@ -60,7 +60,7 @@ function A({
 
   return (
     <Link
-      to={href || '#'}
+      href={href || '#'}
       className="text-primary-600 hover:text-primary-700 underline transition-colors"
     >
       {children}

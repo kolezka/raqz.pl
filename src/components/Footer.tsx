@@ -1,9 +1,11 @@
+'use client'
+
 /* eslint-disable react-hooks/refs */
-import { useTranslation } from 'react-i18next'
+import { useTranslations } from 'next-intl'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 export default function Footer() {
-  const { t } = useTranslation()
+  const t = useTranslations()
 
   const footerAnimation = useScrollAnimation<HTMLDivElement>('fade-up')
 

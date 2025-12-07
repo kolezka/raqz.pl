@@ -1,11 +1,13 @@
+'use client'
+
 /* eslint-disable react-hooks/refs */
 import Turnstile from './Turnstile'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useState, useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslations } from 'next-intl'
 
 export const ContactForm = () => {
-  const { t } = useTranslation()
+  const t = useTranslations()
 
   const [formData, setFormData] = useState({
     name: '',

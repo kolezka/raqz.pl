@@ -1,5 +1,7 @@
+'use client'
+import { useLocale } from 'next-intl'
+
 import { Turnstile as CloudflareTurnstile } from '@marsidev/react-turnstile'
-import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 
 interface TurnstileProps {
@@ -9,8 +11,8 @@ interface TurnstileProps {
 }
 
 export default memo(function Turnstile({ onVerify, onError, onExpire }: TurnstileProps) {
-  const { i18n } = useTranslation()
-  const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY
+  const locale = useLocale()
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
 
   if (!siteKey) {
     console.error('Turnstile site key is not configured')
@@ -27,7 +29,7 @@ export default memo(function Turnstile({ onVerify, onError, onExpire }: Turnstil
         options={{
           theme: 'light',
           size: 'normal',
-          language: i18n.language === 'pl' ? 'pl' : 'en',
+          language: locale === 'pl' ? 'pl' : 'en',
         }}
       />
     </div>

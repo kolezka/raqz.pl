@@ -1,0 +1,369 @@
+{
+  "common": {
+    "loading": "Ładowanie..."
+  },
+  "errors": {
+    "featureDisabled": {
+      "title": "Funkcja niedostępna",
+      "description": "Ta funkcja jest obecnie niedostępna.",
+      "goHome": "Przejdź do strony głównej"
+    },
+    "notFound": {
+      "title": "404 - Strona nie znaleziona",
+      "heading": "Ups! Strona nie została znaleziona",
+      "description": "Strona, której szukasz, nie istnieje lub została przeniesiona.",
+      "goHome": "Powrót do strony głównej",
+      "viewServices": "Zobacz nasze usługi"
+    }
+  },
+  "navigation": {
+    "home": "Strona główna",
+    "services": "Usługi",
+    "blog": "Blog",
+    "about": "O nas",
+    "contact": "Kontakt",
+    "getStarted": "Rozpocznij",
+    "viewAll": "Zobacz wszystkie",
+    "servicesDropdown": {
+      "categories": {
+        "specialized-solutions": {
+          "name": "Rozwiązania specjalistyczne",
+          "description": "Nowoczesne rozwiązania technologiczne"
+        },
+        "development": {
+          "name": "Rozwój oprogramowania",
+          "description": "Rozwiązania rozwoju oprogramowania"
+        },
+        "messaging-bots": {
+          "name": "Boty komunikatorów",
+          "description": "Niestandardowe boty dla popularnych platform komunikacyjnych"
+        },
+        "infrastructure": {
+          "name": "Infrastruktura",
+          "description": "Skalowalne i niezawodne rozwiązania infrastrukturalne"
+        },
+        "support": {
+          "name": "Wsparcie",
+          "description": "Bieżące usługi konserwacji i wsparcia"
+        }
+      },
+      "services": {
+        "ecommerce-development": {
+          "name": "E-commerce",
+          "shortDescription": "Sklepy internetowe, które sprzedają – od zarządzania produktami po płatności i analitykę"
+        },
+        "web-development": {
+          "name": "Aplikacje i strony internetowe",
+          "shortDescription": "Nowoczesne, responsywne aplikacje webowe – od landing pages po złożone platformy SaaS."
+        },
+        "mobile-development": {
+          "name": "Aplikacje mobilne",
+          "shortDescription": "Natywne i cross-platformowe aplikacje mobilne, które użytkownicy pokochają"
+        },
+        "software-development": {
+          "name": "Rozwój oprogramowania",
+          "shortDescription": "Dedykowane rozwiązania software'owe. Automatyzacja procesów, integracje systemowe i narzędzia."
+        },
+        "ai-integrations": {
+          "name": "AI",
+          "shortDescription": "Automatyzacja z wykorzystaniem AI. Inteligentne agenty, chatboty."
+        },
+        "legacy-refactoring": {
+          "name": "Refaktoryzacja",
+          "shortDescription": "Modernizacja kodu – przekształcamy legacy systems w nowoczesne, skalowalne aplikacje."
+        },
+        "discord-bots": {
+          "name": "Boty Discord",
+          "shortDescription": "Moderacja oparta o AI, komendy, eventy i integracje z zewnętrznymi API."
+        },
+        "telegram-bots": {
+          "name": "Boty Telegram",
+          "shortDescription": "Obsługa klienta i automatyzacji biznesowej – płatności, powiadomienia, wielojęzyczność."
+        },
+        "signal-bots": {
+          "name": "Boty Signal",
+          "shortDescription": "Bez kompromisów w zakresie bezpieczeństwa."
+        },
+        "blockchain-development": {
+          "name": "Blockchain",
+          "shortDescription": "Web3, smart kontrakty i aplikacje DeFi. Wielosieciowe integracje portfeli, NFT marketplaces i zdecentralizowane platformy."
+        },
+        "hosting-solutions": {
+          "name": "Rozwiązania hostingowe",
+          "shortDescription": "Infrastruktura dopasowana do rzeczywistych potrzeb Twojej strony lub aplikacji. Optymalizacja kosztów przy zachowaniu pełnej wydajności."
+        },
+        "performance-optimization": {
+          "name": "Optymalizacja wydajności",
+          "shortDescription": "Przyspiesz swoją stronę, sklep lub aplikację. Zwiększ widoczność w Google i popraw doświadczenia użytkowników dzięki lepszym czasom ładowania."
+        },
+        "migrations": {
+          "name": "Migracje",
+          "shortDescription": "Bezpieczne migracje platform, baz danych i infrastruktury – zero downtime, pełna integralność danych i wsparcie na każdym etapie procesu."
+        },
+        "maintenance-support": {
+          "name": "Utrzymanie i wsparcie",
+          "shortDescription": "Kompleksowe, bieżące wsparcie – automatyczne wykrywanie problemów oraz support, który rozwiązuje je w ciągu 24 godziny od wykrycia lub zgłoszenia."
+        }
+      }
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "articles": "artykułów",
+    "readMore": "Czytaj więcej",
+    "readingTime": "{{time}} min czytania",
+    "publishedOn": "Opublikowano",
+    "updatedOn": "Zaktualizowano",
+    "by": "Autor",
+    "categories": "Kategorie",
+    "tags": "Tagi",
+    "relatedPosts": "Powiązane posty",
+    "searchPlaceholder": "Szukaj artykułów...",
+    "searchResults": "Znaleziono {{count}} artykułów",
+    "latestPosts": "Najnowsze z bloga",
+    "latestFromBlog": "Najnowsze z bloga",
+    "viewAllPosts": "Zobacz wszystkie posty",
+    "featured": "Wyróżnione",
+    "allPosts": "Wszystkie posty",
+    "noPosts": "Nie znaleziono artykułów",
+    "noPostsDescription": "Spróbuj przejrzeć inne kategorie lub zajrzyj później.",
+    "loading": "Ładowanie...",
+    "backToBlog": "Powrót do bloga",
+    "showing": "Wyświetlanie",
+    "description": "Poradniki, aktualności i offtop naszego zespołu",
+    "browseCategory": "Przeglądaj wszystkie artykuły w kategorii",
+    "browseTag": "Przeglądaj wszystkie artykuły z tagiem"
+  },
+  "hero": {
+    "title": "IT dla rosnących firm",
+    "subtitle": "Sztuczna Inteligencja do automatyzacji procesów. Kompleksowe rozwiązania IT – od aplikacji webowych\ni mobilnych po infrastrukturę chmurową i wsparcie 24/7.",
+    "getStarted": "Zobacz rozwiązania",
+    "learnMore": "Poznaj nas"
+  },
+  "about": {
+    "title": "O nas",
+    "description": "IT z pasją do technologii i doskonałości.",
+    "subtitle": "Tworzymy innowacyjne rozwiązania software'owe, które pomagają firmom rozwijać się w erze cyfrowej. Każdy projekt traktujemy jako partnerstwo – Twój sukces to nasz sukces.",
+    "values": {
+      "innovation": {
+        "title": "Innowacyjność przede wszystkim",
+        "description": "Wyprzedzamy trendy technologiczne, aby dostarczać najnowocześniejsze rozwiązania, które dają Twojemu biznesowi przewagę konkurencyjną i gotowość na przyszłość."
+      },
+      "quality": {
+        "title": "Skupienie na jakości",
+        "description": "Każda linia kodu jest tworzona z precyzją i dbałością o szczegóły. Wierzymy w dostarczanie solidnych, skalowalnych i łatwych w utrzymaniu rozwiązań, które działają latami."
+      },
+      "partnership": {
+        "title": "Partnerstwo z klientem",
+        "description": "Pracujemy blisko z naszymi klientami jako równorzędni partnerzy, rozumiejąc ich wizję, wyzwania biznesowe i przekładając je na działające rozwiązania technologiczne."
+      }
+    }
+  },
+  "services": {
+    "title": "Nasze usługi",
+    "viewAll": "Zobacz wszystkie usługi",
+    "learnMore": "Dowiedz się więcej",
+    "startingFrom": "Ceny od",
+    "description": "Kompleksowe rozwiązania rozwoju oprogramowania i technologii wspierające rozwój Twojego biznesu.",
+    "sectionTitle": "Nowoczesne rozwiązania",
+    "sectionDescription": "Kompleksowe usługi rozwoju oprogramowania dostosowane do potrzeb biznesowych.",
+    "keyFeatures": "Główne funkcje:",
+    "more": "więcej"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Gotowy, aby rozpocząć projekt? Skontaktuj się z nami już dziś.",
+    "name": "Imię",
+    "email": "Email",
+    "message": "Wiadomość",
+    "send": "Wyślij wiadomość",
+    "captchaRequired": "Proszę ukończyć weryfikację bezpieczeństwa przed wysłaniem."
+  },
+  "footer": {
+    "description": "Kompleksowe rozwiązania IT – rozwój aplikacji, AI, blockchain, infrastruktura chmurowa i wsparcie 24/7 dla nowoczesnych, rosnących firm.",
+    "quickLinks": "Szybkie linki",
+    "services": "Usługi",
+    "contact": "Kontakt",
+    "allRightsReserved": "Wszystkie prawa zastrzeżone."
+  },
+  "serviceCategories": {
+    "development": "Rozwój oprogramowania",
+    "infrastructure": "Infrastruktura",
+    "specializedSolutions": "Rozwiązania specjalistyczne",
+    "specialized-solutions": "Rozwiązania specjalistyczne",
+    "messaging-bots": "Boty komunikatorów",
+    "support": "Wsparcie"
+  },
+  "meta": {
+    "title": "raqz.pl -  Profesjonalny rozwój stron internetowych i rozwiązania IT",
+    "description": "Profesjonalny rozwój stron internetowych, aplikacje mobilne, hosting i usługi infrastruktury IT. Niestandardowe rozwiązania dla nowoczesnych firm.",
+    "keywords": "rozwój stron internetowych, rozwój aplikacji mobilnych, hosting, rozwiązania IT, rozwój oprogramowania"
+  },
+  "serviceDetail": {
+    "featuresTitle": "Funkcje i możliwości",
+    "featuresIntro": "Nasza usługa obejmuje:",
+    "technologiesTitle": "Technologie",
+    "technologiesIntro": "Używamy wiodących w branży technologii i frameworków:",
+    "pricingTitle": "Cennik",
+    "pricingNote": "Cena może się różnić w zależności od złożoności projektu i wymagań. Skontaktuj się z nami po szczegółową wycenę.",
+    "getStarted": "Rozpocznij",
+    "otherServices": "Inne usługi"
+  },
+  "serviceDetails": {
+    "web-development": {
+      "description": "Tworzymy nowoczesne aplikacje webowe, które napędzają rozwój biznesu – od responsywnych stron firmowych po zaawansowane platformy SaaS. Wykorzystujemy najnowsze frameworki, aby zapewnić szybkość, bezpieczeństwo i doskonałe doświadczenie użytkownika.",
+      "features": [
+        "Aplikacje React, Vue, Angular z optymalną wydajnością",
+        "Backendy Node.js, Python, PHP – skalowalne i bezpieczne",
+        "Progresywne aplikacje webowe (PWA) działające offline",
+        "W pełni responsywny design na wszystkie urządzenia",
+        "Rozwój i integracja RESTful/GraphQL API",
+        "SEO i optymalizacja Core Web Vitals"
+      ],
+      "pricing": "Ceny od 20 000 zł"
+    },
+    "mobile-development": {
+      "description": "Rozwijamy aplikacje mobilne, które użytkownicy uwielbiają używać codziennie. Natywne rozwiązania dla iOS i Android lub cross-platformowe z React Native.",
+      "features": [
+        "Natywne aplikacje iOS (Swift) i Android (Kotlin)",
+        "Cross-platformowe aplikacje React Native i Flutter",
+        "Integracja z API, bazami danych i usługami chmurowymi",
+        "Optymalizacja App Store i Google Play (ASO)",
+        "Push notifications, analityka i deep linking",
+        "Płatności in-app i integracje z systemami zewnętrznymi"
+      ],
+      "pricing": "Ceny od 32 000 zł"
+    },
+    "software-development": {
+      "description": "Dostarczamy dedykowane rozwiązania software'owe klasy enterprise, które optymalizują procesy biznesowe i zwiększają efektywność operacyjną. Od systemów CRM/ERP po narzędzia automatyzacji – każde rozwiązanie szyte na miarę Twoich potrzeb.",
+      "features": [
+        "Systemy software'owe dla przedsiębiorstw (CRM, ERP, WMS)",
+        "Automatyzacja procesów i workflow management",
+        "Integracje z systemami legacy i zewnętrznymi API"
+      ],
+      "pricing": "Ceny od 40 000 zł"
+    },
+    "ecommerce-development": {
+      "description": "Budujemy sklepy internetowe, które sprzedają i rosną razem z Twoim biznesem. Pełnofunkcjonalne platformy e-commerce z zarządzaniem produktami, płatnościami, wysyłką i szczegółową analityką – wszystko w jednym miejscu.",
+      "features": [
+        "Niestandardowe platformy e-commerce dopasowane do branży",
+        "Integracja bramek płatności (Stripe, PayPal, Przelewy24)",
+        "Systemy zarządzania magazynem (WMS) i integracje z hurtowniami",
+        "Śledzenie zamówień, analityka sprzedaży i raporty"
+      ],
+      "pricing": "Ceny od 28 000 zł"
+    },
+    "ai-integrations": {
+      "description": "Wykorzystaj potencjał sztucznej inteligencji, aby automatyzować procesy, redukować koszty i zwiększać produktywność zespołu. Tworzymy inteligentne agenty, chatboty i rozwiązania generatywnej AI dostosowane do specyfiki Twojego biznesu.",
+      "features": [
+        "Automatyzacja procesów biznesowych z wykorzystaniem AI",
+        "Inteligentne chatboty i wirtualni asystenci dla klientów",
+        "Integracja modeli ML z istniejącymi systemami"
+      ],
+      "pricing": "Ceny od 20 000 zł"
+    },
+    "legacy-refactoring": {
+      "description": "Modernizujemy przestarzałe systemy legacy, eliminując dług technologiczny i przygotowując Twoją aplikację na przyszłość. Zwiększamy wydajność, bezpieczeństwo i łatwość utrzymania, bez ryzyka utraty kluczowej funkcjonalności biznesowej.",
+      "features": [
+        "Modernizacja kodu – refaktoryzacja do czystych wzorców",
+        "Restrukturyzacja architektury (monolith → microservices)",
+        "Aktualizacja stosu technologicznego do aktualnych wersji",
+        "Optymalizacja wydajności i redukcja kosztów infrastruktury",
+        "Pełna dokumentacja techniczna i pokrycie testami",
+        "Migracja danych i zachowanie backward compatibility"
+      ],
+      "pricing": "Ceny od 16 000 zł"
+    },
+    "discord-bots": {
+      "description": "Tworzymy zaawansowane boty Discord, które automatyzują zarządzanie serwerem, zwiększają zaangażowanie społeczności i dostarczają unikalne funkcje. Od moderacji przez gry po integracje z zewnętrznymi serwisami – wszystko dostosowane do Twojego serwera.",
+      "features": [
+        "Rozwój niestandardowych komend i interakcji slash commands",
+        "Automatyzacja moderacji – filtry, ostrzeżenia, bany",
+        "Funkcje angażowania użytkowników (leveling, ranki, eventy)",
+        "Integracja z zewnętrznymi API (Discord API, REST, WebSocket)",
+        "Boty muzyczne, gry i rozrywka dla społeczności",
+        "Dashboard webowy do zarządzania botem"
+      ],
+      "pricing": "Ceny od 6 000 zł"
+    },
+    "telegram-bots": {
+      "description": "Rozwijamy inteligentne boty Telegram do automatyzacji obsługi klienta, procesów biznesowych i komunikacji z użytkownikami. Płatności, powiadomienia, multi-language support i zaawansowane klawiatury inline – wszystko w jednym bocie.",
+      "features": [
+        "Niestandardowi klienci Telegram (MTProto, TDLib)",
+        "Automatyzacja obsługi klienta i FAQ chatbots",
+        "Integracja przetwarzania płatności (Telegram Payments, Stripe)",
+        "Klawiatury inline, menu i interaktywne formularze",
+        "Obsługa plików, mediów i dokumentów",
+        "Wsparcie wielojęzyczne i lokalizacja",
+        "Webhooks i integracje z CRM/ERP"
+      ],
+      "pricing": "Ceny od 6 000 zł"
+    },
+    "signal-bots": {
+      "description": "Budujemy bezpieczne boty Signal z najwyższym poziomem prywatności i szyfrowaniem end-to-end. Idealne do wewnętrznej komunikacji firmowej, powiadomień i automatyzacji, gdzie bezpieczeństwo danych jest priorytetem.",
+      "features": [
+        "Szyfrowanie end-to-end zachowane w każdej komunikacji",
+        "Automatyczne odpowiedzi i chatboty z regułami biznesowymi",
+        "Funkcje zarządzania grupami i administratorów",
+        "Integracje skoncentrowane na prywatności (no tracking)",
+        "Bezpieczne powiadomienia i alerty w czasie rzeczywistym",
+        "Self-hosted deployment dla pełnej kontroli"
+      ],
+      "pricing": "Ceny od 8 000 zł"
+    },
+    "blockchain-development": {
+      "description": "Kompleksowe usługi rozwoju blockchain – od aplikacji Web3 i integracji portfeli multi-chain po smart kontrakty i zdecentralizowane platformy DeFi. Wspieramy Ethereum, Solana, Cosmos i inne sieci blockchain.",
+      "features": [
+        "Systemy autentykacji Web3",
+        "Integracje portfeli multi-chain (MetaMask, Phantom, WalletConnect)",
+        "Smart kontrakty (Solidity, Rust)",
+        "DeFi (staking, lending, AMM)",
+        "Standardy tokenów (ERC-20, SPL) i tokenomika"
+      ]
+    },
+    "hosting-solutions": {
+      "description": "Zapewniamy kompleksowe rozwiązania hostingowe dostosowane do faktycznych wymagań Twojej aplikacji – od hostingu współdzielonego po infrastrukturę chmurową enterprise. Gwarantujemy 99,9% dostępności i stałe wsparcie techniczne.",
+      "features": [
+        "Hosting w chmurze (AWS, Google Cloud, Azure) z auto-scaling",
+        "Przestrzeń hostingowa – pełna kontrola i wydajność",
+        "Implementacja CDN (Cloudflare, AWS CloudFront) dla globalnego zasięgu",
+        "Monitoring 24/7 i alerty o incydentach"
+      ]
+    },
+    "performance-optimization": {
+      "description": "Kompleksowa analiza i optymalizacja wydajności aplikacji – identyfikujemy bottlenecki, przyspieszamy ładowanie i redukujemy koszty infrastruktury. Zwiększ konwersję dzięki szybszej stronie i lepszym Core Web Vitals.",
+      "features": [
+        "Optymalizacja prędkości stron (PageSpeed, Lighthouse 90+)",
+        "Dostrajanie wydajności baz danych (indexing, query optimization)",
+        "Optymalizacja i refaktoryzacja kodu (code splitting, lazy loading)",
+        "Implementacja cache'owania (Redis, Memcached, CDN)",
+        "Konfiguracja load balancingu i horizontal scaling",
+        "Analiza Core Web Vitals i poprawa SEO"
+      ],
+      "pricing": "Ceny od 8 000 zł"
+    },
+    "migrations": {
+      "description": "Bezpieczne i wydajne migracje platform, baz danych i infrastruktury bez przestojów w działaniu aplikacji. Pełne wsparcie na każdym etapie – od analizy przez migrację po weryfikację integralności danych.",
+      "features": [
+        "Migracje platform chmurowych (AWS, GCP, Azure, on-premise)",
+        "Migracje baz danych z zachowaniem pełnej integralności",
+        "Modernizacja aplikacji i upgrade frameworków",
+        "Aktualizacje systemów legacy bez przerw w działaniu",
+        "Migracja i walidacja danych (ETL processes)",
+        "Rollback plan i disaster recovery strategy"
+      ],
+      "pricing": "Ceny od 12 000 zł"
+    },
+    "maintenance-support": {
+      "description": "Utrzymuj swoje aplikacje w płynnym działaniu dzięki naszym kompleksowym usługom konserwacji i wsparcia.",
+      "features": [
+        "Monitoring i wsparcie 24/7",
+        "Regularne aktualizacje bezpieczeństwa",
+        "Poprawki błędów i łatki",
+        "Monitorowanie wydajności",
+        "Kopie zapasowe i odzyskiwanie po awarii"
+      ],
+      "pricing": "Ceny od 800 zł/miesiąc"
+    }
+  }
+}

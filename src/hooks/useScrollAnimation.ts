@@ -44,7 +44,6 @@ export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
 
     // Skip if disabled, no element, or user prefers reduced motion
     if (disabled || !element || prefersReducedMotion) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsVisible(prev => (prev ? prev : true))
       return
     }

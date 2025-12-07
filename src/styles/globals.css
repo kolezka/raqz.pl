@@ -2,11 +2,19 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-primary-50: #ebfcfa;
-  --color-primary-500: #39e5d4;
-  --color-primary-600: #33cebe;
+  /* Primary color palette - Purple shades */
+  --color-primary-50: #d7f9f6;
+  --color-primary-100: #aff4ed;
+  --color-primary-200: #88efe5;
+  --color-primary-300: #60eadc;
+  --color-primary-400: #39e5d4;
+  --color-primary-500: #33cebe;
+  --color-primary-600: #2db7a9;
   --color-primary-700: #27a094;
+  --color-primary-800: #22897f;
+  --color-primary-900: #1c726a;
 
+  /* Background animations */
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-reverse: float-reverse 8s ease-in-out infinite;
   --animate-float-slow: float 8s ease-in-out infinite;
@@ -14,15 +22,21 @@
   --animate-pulse-slow: pulse 4s ease-in-out infinite;
 
   /* Scroll animation utilities */
-  --animate-fade-up: fade-up 0.6s ease-out forwards;
-  --animate-fade-down: fade-down 0.6s ease-out forwards;
-  --animate-fade-left: fade-left 0.6s ease-out forwards;
-  --animate-fade-right: fade-right 0.6s ease-out forwards;
-  --animate-zoom-in: zoom-in 0.4s ease-out forwards;
-  --animate-zoom-out: zoom-out 0.4s ease-out forwards;
-  --animate-scale-in: scale-in 0.4s ease-out forwards;
-  --animate-slide-up: slide-up 0.6s ease-out forwards;
-  --animate-flip-up: flip-up 0.8s ease-out forwards;
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  --animate-fade-down: fade-down 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  --animate-fade-left: fade-left 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  --animate-fade-right: fade-right 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  --animate-zoom-in: zoom-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  --animate-zoom-out: zoom-out 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  --animate-scale-in: scale-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  --animate-slide-up: slide-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  --animate-flip-up: flip-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+  /* Interactive animations */
+  --animate-button-press: button-press 0.1s cubic-bezier(0.4, 0, 1, 1);
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-wiggle: wiggle 0.5s ease-in-out;
+  --animate-bounce-gentle: bounce-gentle 0.6s ease-in-out;
 }
 
 @keyframes float {
@@ -157,6 +171,51 @@
   }
 }
 
+/* Interactive animation keyframes */
+@keyframes button-press {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes bounce-gentle {
+  0%,
+  100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-10px);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
 /* Accessibility: Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -211,4 +270,68 @@
 
 .will-change-transform-opacity {
   will-change: transform, opacity;
+}
+
+/* View Transitions API animations - Next.js 15 experimental.viewTransition */
+@supports (view-transition-name: none) {
+  /* Default root transition for all page navigations */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  ::view-transition-old(root) {
+    animation-name: view-fade-out, view-slide-out;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: view-fade-in, view-slide-in;
+  }
+
+  /* Smooth fade transition */
+  @keyframes view-fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes view-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Subtle slide effect */
+  @keyframes view-slide-out {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes view-slide-in {
+    from {
+      transform: translateY(10px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none !important;
+    }
+  }
 }

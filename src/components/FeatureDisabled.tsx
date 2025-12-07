@@ -1,9 +1,10 @@
-import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+'use client'
+import { useLocale } from 'next-intl'
+import Link from 'next/link'
 
 export default function FeatureDisabled() {
-  const { t, i18n } = useTranslation()
-  const langPrefix = i18n.language === 'en' ? '' : `/${i18n.language}`
+  const locale = useLocale()
+  const langPrefix = locale === 'en' ? '' : `/${locale}`
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-gray-50">
@@ -24,17 +25,13 @@ export default function FeatureDisabled() {
             />
           </svg>
         </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          {t('errors.featureDisabled.title', 'Feature Unavailable')}
-        </h1>
-        <p className="text-lg text-gray-600 mb-8">
-          {t('errors.featureDisabled.description', 'This feature is currently not available.')}
-        </p>
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">Feature Unavailable</h1>
+        <p className="text-lg text-gray-600 mb-8">This feature is currently not available.</p>
         <Link
-          to={`${langPrefix}/`}
+          href={`${langPrefix}/`}
           className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors duration-200"
         >
-          {t('errors.featureDisabled.goHome', 'Go to Homepage')}
+          Go to Homepage
         </Link>
       </div>
     </div>

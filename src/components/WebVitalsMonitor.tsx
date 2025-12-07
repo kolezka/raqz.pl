@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 import { onCLS, onINP, onLCP, onFCP, onTTFB, type Metric } from 'web-vitals'
 
@@ -43,7 +45,7 @@ export default function WebVitalsMonitor() {
 
   useEffect(() => {
     // Only run in development
-    if (!import.meta.env.DEV) return
+    if (process.env.NODE_ENV === 'production') return
 
     const handleMetric = (metric: Metric) => {
       setVitals(prev => {
@@ -82,7 +84,7 @@ export default function WebVitalsMonitor() {
   }, [])
 
   // Don't render in production
-  if (!import.meta.env.DEV) return null
+  if (process.env.NODE_ENV === 'production') return null
 
   if (!isVisible) {
     return (

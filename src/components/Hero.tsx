@@ -1,9 +1,11 @@
+'use client'
+
 /* eslint-disable react-hooks/refs */
-import { useTranslation } from 'react-i18next'
+import { useTranslations } from 'next-intl'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 export default function Hero() {
-  const { t } = useTranslation()
+  const t = useTranslations()
 
   const titleAnimation = useScrollAnimation<HTMLHeadingElement>('fade-up', { delay: 0 })
   const subtitleAnimation = useScrollAnimation<HTMLParagraphElement>('fade-up', { delay: 100 })

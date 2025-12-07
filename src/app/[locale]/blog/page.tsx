@@ -1,48 +1,30 @@
-import { useParams } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import {
-  useBlogPosts,
-  usePostsByCategory,
-  usePostsByTag,
-  useFeaturedPosts,
-} from '../hooks/useBlogPosts'
-import BlogCard from '../components/blog/BlogCard'
-import SEOHead from '../components/SEOHead'
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { FEATURES } from '../config/features'
+'use client'
+
+import { useLocale, useTranslations } from 'next-intl'
+import { useBlogPosts, useFeaturedPosts } from '@/hooks/useBlogPosts'
+import BlogCard from '@/components/blog/BlogCard'
+import SEOHead from '@/components/SEOHead'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { FEATURES } from '@/config/features'
 
 export default function BlogListPage() {
-  const { category, tag } = useParams<{ category?: string; tag?: string }>()
-  const { t, i18n } = useTranslation()
-  const language = i18n.language as 'en' | 'pl'
+  const t = useTranslations()
+  const locale = useLocale()
+  const language = locale as 'en' | 'pl'
   const { ref: titleRef } = useScrollAnimation<HTMLDivElement>('fade-up')
 
-  // Load posts based on filters
+  // Load posts
   const { posts: allPosts, loading: allLoading } = useBlogPosts(language)
-  const { posts: categoryPosts, loading: categoryLoading } = usePostsByCategory(
-    category || '',
-    language
-  )
-  const { posts: tagPosts, loading: tagLoading } = usePostsByTag(tag || '', language)
   const { posts: featuredPosts } = useFeaturedPosts(language, 3)
 
-  // Determine which posts to display
-  const posts = category ? categoryPosts : tag ? tagPosts : allPosts
-  const loading = category ? categoryLoading : tag ? tagLoading : allLoading
+  const posts = allPosts
+  const loading = allLoading
 
   // Page title
-  const pageTitle = category
-    ? `${category} ${t('blog.articles', 'Articles')}`
-    : tag
-      ? `#${tag} ${t('blog.articles', 'Articles')}`
-      : t('blog.title', 'Blog')
+  const pageTitle = t('blog.title')
 
   // SEO description
-  const description = category
-    ? `${t('blog.browseCategory', 'Browse all articles in')} ${category}`
-    : tag
-      ? `${t('blog.browseTag', 'Browse all articles tagged with')} ${tag}`
-      : t('blog.description', 'Insights, tutorials, and updates from RaqZpl Solutions')
+  const description = t('blog.description')
 
   return (
     <>
@@ -62,23 +44,10 @@ export default function BlogListPage() {
         {/* Main Content */}
         <div className="bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            {/* Filter Info */}
-            {(category || tag) && (
-              <div className="mb-8">
-                <p className="text-gray-600">
-                  {t('blog.showing', 'Showing')}{' '}
-                  <span className="font-semibold">{posts.length}</span>{' '}
-                  {t('blog.articles', 'articles')}
-                </p>
-              </div>
-            )}
-
             {/* Featured Posts (only on main blog page) */}
-            {!category && !tag && featuredPosts.length > 0 && (
+            {featuredPosts.length > 0 && (
               <div className="mb-12">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  {t('blog.featured', 'Featured')}
-                </h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('blog.featured')}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {featuredPosts.map(post => (
                     <BlogCard key={post.slug} post={post} featured />
@@ -94,7 +63,7 @@ export default function BlogListPage() {
                   className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"
                   aria-hidden="true"
                 />
-                <p className="mt-4 text-gray-600">{t('blog.loading', 'Loading articles...')}</p>
+                <p className="mt-4 text-gray-600">{t('blog.loading')}</p>
               </div>
             )}
 
@@ -114,29 +83,20 @@ export default function BlogListPage() {
                     d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 20h.01M12 20a8 8 0 100-16 8 8 0 000 16z"
                   />
                 </svg>
-                <h3 className="mt-2 text-sm font-medium text-gray-900">
-                  {t('blog.noPosts', 'No articles found')}
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">
-                  {t(
-                    'blog.noPostsDescription',
-                    'Try browsing other categories or check back later.'
-                  )}
-                </p>
+                <h3 className="mt-2 text-sm font-medium text-gray-900">{t('blog.noPosts')}</h3>
+                <p className="mt-1 text-sm text-gray-500">{t('blog.noPostsDescription')}</p>
               </div>
             )}
 
             {/* All Posts Grid */}
             {FEATURES.SHOW_ALL_BLOG_POSTS && !loading && posts.length > 0 && (
               <div>
-                {!category && !tag && featuredPosts.length > 0 && (
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                    {t('blog.allPosts', 'All Posts')}
-                  </h2>
+                {featuredPosts.length > 0 && (
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('blog.allPosts')}</h2>
                 )}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {posts
-                    .filter(post => (!category && !tag ? !post.featured : true))
+                    .filter(post => !post.featured)
                     .map(post => (
                       <BlogCard key={post.slug} post={post} />
                     ))}

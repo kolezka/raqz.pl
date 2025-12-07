@@ -1,41 +1,20 @@
-import i18n from 'i18next'
-import { initReactI18next } from 'react-i18next'
-import LanguageDetector from 'i18next-browser-languagedetector'
+import { getRequestConfig } from 'next-intl/server'
+import { notFound } from 'next/navigation'
 
-import translationEN from './locales/en.json'
-import translationPL from './locales/pl.json'
+export const locales = ['en', 'pl'] as const
+export type Locale = (typeof locales)[number]
 
-const resources = {
-  en: {
-    translation: translationEN,
-  },
-  pl: {
-    translation: translationPL,
-  },
-}
+export default getRequestConfig(async ({ requestLocale }) => {
+  // Await the locale as per next-intl 3.22+ requirements
+  const locale = await requestLocale
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources,
-    fallbackLng: 'en',
-    debug: import.meta.env.DEV,
+  // Validate that the incoming `locale` parameter is valid
+  if (!locale || !locales.includes(locale as Locale)) notFound()
 
-    detection: {
-      order: ['path', 'localStorage', 'navigator', 'htmlTag'],
-      lookupFromPathIndex: 0,
-    },
-
-    interpolation: {
-      escapeValue: false,
-    },
-
-    supportedLngs: ['en', 'pl'],
-
-    react: {
-      useSuspense: false,
-    },
-  })
-
-export default i18n
+  return {
+    locale,
+    messages: (await import(`./messages/${locale}.json`)).default,
+    timeZone: 'Europe/Warsaw',
+    now: new Date(),
+  }
+})

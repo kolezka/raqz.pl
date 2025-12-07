@@ -1,5 +1,7 @@
-import { useTranslation } from 'react-i18next'
+'use client'
+
 import { useEffect } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
 
 interface SEOHeadProps {
   title?: string
@@ -9,7 +11,8 @@ interface SEOHeadProps {
 }
 
 export default function SEOHead({ title, description, keywords, path = '' }: SEOHeadProps) {
-  const { t, i18n } = useTranslation()
+  const locale = useLocale()
+  const t = useTranslations()
 
   const defaultTitle = t('meta.title')
   const defaultDescription = t('meta.description')
@@ -65,7 +68,7 @@ export default function SEOHead({ title, description, keywords, path = '' }: SEO
 
     // Construct URLs
     const baseUrl = window.location.origin
-    const langPrefix = i18n.language === 'en' ? '' : `/${i18n.language}`
+    const langPrefix = locale === 'en' ? '' : `/${locale}`
     const canonicalUrl = `${baseUrl}${langPrefix}${path}`
 
     // Set canonical URL
@@ -81,13 +84,13 @@ export default function SEOHead({ title, description, keywords, path = '' }: SEO
     setPropertyTag('og:description', pageDescription)
     setPropertyTag('og:url', canonicalUrl)
     setPropertyTag('og:type', 'website')
-    setPropertyTag('og:locale', i18n.language === 'pl' ? 'pl_PL' : 'en_US')
+    setPropertyTag('og:locale', locale === 'pl' ? 'pl_PL' : 'en_US')
 
     // Set Twitter Card tags
     setMetaTag('twitter:card', 'summary_large_image')
     setMetaTag('twitter:title', pageTitle)
     setMetaTag('twitter:description', pageDescription)
-  }, [pageTitle, pageDescription, pageKeywords, i18n.language, path])
+  }, [pageTitle, pageDescription, pageKeywords, locale, path])
 
   return null
 }

@@ -1,45 +1,39 @@
 {
-    "version": "https://jsonfeed.org/version/1",
-    "title": "RaqZpl Solutions Blog",
-    "home_page_url": "https://raqz.pl/blog",
-    "feed_url": "https://raqz.pl/feed.json",
-    "description": "Insights, tutorials, and updates from RaqZpl Solutions",
-    "author": {
-        "name": "RaqZpl Solutions",
-        "url": "https://raqz.pl"
+  "version": "https://jsonfeed.org/version/1",
+  "title": "RaqZpl Solutions Blog",
+  "home_page_url": "https://raqz.pl/blog",
+  "feed_url": "https://raqz.pl/feed.json",
+  "description": "Insights, tutorials, and updates from RaqZpl Solutions",
+  "author": {
+    "name": "RaqZpl Solutions",
+    "url": "https://raqz.pl"
+  },
+  "items": [
+    {
+      "id": "https://raqz.pl/blog/modern-web-development-2025",
+      "content_html": "Explore the latest trends in web development for 2025, including React 19, TypeScript advances, and modern build tools.",
+      "url": "https://raqz.pl/blog/modern-web-development-2025",
+      "title": "Modern Web Development in 2025: Trends and Best Practices",
+      "summary": "A comprehensive guide to modern web development practices, frameworks, and tools that are shaping the industry in 2025.",
+      "image": "https://raqz.pl/images/blog/web-dev-2025.jpg",
+      "date_modified": "2025-12-01T00:00:00.000Z",
+      "author": {
+        "name": "RaqZpl Team"
+      },
+      "tags": ["Web Development", "Technology"]
     },
-    "items": [
-        {
-            "id": "https://raqz.pl/blog/modern-web-development-2025",
-            "content_html": "Explore the latest trends in web development for 2025, including React 19, TypeScript advances, and modern build tools.",
-            "url": "https://raqz.pl/blog/modern-web-development-2025",
-            "title": "Modern Web Development in 2025: Trends and Best Practices",
-            "summary": "A comprehensive guide to modern web development practices, frameworks, and tools that are shaping the industry in 2025.",
-            "image": "https://raqz.pl/images/blog/web-dev-2025.jpg",
-            "date_modified": "2025-12-01T00:00:00.000Z",
-            "author": {
-                "name": "RaqZpl Team"
-            },
-            "tags": [
-                "Web Development",
-                "Technology"
-            ]
-        },
-        {
-            "id": "https://raqz.pl/blog/getting-started-with-ai-automation",
-            "content_html": "Learn how to implement AI automation in your business workflows with practical examples and best practices.",
-            "url": "https://raqz.pl/blog/getting-started-with-ai-automation",
-            "title": "Getting Started with AI Automation in Your Business",
-            "summary": "Discover the fundamentals of AI automation and how it can transform your business operations, increase efficiency, and reduce costs.",
-            "image": "https://raqz.pl/images/blog/ai-automation.jpg",
-            "date_modified": "2025-11-15T00:00:00.000Z",
-            "author": {
-                "name": "RaqZpl Team"
-            },
-            "tags": [
-                "AI & Machine Learning",
-                "Automation"
-            ]
-        }
-    ]
+    {
+      "id": "https://raqz.pl/blog/getting-started-with-ai-automation",
+      "content_html": "Learn how to implement AI automation in your business workflows with practical examples and best practices.",
+      "url": "https://raqz.pl/blog/getting-started-with-ai-automation",
+      "title": "Getting Started with AI Automation in Your Business",
+      "summary": "Discover the fundamentals of AI automation and how it can transform your business operations, increase efficiency, and reduce costs.",
+      "image": "https://raqz.pl/images/blog/ai-automation.jpg",
+      "date_modified": "2025-11-15T00:00:00.000Z",
+      "author": {
+        "name": "RaqZpl Team"
+      },
+      "tags": ["AI & Machine Learning", "Automation"]
+    }
+  ]
 }

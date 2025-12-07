@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://raqz.pl
+
+# Sitemaps
+Sitemap: https://raqz.pl/server-sitemap.xml

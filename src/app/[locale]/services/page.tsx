@@ -1,8 +1,10 @@
 import { RiCodeLine, RiServerLine, RiCpuLine, RiToolsLine, RiRobotLine } from 'react-icons/ri'
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import servicesData from '../data/services.json'
-import SEOHead from '../components/SEOHead'
+import Link from 'next/link'
+import { useTranslations, useMessages } from 'next-intl'
+import servicesData from '@/data/services.json'
+import SEOHead from '@/components/SEOHead'
+
+export { generateServicesMetadata as generateMetadata } from '@/lib/generateServicesMetadata'
 
 const iconMap = {
   CodeBracketIcon: RiCodeLine,
@@ -12,9 +14,17 @@ const iconMap = {
   RobotIcon: RiRobotLine,
 }
 
+interface ServiceDetailsMessages {
+  serviceDetails?: {
+    [key: string]: {
+      features?: string[]
+    }
+  }
+}
+
 export default function AllServicesPage() {
-  const { t, i18n } = useTranslation()
-  const langPrefix = i18n.language === 'en' ? '' : `/${i18n.language}`
+  const t = useTranslations()
+  const messages = useMessages() as ServiceDetailsMessages
 
   return (
     <div className="bg-white pt-20">
@@ -44,7 +54,7 @@ export default function AllServicesPage() {
                     {t(`serviceCategories.${category.id}`)}
                   </h2>
                   <p className="mt-4 text-lg leading-8 text-gray-600">
-                    {t(`servicesDropdown.categories.${category.id}.description`)}
+                    {t(`navigation.servicesDropdown.categories.${category.id}.description`)}
                   </p>
                 </div>
 
@@ -56,44 +66,33 @@ export default function AllServicesPage() {
                     >
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900">
-                          {t(`servicesDropdown.services.${service.id}.name`)}
+                          {t(`navigation.servicesDropdown.services.${service.id}.name`)}
                         </h3>
                         <p className="mt-2 text-sm text-gray-600">
-                          {t(`servicesDropdown.services.${service.id}.shortDescription`)}
+                          {t(`navigation.servicesDropdown.services.${service.id}.shortDescription`)}
                         </p>
 
                         <div className="mt-4">
-                          <h4 className="text-sm font-medium text-gray-900">
+                          <h4 className="text-sm font-semibold text-gray-900">
                             {t('services.keyFeatures')}
                           </h4>
                           <ul className="mt-2 text-sm text-gray-600">
-                            {(
-                              t(`serviceDetails.${service.id}.features`, {
-                                returnObjects: true,
-                              }) as string[]
-                            )
-                              .slice(0, 3)
+                            {messages.serviceDetails?.[service.id]?.features
+                              ?.slice(0, 3)
                               .map((feature: string, index: number) => (
                                 <li key={index} className="flex items-center">
                                   <span className="mr-2">•</span>
                                   {feature}
                                 </li>
                               ))}
-                            {(
-                              t(`serviceDetails.${service.id}.features`, {
-                                returnObjects: true,
-                              }) as string[]
-                            ).length > 3 && (
-                              <li className="text-gray-400">
-                                +{' '}
-                                {(
-                                  t(`serviceDetails.${service.id}.features`, {
-                                    returnObjects: true,
-                                  }) as string[]
-                                ).length - 3}{' '}
-                                {t('services.more')}
-                              </li>
-                            )}
+                            {messages.serviceDetails?.[service.id]?.features &&
+                              messages.serviceDetails?.[service.id]?.features &&
+                              messages.serviceDetails[service.id]!.features!.length > 3 && (
+                                <li className="text-gray-400">
+                                  + {messages.serviceDetails[service.id]!.features!.length - 3}{' '}
+                                  {t('services.more')}
+                                </li>
+                              )}
                           </ul>
                         </div>
 
@@ -114,9 +113,8 @@ export default function AllServicesPage() {
                         </div>
 
                         <div className="mt-6 flex items-center justify-between">
-                          {/* <p className="text-sm font-medium text-primary-600">{t(`serviceDetails.${service.id}.pricing`)}</p> */}
                           <Link
-                            to={`${langPrefix}/services/${service.id}`}
+                            href={`/services/${service.id}`}
                             className="text-sm font-semibold leading-6 text-primary-600 hover:text-primary-500"
                           >
                             {t('services.learnMore')} <span aria-hidden="true">→</span>
@@ -144,12 +142,12 @@ export default function AllServicesPage() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
-                href={`${langPrefix}/#contact`}
+                href="/#contact"
                 className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-primary-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 {t('navigation.contact')}
               </a>
-              <Link to={`${langPrefix}/`} className="text-sm font-semibold leading-6 text-white">
+              <Link href="/" className="text-sm font-semibold leading-6 text-white">
                 {t('hero.learnMore')} <span aria-hidden="true">→</span>
               </Link>
             </div>

@@ -1,20 +1,14 @@
 import { useState, useEffect } from 'react'
+import blogIndexData from '@/data/blog-index.json'
 
 export interface BlogPostData {
   Component: React.ComponentType | null
   frontmatter?: Record<string, unknown>
 }
 
-// Use glob import to pre-define all MDX modules
-// Vite needs this at build time - using @content alias from vite.config
-const allPosts = import.meta.glob<{
-  default: React.ComponentType
-  frontmatter?: Record<string, unknown>
-}>('@content/blog/**/*.mdx')
-
 /**
  * Dynamically load MDX blog post component
- * Uses Vite's glob import for optimal build performance
+ * Uses the blog index to find the correct file path
  */
 export function useBlogPost(slug: string, language: string) {
   const [post, setPost] = useState<BlogPostData | null>(null)
@@ -32,17 +26,13 @@ export function useBlogPost(slug: string, language: string) {
       }
 
       console.log('🔍 Loading MDX for slug:', slug, 'language:', language)
-      console.log('📁 Available posts:', Object.keys(allPosts))
 
-      // Find matching post in glob imports
-      const matchingKey = Object.keys(allPosts).find(key => {
-        const languageMatch = key.includes(`/blog/${language}/`)
-        const slugMatch = key.includes(`-${slug}.mdx`) || key.endsWith(`/${slug}.mdx`)
-        return languageMatch && slugMatch
-      })
+      // Find the post in the blog index
+      const posts = blogIndexData[language as 'en' | 'pl']
+      const postMeta = posts?.find(p => p.slug === slug)
 
-      if (!matchingKey) {
-        console.error('❌ Could not find MDX file for slug:', slug, 'language:', language)
+      if (!postMeta) {
+        console.error('❌ Could not find post in blog index:', slug, language)
         if (isMounted) {
           setError('Post not found')
           setPost(null)
@@ -51,10 +41,37 @@ export function useBlogPost(slug: string, language: string) {
         return
       }
 
-      console.log('✅ Found matching file:', matchingKey)
-
       try {
-        const module = await allPosts[matchingKey]()
+        // Construct the file name from date and slug
+        // File format: YYYY-MM-slug.mdx
+        const date = new Date(postMeta.date)
+        const year = date.getFullYear()
+        const month = String(date.getMonth() + 1).padStart(2, '0')
+        const fileName = `${year}-${month}-${slug}`
+
+        // Import all possible MDX files statically to satisfy webpack
+        const modules: Record<
+          string,
+          () => Promise<{ default: React.ComponentType; frontmatter?: Record<string, unknown> }>
+        > = {
+          'en/2025-12-modern-web-development-2025': () =>
+            import('@/content/blog/en/2025-12-modern-web-development-2025.mdx'),
+          'en/2025-11-getting-started-with-ai-automation': () =>
+            import('@/content/blog/en/2025-11-getting-started-with-ai-automation.mdx'),
+          'pl/2025-12-nowoczesny-rozwoj-web-2025': () =>
+            import('@/content/blog/pl/2025-12-nowoczesny-rozwoj-web-2025.mdx'),
+          'pl/2025-11-wprowadzenie-do-automatyzacji-ai': () =>
+            import('@/content/blog/pl/2025-11-wprowadzenie-do-automatyzacji-ai.mdx'),
+        }
+
+        const moduleKey = `${language}/${fileName}`
+        const moduleLoader = modules[moduleKey]
+
+        if (!moduleLoader) {
+          throw new Error(`Module not found for: ${moduleKey}`)
+        }
+
+        const module = await moduleLoader()
 
         if (isMounted) {
           setPost({
@@ -67,7 +84,7 @@ export function useBlogPost(slug: string, language: string) {
       } catch (err) {
         console.error('❌ Error loading MDX:', err)
         if (isMounted) {
-          setError('Failed to load post')
+          setError('Post not found')
           setPost(null)
           setLoading(false)
         }

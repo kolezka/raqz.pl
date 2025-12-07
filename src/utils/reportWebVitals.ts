@@ -73,7 +73,7 @@ function sendToAnalytics(metric: Metric) {
   }
 
   // Send to custom analytics endpoint
-  if (import.meta.env.VITE_ANALYTICS_ENDPOINT) {
+  if (process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT) {
     const body = JSON.stringify({
       name: metric.name,
       value: metric.value,
@@ -86,9 +86,9 @@ function sendToAnalytics(metric: Metric) {
 
     // Use sendBeacon if available for better reliability
     if (navigator.sendBeacon) {
-      navigator.sendBeacon(import.meta.env.VITE_ANALYTICS_ENDPOINT, body)
+      navigator.sendBeacon(process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT, body)
     } else {
-      fetch(import.meta.env.VITE_ANALYTICS_ENDPOINT, {
+      fetch(process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT, {
         method: 'POST',
         body,
         headers: { 'Content-Type': 'application/json' },
@@ -105,12 +105,12 @@ function sendToAnalytics(metric: Metric) {
 export function reportWebVitals() {
   const handleMetric = (metric: Metric) => {
     // Log in development
-    if (import.meta.env.DEV) {
+    if (process.env.NODE_ENV === 'development') {
       logMetric(metric)
     }
 
     // Send to analytics in production
-    if (import.meta.env.PROD) {
+    if (process.env.NODE_ENV === 'production') {
       sendToAnalytics(metric)
     }
   }

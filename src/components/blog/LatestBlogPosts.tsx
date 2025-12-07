@@ -1,12 +1,15 @@
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+'use client'
+import { useLocale, useTranslations } from 'next-intl'
+
+import Link from 'next/link'
 import { useBlogPosts } from '../../hooks/useBlogPosts'
 import BlogCard from './BlogCard'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 
 export default function LatestBlogPosts() {
-  const { t, i18n } = useTranslation()
-  const language = i18n.language as 'en' | 'pl'
+  const locale = useLocale()
+  const t = useTranslations()
+  const language = locale as 'en' | 'pl'
   const { posts, loading } = useBlogPosts(language)
   const { ref: titleRef, className: animationClass } = useScrollAnimation<HTMLDivElement>('fade-up')
 
@@ -26,11 +29,9 @@ export default function LatestBlogPosts() {
         {/* Section Header */}
         <div ref={titleRef} className={`text-center mb-12 ${animationClass}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            {t('blog.latestPosts', 'Latest from the Blog')}
+            {t('blog.latestFromBlog')}
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            {t('blog.latestDescription', 'Insights, tutorials, and updates from our team')}
-          </p>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t('blog.description')}</p>
         </div>
 
         {/* Blog Cards Grid */}
@@ -43,10 +44,10 @@ export default function LatestBlogPosts() {
         {/* View All Link */}
         <div className="text-center">
           <Link
-            to={blogUrl}
+            href={blogUrl}
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors duration-200"
           >
-            {t('blog.viewAllPosts', 'View All Posts')}
+            {t('blog.viewAllPosts')}
             <svg
               className="ml-2 -mr-1 w-5 h-5"
               fill="none"

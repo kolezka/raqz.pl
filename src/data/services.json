@@ -43,6 +43,22 @@
           ],
           "technologies": ["WalletConnect", "Ethereum", "Solana", "gRPC", "GO"],
           "pricing": "Starting from $8,000"
+        },
+        {
+          "id": "legacy-refactoring",
+          "name": "Legacy System Refactoring",
+          "shortDescription": "Modernize legacy systems",
+          "description": "Transform outdated legacy systems into modern, scalable applications.",
+          "features": [
+            "Code modernization",
+            "Architecture restructuring",
+            "Technology stack upgrades",
+            "Performance optimization",
+            "Technical documentation",
+            "Data migration"
+          ],
+          "technologies": ["React", "Node.js", "Python", "Docker", "Kubernetes"],
+          "pricing": "Starting from $4,000"
         }
       ]
     },
@@ -204,6 +220,22 @@
           ],
           "technologies": ["Redis", "Memcached", "Nginx", "Apache", "MongoDB"],
           "pricing": "Starting from $2,000"
+        },
+        {
+          "id": "migrations",
+          "name": "Platform Migrations",
+          "shortDescription": "Secure platform and database migrations",
+          "description": "Safe and efficient migrations without downtime.",
+          "features": [
+            "Cloud platform migrations",
+            "Database migrations",
+            "Application modernization",
+            "Legacy system upgrades",
+            "Data migration and validation",
+            "Rollback and disaster recovery"
+          ],
+          "technologies": ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "ETL"],
+          "pricing": "Starting from $3,000"
         }
       ]
     },

@@ -1,7 +1,9 @@
+'use client'
+
 /* eslint-disable react-hooks/refs */
 import { RiCodeLine, RiServerLine, RiCpuLine, RiToolsLine, RiRobotLine } from 'react-icons/ri'
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { memo } from 'react'
 import servicesData from '../data/services.json'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
@@ -17,7 +19,8 @@ const iconMap = {
 } as const
 
 export default memo(function Services() {
-  const { t } = useTranslation()
+  const t = useTranslations()
+  const tNav = useTranslations('navigation')
 
   const headerAnimation = useScrollAnimation<HTMLDivElement>('fade-up')
   const staggerStyles = useStaggerAnimation(servicesData.serviceCategories.length, {
@@ -46,9 +49,8 @@ export default memo(function Services() {
               const IconComponent = iconMap[category.icon as keyof typeof iconMap]
 
               return (
-                <Link to="/services">
+                <Link key={category.id} href="/services">
                   <div
-                    key={category.id}
                     className="group relative p-4 pl-16 hover:scale-105 transition-transform"
                     style={staggerStyles[index]}
                   >
@@ -59,7 +61,7 @@ export default memo(function Services() {
                       {t(`serviceCategories.${category.id}`)}
                     </dt>
                     <dd className="mt-2 text-base leading-7 text-gray-600">
-                      {t(`servicesDropdown.categories.${category.id}.description`)}
+                      {tNav(`servicesDropdown.categories.${category.id}.description`)}
                     </dd>
                   </div>
                 </Link>
@@ -70,7 +72,7 @@ export default memo(function Services() {
 
         <div ref={ctaAnimation.ref} className={`text-center ${ctaAnimation.className}`}>
           <Link
-            to="/services"
+            href="/services"
             className="rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95 inline-block"
           >
             {t('services.viewAll')}

@@ -9,25 +9,15 @@
       "excerpt": "A comprehensive guide to modern web development practices, frameworks, and tools that are shaping the industry in 2025.",
       "coverImage": "/images/blog/web-dev-2025.jpg",
       "coverImageAlt": "Modern web development workspace",
-      "categories": [
-        "Web Development",
-        "Technology"
-      ],
-      "tags": [
-        "react",
-        "typescript",
-        "vite",
-        "web-development"
-      ],
+      "categories": ["Web Development", "Technology"],
+      "tags": ["react", "typescript", "vite", "web-development"],
       "featured": true,
       "published": true,
       "readingTime": "4",
       "seo": {
         "keywords": "web development 2025, React 19, TypeScript, Vite, modern frameworks"
       },
-      "relatedPosts": [
-        "getting-started-with-ai-automation"
-      ],
+      "relatedPosts": ["getting-started-with-ai-automation"],
       "language": "en"
     },
     {
@@ -40,25 +30,15 @@
       "excerpt": "Discover the fundamentals of AI automation and how it can transform your business operations, increase efficiency, and reduce costs.",
       "coverImage": "/images/blog/ai-automation.jpg",
       "coverImageAlt": "AI automation workflow diagram",
-      "categories": [
-        "AI & Machine Learning",
-        "Automation"
-      ],
-      "tags": [
-        "ai",
-        "automation",
-        "business",
-        "productivity"
-      ],
+      "categories": ["AI & Machine Learning", "Automation"],
+      "tags": ["ai", "automation", "business", "productivity"],
       "featured": true,
       "published": true,
       "readingTime": "3",
       "seo": {
         "keywords": "AI automation, business automation, AI agents, workflow automation, artificial intelligence"
       },
-      "relatedPosts": [
-        "modern-web-development-2025"
-      ],
+      "relatedPosts": ["modern-web-development-2025"],
       "language": "en"
     }
   ],
@@ -72,25 +52,15 @@
       "excerpt": "Kompleksowy przewodnik po nowoczesnych praktykach rozwoju web, frameworkach i narzędziach kształtujących branżę w 2025 roku.",
       "coverImage": "/images/blog/web-dev-2025.jpg",
       "coverImageAlt": "Nowoczesne środowisko pracy dewelopera web",
-      "categories": [
-        "Web Development",
-        "Technology"
-      ],
-      "tags": [
-        "react",
-        "typescript",
-        "vite",
-        "rozwoj-web"
-      ],
+      "categories": ["Web Development", "Technology"],
+      "tags": ["react", "typescript", "vite", "rozwoj-web"],
       "featured": true,
       "published": true,
       "readingTime": "4",
       "seo": {
         "keywords": "rozwój web 2025, React 19, TypeScript, Vite, nowoczesne frameworki"
       },
-      "relatedPosts": [
-        "wprowadzenie-do-automatyzacji-ai"
-      ],
+      "relatedPosts": ["wprowadzenie-do-automatyzacji-ai"],
       "language": "pl"
     },
     {
@@ -103,25 +73,15 @@
       "excerpt": "Odkryj podstawy automatyzacji AI i zobacz, jak może przekształcić operacje biznesowe, zwiększyć efektywność i obniżyć koszty.",
       "coverImage": "/images/blog/ai-automation.jpg",
       "coverImageAlt": "Diagram przepływu pracy automatyzacji AI",
-      "categories": [
-        "AI & Machine Learning",
-        "Automation"
-      ],
-      "tags": [
-        "ai",
-        "automatyzacja",
-        "biznes",
-        "produktywność"
-      ],
+      "categories": ["AI & Machine Learning", "Automation"],
+      "tags": ["ai", "automatyzacja", "biznes", "produktywność"],
       "featured": true,
       "published": true,
       "readingTime": "3",
       "seo": {
         "keywords": "automatyzacja AI, automatyzacja biznesowa, agenci AI, automatyzacja przepływów pracy, sztuczna inteligencja"
       },
-      "relatedPosts": [
-        "nowoczesny-rozwoj-web-2025"
-      ],
+      "relatedPosts": ["nowoczesny-rozwoj-web-2025"],
       "language": "pl"
     }
   ]

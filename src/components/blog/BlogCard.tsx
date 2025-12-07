@@ -1,5 +1,7 @@
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+'use client'
+
+import Link from 'next/link'
+import { useLocale, useTranslations } from 'next-intl'
 import { format } from 'date-fns'
 import { memo } from 'react'
 import type { BlogPost } from '../../types/blog'
@@ -11,11 +13,11 @@ interface BlogCardProps {
 }
 
 export default memo(function BlogCard({ post, featured = false }: BlogCardProps) {
-  const { t, i18n } = useTranslation()
-  const language = i18n.language as 'en' | 'pl'
+  const locale = useLocale()
+  const t = useTranslations()
   const { ref: scrollRef, className: animationClass } = useScrollAnimation('fade-up')
 
-  const blogUrl = language === 'pl' ? `/pl/blog/${post.slug}` : `/blog/${post.slug}`
+  const blogUrl = locale === 'pl' ? `/pl/blog/${post.slug}` : `/blog/${post.slug}`
   const publishedDate = post.date ? format(new Date(post.date), 'MMM d, yyyy') : ''
 
   return (
@@ -25,7 +27,7 @@ export default memo(function BlogCard({ post, featured = false }: BlogCardProps)
         featured ? 'md:col-span-2 lg:col-span-1' : ''
       }`}
     >
-      <Link to={blogUrl} className="block">
+      <Link href={blogUrl} className="block">
         {/* Cover Image */}
         <div className="relative h-48 overflow-hidden bg-gray-100">
           <img
@@ -40,7 +42,7 @@ export default memo(function BlogCard({ post, featured = false }: BlogCardProps)
           {post.featured && (
             <div className="absolute top-4 right-4">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-600 text-white">
-                {t('blog.featured', 'Featured')}
+                {t('blog.featured')}
               </span>
             </div>
           )}
@@ -91,13 +93,13 @@ export default memo(function BlogCard({ post, featured = false }: BlogCardProps)
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <span>{t('blog.readingTime', '{{time}} min read', { time: post.readingTime })}</span>
+              <span>{t('blog.readingTime', { time: post.readingTime })}</span>
             </div>
           </div>
 
           {/* Read More Link */}
           <div className="mt-4 flex items-center text-primary-600 font-medium group-hover:text-primary-700">
-            <span>{t('blog.readMore', 'Read More')}</span>
+            <span>{t('blog.readMore')}</span>
             <svg
               className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform duration-300"
               fill="none"
