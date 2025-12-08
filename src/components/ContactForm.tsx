@@ -47,7 +47,7 @@ export const ContactForm = () => {
       setErrorMessage(null)
 
       try {
-        const response = await fetch('/api/contact', {
+        const response = await fetch('/api/contact/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -60,6 +60,14 @@ export const ContactForm = () => {
             turnstileToken,
           }),
         })
+
+        // Check if response is JSON
+        const contentType = response.headers.get('content-type')
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error(
+            `Server error: Expected JSON response but got ${contentType}. Status: ${response.status}`
+          )
+        }
 
         const data: ContactFormResponse = await response.json()
 
