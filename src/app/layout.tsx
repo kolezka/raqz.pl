@@ -65,6 +65,9 @@ export const metadata: Metadata = {
     // apple: '/apple-touch-icon.png',
   },
   // manifest: '/site.webmanifest',
+  other: {
+    'view-transition': 'same-origin',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

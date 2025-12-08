@@ -7,6 +7,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import WebVitalsMonitor from '@/components/WebVitalsMonitor'
 import ViewTransitions from '@/components/ViewTransitions'
+import Script from 'next/script'
 
 export function generateStaticParams() {
   return locales.map(locale => ({ locale }))
@@ -30,22 +31,6 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head>
-        {/* Enable View Transitions API */}
-        <meta name="view-transition" content="same-origin" />
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXYH9FJED4" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-CXYH9FJED4');
-            `,
-          }}
-        />
-      </head>
       <body>
         <NextIntlClientProvider messages={messages}>
           <WebVitalsMonitor />
@@ -57,6 +42,19 @@ export default async function LocaleLayout({
             </div>
           </ViewTransitions>
         </NextIntlClientProvider>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-CXYH9FJED4"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CXYH9FJED4');
+          `}
+        </Script>
       </body>
     </html>
   )
