@@ -118,27 +118,30 @@ The development server will start at `http://localhost:3000`
 ## 🌐 Internationalization
 
 The site supports two languages:
+
 - **English** (`en`) - Default locale, accessible at `/`
 - **Polish** (`pl`) - Accessible at `/pl`
 
 ### URL Structure
 
-| Page | English | Polish |
-|------|---------|--------|
-| Homepage | `/` | `/pl` |
+| Page     | English     | Polish         |
+| -------- | ----------- | -------------- |
+| Homepage | `/`         | `/pl`          |
 | Services | `/services` | `/pl/services` |
-| Blog | `/blog` | `/pl/blog` |
-| About | `/#about` | `/pl/#about` |
+| Blog     | `/blog`     | `/pl/blog`     |
+| About    | `/#about`   | `/pl/#about`   |
 
 ### Adding Translations
 
 Edit the translation files in `src/messages/`:
+
 - `en.json` - English translations
 - `pl.json` - Polish translations
 
 ## 📝 Blog System
 
 The blog uses MDX for content with the following features:
+
 - Categories and tags
 - Full-text search
 - Related posts
@@ -151,6 +154,7 @@ Blog posts are indexed in `src/data/blog-index.json` and content can be added as
 ## 🎨 Styling
 
 The project uses Tailwind CSS v4 with a custom color palette:
+
 - Primary colors: Teal/Cyan shades (`primary-*`)
 - Custom animations: fade, slide, zoom, float
 - Responsive utilities
@@ -169,6 +173,7 @@ The project uses Tailwind CSS v4 with a custom color palette:
 ### Feature Flags
 
 Configure features in `src/config/features.ts`:
+
 ```typescript
 export const FEATURES = {
   CONTACT: false,
@@ -182,6 +187,7 @@ export const FEATURES = {
 ### Environment Variables
 
 Create a `.env.local` file:
+
 ```env
 NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_turnstile_key
 NEXT_PUBLIC_GA_TRACKING_ID=your_ga_id
@@ -203,6 +209,7 @@ npm start
 ### Vercel Configuration
 
 The project includes `vercel.json` with:
+
 - Clean URLs enabled
 - Trailing slash support
 - Proper routing configuration
