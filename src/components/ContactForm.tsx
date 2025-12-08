@@ -1,10 +1,11 @@
 'use client'
 
-/* eslint-disable react-hooks/refs */
 import Turnstile from './Turnstile'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useState, useCallback } from 'react'
 import { useTranslations } from 'next-intl'
+import { RiLoader4Line, RiSendPlaneLine, RiCheckboxCircleLine } from 'react-icons/ri'
+import type { ContactFormResponse } from '@/types/contact'
 
 export const ContactForm = () => {
   const t = useTranslations()
@@ -16,6 +17,9 @@ export const ContactForm = () => {
     message: '',
   })
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const formAnimation = useScrollAnimation<HTMLFormElement>('fade-up', {
     delay: 100,
@@ -30,19 +34,55 @@ export const ContactForm = () => {
   )
 
   const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent) => {
       e.preventDefault()
 
       if (!turnstileToken) {
-        alert(t('contact.captchaRequired'))
+        setErrorMessage(t('contact.captchaRequired'))
         return
       }
 
-      alert('Thank you for your message! We will get back to you soon.')
-      setFormData({ name: '', email: '', company: '', message: '' })
-      setTurnstileToken(null)
+      setIsSubmitting(true)
+      setSubmitStatus('idle')
+      setErrorMessage(null)
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.company, // Map company to phone field for API
+            message: formData.message,
+            turnstileToken,
+          }),
+        })
+
+        const data: ContactFormResponse = await response.json()
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'Failed to send message')
+        }
+
+        // Success
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', company: '', message: '' })
+        setTurnstileToken(null)
+        setErrorMessage(null)
+      } catch (error) {
+        // Error
+        setSubmitStatus('error')
+        const message = error instanceof Error ? error.message : 'Failed to send message'
+        setErrorMessage(message)
+        setTurnstileToken(null)
+      } finally {
+        setIsSubmitting(false)
+      }
     },
-    [turnstileToken, t]
+    [formData, turnstileToken, t]
   )
 
   const handleTurnstileVerify = useCallback((token: string) => {
@@ -51,6 +91,7 @@ export const ContactForm = () => {
 
   const handleTurnstileError = useCallback(() => {
     setTurnstileToken(null)
+    setErrorMessage('CAPTCHA verification failed. Please try again.')
   }, [])
 
   const handleTurnstileExpire = useCallback(() => {
@@ -77,7 +118,8 @@ export const ContactForm = () => {
               onChange={handleChange}
               autoComplete="name"
               required
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6"
+              disabled={isSubmitting}
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
         </div>
@@ -94,7 +136,8 @@ export const ContactForm = () => {
               onChange={handleChange}
               autoComplete="email"
               required
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6"
+              disabled={isSubmitting}
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
         </div>
@@ -110,7 +153,8 @@ export const ContactForm = () => {
               value={formData.company}
               onChange={handleChange}
               autoComplete="organization"
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6"
+              disabled={isSubmitting}
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
         </div>
@@ -126,7 +170,8 @@ export const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6"
+              disabled={isSubmitting}
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
         </div>
@@ -138,13 +183,68 @@ export const ContactForm = () => {
           onExpire={handleTurnstileExpire}
         />
       </div>
+
+      {/* Success Message */}
+      {submitStatus === 'success' && (
+        <div className="mt-6 rounded-md bg-green-50 p-4">
+          <div className="flex">
+            <div className="shrink-0">
+              <RiCheckboxCircleLine className="h-5 w-5 text-green-400" aria-hidden="true" />
+            </div>
+            <div className="ml-3">
+              <h3 className="text-sm font-medium text-green-800">
+                {t('contact.dialog.success.title')}
+              </h3>
+              <p className="mt-1 text-sm text-green-700">
+                {t('contact.dialog.success.description')}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Error Message */}
+      {errorMessage && (
+        <div className="mt-6 rounded-md bg-red-50 p-4">
+          <div className="flex">
+            <div className="shrink-0">
+              <svg
+                className="h-5 w-5 text-red-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+            <div className="ml-3">
+              <p className="text-sm font-medium text-red-800">{errorMessage}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="mt-10">
         <button
           type="submit"
-          disabled={!turnstileToken}
-          className="block w-full rounded-md bg-primary-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+          disabled={!turnstileToken || isSubmitting}
+          className="inline-flex w-full items-center justify-center rounded-md bg-primary-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
-          {t('contact.send')}
+          {isSubmitting ? (
+            <>
+              <RiLoader4Line className="animate-spin mr-2 h-5 w-5" aria-hidden="true" />
+              {t('contact.sending')}
+            </>
+          ) : (
+            <>
+              <RiSendPlaneLine className="mr-2 h-5 w-5" aria-hidden="true" />
+              {t('contact.send')}
+            </>
+          )}
         </button>
       </div>
     </form>
