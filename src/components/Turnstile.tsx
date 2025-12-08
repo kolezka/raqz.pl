@@ -15,7 +15,7 @@ export default memo(function Turnstile({ onVerify, onError, onExpire }: Turnstil
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
 
   if (!siteKey) {
-    console.error('Turnstile site key is not configured')
+    console.error('NEXT_PUBLIC_TURNSTILE_SITE_KEY is not configured')
     return null
   }
 

@@ -32,13 +32,13 @@ jobs:
         run: bun install
 
       - name: Check code formatting
-        run: bun format:check
+        run: bun run format:check
 
       - name: Run ESLint
-        run: bun lint
+        run: bun run lint
 
       - name: Build project
-        run: bun build
+        run: bun run build
 
       - name: Upload build artifacts
         if: success()

@@ -175,9 +175,25 @@
     "subtitle": "Ready to start your project? Get in touch with us today.",
     "name": "Name",
     "email": "Email",
+    "phone": "Phone (optional)",
     "message": "Message",
     "send": "Send Message",
-    "captchaRequired": "Please complete the security verification before submitting."
+    "sending": "Sending...",
+    "captchaRequired": "Please complete the security verification before submitting.",
+    "dialog": {
+      "title": "Get in Touch",
+      "subtitle": "Fill out the form below and we'll get back to you within 24 hours.",
+      "close": "Close",
+      "success": {
+        "title": "Message Sent!",
+        "description": "Thank you for reaching out. We'll get back to you soon."
+      },
+      "error": {
+        "title": "Oops! Something went wrong",
+        "description": "Failed to send your message. Please try again.",
+        "retry": "Try Again"
+      }
+    }
   },
   "footer": {
     "description": "Comprehensive IT solutions – app development, AI, blockchain, cloud infrastructure, and 24/7 support for modern, growing businesses.",

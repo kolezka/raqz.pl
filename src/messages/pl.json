@@ -175,9 +175,25 @@
     "subtitle": "Gotowy, aby rozpocząć projekt? Skontaktuj się z nami już dziś.",
     "name": "Imię",
     "email": "Email",
+    "phone": "Telefon (opcjonalnie)",
     "message": "Wiadomość",
     "send": "Wyślij wiadomość",
-    "captchaRequired": "Proszę ukończyć weryfikację bezpieczeństwa przed wysłaniem."
+    "sending": "Wysyłanie...",
+    "captchaRequired": "Proszę ukończyć weryfikację bezpieczeństwa przed wysłaniem.",
+    "dialog": {
+      "title": "Skontaktuj się z nami",
+      "subtitle": "Wypełnij poniższy formularz, a odezwiemy się w ciągu 24 godzin.",
+      "close": "Zamknij",
+      "success": {
+        "title": "Wiadomość wysłana!",
+        "description": "Dziękujemy za kontakt. Wkrótce się odezwiemy."
+      },
+      "error": {
+        "title": "Ups! Coś poszło nie tak",
+        "description": "Nie udało się wysłać wiadomości. Spróbuj ponownie.",
+        "retry": "Spróbuj ponownie"
+      }
+    }
   },
   "footer": {
     "description": "Kompleksowe rozwiązania IT – rozwój aplikacji, AI, blockchain, infrastruktura chmurowa i wsparcie 24/7 dla nowoczesnych, rosnących firm.",
