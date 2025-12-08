@@ -16,9 +16,12 @@ const nextConfig = {
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
+  // Disable streaming metadata for all user agents to ensure meta tags render in <head>
+  // This prevents metadata from being streamed to <body> during SSR
+  htmlLimitedBots: /.*/,
   experimental: {
     mdxRs: false, // Use JS-based MDX for compatibility
-    viewTransition: true
+    viewTransition: true,
   },
 }
 
