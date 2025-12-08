@@ -9,7 +9,7 @@ import type { ContactFormResponse } from '@/types/contact'
 const contactSchema = z.object({
   name: z.string().min(1, 'Name is required').max(100, 'Name is too long'),
   email: z.string().email('Invalid email address').max(255, 'Email is too long'),
-  phone: z.string().max(20, 'Phone number is too long').optional(),
+  phone: z.string().max(100, 'Phone/Company is too long').optional().or(z.literal('')),
   message: z.string().min(1, 'Message is required').max(5000, 'Message is too long'),
   turnstileToken: z.string().min(1, 'CAPTCHA verification is required'),
 })
