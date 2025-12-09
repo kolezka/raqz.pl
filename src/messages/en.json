@@ -382,5 +382,48 @@
       ],
       "pricing": "Starting from 800 PLN/month"
     }
+  },
+  "cookies": {
+    "banner": {
+      "title": "We value your privacy",
+      "description": "We use cookies to enhance your experience, analyze site usage, and improve our services. You can customize your preferences or accept all cookies.",
+      "acceptAll": "Accept All",
+      "rejectAll": "Reject All",
+      "customize": "Customize"
+    },
+    "preferences": {
+      "title": "Cookie Preferences",
+      "subtitle": "Manage your cookie settings and privacy preferences",
+      "description": "We use cookies to provide essential website functionality and to enhance your experience. You can choose which types of cookies to allow.",
+      "savePreferences": "Save Preferences",
+      "acceptAll": "Accept All",
+      "close": "Close",
+      "viewPrivacy": "View Privacy Policy"
+    },
+    "categories": {
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "These cookies are necessary for the website to function properly. They enable basic features like page navigation, language preferences, and access to secure areas. The website cannot function properly without these cookies.",
+        "alwaysActive": "Always Active",
+        "items": "Session management, Language settings, Security features"
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve the website's performance and user experience.",
+        "items": "Google Analytics, Web Vitals, Page views, User behavior"
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "description": "These cookies are used to track visitors across websites to display relevant advertisements. They may be set by us or our advertising partners to build a profile of your interests.",
+        "items": "Advertising platforms, Social media pixels, Retargeting (none currently active)"
+      }
+    },
+    "footer": {
+      "buttonText": "Cookie Settings",
+      "buttonAriaLabel": "Manage cookie preferences"
+    },
+    "success": {
+      "preferencesSaved": "Your preferences have been saved."
+    }
   }
 }

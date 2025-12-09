@@ -382,5 +382,48 @@
       ],
       "pricing": "Ceny od 800 zł/miesiąc"
     }
+  },
+  "cookies": {
+    "banner": {
+      "title": "Szanujemy Twoją prywatność",
+      "description": "Używamy plików cookie, aby poprawić Twoje doświadczenie, analizować korzystanie z witryny i ulepszać nasze usługi.",
+      "acceptAll": "Zaakceptuj",
+      "rejectAll": "Odrzuć",
+      "customize": "Dostosuj"
+    },
+    "preferences": {
+      "title": "Preferencje plików cookie",
+      "subtitle": "Zarządzaj ustawieniami plików cookie i preferencjami prywatności",
+      "description": "Używamy plików cookie, aby zapewnić podstawową funkcjonalność strony i poprawić Twoje doświadczenie. Możesz wybrać, które typy plików cookie chcesz zezwolić.",
+      "savePreferences": "Zapisz preferencje",
+      "acceptAll": "Zaakceptuj wszystkie",
+      "close": "Zamknij",
+      "viewPrivacy": "Zobacz politykę prywatności"
+    },
+    "categories": {
+      "essential": {
+        "title": "Niezbędne pliki cookie",
+        "description": "Te pliki cookie są niezbędne do prawidłowego działania strony. Umożliwiają podstawowe funkcje, takie jak nawigacja po stronie, ustawienia języka i dostęp do bezpiecznych obszarów. Strona nie może działać prawidłowo bez tych plików cookie.",
+        "alwaysActive": "Zawsze aktywne",
+        "items": "Zarządzanie sesją, Ustawienia języka, Funkcje bezpieczeństwa"
+      },
+      "analytics": {
+        "title": "Pliki cookie analityczne",
+        "description": "Te pliki cookie pomagają nam zrozumieć, jak odwiedzający korzystają z naszej strony, zbierając i raportując informacje anonimowo. Pomaga nam to poprawić wydajność strony i doświadczenie użytkownika.",
+        "items": "Google Analytics, Web Vitals, Odsłony stron, Zachowanie użytkowników"
+      },
+      "marketing": {
+        "title": "Pliki cookie marketingowe",
+        "description": "Te pliki cookie są używane do śledzenia odwiedzających w różnych witrynach w celu wyświetlania odpowiednich reklam. Mogą być ustawiane przez nas lub naszych partnerów reklamowych w celu zbudowania profilu Twoich zainteresowań.",
+        "items": "Platformy reklamowe, Piksele mediów społecznościowych, Retargeting (obecnie brak aktywnych)"
+      }
+    },
+    "footer": {
+      "buttonText": "Ustawienia plików cookie",
+      "buttonAriaLabel": "Zarządzaj preferencjami plików cookie"
+    },
+    "success": {
+      "preferencesSaved": "Twoje preferencje zostały zapisane."
+    }
   }
 }

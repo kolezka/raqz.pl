@@ -3,6 +3,7 @@
 /* eslint-disable react-hooks/refs */
 import { useTranslations } from 'next-intl'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import CookieSettingsButton from './CookieSettingsButton'
 
 export default function Footer() {
   const t = useTranslations()
@@ -48,11 +49,14 @@ export default function Footer() {
             </svg>
           </a>
         </div>
-        <div className="flex gap-2 mt-8 md:order-1 md:mt-0">
-          <p className="text-center text-sm  text-gray-300">
-            &copy; {new Date().getFullYear()} raqz.pl
-          </p>
-          <p className="text-right text-sm text-gray-400 ">{t('footer.madeIn')}</p>
+        <div className="flex flex-col gap-3 mt-8 md:order-1 md:mt-0">
+          <CookieSettingsButton />
+          <div className="flex gap-2">
+            <p className="text-center text-sm  text-gray-300">
+              &copy; {new Date().getFullYear()} raqz.pl
+            </p>
+            <p className="text-right text-sm text-gray-400 ">{t('footer.madeIn')}</p>
+          </div>
         </div>
       </div>
     </footer>

@@ -7,6 +7,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import WebVitalsMonitor from '@/components/WebVitalsMonitor'
 import ViewTransitions from '@/components/ViewTransitions'
+import CookieBanner from '@/components/CookieBanner'
 import Script from 'next/script'
 
 export function generateStaticParams() {
@@ -34,6 +35,7 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <WebVitalsMonitor />
+          <CookieBanner />
           <ViewTransitions>
             <div className="min-h-screen flex flex-col">
               <Header />
@@ -42,7 +44,8 @@ export default async function LocaleLayout({
             </div>
           </ViewTransitions>
         </NextIntlClientProvider>
-        {/* Google Analytics */}
+        {/* Google Analytics - Loads immediately for all users.
+            User consent is recorded for transparency and future tracking additions. */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-CXYH9FJED4"
           strategy="afterInteractive"
