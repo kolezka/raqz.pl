@@ -5,6 +5,7 @@ import { useLocale } from 'next-intl'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { RiArrowDownSLine } from 'react-icons/ri'
 import { useRouter, usePathname } from '@/i18n/routing'
+import { useParams } from 'next/navigation'
 import type { Locale } from '@/i18n'
 import servicesData from '@/data/services.json'
 
@@ -19,6 +20,7 @@ function LanguageSwitcherContent({
   open,
   currentLanguage,
   pathname,
+  params,
   locale,
   router,
 }: {
@@ -26,6 +28,7 @@ function LanguageSwitcherContent({
   open: boolean
   currentLanguage: (typeof languages)[number]
   pathname: string
+  params: ReturnType<typeof useParams>
   locale: string
   router: ReturnType<typeof useRouter>
 }) {
@@ -47,11 +50,11 @@ function LanguageSwitcherContent({
     close()
 
     // Special handling for service pages with locale-specific slugs
-    const servicePathMatch = pathname.match(/^\/(uslugi|services)\/([^/]+)\/?$/)
-    if (servicePathMatch) {
-      const currentSlug = servicePathMatch[2]
+    // Check if we're on a service detail page by looking at pathname template and params
+    if (pathname === '/services/[serviceSlug]' && params.serviceSlug) {
+      const currentSlug = params.serviceSlug as string
 
-      // Find the service by current slug
+      // Find the service by current slug (search in current locale)
       let foundService = null
       for (const category of servicesData.serviceCategories) {
         for (const service of category.services) {
@@ -119,6 +122,7 @@ function LanguageSwitcherContent({
 export default memo(function LanguageSwitcher() {
   const locale = useLocale()
   const pathname = usePathname()
+  const params = useParams()
   const router = useRouter()
 
   const currentLanguage = useMemo(
@@ -134,6 +138,7 @@ export default memo(function LanguageSwitcher() {
           open={open}
           currentLanguage={currentLanguage}
           pathname={pathname}
+          params={params}
           locale={locale}
           router={router}
         />
