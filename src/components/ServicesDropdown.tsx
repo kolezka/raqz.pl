@@ -9,10 +9,11 @@ import {
   RiToolsLine,
   RiRobotLine,
 } from 'react-icons/ri'
-import Link from 'next/link'
 import { useTranslations, useLocale } from 'next-intl'
 import { memo, useEffect } from 'react'
+import { Link } from '@/i18n/routing'
 import servicesData from '../data/services.json'
+import type { Locale } from '@/i18n'
 
 // Move iconMap outside component to prevent recreation on every render
 const iconMap = {
@@ -80,11 +81,13 @@ function ServicesDropdownContent({
                 </div>
                 <div className="flex-1">
                   {category.services.map(service => {
-                    const langPrefix = locale === 'en' ? '' : `/${locale}`
                     return (
                       <Link
                         key={service.id}
-                        href={`${langPrefix}/services/${service.id}`}
+                        href={{
+                          pathname: '/services/[serviceSlug]',
+                          params: { serviceSlug: service.slug[locale as Locale] },
+                        }}
                         onClick={() => close()}
                         className="group flex items-center px-4 py-2 text-xs transition-all duration-200 hover:bg-primary-50/60 hover:border-l-2 hover:border-primary-300 focus:bg-primary-50/60 focus:text-gray-900 focus:border-l-2 focus:border-primary-400 text-gray-700"
                       >
@@ -109,7 +112,7 @@ function ServicesDropdownContent({
         </div>
         <div className="w-full border-t border-gray-200/50 bg-linear-to-r from-primary-500 to-primary-600 mt-2">
           <Link
-            href={locale === 'en' ? '/services' : `/${locale}/services`}
+            href="/services"
             onClick={() => close()}
             className="block px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-white/20 focus:bg-white/20"
           >

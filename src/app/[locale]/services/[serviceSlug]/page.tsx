@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import { RiCheckLine } from 'react-icons/ri'
-import { getTranslations, getMessages } from 'next-intl/server'
-import servicesData from '@/data/services.json'
+import { getTranslations, getMessages, getLocale } from 'next-intl/server'
+import { Link } from '@/i18n/routing'
+import { getServiceBySlug } from '@/lib/generateServiceParams'
+import type { Locale } from '@/i18n'
 
 export {
   generateStaticParams,
@@ -20,23 +21,21 @@ interface ServiceDetailsMessages {
 export default async function ServiceDetailPage({
   params,
 }: {
-  params: Promise<{ serviceId: string }>
+  params: Promise<{ serviceSlug: string }>
 }) {
-  const { serviceId } = await params
+  const { serviceSlug } = await params
+  const locale = (await getLocale()) as Locale
   const t = await getTranslations()
   const messages = (await getMessages()) as ServiceDetailsMessages
 
-  const result = servicesData.serviceCategories
-    .flatMap(cat =>
-      cat.services.map(service => (service.id === serviceId ? { service, category: cat } : null))
-    )
-    .find(Boolean)
+  const result = getServiceBySlug(serviceSlug, locale)
 
   if (!result) {
     notFound()
   }
 
   const { service, category } = result
+  const serviceId = service.id
 
   return (
     <div className="bg-white pt-20">
@@ -107,7 +106,7 @@ export default async function ServiceDetailPage({
               <div className="mt-8">
                 <a
                   href="/#contact"
-                  className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+                  className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
                 >
                   {t('serviceDetail.getStarted')}
                 </a>
@@ -129,7 +128,10 @@ export default async function ServiceDetailPage({
               .map(relatedService => (
                 <Link
                   key={relatedService.id}
-                  href={`/services/${relatedService.id}`}
+                  href={{
+                    pathname: '/services/[serviceSlug]',
+                    params: { serviceSlug: relatedService.slug[locale] },
+                  }}
                   className="relative overflow-hidden rounded-lg bg-white px-6 py-8 shadow-sm hover:shadow-md transition-shadow"
                 >
                   <h3 className="text-lg font-semibold text-gray-900">

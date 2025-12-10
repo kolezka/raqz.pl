@@ -2,9 +2,9 @@
 
 /* eslint-disable react-hooks/refs */
 import { RiCodeLine, RiServerLine, RiCpuLine, RiToolsLine, RiRobotLine } from 'react-icons/ri'
-import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { memo } from 'react'
+import { Link } from '@/i18n/routing'
 import servicesData from '../data/services.json'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useStaggerAnimation } from '../hooks/useStaggerAnimation'

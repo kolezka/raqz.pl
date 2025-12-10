@@ -9,9 +9,9 @@ const baseUrl = 'https://raqz.pl'
 export default function sitemap(): MetadataRoute.Sitemap {
   const sitemap: MetadataRoute.Sitemap = []
 
-  // Get all service IDs from the services data
-  const serviceIds = servicesData.serviceCategories.flatMap(category =>
-    category.services.map(service => service.id)
+  // Get all services with their localized slugs
+  const services = servicesData.serviceCategories.flatMap(category =>
+    category.services.map(service => ({ id: service.id, slug: service.slug }))
   )
 
   // Get blog posts for each locale if blog is enabled
@@ -56,17 +56,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Add services pages for each locale
   locales.forEach(locale => {
     // All services page
+    const servicesPath = locale === 'pl' ? 'uslugi' : 'services'
     sitemap.push({
-      url: `${baseUrl}/${locale}/services`,
+      url: `${baseUrl}/${locale}/${servicesPath}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     })
 
-    // Individual service pages
-    serviceIds.forEach(serviceId => {
+    // Individual service pages with localized slugs
+    services.forEach(service => {
+      const serviceSlug = service.slug[locale as keyof typeof service.slug]
       sitemap.push({
-        url: `${baseUrl}/${locale}/services/${serviceId}`,
+        url: `${baseUrl}/${locale}/${servicesPath}/${serviceSlug}`,
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.8,

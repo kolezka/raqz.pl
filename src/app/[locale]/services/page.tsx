@@ -1,7 +1,8 @@
 import { RiCodeLine, RiServerLine, RiCpuLine, RiToolsLine, RiRobotLine } from 'react-icons/ri'
-import Link from 'next/link'
-import { useTranslations, useMessages } from 'next-intl'
+import { getTranslations, getMessages, getLocale } from 'next-intl/server'
+import { Link } from '@/i18n/routing'
 import servicesData from '@/data/services.json'
+import type { Locale } from '@/i18n'
 
 export { generateServicesMetadata as generateMetadata } from '@/lib/generateServicesMetadata'
 
@@ -21,9 +22,10 @@ interface ServiceDetailsMessages {
   }
 }
 
-export default function AllServicesPage() {
-  const t = useTranslations()
-  const messages = useMessages() as ServiceDetailsMessages
+export default async function AllServicesPage() {
+  const t = await getTranslations()
+  const messages = (await getMessages()) as ServiceDetailsMessages
+  const locale = (await getLocale()) as Locale
 
   return (
     <div className="bg-white pt-20">
@@ -112,7 +114,10 @@ export default function AllServicesPage() {
 
                         <div className="mt-6 flex items-center justify-between">
                           <Link
-                            href={`/services/${service.id}`}
+                            href={{
+                              pathname: '/services/[serviceSlug]',
+                              params: { serviceSlug: service.slug[locale] },
+                            }}
                             className="text-sm font-semibold leading-6 text-primary-600 hover:text-primary-500"
                           >
                             {t('services.learnMore')} <span aria-hidden="true">→</span>
@@ -141,7 +146,7 @@ export default function AllServicesPage() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="/#contact"
-                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-primary-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-primary-600 shadow-sm hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 {t('navigation.contact')}
               </a>

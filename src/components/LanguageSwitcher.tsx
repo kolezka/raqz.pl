@@ -2,10 +2,9 @@
 
 import { useMemo, memo, useEffect } from 'react'
 import { useLocale } from 'next-intl'
-import { usePathname } from 'next/navigation'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { RiArrowDownSLine } from 'react-icons/ri'
-import { Link } from '@/i18n/routing'
+import { useRouter, usePathname } from '@/i18n/routing'
 import type { Locale } from '@/i18n'
 
 // Move languages array outside component to prevent recreation on every render
@@ -18,14 +17,16 @@ function LanguageSwitcherContent({
   close,
   open,
   currentLanguage,
-  pathnameWithoutLocale,
+  pathname,
   locale,
+  router,
 }: {
   close: () => void
   open: boolean
   currentLanguage: (typeof languages)[number]
-  pathnameWithoutLocale: string
+  pathname: string
   locale: string
+  router: ReturnType<typeof useRouter>
 }) {
   useEffect(() => {
     if (open) {
@@ -41,6 +42,13 @@ function LanguageSwitcherContent({
     }
   }, [open, close])
 
+  const handleLanguageSwitch = (newLocale: Locale) => {
+    close()
+    // Use replace to switch locale while staying on the same page
+    // @ts-expect-error - pathname can be any string, but router.replace is strictly typed
+    router.replace(pathname, { locale: newLocale })
+  }
+
   return (
     <>
       <PopoverButton className="inline-flex w-full justify-center items-center text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 hover:text-gray-600 focus:outline-none cursor-pointer">
@@ -55,11 +63,10 @@ function LanguageSwitcherContent({
       >
         <div className="py-1">
           {languages.map(language => (
-            <Link
+            <button
               key={language.code}
-              href={pathnameWithoutLocale}
-              locale={language.code}
-              onClick={() => close()}
+              type="button"
+              onClick={() => handleLanguageSwitch(language.code)}
               className={`cursor flex items-center gap-3 w-full px-4 py-2 text-sm transition-all duration-200 hover:bg-primary-50/60 focus:bg-primary-50/60 focus:text-gray-900 text-left ${
                 locale === language.code
                   ? 'bg-primary-50/60 text-primary-600 border-l-2 border-primary-300'
@@ -68,7 +75,7 @@ function LanguageSwitcherContent({
             >
               <span className="text-base">{language.flag}</span>
               <span className="font-medium">{language.name}</span>
-            </Link>
+            </button>
           ))}
         </div>
       </PopoverPanel>
@@ -79,25 +86,12 @@ function LanguageSwitcherContent({
 export default memo(function LanguageSwitcher() {
   const locale = useLocale()
   const pathname = usePathname()
+  const router = useRouter()
 
   const currentLanguage = useMemo(
     () => languages.find(lang => lang.code === locale) || languages[0],
     [locale]
   )
-
-  // Get pathname without locale prefix for use in Link component
-  const pathnameWithoutLocale = useMemo(() => {
-    // If current locale is Polish, remove the /pl prefix
-    if (locale === 'pl' && pathname.startsWith('/pl')) {
-      return pathname.substring(3) || '/'
-    }
-    // If current locale is English and path starts with /en, remove it
-    if (locale === 'en' && pathname.startsWith('/en')) {
-      return pathname.substring(3) || '/'
-    }
-    // Otherwise return as-is
-    return pathname
-  }, [locale, pathname])
 
   return (
     <Popover className="relative inline-block text-left">
@@ -106,8 +100,9 @@ export default memo(function LanguageSwitcher() {
           close={close}
           open={open}
           currentLanguage={currentLanguage}
-          pathnameWithoutLocale={pathnameWithoutLocale}
+          pathname={pathname}
           locale={locale}
+          router={router}
         />
       )}
     </Popover>

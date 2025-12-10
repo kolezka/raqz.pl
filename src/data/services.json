@@ -8,6 +8,10 @@
       "services": [
         {
           "id": "ai-integrations",
+          "slug": {
+            "en": "ai-integrations",
+            "pl": "integracje-ai"
+          },
           "name": "AI Integrations",
           "shortDescription": "Automation, Agents, and Generative AI solutions",
           "description": "Leverage the power of artificial intelligence to automate processes, create intelligent agents, and implement generative AI solutions.",
@@ -30,6 +34,10 @@
         },
         {
           "id": "blockchain-development",
+          "slug": {
+            "en": "blockchain-development",
+            "pl": "rozwoj-blockchain"
+          },
           "name": "Blockchain Development",
           "shortDescription": "Web3 applications, smart contracts, and DeFi solutions",
           "description": "Comprehensive blockchain development services including Web3 authentication, wallet integrations, smart contracts, and decentralized applications across multiple blockchain networks.",
@@ -46,6 +54,10 @@
         },
         {
           "id": "legacy-refactoring",
+          "slug": {
+            "en": "legacy-refactoring",
+            "pl": "refaktoryzacja-systemow"
+          },
           "name": "Legacy System Refactoring",
           "shortDescription": "Modernize legacy systems",
           "description": "Transform outdated legacy systems into modern, scalable applications.",
@@ -70,6 +82,10 @@
       "services": [
         {
           "id": "web-development",
+          "slug": {
+            "en": "web-development",
+            "pl": "tworzenie-stron-www"
+          },
           "name": "Web Development",
           "shortDescription": "Modern web applications with cutting-edge technologies",
           "description": "We build scalable, performant web applications using the latest frameworks and technologies. From simple websites to complex web platforms, we deliver solutions that drive business growth.",
@@ -85,6 +101,10 @@
         },
         {
           "id": "mobile-development",
+          "slug": {
+            "en": "mobile-development",
+            "pl": "aplikacje-mobilne"
+          },
           "name": "Mobile Development",
           "shortDescription": "Native and cross-platform mobile applications",
           "description": "Create powerful mobile applications that provide exceptional user experiences across iOS and Android platforms.",
@@ -100,6 +120,10 @@
         },
         {
           "id": "ecommerce-development",
+          "slug": {
+            "en": "ecommerce-development",
+            "pl": "sklepy-internetowe"
+          },
           "name": "E-Commerce Development",
           "shortDescription": "Complete online store solutions with modern features",
           "description": "Full-featured e-commerce platforms with inventory management, payment processing, and analytics.",
@@ -115,6 +139,10 @@
         },
         {
           "id": "software-development",
+          "slug": {
+            "en": "software-development",
+            "pl": "tworzenie-oprogramowania"
+          },
           "name": "Software Development",
           "shortDescription": "Custom software solutions for enterprise needs",
           "description": "Enterprise-grade software solutions tailored to your specific business requirements and workflow optimization.",
@@ -139,6 +167,10 @@
       "services": [
         {
           "id": "discord-bots",
+          "slug": {
+            "en": "discord-bots",
+            "pl": "boty-discord"
+          },
           "name": "Discord Bots",
           "shortDescription": "Custom Discord bots for automation and engagement",
           "description": "Create powerful Discord bots to automate server management, enhance user engagement, and provide custom functionality for your community.",
@@ -154,6 +186,10 @@
         },
         {
           "id": "telegram-bots",
+          "slug": {
+            "en": "telegram-bots",
+            "pl": "boty-telegram"
+          },
           "name": "Telegram Bots",
           "shortDescription": "Intelligent Telegram bots for business automation",
           "description": "Develop sophisticated Telegram bots for customer support, business automation, and interactive user experiences.",
@@ -170,6 +206,10 @@
         },
         {
           "id": "signal-bots",
+          "slug": {
+            "en": "signal-bots",
+            "pl": "boty-signal"
+          },
           "name": "Signal Bots",
           "shortDescription": "Privacy-focused Signal bots for secure communication",
           "description": "Build secure Signal bots that prioritize privacy while delivering automated messaging and communication features.",
@@ -193,6 +233,10 @@
       "services": [
         {
           "id": "hosting-solutions",
+          "slug": {
+            "en": "hosting-solutions",
+            "pl": "rozwiazania-hostingowe"
+          },
           "name": "Hosting Solutions",
           "shortDescription": "Reliable and scalable hosting infrastructure",
           "description": "Comprehensive hosting solutions from shared hosting to enterprise cloud infrastructure with 99.9% uptime guarantee.",
@@ -208,6 +252,10 @@
         },
         {
           "id": "performance-optimization",
+          "slug": {
+            "en": "performance-optimization",
+            "pl": "optymalizacja-wydajnosci"
+          },
           "name": "Performance Optimization",
           "shortDescription": "Speed up your applications and websites",
           "description": "Comprehensive performance analysis and optimization to ensure your applications run at peak efficiency.",
@@ -223,6 +271,10 @@
         },
         {
           "id": "migrations",
+          "slug": {
+            "en": "migrations",
+            "pl": "migracje-platform"
+          },
           "name": "Platform Migrations",
           "shortDescription": "Secure platform and database migrations",
           "description": "Safe and efficient migrations without downtime.",
@@ -248,6 +300,10 @@
       "services": [
         {
           "id": "maintenance-support",
+          "slug": {
+            "en": "maintenance-support",
+            "pl": "utrzymanie-i-wsparcie"
+          },
           "name": "Maintenance & Support",
           "shortDescription": "Comprehensive ongoing support for your applications",
           "description": "Keep your applications running smoothly with our comprehensive maintenance and support services.",
