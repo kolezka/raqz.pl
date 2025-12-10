@@ -6,6 +6,7 @@ import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { RiArrowDownSLine } from 'react-icons/ri'
 import { useRouter, usePathname } from '@/i18n/routing'
 import type { Locale } from '@/i18n'
+import servicesData from '@/data/services.json'
 
 // Move languages array outside component to prevent recreation on every render
 const languages: readonly { code: Locale; name: string; flag: string }[] = [
@@ -44,7 +45,39 @@ function LanguageSwitcherContent({
 
   const handleLanguageSwitch = (newLocale: Locale) => {
     close()
-    // Use replace to switch locale while staying on the same page
+
+    // Special handling for service pages with locale-specific slugs
+    const servicePathMatch = pathname.match(/^\/(uslugi|services)\/([^/]+)\/?$/)
+    if (servicePathMatch) {
+      const currentSlug = servicePathMatch[2]
+
+      // Find the service by current slug
+      let foundService = null
+      for (const category of servicesData.serviceCategories) {
+        for (const service of category.services) {
+          if (service.slug[locale as Locale] === currentSlug) {
+            foundService = service
+            break
+          }
+        }
+        if (foundService) break
+      }
+
+      if (foundService) {
+        // Navigate to the service page with the correct slug for the new locale
+        const newSlug = foundService.slug[newLocale]
+        router.push(
+          {
+            pathname: '/services/[serviceSlug]',
+            params: { serviceSlug: newSlug },
+          },
+          { locale: newLocale }
+        )
+        return
+      }
+    }
+
+    // For all other pages, use the default behavior
     // @ts-expect-error - pathname can be any string, but router.replace is strictly typed
     router.replace(pathname, { locale: newLocale })
   }
