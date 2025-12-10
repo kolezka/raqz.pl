@@ -19,7 +19,7 @@ export default async function middleware(request: NextRequest) {
 
   // Handle redirects for old Polish service URLs BEFORE intl middleware
   // Match: /pl/services/<english-slug> -> /pl/uslugi/<polish-slug>
-  const plServicesDetailMatch = pathname.match(/^\/pl\/services\/([^\/]+)\/?$/)
+  const plServicesDetailMatch = pathname.match(/^\/pl\/services\/([^/]+)\/?$/)
   if (plServicesDetailMatch) {
     const slug = plServicesDetailMatch[1]
     const polishSlug = serviceSlugMap.get(slug)
