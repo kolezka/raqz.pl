@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { RiCheckLine } from 'react-icons/ri'
 import { getTranslations, getMessages } from 'next-intl/server'
 import servicesData from '@/data/services.json'
-import SEOHead from '@/components/SEOHead'
 
 export {
   generateStaticParams,
@@ -41,11 +40,6 @@ export default async function ServiceDetailPage({
 
   return (
     <div className="bg-white pt-20">
-      <SEOHead
-        title={`${t(`navigation.servicesDropdown.services.${serviceId}.name`)} - ${t('services.title')} - ${t('meta.title')}`}
-        description={t(`serviceDetails.${serviceId}.description`)}
-        path={`/services/${serviceId}`}
-      />
       {/* Header */}
       <div className="bg-gray-50 px-6 py-24 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">

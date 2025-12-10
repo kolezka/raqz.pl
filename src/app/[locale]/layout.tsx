@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { locales } from '@/i18n'
 import Header from '@/components/Header'
@@ -9,9 +9,86 @@ import WebVitalsMonitor from '@/components/WebVitalsMonitor'
 import ViewTransitions from '@/components/ViewTransitions'
 import CookieBanner from '@/components/CookieBanner'
 import Script from 'next/script'
+import type { Metadata } from 'next'
 
 export function generateStaticParams() {
   return locales.map(locale => ({ locale }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'meta' })
+
+  const baseUrl = 'https://raqz.pl'
+  // localePrefix: 'as-needed' means English (default) has no prefix, Polish has /pl
+  const localePath = locale === 'en' ? '/' : '/pl'
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords').split(', '),
+    authors: [{ name: 'raqz.pl' }],
+    creator: 'raqz.pl',
+    publisher: 'raqz.pl',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    metadataBase: new URL(baseUrl),
+    alternates: {
+      canonical: localePath,
+      languages: {
+        en: '/',
+        pl: '/pl',
+        'x-default': '/',
+      },
+    },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: `${baseUrl}${localePath}`,
+      siteName: 'raqz.pl',
+      locale: locale === 'en' ? 'en_US' : 'pl_PL',
+      alternateLocale: locale === 'en' ? 'pl_PL' : 'en_US',
+      type: 'website',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: t('title'),
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: ['/og-image.png'],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    icons: {
+      icon: '/ico.svg',
+    },
+    other: {
+      'view-transition': 'same-origin',
+    },
+  }
 }
 
 export default async function LocaleLayout({

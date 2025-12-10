@@ -2,7 +2,6 @@ import { RiCodeLine, RiServerLine, RiCpuLine, RiToolsLine, RiRobotLine } from 'r
 import Link from 'next/link'
 import { useTranslations, useMessages } from 'next-intl'
 import servicesData from '@/data/services.json'
-import SEOHead from '@/components/SEOHead'
 
 export { generateServicesMetadata as generateMetadata } from '@/lib/generateServicesMetadata'
 
@@ -28,7 +27,6 @@ export default function AllServicesPage() {
 
   return (
     <div className="bg-white pt-20">
-      <SEOHead title={`${t('services.title')} - ${t('meta.title')}`} path="/services" />
       {/* Header */}
       <div className="bg-gray-50 px-6 py-24 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
