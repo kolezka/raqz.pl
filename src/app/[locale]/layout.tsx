@@ -8,6 +8,7 @@ import Footer from '@/components/Footer'
 import WebVitalsMonitor from '@/components/WebVitalsMonitor'
 import ViewTransitions from '@/components/ViewTransitions'
 import CookieBanner from '@/components/CookieBanner'
+import MaintenanceOverlay from '@/components/MaintenanceOverlay'
 import Script from 'next/script'
 import type { Metadata } from 'next'
 
@@ -113,6 +114,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <WebVitalsMonitor />
           <CookieBanner />
+          <MaintenanceOverlay />
           <ViewTransitions>
             <div className="min-h-screen flex flex-col">
               <Header />

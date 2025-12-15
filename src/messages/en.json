@@ -425,5 +425,10 @@
     "success": {
       "preferencesSaved": "Your preferences have been saved."
     }
+  },
+  "maintenance": {
+    "title": "Under Maintenance",
+    "description": "We're currently working on improvements to serve you better. We'll be back online shortly.",
+    "subtitle": "Thank you for your patience"
   }
 }

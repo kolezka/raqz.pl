@@ -14,6 +14,13 @@ export interface FeatureFlags {
   BLOG_ENABLED: boolean
 
   /**
+   * Controls whether the maintenance/work-in-progress overlay is displayed
+   * When true: Full-page overlay blocks all interaction, users cannot access content
+   * When false: Normal site operation
+   */
+  MAINTENANCE_MODE: boolean
+
+  /**
    * Controls whether to show all blog posts or only featured posts
    * When false: Only posts marked with featured=true in frontmatter are displayed
    * When true: All published posts are displayed
@@ -43,6 +50,7 @@ export const FEATURES: Readonly<FeatureFlags> = Object.freeze({
   SHOW_ALL_BLOG_POSTS: false,
   BLOG_SEARCH_ENABLED: true,
   BLOG_CATEGORIES_ENABLED: true,
+  MAINTENANCE_MODE: true,
 })
 
 /**

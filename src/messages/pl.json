@@ -425,5 +425,10 @@
     "success": {
       "preferencesSaved": "Twoje preferencje zostały zapisane."
     }
+  },
+  "maintenance": {
+    "title": "Serwis techniczny",
+    "description": "Aktualnie pracujemy nad ulepszeniami, aby lepiej Ci służyć. Wrócimy wkrótce.",
+    "subtitle": "Dziękujemy za cierpliwość"
   }
 }
