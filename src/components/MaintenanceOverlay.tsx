@@ -43,16 +43,18 @@ interface MaintenanceOverlayProps {
 export default function MaintenanceOverlay(props: MaintenanceOverlayProps) {
   const t = useTranslations('maintenance')
 
-  // Only render if maintenance mode is enabled
-  if (!FEATURES.MAINTENANCE_MODE) return null
-
   // Lock body scroll when overlay is visible
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = ''
+    if (FEATURES.MAINTENANCE_MODE) {
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = ''
+      }
     }
   }, [])
+
+  // Only render if maintenance mode is enabled
+  if (!FEATURES.MAINTENANCE_MODE) return null
 
   const displayTitle = props.title || t('title')
   const displayDescription = props.description || t('description')
