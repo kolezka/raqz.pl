@@ -17,8 +17,6 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
   const locale = useLocale()
   const language = locale as 'en' | 'pl'
 
-  console.log('slug', slug)
-
   const { post, loading: mdxLoading, error } = useBlogPost(slug || '', language)
   const { post: metadata, loading: metaLoading } = useBlogPostMeta(slug || '', language)
 

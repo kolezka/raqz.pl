@@ -92,7 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       posts.forEach(post => {
         sitemap.push({
           url: `${baseUrl}/${locale}/blog/${post.slug}`,
-          lastModified: post.lastModified ? new Date(post.lastModified) : new Date(post.date),
+          lastModified: new Date(post.date),
           changeFrequency: 'monthly',
           priority: post.featured ? 0.8 : 0.7,
         })

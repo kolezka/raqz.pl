@@ -1,5 +1,6 @@
 'use client'
 
+/* eslint-disable react-hooks/refs */
 import { useTranslations } from 'next-intl'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useStaggerAnimation } from '../hooks/useStaggerAnimation'
