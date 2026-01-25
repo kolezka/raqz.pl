@@ -222,6 +222,27 @@
           ],
           "technologies": ["Signal API", "Python", "Signal Protocol", "Secure APIs", "Encryption"],
           "pricing": "Starting from $2,000"
+        },
+        {
+          "id": "website-chatbots",
+          "slug": {
+            "en": "website-chatbots",
+            "pl": "chatboty-na-strony"
+          },
+          "name": "Website Chatbots",
+          "shortDescription": "AI-powered chatbots for customer support and lead generation",
+          "description": "Deploy intelligent AI chatbots on your website to provide 24/7 customer support, answer FAQs, qualify leads, and enhance user engagement.",
+          "features": [
+            "24/7 automated customer support",
+            "Natural language understanding",
+            "Lead qualification and capture",
+            "Integration with CRM systems",
+            "Multi-language support",
+            "Custom training on your data",
+            "Analytics and conversation insights"
+          ],
+          "technologies": ["Claude", "OpenAI", "LangChain", "React", "WebSocket", "RAG"],
+          "pricing": "Starting from $3,000"
         }
       ]
     },

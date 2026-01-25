@@ -14,6 +14,12 @@ export interface FeatureFlags {
   BLOG_ENABLED: boolean
 
   /**
+   * Master toggle for the portfolio section
+   * When false: Portfolio route shows feature disabled page, portfolio links are hidden
+   */
+  PORTFOLIO_ENABLED: boolean
+
+  /**
    * Controls whether the maintenance/work-in-progress overlay is displayed
    * When true: Full-page overlay blocks all interaction, users cannot access content
    * When false: Normal site operation
@@ -46,11 +52,12 @@ export interface FeatureFlags {
  */
 export const FEATURES: Readonly<FeatureFlags> = Object.freeze({
   CONTACT: true,
-  BLOG_ENABLED: false,
-  SHOW_ALL_BLOG_POSTS: false,
+  BLOG_ENABLED: true,
+  PORTFOLIO_ENABLED: true,
+  SHOW_ALL_BLOG_POSTS: true,
   BLOG_SEARCH_ENABLED: true,
   BLOG_CATEGORIES_ENABLED: true,
-  MAINTENANCE_MODE: true,
+  MAINTENANCE_MODE: false,
 })
 
 /**

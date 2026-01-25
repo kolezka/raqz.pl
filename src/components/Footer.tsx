@@ -11,7 +11,7 @@ export default function Footer() {
   const footerAnimation = useScrollAnimation<HTMLDivElement>('fade-up')
 
   return (
-    <footer className="bg-gray-900">
+    <footer className="bg-gray-900 dark:bg-dark-950 border-t border-gray-800 dark:border-gray-800">
       <div
         ref={footerAnimation.ref}
         className={`mx-auto max-w-7xl px-6 py-12 md:flex md:items-start md:justify-between lg:px-8 ${footerAnimation.className}`}

@@ -87,7 +87,7 @@ function LanguageSwitcherContent({
 
   return (
     <>
-      <PopoverButton className="inline-flex w-full justify-center items-center text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 hover:text-gray-600 focus:outline-none cursor-pointer">
+      <PopoverButton className="inline-flex w-full justify-center items-center text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none cursor-pointer">
         <span className="text-base mr-1">{currentLanguage.flag}</span>
         <span className="uppercase mr-2">{currentLanguage.code}</span>
         <RiArrowDownSLine className="-mr-1 h-5 w-5" aria-hidden="true" />
@@ -95,7 +95,7 @@ function LanguageSwitcherContent({
 
       <PopoverPanel
         transition
-        className="absolute left-0 z-50 mt-2 w-40 rounded-xl bg-white/90 backdrop-blur-xl shadow-2xl ring-1 ring-gray-200/50 focus:outline-none overflow-hidden transition ease-out duration-200 data-closed:transform data-closed:opacity-0 data-closed:scale-95 data-closed:translate-y-[-16px]"
+        className="absolute left-0 z-50 mt-2 w-40 rounded-xl bg-white/90 dark:bg-dark-800/95 backdrop-blur-xl shadow-2xl ring-1 ring-gray-200/50 dark:ring-gray-700/50 focus:outline-none overflow-hidden transition ease-out duration-200 data-closed:transform data-closed:opacity-0 data-closed:scale-95 data-closed:translate-y-[-16px]"
       >
         <div className="py-1">
           {languages.map(language => (
@@ -103,10 +103,10 @@ function LanguageSwitcherContent({
               key={language.code}
               type="button"
               onClick={() => handleLanguageSwitch(language.code)}
-              className={`cursor flex items-center gap-3 w-full px-4 py-2 text-sm transition-all duration-200 hover:bg-primary-50/60 focus:bg-primary-50/60 focus:text-gray-900 text-left ${
+              className={`cursor flex items-center gap-3 w-full px-4 py-2 text-sm transition-all duration-200 hover:bg-primary-50/60 dark:hover:bg-primary-900/30 focus:bg-primary-50/60 dark:focus:bg-primary-900/30 focus:text-gray-900 dark:focus:text-white text-left ${
                 locale === language.code
-                  ? 'bg-primary-50/60 text-primary-600 border-l-2 border-primary-300'
-                  : 'text-gray-700'
+                  ? 'bg-primary-50/60 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 border-l-2 border-primary-300 dark:border-primary-500'
+                  : 'text-gray-700 dark:text-gray-300'
               }`}
             >
               <span className="text-base">{language.flag}</span>

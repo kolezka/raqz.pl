@@ -114,7 +114,7 @@ export const ContactForm = () => {
     >
       <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900">
+          <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
             {t('contact.name')}
           </label>
           <div className="mt-2.5">
@@ -127,12 +127,12 @@ export const ContactForm = () => {
               autoComplete="name"
               required
               disabled={isSubmitting}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+          <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
             {t('contact.email')}
           </label>
           <div className="mt-2.5">
@@ -145,12 +145,12 @@ export const ContactForm = () => {
               autoComplete="email"
               required
               disabled={isSubmitting}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
         </div>
         <div className="sm:col-span-2">
-          <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
+          <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
             Company
           </label>
           <div className="mt-2.5">
@@ -162,12 +162,12 @@ export const ContactForm = () => {
               onChange={handleChange}
               autoComplete="organization"
               disabled={isSubmitting}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
         </div>
         <div className="sm:col-span-2">
-          <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
+          <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
             {t('contact.message')}
           </label>
           <div className="mt-2.5">
@@ -179,7 +179,7 @@ export const ContactForm = () => {
               onChange={handleChange}
               required
               disabled={isSubmitting}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
         </div>
@@ -194,16 +194,16 @@ export const ContactForm = () => {
 
       {/* Success Message */}
       {submitStatus === 'success' && (
-        <div className="mt-6 rounded-md bg-green-50 p-4">
+        <div className="mt-6 rounded-md bg-green-50 dark:bg-green-900/30 p-4">
           <div className="flex">
             <div className="shrink-0">
               <RiCheckboxCircleLine className="h-5 w-5 text-green-400" aria-hidden="true" />
             </div>
             <div className="ml-3">
-              <h3 className="text-sm font-medium text-green-800">
+              <h3 className="text-sm font-medium text-green-800 dark:text-green-300">
                 {t('contact.dialog.success.title')}
               </h3>
-              <p className="mt-1 text-sm text-green-700">
+              <p className="mt-1 text-sm text-green-700 dark:text-green-400">
                 {t('contact.dialog.success.description')}
               </p>
             </div>
@@ -213,7 +213,7 @@ export const ContactForm = () => {
 
       {/* Error Message */}
       {errorMessage && (
-        <div className="mt-6 rounded-md bg-red-50 p-4">
+        <div className="mt-6 rounded-md bg-red-50 dark:bg-red-900/30 p-4">
           <div className="flex">
             <div className="shrink-0">
               <svg
@@ -230,7 +230,7 @@ export const ContactForm = () => {
               </svg>
             </div>
             <div className="ml-3">
-              <p className="text-sm font-medium text-red-800">{errorMessage}</p>
+              <p className="text-sm font-medium text-red-800 dark:text-red-300">{errorMessage}</p>
             </div>
           </div>
         </div>
@@ -240,7 +240,7 @@ export const ContactForm = () => {
         <button
           type="submit"
           disabled={!turnstileToken || isSubmitting}
-          className="inline-flex w-full items-center justify-center rounded-md bg-primary-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+          className="inline-flex w-full items-center justify-center rounded-md bg-primary-600 dark:bg-primary-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-500 dark:hover:bg-primary-400 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
           {isSubmitting ? (
             <>

@@ -23,13 +23,13 @@ export default memo(function BlogCard({ post, featured = false }: BlogCardProps)
   return (
     <article
       ref={scrollRef}
-      className={`group relative bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-primary-500 transition-all duration-300 hover:shadow-xl ${animationClass} ${
+      className={`group relative bg-white dark:bg-dark-800 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-300 hover:shadow-xl dark:hover:shadow-primary-500/10 ${animationClass} ${
         featured ? 'md:col-span-2 lg:col-span-1' : ''
       }`}
     >
       <Link href={blogUrl} className="block">
         {/* Cover Image */}
-        <div className="relative h-48 overflow-hidden bg-gray-100">
+        <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-dark-700">
           <img
             src={post.coverImage}
             alt={post.coverImageAlt}
@@ -55,7 +55,7 @@ export default memo(function BlogCard({ post, featured = false }: BlogCardProps)
             {post.categories.slice(0, 2).map(category => (
               <span
                 key={category}
-                className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-gray-100 text-gray-700"
+                className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-gray-100 dark:bg-dark-700 text-gray-700 dark:text-gray-300"
               >
                 {category}
               </span>
@@ -63,15 +63,15 @@ export default memo(function BlogCard({ post, featured = false }: BlogCardProps)
           </div>
 
           {/* Title */}
-          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2">
             {post.title}
           </h3>
 
           {/* Excerpt */}
-          <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt || post.description}</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{post.excerpt || post.description}</p>
 
           {/* Meta Info */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
             <div className="flex items-center">
               <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -98,7 +98,7 @@ export default memo(function BlogCard({ post, featured = false }: BlogCardProps)
           </div>
 
           {/* Read More Link */}
-          <div className="mt-4 flex items-center text-primary-600 font-medium group-hover:text-primary-700">
+          <div className="mt-4 flex items-center text-primary-600 dark:text-primary-400 font-medium group-hover:text-primary-700 dark:group-hover:text-primary-300">
             <span>{t('blog.readMore')}</span>
             <svg
               className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform duration-300"

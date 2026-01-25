@@ -66,27 +66,27 @@ export default function CookiePreferencesDialog({
   return (
     <Dialog className="relative z-50" open={open} onClose={onClose}>
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-gray-900/25 transition-opacity" aria-hidden="true" />
+      <div className="fixed inset-0 bg-gray-900/25 dark:bg-black/50 transition-opacity" aria-hidden="true" />
 
       {/* Dialog Panel */}
       <div className="fixed inset-0 flex items-end sm:items-center justify-center p-0 sm:p-4">
         <DialogPanel
           transition
-          className="w-full max-w-2xl transform overflow-y-auto bg-white rounded-t-2xl sm:rounded-2xl shadow-xl transition-all duration-200 ease-out data-closed:translate-y-full sm:data-closed:translate-y-0 sm:data-closed:scale-95 sm:data-closed:opacity-0 max-h-[90vh]"
+          className="w-full max-w-2xl transform overflow-y-auto bg-white dark:bg-dark-900 rounded-t-2xl sm:rounded-2xl shadow-xl transition-all duration-200 ease-out data-closed:translate-y-full sm:data-closed:translate-y-0 sm:data-closed:scale-95 sm:data-closed:opacity-0 max-h-[90vh]"
         >
           {/* Header */}
-          <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 z-10">
+          <div className="sticky top-0 bg-white dark:bg-dark-900 border-b border-gray-200 dark:border-gray-700 px-6 py-4 z-10">
             <div className="flex items-center justify-between">
               <div>
-                <DialogTitle className="text-xl font-semibold text-gray-900">
+                <DialogTitle className="text-xl font-semibold text-gray-900 dark:text-white">
                   {t('preferences.title')}
                 </DialogTitle>
-                <p className="mt-1 text-sm text-gray-500">{t('preferences.subtitle')}</p>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{t('preferences.subtitle')}</p>
               </div>
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-md p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors"
+                className="rounded-md p-2 text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-dark-800 transition-colors"
                 aria-label={t('preferences.close')}
               >
                 <RiCloseLine className="h-6 w-6" aria-hidden="true" />
@@ -96,7 +96,7 @@ export default function CookiePreferencesDialog({
 
           {/* Content */}
           <div className="px-6 py-6 space-y-6">
-            <p className="text-sm text-gray-600">{t('preferences.description')}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">{t('preferences.description')}</p>
 
             {/* Cookie Categories */}
             <div className="space-y-4">
@@ -109,17 +109,17 @@ export default function CookiePreferencesDialog({
                 return (
                   <div
                     key={category.id}
-                    className="border border-gray-200 rounded-lg p-4 hover:border-gray-300 transition-colors"
+                    className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
-                        <h3 className="text-base font-semibold text-gray-900">
+                        <h3 className="text-base font-semibold text-gray-900 dark:text-white">
                           {t(`categories.${category.id}.title`)}
                         </h3>
-                        <p className="mt-1 text-sm text-gray-600">
+                        <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
                           {t(`categories.${category.id}.description`)}
                         </p>
-                        <p className="mt-2 text-xs text-gray-500">
+                        <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
                           <span className="font-medium">
                             {t(`categories.${category.id}.items`)}
                           </span>
@@ -129,7 +129,7 @@ export default function CookiePreferencesDialog({
                       {/* Toggle Switch */}
                       <div className="flex-shrink-0">
                         {category.required ? (
-                          <span className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-xs font-medium text-primary-700">
+                          <span className="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-900/30 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-400">
                             {t('categories.essential.alwaysActive')}
                           </span>
                         ) : (
@@ -145,8 +145,8 @@ export default function CookiePreferencesDialog({
                               }))
                             }}
                             className={`${
-                              isChecked ? 'bg-primary-600' : 'bg-gray-200'
-                            } relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2`}
+                              isChecked ? 'bg-primary-600' : 'bg-gray-200 dark:bg-gray-700'
+                            } relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 dark:focus:ring-offset-dark-900`}
                           >
                             <span
                               aria-hidden="true"
@@ -167,7 +167,7 @@ export default function CookiePreferencesDialog({
             <div className="text-center">
               <Link
                 href="/privacy"
-                className="text-sm text-primary-600 hover:text-primary-500 underline underline-offset-4"
+                className="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300 underline underline-offset-4"
               >
                 {t('preferences.viewPrivacy')}
               </Link>
@@ -175,12 +175,12 @@ export default function CookiePreferencesDialog({
           </div>
 
           {/* Footer */}
-          <div className="sticky bottom-0 bg-gray-50 border-t border-gray-200 px-6 py-4">
+          <div className="sticky bottom-0 bg-gray-50 dark:bg-dark-800 border-t border-gray-200 dark:border-gray-700 px-6 py-4">
             <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
               <button
                 type="button"
                 onClick={handleSave}
-                className="inline-flex justify-center items-center rounded-md bg-white px-6 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition-colors"
+                className="inline-flex justify-center items-center rounded-md bg-white dark:bg-dark-700 px-6 py-2.5 text-sm font-semibold text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 hover:bg-gray-50 dark:hover:bg-dark-600 transition-colors"
               >
                 {t('preferences.savePreferences')}
               </button>

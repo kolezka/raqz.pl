@@ -17,13 +17,13 @@ export default function Hero() {
         <div className="text-center">
           <h1
             ref={titleAnimation.ref}
-            className={`whitespace-pre-line font-bold tracking-tight text-gray-900 text-4xl sm:text-6xl ${titleAnimation.className}`}
+            className={`whitespace-pre-line font-bold tracking-tight text-gray-900 dark:text-white text-4xl sm:text-6xl ${titleAnimation.className}`}
           >
             {t('hero.title')}
           </h1>
           <p
             ref={subtitleAnimation.ref}
-            className={`whitespace-pre-line mt-6 text-lg leading-8 text-gray-600 ${subtitleAnimation.className}`}
+            className={`whitespace-pre-line mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 ${subtitleAnimation.className}`}
           >
             {t('hero.subtitle')}
           </p>
@@ -33,7 +33,7 @@ export default function Hero() {
           >
             <a
               href="#services"
-              className="rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95"
+              className="rounded-md bg-primary-500 dark:bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-600 dark:hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95"
             >
               {t('hero.getStarted')}
             </a>

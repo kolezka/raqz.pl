@@ -63,28 +63,28 @@ export default function ContactFormDialog({ open, onClose, onSuccess }: ContactF
   return (
     <Dialog className="relative z-50" open={open} onClose={handleClose}>
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-gray-900/25 transition-opacity" aria-hidden="true" />
+      <div className="fixed inset-0 bg-gray-900/25 dark:bg-black/50 transition-opacity" aria-hidden="true" />
 
       {/* Dialog Panel */}
       <div className="fixed inset-0 flex items-end sm:items-center justify-center p-0 sm:p-4">
         <DialogPanel
           transition
-          className="w-full max-w-md transform overflow-y-auto bg-white rounded-t-2xl sm:rounded-2xl shadow-xl transition-all duration-200 ease-out data-closed:translate-y-full sm:data-closed:translate-y-0 sm:data-closed:scale-95 sm:data-closed:opacity-0 max-h-[90vh]"
+          className="w-full max-w-md transform overflow-y-auto bg-white dark:bg-dark-900 rounded-t-2xl sm:rounded-2xl shadow-xl transition-all duration-200 ease-out data-closed:translate-y-full sm:data-closed:translate-y-0 sm:data-closed:scale-95 sm:data-closed:opacity-0 max-h-[90vh]"
         >
           {/* Header */}
-          <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 z-10">
+          <div className="sticky top-0 bg-white dark:bg-dark-900 border-b border-gray-200 dark:border-gray-700 px-6 py-4 z-10">
             <div className="flex items-center justify-between">
               <div>
-                <DialogTitle className="text-xl font-semibold text-gray-900">
+                <DialogTitle className="text-xl font-semibold text-gray-900 dark:text-white">
                   {t('dialog.title')}
                 </DialogTitle>
-                <p className="mt-1 text-sm text-gray-500">{t('dialog.subtitle')}</p>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{t('dialog.subtitle')}</p>
               </div>
               <button
                 type="button"
                 onClick={handleClose}
                 disabled={isSubmitting}
-                className="rounded-md p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="rounded-md p-2 text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-dark-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label={t('dialog.close')}
               >
                 <RiCloseLine className="h-6 w-6" aria-hidden="true" />
@@ -96,16 +96,16 @@ export default function ContactFormDialog({ open, onClose, onSuccess }: ContactF
           <div className="px-6 py-6">
             {submitStatus === 'success' ? (
               // Success State
-              <div className="rounded-lg bg-green-50 p-6 text-center">
+              <div className="rounded-lg bg-green-50 dark:bg-green-900/20 p-6 text-center">
                 <div className="flex justify-center mb-4">
-                  <div className="rounded-full bg-green-100 p-3">
-                    <RiCheckboxCircleLine className="h-8 w-8 text-green-600" aria-hidden="true" />
+                  <div className="rounded-full bg-green-100 dark:bg-green-900/40 p-3">
+                    <RiCheckboxCircleLine className="h-8 w-8 text-green-600 dark:text-green-400" aria-hidden="true" />
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-green-900 mb-2">
+                <h3 className="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">
                   {t('dialog.success.title')}
                 </h3>
-                <p className="text-sm text-green-700">{t('dialog.success.description')}</p>
+                <p className="text-sm text-green-700 dark:text-green-300">{t('dialog.success.description')}</p>
               </div>
             ) : (
               // Form

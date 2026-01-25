@@ -54,14 +54,8 @@ export function useBlogPost(slug: string, language: string) {
           string,
           () => Promise<{ default: React.ComponentType; frontmatter?: Record<string, unknown> }>
         > = {
-          'en/2025-12-modern-web-development-2025': () =>
-            import('@/content/blog/en/2025-12-modern-web-development-2025.mdx'),
-          'en/2025-11-getting-started-with-ai-automation': () =>
-            import('@/content/blog/en/2025-11-getting-started-with-ai-automation.mdx'),
-          'pl/2025-12-nowoczesny-rozwoj-web-2025': () =>
-            import('@/content/blog/pl/2025-12-nowoczesny-rozwoj-web-2025.mdx'),
-          'pl/2025-11-wprowadzenie-do-automatyzacji-ai': () =>
-            import('@/content/blog/pl/2025-11-wprowadzenie-do-automatyzacji-ai.mdx'),
+          'pl/2026-01-automatyzacja-ai-biznes-mazury-mikolajki-olsztyn': () => import('@/content/blog/pl/2026-01-automatyzacja-ai-biznes-mazury.mdx'),
+          'ai-automation-business-mazury-mikolajki-olsztyn': () => import('@/content/blog/en/2026-01-ai-automation-business-mazury.mdx'),
         }
 
         const moduleKey = `${language}/${fileName}`

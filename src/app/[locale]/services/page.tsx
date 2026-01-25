@@ -28,14 +28,14 @@ export default async function AllServicesPage() {
   const locale = (await getLocale()) as Locale
 
   return (
-    <div className="bg-white pt-20">
+    <div className="bg-white dark:bg-dark-900 pt-20">
       {/* Header */}
-      <div className="bg-gray-50 px-6 py-24 sm:py-32 lg:px-8">
+      <div className="bg-gray-50 dark:bg-dark-800/50 px-6 py-24 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             {t('services.title')}
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600">{t('services.description')}</p>
+          <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">{t('services.description')}</p>
         </div>
       </div>
 
@@ -48,12 +48,12 @@ export default async function AllServicesPage() {
               <div key={category.id}>
                 <div className="mx-auto max-w-2xl text-center mb-16">
                   <div className="flex justify-center">
-                    <IconComponent className="h-12 w-12 text-primary-600" />
+                    <IconComponent className="h-12 w-12 text-primary-600 dark:text-primary-400" />
                   </div>
-                  <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+                  <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
                     {t(`serviceCategories.${category.id}`)}
                   </h2>
-                  <p className="mt-4 text-lg leading-8 text-gray-600">
+                  <p className="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300">
                     {t(`navigation.servicesDropdown.categories.${category.id}.description`)}
                   </p>
                 </div>
@@ -62,21 +62,21 @@ export default async function AllServicesPage() {
                   {category.services.map(service => (
                     <div
                       key={service.id}
-                      className="relative overflow-hidden rounded-lg bg-white p-8 shadow-sm ring-1 ring-gray-200 hover:shadow-lg transition-all duration-200"
+                      className="relative overflow-hidden rounded-lg bg-white dark:bg-dark-800 p-8 shadow-sm ring-1 ring-gray-200 dark:ring-gray-700 hover:shadow-lg dark:hover:shadow-primary-500/10 transition-all duration-200"
                     >
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                           {t(`navigation.servicesDropdown.services.${service.id}.name`)}
                         </h3>
-                        <p className="mt-2 text-sm text-gray-600">
+                        <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
                           {t(`navigation.servicesDropdown.services.${service.id}.shortDescription`)}
                         </p>
 
                         <div className="mt-4">
-                          <h4 className="text-sm font-semibold text-gray-900">
+                          <h4 className="text-sm font-semibold text-gray-900 dark:text-white">
                             {t('services.keyFeatures')}
                           </h4>
-                          <ul className="mt-2 text-sm text-gray-600">
+                          <ul className="mt-2 text-sm text-gray-600 dark:text-gray-300">
                             {messages.serviceDetails?.[service.id]?.features
                               ?.slice(0, 3)
                               .map((feature: string, index: number) => (
@@ -88,7 +88,7 @@ export default async function AllServicesPage() {
                             {messages.serviceDetails?.[service.id]?.features &&
                               messages.serviceDetails?.[service.id]?.features &&
                               messages.serviceDetails[service.id]!.features!.length > 3 && (
-                                <li className="text-gray-400">
+                                <li className="text-gray-400 dark:text-gray-500">
                                   + {messages.serviceDetails[service.id]!.features!.length - 3}{' '}
                                   {t('services.more')}
                                 </li>
@@ -100,13 +100,13 @@ export default async function AllServicesPage() {
                           {service.technologies.slice(0, 3).map((tech, index) => (
                             <span
                               key={index}
-                              className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700"
+                              className="inline-flex items-center rounded-md bg-gray-50 dark:bg-dark-700 px-2 py-1 text-xs font-medium text-gray-700 dark:text-gray-300"
                             >
                               {tech}
                             </span>
                           ))}
                           {service.technologies.length > 3 && (
-                            <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-700">
+                            <span className="inline-flex items-center rounded-md bg-gray-50 dark:bg-dark-700 px-2 py-1 text-xs font-medium text-gray-700 dark:text-gray-300">
                               +{service.technologies.length - 3}
                             </span>
                           )}
@@ -118,7 +118,7 @@ export default async function AllServicesPage() {
                               pathname: '/services/[serviceSlug]',
                               params: { serviceSlug: service.slug[locale] },
                             }}
-                            className="text-sm font-semibold leading-6 text-primary-600 hover:text-primary-500"
+                            className="text-sm font-semibold leading-6 text-primary-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300"
                           >
                             {t('services.learnMore')} <span aria-hidden="true">→</span>
                           </Link>

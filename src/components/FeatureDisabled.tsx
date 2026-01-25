@@ -1,17 +1,18 @@
 'use client'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 export default function FeatureDisabled() {
   const locale = useLocale()
+  const t = useTranslations('errors.featureDisabled')
   const langPrefix = locale === 'en' ? '' : `/${locale}`
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gray-50">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-gray-50 dark:bg-dark-900">
       <div className="text-center max-w-md">
         <div className="mb-8">
           <svg
-            className="mx-auto h-24 w-24 text-gray-400"
+            className="mx-auto h-24 w-24 text-gray-400 dark:text-gray-500"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -25,13 +26,13 @@ export default function FeatureDisabled() {
             />
           </svg>
         </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Feature Unavailable</h1>
-        <p className="text-lg text-gray-600 mb-8">This feature is currently not available.</p>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">{t('title')}</h1>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">{t('description')}</p>
         <Link
           href={`${langPrefix}/`}
-          className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors duration-200"
+          className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 transition-colors duration-200"
         >
-          Go to Homepage
+          {t('goHome')}
         </Link>
       </div>
     </div>

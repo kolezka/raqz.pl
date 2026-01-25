@@ -23,10 +23,10 @@ export default function NotFound() {
         {/* Error Message */}
         <div className="space-y-6">
           <div className="opacity-0 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               {t('heading')}
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-lg mx-auto">{t('description')}</p>
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-lg mx-auto">{t('description')}</p>
           </div>
 
           {/* Action Buttons */}
@@ -57,7 +57,7 @@ export default function NotFound() {
 
             <Link
               href="/services"
-              className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-primary-500 text-primary-600 font-semibold hover:bg-primary-50 transition-all duration-300 hover:scale-105 active:scale-95 w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-primary-500 text-primary-600 dark:text-primary-400 font-semibold hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300 hover:scale-105 active:scale-95 w-full sm:w-auto"
             >
               <svg
                 className="w-5 h-5 mr-2"
@@ -80,7 +80,7 @@ export default function NotFound() {
 
         {/* Decorative Element */}
         <div className="mt-16 opacity-0 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-          <div className="inline-block p-4 rounded-full bg-primary-100/50 backdrop-blur-sm">
+          <div className="inline-block p-4 rounded-full bg-primary-100/50 dark:bg-primary-900/30 backdrop-blur-sm">
             <svg
               className="w-16 h-16 text-primary-500 animate-bounce-gentle"
               fill="none"

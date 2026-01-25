@@ -8,6 +8,7 @@ import Footer from '@/components/Footer'
 import WebVitalsMonitor from '@/components/WebVitalsMonitor'
 import ViewTransitions from '@/components/ViewTransitions'
 import CookieBanner from '@/components/CookieBanner'
+import { ThemeProvider } from '@/components/ThemeProvider'
 import Script from 'next/script'
 import type { Metadata } from 'next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -110,18 +111,20 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body>
-        <NextIntlClientProvider messages={messages}>
-          <WebVitalsMonitor />
-          <CookieBanner />
-          <ViewTransitions>
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
-          </ViewTransitions>
-        </NextIntlClientProvider>
+      <body className="bg-white dark:bg-dark-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>
+            <WebVitalsMonitor />
+            <CookieBanner />
+            <ViewTransitions>
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </div>
+            </ViewTransitions>
+          </NextIntlClientProvider>
+        </ThemeProvider>
         {/* Google Analytics - Loads immediately for all users.
             User consent is recorded for transparency and future tracking additions. */}
         <Script

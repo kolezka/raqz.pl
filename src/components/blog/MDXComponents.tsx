@@ -15,14 +15,14 @@ function Heading({
 
   const className =
     level === 1
-      ? 'text-4xl font-bold mt-8 mb-4 text-gray-900'
+      ? 'text-4xl font-bold mt-8 mb-4 text-gray-900 dark:text-white'
       : level === 2
-        ? 'text-3xl font-bold mt-8 mb-4 text-gray-900 border-b border-gray-200 pb-2'
+        ? 'text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2'
         : level === 3
-          ? 'text-2xl font-semibold mt-6 mb-3 text-gray-800'
+          ? 'text-2xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-100'
           : level === 4
-            ? 'text-xl font-semibold mt-4 mb-2 text-gray-800'
-            : 'text-lg font-medium mt-3 mb-2 text-gray-700'
+            ? 'text-xl font-semibold mt-4 mb-2 text-gray-800 dark:text-gray-100'
+            : 'text-lg font-medium mt-3 mb-2 text-gray-700 dark:text-gray-200'
 
   return createElement(tag, { id, className, ...props }, children)
 }
@@ -30,7 +30,7 @@ function Heading({
 // Custom paragraph component
 function P({ children, ...props }: HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className="text-gray-700 leading-relaxed mb-4" {...props}>
+    <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4" {...props}>
       {children}
     </p>
   )
@@ -50,7 +50,7 @@ function A({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-primary-600 hover:text-primary-700 underline transition-colors"
+        className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline transition-colors"
         {...props}
       >
         {children}
@@ -61,7 +61,7 @@ function A({
   return (
     <Link
       href={href || '#'}
-      className="text-primary-600 hover:text-primary-700 underline transition-colors"
+      className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline transition-colors"
     >
       {children}
     </Link>
@@ -71,7 +71,7 @@ function A({
 // Custom list components
 function Ul({ children, ...props }: HTMLAttributes<HTMLUListElement>) {
   return (
-    <ul className="list-disc list-inside mb-4 space-y-2 text-gray-700" {...props}>
+    <ul className="list-disc list-inside mb-4 space-y-2 text-gray-700 dark:text-gray-300" {...props}>
       {children}
     </ul>
   )
@@ -79,7 +79,7 @@ function Ul({ children, ...props }: HTMLAttributes<HTMLUListElement>) {
 
 function Ol({ children, ...props }: HTMLAttributes<HTMLOListElement>) {
   return (
-    <ol className="list-decimal list-inside mb-4 space-y-2 text-gray-700" {...props}>
+    <ol className="list-decimal list-inside mb-4 space-y-2 text-gray-700 dark:text-gray-300" {...props}>
       {children}
     </ol>
   )
@@ -108,7 +108,7 @@ function Pre({ children, ...props }: HTMLAttributes<HTMLPreElement>) {
 function Code({ children, ...props }: HTMLAttributes<HTMLElement>) {
   return (
     <code
-      className="bg-gray-100 text-primary-600 px-1.5 py-0.5 rounded text-sm font-mono"
+      className="bg-gray-100 dark:bg-dark-800 text-primary-600 dark:text-primary-400 px-1.5 py-0.5 rounded text-sm font-mono"
       {...props}
     >
       {children}
@@ -120,7 +120,7 @@ function Code({ children, ...props }: HTMLAttributes<HTMLElement>) {
 function Blockquote({ children, ...props }: HTMLAttributes<HTMLQuoteElement>) {
   return (
     <blockquote
-      className="border-l-4 border-primary-500 pl-4 py-2 my-6 italic text-gray-700 bg-gray-50 rounded-r"
+      className="border-l-4 border-primary-500 pl-4 py-2 my-6 italic text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-dark-800 rounded-r"
       {...props}
     >
       {children}
@@ -133,7 +133,7 @@ function Table({ children, ...props }: HTMLAttributes<HTMLTableElement>) {
   return (
     <div className="overflow-x-auto mb-6">
       <table
-        className="min-w-full divide-y divide-gray-200 border border-gray-200 rounded-lg"
+        className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg"
         {...props}
       >
         {children}
@@ -144,7 +144,7 @@ function Table({ children, ...props }: HTMLAttributes<HTMLTableElement>) {
 
 function Thead({ children, ...props }: HTMLAttributes<HTMLTableSectionElement>) {
   return (
-    <thead className="bg-gray-50" {...props}>
+    <thead className="bg-gray-50 dark:bg-dark-800" {...props}>
       {children}
     </thead>
   )
@@ -152,7 +152,7 @@ function Thead({ children, ...props }: HTMLAttributes<HTMLTableSectionElement>) 
 
 function Tbody({ children, ...props }: HTMLAttributes<HTMLTableSectionElement>) {
   return (
-    <tbody className="bg-white divide-y divide-gray-200" {...props}>
+    <tbody className="bg-white dark:bg-dark-900 divide-y divide-gray-200 dark:divide-gray-700" {...props}>
       {children}
     </tbody>
   )
@@ -165,7 +165,7 @@ function Tr({ children, ...props }: HTMLAttributes<HTMLTableRowElement>) {
 function Th({ children, ...props }: HTMLAttributes<HTMLTableCellElement>) {
   return (
     <th
-      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+      className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
       {...props}
     >
       {children}
@@ -175,7 +175,7 @@ function Th({ children, ...props }: HTMLAttributes<HTMLTableCellElement>) {
 
 function Td({ children, ...props }: HTMLAttributes<HTMLTableCellElement>) {
   return (
-    <td className="px-6 py-4 text-sm text-gray-700" {...props}>
+    <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300" {...props}>
       {children}
     </td>
   )
@@ -183,7 +183,7 @@ function Td({ children, ...props }: HTMLAttributes<HTMLTableCellElement>) {
 
 // Custom horizontal rule
 function Hr(props: HTMLAttributes<HTMLHRElement>) {
-  return <hr className="my-8 border-gray-300" {...props} />
+  return <hr className="my-8 border-gray-300 dark:border-gray-700" {...props} />
 }
 
 // Custom image component with lazy loading
@@ -209,7 +209,7 @@ function Img({
 // Custom strong component
 function Strong({ children, ...props }: HTMLAttributes<HTMLElement>) {
   return (
-    <strong className="font-semibold text-gray-900" {...props}>
+    <strong className="font-semibold text-gray-900 dark:text-white" {...props}>
       {children}
     </strong>
   )

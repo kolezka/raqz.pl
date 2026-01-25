@@ -1,6 +1,9 @@
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import About from '@/components/About'
+import AboutMe from '@/components/AboutMe'
+import TechStack from '@/components/TechStack'
+import Clients from '@/components/Clients'
 import Contact from '@/components/Contact'
 import LatestBlogPosts from '@/components/blog/LatestBlogPosts'
 import AnimatedBackground from '@/components/AnimatedBackground'
@@ -14,7 +17,11 @@ export default function HomePage() {
       </div>
       <Hero />
       <Services />
+      <Clients />
+
+      <TechStack />
       {FEATURES.BLOG_ENABLED && <LatestBlogPosts />}
+      <AboutMe />
       <About />
       {FEATURES.CONTACT && <Contact />}
     </div>

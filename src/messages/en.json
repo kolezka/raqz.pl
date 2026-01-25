@@ -19,6 +19,7 @@
   "navigation": {
     "home": "Home",
     "services": "Services",
+    "portfolio": "Portfolio",
     "blog": "Blog",
     "about": "About",
     "contact": "Contact",
@@ -83,6 +84,10 @@
         "signal-bots": {
           "name": "Signal Bots",
           "shortDescription": "No compromises on security."
+        },
+        "website-chatbots": {
+          "name": "Website Chatbots",
+          "shortDescription": "AI-powered 24/7 customer support, lead generation, and engagement for your website."
         },
         "blockchain-development": {
           "name": "Blockchain",
@@ -381,6 +386,19 @@
         "Backup and disaster recovery"
       ],
       "pricing": "Starting from 800 PLN/month"
+    },
+    "website-chatbots": {
+      "description": "Deploy intelligent AI chatbots on your website to provide 24/7 customer support, answer FAQs, qualify leads, and enhance user engagement. Powered by cutting-edge AI models and trained on your specific business data.",
+      "features": [
+        "24/7 automated customer support without human intervention",
+        "Natural language understanding with context awareness",
+        "Lead qualification and automatic CRM integration",
+        "Custom training on your company's knowledge base",
+        "Multi-language support for global audiences",
+        "Analytics dashboard with conversation insights",
+        "Seamless handoff to human agents when needed"
+      ],
+      "pricing": "Starting from 12,000 PLN"
     }
   },
   "cookies": {
@@ -430,5 +448,69 @@
     "title": "Under Maintenance",
     "description": "We're currently working on improvements to serve you better. We'll be back online shortly.",
     "subtitle": "Thank you for your patience"
+  },
+  "aboutMe": {
+    "title": "About Me",
+    "name": "Mariusz Rakus",
+    "role": "Senior Product / Full-Stack Engineer",
+    "description": "Senior Product / Full-Stack Engineer with 7+ years of experience building and owning web and mobile products end-to-end. I specialize in delivering production-ready applications for US and EU clients, working closely with founders, product managers, and stakeholders.",
+    "description2": "Advocate of working in agile teams, with a proven track record of successful project delivery. From concept to production, I take full ownership of features and entire applications, acting as a bridge between business requirements and technical implementation.",
+    "location": "Gdańsk, Poland",
+    "stats": {
+      "yearsExperience": "Years of Experience",
+      "projectsDelivered": "Projects Delivered",
+      "clients": "US & EU Clients",
+      "englishLevel": "English Level"
+    },
+    "highlights": {
+      "title": "Key Highlights",
+      "item1": "Built mobile app that contributed to a major US acquisition",
+      "item2": "Web3 authentication platform for leading crypto companies"
+    }
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "heading": "Technologies I Work With",
+    "description": "Modern tools and frameworks to build scalable, performant applications",
+    "categories": {
+      "frontend": "Frontend",
+      "mobile": "Mobile",
+      "backend": "Backend",
+      "database": "Database",
+      "cloud": "Cloud & DevOps",
+      "ai": "AI & ML"
+    }
+  },
+  "clients": {
+    "title": "Trusted By",
+    "heading": "Companies I've Worked With",
+    "note": "And many more startups and enterprises across various industries",
+    "technologiesUsed": "Technologies Used"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "description": "A selection of projects I've worked on throughout my career, from mobile apps to enterprise platforms.",
+    "featured": "Featured Projects",
+    "otherProjects": "Other Projects",
+    "viewLive": "View Live",
+    "viewCode": "View Code",
+    "meta": {
+      "title": "Portfolio - Mariusz Rakus",
+      "description": "Explore my portfolio of web and mobile applications, from React Native apps to Web3 platforms."
+    },
+    "projects": {
+      "directdental": {
+        "title": "DirectDental Mobile App",
+        "description": "Native mobile application for iOS and Android for Henry Schein's DirectDental platform. The app played a key role in the company's acquisition by a major US dental industry corporation."
+      },
+      "dynamic-xyz": {
+        "title": "Dynamic.xyz",
+        "description": "Web3 authentication and wallet infrastructure platform. Built developer tools that simplify wallet connections and user onboarding for decentralized applications."
+      },
+      "raqzpl": {
+        "title": "raqz.pl",
+        "description": "Personal portfolio and business website built with Next.js 15, featuring dark mode, i18n, MDX blog, and modern animations."
+      }
+    }
   }
 }

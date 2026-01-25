@@ -17,6 +17,8 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
   const locale = useLocale()
   const language = locale as 'en' | 'pl'
 
+  console.log('slug', slug)
+
   const { post, loading: mdxLoading, error } = useBlogPost(slug || '', language)
   const { post: metadata, loading: metaLoading } = useBlogPostMeta(slug || '', language)
 
@@ -36,10 +38,10 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
   // Loading state
   if (mdxLoading || metaLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dark-900">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">{t('blog.loading')}</p>
+          <p className="mt-4 text-gray-600 dark:text-gray-300">{t('blog.loading')}</p>
         </div>
       </div>
     )
@@ -59,7 +61,7 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
     : null
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-dark-900">
       {/* Hero Section with Cover Image */}
       <div className="relative bg-gray-900 h-96">
         <img
@@ -142,26 +144,26 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Excerpt */}
         {metadata.excerpt && (
-          <div className="text-xl text-gray-600 italic mb-8 pb-8 border-b border-gray-200">
+          <div className="text-xl text-gray-600 dark:text-gray-300 italic mb-8 pb-8 border-b border-gray-200 dark:border-gray-700">
             {metadata.excerpt}
           </div>
         )}
 
         {/* MDX Content */}
-        <div className="prose prose-lg max-w-none">
+        <div className="prose prose-lg dark:prose-invert max-w-none">
           <MDXProvider components={mdxComponents}>{Component && <Component />}</MDXProvider>
         </div>
 
         {/* Tags */}
         {metadata.tags.length > 0 && (
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-sm font-semibold text-gray-900 mb-3">{t('blog.tags')}</h3>
+          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">{t('blog.tags')}</h3>
             <div className="flex flex-wrap gap-2">
               {metadata.tags.map(tag => (
                 <Link
                   key={tag}
                   href={`/blog/tag/${tag}`}
-                  className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
+                  className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-100 dark:bg-dark-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-dark-700 transition-colors"
                 >
                   #{tag}
                 </Link>
@@ -178,7 +180,7 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <Link
           href="/blog"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
+          className="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium"
         >
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path

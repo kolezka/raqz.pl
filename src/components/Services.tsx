@@ -37,11 +37,11 @@ export default memo(function Services() {
           ref={headerAnimation.ref}
           className={`mx-auto max-w-4xl lg:text-center ${headerAnimation.className}`}
         >
-          <h2 className="font-semibold text-primary-500 text-md mb-2">{t('services.title')}</h2>
-          <p className="font-bold tracking-tight text-gray-900 text-5xl mb-4">
+          <h2 className="font-semibold text-primary-500 dark:text-primary-400 text-md mb-2">{t('services.title')}</h2>
+          <p className="font-bold tracking-tight text-gray-900 dark:text-white text-5xl mb-4">
             {t('services.sectionTitle')}
           </p>
-          <p className="text-gray-600 text-lg">{t('services.sectionDescription')}</p>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">{t('services.sectionDescription')}</p>
         </div>
         <div className="max-w-5xl mx-auto my-8">
           <dl className="grid md:grid-cols-2 gap-8">
@@ -54,13 +54,13 @@ export default memo(function Services() {
                     className="group relative p-4 pl-16 hover:scale-105 transition-transform"
                     style={staggerStyles[index]}
                   >
-                    <dt className="text-base font-semibold leading-7 text-gray-900 ">
-                      <div className="absolute left-2 top-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-500 transition-transform duration-300">
+                    <dt className="text-base font-semibold leading-7 text-gray-900 dark:text-white">
+                      <div className="absolute left-2 top-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-500 dark:bg-primary-600 transition-transform duration-300">
                         <IconComponent className="h-6 w-6 text-white" aria-hidden="true" />
                       </div>
                       {t(`serviceCategories.${category.id}`)}
                     </dt>
-                    <dd className="mt-2 text-base leading-7 text-gray-600">
+                    <dd className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-300">
                       {tNav(`servicesDropdown.categories.${category.id}.description`)}
                     </dd>
                   </div>
@@ -73,7 +73,7 @@ export default memo(function Services() {
         <div ref={ctaAnimation.ref} className={`text-center ${ctaAnimation.className}`}>
           <Link
             href="/services"
-            className="rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95 inline-block"
+            className="rounded-md bg-primary-500 dark:bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-600 dark:hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95 inline-block"
           >
             {t('services.viewAll')}
           </Link>

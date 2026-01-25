@@ -19,6 +19,7 @@
   "navigation": {
     "home": "Strona główna",
     "services": "Usługi",
+    "portfolio": "Portfolio",
     "blog": "Blog",
     "about": "O nas",
     "contact": "Kontakt",
@@ -83,6 +84,10 @@
         "signal-bots": {
           "name": "Boty Signal",
           "shortDescription": "Bez kompromisów w zakresie bezpieczeństwa."
+        },
+        "website-chatbots": {
+          "name": "Chatboty na strony",
+          "shortDescription": "Chatboty AI do obsługi klienta 24/7, generowania leadów i zwiększania zaangażowania."
         },
         "blockchain-development": {
           "name": "Blockchain",
@@ -160,7 +165,7 @@
     }
   },
   "services": {
-    "title": "Nasze usługi",
+    "title": "Oferta",
     "viewAll": "Zobacz wszystkie usługi",
     "learnMore": "Dowiedz się więcej",
     "startingFrom": "Ceny od",
@@ -381,6 +386,19 @@
         "Kopie zapasowe i odzyskiwanie po awarii"
       ],
       "pricing": "Ceny od 800 zł/miesiąc"
+    },
+    "website-chatbots": {
+      "description": "Wdróż inteligentne chatboty AI na swojej stronie, aby zapewnić obsługę klienta 24/7, odpowiadać na FAQ, kwalifikować leady i zwiększać zaangażowanie użytkowników. Zasilane najnowocześniejszymi modelami AI i trenowane na Twoich konkretnych danych biznesowych.",
+      "features": [
+        "Automatyczna obsługa klienta 24/7 bez interwencji człowieka",
+        "Rozumienie języka naturalnego z kontekstem",
+        "Kwalifikacja leadów i automatyczna integracja z CRM",
+        "Niestandardowe szkolenie na bazie wiedzy Twojej firmy",
+        "Wsparcie wielojęzyczne dla globalnych odbiorców",
+        "Panel analityczny z wglądem w rozmowy",
+        "Płynne przekazywanie do żywych agentów w razie potrzeby"
+      ],
+      "pricing": "Ceny od 12 000 zł"
     }
   },
   "cookies": {
@@ -430,5 +448,68 @@
     "title": "Serwis techniczny",
     "description": "Aktualnie pracujemy nad ulepszeniami, aby lepiej Ci służyć. Wrócimy wkrótce.",
     "subtitle": "Dziękujemy za cierpliwość"
+  },
+  "aboutMe": {
+    "title": "O mnie",
+    "name": "Mariusz Rakus",
+    "role": "Senior Product / Full-Stack Engineer",
+    "description": "Senior Product / Full-Stack Engineer z ponad 7-letnim doświadczeniem w budowaniu i prowadzeniu produktów webowych i mobilnych od A do Z. Specjalizuję się w dostarczaniu gotowych do produkcji aplikacji dla klientów z USA i UE, ściśle współpracując z founderami, product managerami i interesariuszami.",
+    "description2": "Zwolennik pracy w zwinnych zespołach, z udokumentowanym sukcesem w realizacji projektów. Od koncepcji do produkcji, przejmuję pełną odpowiedzialność za funkcje i całe aplikacje, działając jako pomost między wymaganiami biznesowymi a implementacją techniczną.",
+    "location": "Gdańsk, Polska",
+    "stats": {
+      "yearsExperience": "Lat doświadczenia",
+      "projectsDelivered": "Zrealizowanych projektów",
+      "clients": "Klienci z USA i UE"
+    },
+    "highlights": {
+      "title": "Kluczowe osiągnięcia",
+      "item1": "Aplikacja mobilna, która przyczyniła się do akwizycji przez US firmę",
+      "item2": "Platforma Web3 authentication dla czołowych firm crypto"
+    }
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "heading": "Technologie, z którymi pracuję",
+    "description": "Nowoczesne narzędzia i frameworki do budowy skalowalnych, wydajnych aplikacji",
+    "categories": {
+      "frontend": "Frontend",
+      "mobile": "Mobile",
+      "backend": "Backend",
+      "database": "Bazy danych",
+      "cloud": "Cloud & DevOps",
+      "ai": "AI & ML"
+    }
+  },
+  "clients": {
+    "title": "",
+    "heading": "Firmy, z którymi współpracowałem",
+    "note": "I wiele innych startupów i przedsiębiorstw z różnych branż",
+    "technologiesUsed": "Użyte technologie"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "description": "Wybrane projekty, nad którymi pracowałem w trakcie kariery – od aplikacji mobilnych po platformy enterprise.",
+    "featured": "Wyróżnione projekty",
+    "otherProjects": "Inne projekty",
+    "viewLive": "Zobacz na żywo",
+    "viewCode": "Zobacz kod",
+    "meta": {
+      "title": "Portfolio - Mariusz Rakus",
+      "description": "Poznaj moje portfolio aplikacji webowych i mobilnych – od aplikacji React Native po platformy Web3."
+    },
+    "projects": {
+      "directdental": {
+        "title": "Aplikacja mobilna DirectDental",
+        "description": "Natywna aplikacja mobilna na iOS i Android dla platformy DirectDental Henry Schein. Aplikacja odegrała kluczową rolę w przejęciu firmy przez główną korporację branży dentystycznej w USA."
+      },
+      "dynamic-xyz": {
+        "title": "Dynamic.xyz",
+        "description": "Platforma uwierzytelniania Web3 i infrastruktury portfeli. Budowałem narzędzia deweloperskie upraszczające połączenia portfeli i onboarding użytkowników dla zdecentralizowanych aplikacji."
+      },
+      "raqzpl": {
+        "title": "raqz.pl",
+        "description": "Osobista strona portfolio i biznesowa zbudowana z Next.js 15, z trybem ciemnym, i18n, blogiem MDX i nowoczesnymi animacjami."
+      }
+    }
   }
 }

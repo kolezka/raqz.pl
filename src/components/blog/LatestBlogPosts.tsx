@@ -24,14 +24,14 @@ export default function LatestBlogPosts() {
   const blogUrl = language === 'pl' ? '/pl/blog' : '/blog'
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-gray-50 dark:bg-dark-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div ref={titleRef} className={`text-center mb-12 ${animationClass}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {t('blog.latestFromBlog')}
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t('blog.description')}</p>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{t('blog.description')}</p>
         </div>
 
         {/* Blog Cards Grid */}

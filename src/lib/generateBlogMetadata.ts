@@ -189,6 +189,9 @@ export async function generateBlogPostParams() {
   const enPosts = await getBlogPosts('en')
   const plPosts = await getBlogPosts('pl')
 
+  console.log('enPosts', enPosts)
+  console.log('plPosts', plPosts)
+
   return [
     ...enPosts.map(post => ({ locale: 'en', slug: post.slug })),
     ...plPosts.map(post => ({ locale: 'pl', slug: post.slug })),

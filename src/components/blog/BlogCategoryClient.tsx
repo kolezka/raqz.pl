@@ -30,23 +30,23 @@ export default function BlogCategoryClient({ params }: { params: Promise<{ categ
   const description = `${t('blog.browseCategory')} ${category}`
 
   return (
-    <section className="bg-gray-50 pt-20">
+    <section className="bg-gray-50 dark:bg-dark-900 pt-20">
       {/* Hero Section */}
       <div className=" px-6 py-24 sm:py-32 lg:px-8">
         <div ref={titleRef} className="mx-auto max-w-2xl text-center">
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             {pageTitle}
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600">{description}</p>
+          <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">{description}</p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="bg-white">
+      <div className="bg-white dark:bg-dark-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Filter Info */}
           <div className="mb-8">
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               {t('blog.showing')} <span className="font-semibold">{posts.length}</span>{' '}
               {t('blog.articles')}
             </p>
@@ -59,7 +59,7 @@ export default function BlogCategoryClient({ params }: { params: Promise<{ categ
                 className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"
                 aria-hidden="true"
               />
-              <p className="mt-4 text-gray-600">{t('blog.loading')}</p>
+              <p className="mt-4 text-gray-600 dark:text-gray-300">{t('blog.loading')}</p>
             </div>
           )}
 
@@ -67,7 +67,7 @@ export default function BlogCategoryClient({ params }: { params: Promise<{ categ
           {!loading && posts.length === 0 && (
             <div className="text-center py-12">
               <svg
-                className="mx-auto h-12 w-12 text-gray-400"
+                className="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -79,8 +79,8 @@ export default function BlogCategoryClient({ params }: { params: Promise<{ categ
                   d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 20h.01M12 20a8 8 0 100-16 8 8 0 000 16z"
                 />
               </svg>
-              <h3 className="mt-2 text-sm font-medium text-gray-900">{t('blog.noPosts')}</h3>
-              <p className="mt-1 text-sm text-gray-500">{t('blog.noPostsDescription')}</p>
+              <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">{t('blog.noPosts')}</h3>
+              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{t('blog.noPostsDescription')}</p>
             </div>
           )}
 
