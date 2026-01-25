@@ -10,6 +10,7 @@ import ViewTransitions from '@/components/ViewTransitions'
 import CookieBanner from '@/components/CookieBanner'
 import Script from 'next/script'
 import type { Metadata } from 'next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export function generateStaticParams() {
   return locales.map(locale => ({ locale }))
@@ -135,6 +136,8 @@ export default async function LocaleLayout({
             gtag('config', 'G-CXYH9FJED4');
           `}
         </Script>
+
+        <SpeedInsights />
       </body>
     </html>
   )
