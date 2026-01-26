@@ -2,7 +2,6 @@ import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import About from '@/components/About'
 import AboutMe from '@/components/AboutMe'
-import TechStack from '@/components/TechStack'
 import Clients from '@/components/Clients'
 import Contact from '@/components/Contact'
 import LatestBlogPosts from '@/components/blog/LatestBlogPosts'
@@ -16,13 +15,15 @@ export default function HomePage() {
         <AnimatedBackground />
       </div>
       <Hero />
-      <Services />
-      <Clients />
 
-      <TechStack />
-      {FEATURES.BLOG_ENABLED && <LatestBlogPosts />}
-      <AboutMe />
       <About />
+      <Services />
+
+      <Clients />
+      <AboutMe />
+
+      {/* <TechStack /> */}
+      {FEATURES.BLOG_ENABLED && <LatestBlogPosts />}
       {FEATURES.CONTACT && <Contact />}
     </div>
   )

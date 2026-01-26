@@ -135,7 +135,7 @@
     "loading": "Ładowanie...",
     "backToBlog": "Powrót do bloga",
     "showing": "Wyświetlanie",
-    "description": "Poradniki, aktualności i offtop naszego zespołu",
+    "description": "Aktualności i offtop",
     "browseCategory": "Przeglądaj wszystkie artykuły w kategorii",
     "browseTag": "Przeglądaj wszystkie artykuły z tagiem"
   },
@@ -146,21 +146,21 @@
     "learnMore": "Poznaj nas"
   },
   "about": {
-    "title": "O nas",
-    "description": "IT z pasją do technologii i doskonałości.",
-    "subtitle": "Tworzymy innowacyjne rozwiązania software'owe, które pomagają firmom rozwijać się w erze cyfrowej. Każdy projekt traktujemy jako partnerstwo – Twój sukces to nasz sukces.",
+    "title": "",
+    "description": "Pasja do rozwiązań IT.",
+    "subtitle": "Tworzę innowacyjne rozwiązania software'owe, które pomagają firmom rozwijać się w erze cyfrowej.",
     "values": {
       "innovation": {
-        "title": "Innowacyjność przede wszystkim",
-        "description": "Wyprzedzamy trendy technologiczne, aby dostarczać najnowocześniejsze rozwiązania, które dają Twojemu biznesowi przewagę konkurencyjną i gotowość na przyszłość."
+        "title": "Od software po automatyzacje z AI",
+        "description": "Tworzę i wdrażam praktyczne rozwiązania: strony i aplikacje, portale dla klientów, automatyzacje procesów, dashboardy oraz chatboty/agentów AI"
       },
       "quality": {
-        "title": "Skupienie na jakości",
-        "description": "Każda linia kodu jest tworzona z precyzją i dbałością o szczegóły. Wierzymy w dostarczanie solidnych, skalowalnych i łatwych w utrzymaniu rozwiązań, które działają latami."
+        "title": "Software, który działa w praktyce",
+        "description": "Dostarczam gotowe systemy end-to-end. Dbam o stabilność, bezpieczeństwo i koszty. Możesz mieć spokój, że to będzie utrzymane i rozwijane, a nie porzucone po wdrożeniu."
       },
       "partnership": {
         "title": "Partnerstwo z klientem",
-        "description": "Pracujemy blisko z naszymi klientami jako równorzędni partnerzy, rozumiejąc ich wizję, wyzwania biznesowe i przekładając je na działające rozwiązania technologiczne."
+        "description": "Działam w modelu: krótki audit → plan → wdrożenie. Dostajesz jasny zakres, terminy i priorytety."
       }
     }
   },

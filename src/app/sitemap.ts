@@ -44,21 +44,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
     : []
 
   // Add homepage for each locale
+  // Note: 'as-needed' locale prefix means English (default) has no prefix
   locales.forEach(locale => {
+    const localePath = locale === 'en' ? '' : `/${locale}`
     sitemap.push({
-      url: `${baseUrl}/${locale}`,
+      url: `${baseUrl}${localePath || '/'}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1.0,
     })
   })
 
+  // Add privacy page for each locale
+  locales.forEach(locale => {
+    const localePath = locale === 'en' ? '' : `/${locale}`
+    sitemap.push({
+      url: `${baseUrl}${localePath}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    })
+  })
+
+  // Add portfolio page for each locale (if portfolio is enabled)
+  if (FEATURES.PORTFOLIO_ENABLED) {
+    locales.forEach(locale => {
+      const localePath = locale === 'en' ? '' : `/${locale}`
+      sitemap.push({
+        url: `${baseUrl}${localePath}/portfolio`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      })
+    })
+  }
+
   // Add services pages for each locale
   locales.forEach(locale => {
+    const localePath = locale === 'en' ? '' : `/${locale}`
     // All services page
     const servicesPath = locale === 'pl' ? 'uslugi' : 'services'
     sitemap.push({
-      url: `${baseUrl}/${locale}/${servicesPath}`,
+      url: `${baseUrl}${localePath}/${servicesPath}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -68,7 +95,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     services.forEach(service => {
       const serviceSlug = service.slug[locale as keyof typeof service.slug]
       sitemap.push({
-        url: `${baseUrl}/${locale}/${servicesPath}/${serviceSlug}`,
+        url: `${baseUrl}${localePath}/${servicesPath}/${serviceSlug}`,
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.8,
@@ -79,9 +106,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Add blog pages for each locale (if blog is enabled)
   if (FEATURES.BLOG_ENABLED) {
     locales.forEach(locale => {
+      const localePath = locale === 'en' ? '' : `/${locale}`
+
       // Blog index page
       sitemap.push({
-        url: `${baseUrl}/${locale}/blog`,
+        url: `${baseUrl}${localePath}/blog`,
         lastModified: new Date(),
         changeFrequency: 'daily',
         priority: 0.9,
@@ -91,7 +120,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const posts = locale === 'en' ? blogPosts.en : blogPosts.pl
       posts.forEach(post => {
         sitemap.push({
-          url: `${baseUrl}/${locale}/blog/${post.slug}`,
+          url: `${baseUrl}${localePath}/blog/${post.slug}`,
           lastModified: new Date(post.date),
           changeFrequency: 'monthly',
           priority: post.featured ? 0.8 : 0.7,
@@ -102,7 +131,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       categories.forEach(category => {
         const categorySlug = category.toLowerCase().replace(/\s+/g, '-')
         sitemap.push({
-          url: `${baseUrl}/${locale}/blog/category/${categorySlug}`,
+          url: `${baseUrl}${localePath}/blog/category/${categorySlug}`,
           lastModified: new Date(),
           changeFrequency: 'weekly',
           priority: 0.6,
@@ -113,7 +142,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       tags.forEach(tag => {
         const tagSlug = tag.toLowerCase().replace(/\s+/g, '-')
         sitemap.push({
-          url: `${baseUrl}/${locale}/blog/tag/${tagSlug}`,
+          url: `${baseUrl}${localePath}/blog/tag/${tagSlug}`,
           lastModified: new Date(),
           changeFrequency: 'weekly',
           priority: 0.5,

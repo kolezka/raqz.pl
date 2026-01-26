@@ -1,7 +1,6 @@
 'use client'
 import { useLocale, useTranslations } from 'next-intl'
 
-import Link from 'next/link'
 import { useBlogPosts } from '../../hooks/useBlogPosts'
 import BlogCard from './BlogCard'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
@@ -20,8 +19,6 @@ export default function LatestBlogPosts() {
   if (loading || latestPosts.length === 0) {
     return null
   }
-
-  const blogUrl = language === 'pl' ? '/pl/blog' : '/blog'
 
   return (
     <section className="py-24 bg-gray-50 dark:bg-dark-800/50">
@@ -44,7 +41,7 @@ export default function LatestBlogPosts() {
         </div>
 
         {/* View All Link */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <Link
             href={blogUrl}
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors duration-200"
@@ -64,7 +61,7 @@ export default function LatestBlogPosts() {
               />
             </svg>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   )
