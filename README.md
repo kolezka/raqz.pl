@@ -199,14 +199,14 @@ The site supports two languages with `localePrefix: 'as-needed'`:
 
 ### URL Structure
 
-| Page        | English            | Polish                |
-| ----------- | ------------------ | --------------------- |
-| Homepage    | `/`                | `/pl`                 |
-| Services    | `/services`        | `/pl/uslugi`          |
-| Blog        | `/blog`            | `/pl/blog`            |
-| Blog Post   | `/blog/[slug]`     | `/pl/blog/[slug]`     |
-| Portfolio   | `/portfolio`       | `/pl/portfolio`       |
-| Privacy     | `/privacy`         | `/pl/privacy`         |
+| Page      | English        | Polish            |
+| --------- | -------------- | ----------------- |
+| Homepage  | `/`            | `/pl`             |
+| Services  | `/services`    | `/pl/uslugi`      |
+| Blog      | `/blog`        | `/pl/blog`        |
+| Blog Post | `/blog/[slug]` | `/pl/blog/[slug]` |
+| Portfolio | `/portfolio`   | `/pl/portfolio`   |
+| Privacy   | `/privacy`     | `/pl/privacy`     |
 
 ### Adding Translations
 
@@ -260,13 +260,13 @@ Configure features in `src/config/features.ts`:
 
 ```typescript
 export const FEATURES = {
-  CONTACT: true,              // Contact form
-  BLOG_ENABLED: true,         // Blog section
-  PORTFOLIO_ENABLED: true,    // Portfolio section
-  SHOW_ALL_BLOG_POSTS: true,  // Show all vs featured only
-  BLOG_SEARCH_ENABLED: true,  // Blog search
+  CONTACT: true, // Contact form
+  BLOG_ENABLED: true, // Blog section
+  PORTFOLIO_ENABLED: true, // Portfolio section
+  SHOW_ALL_BLOG_POSTS: true, // Show all vs featured only
+  BLOG_SEARCH_ENABLED: true, // Blog search
   BLOG_CATEGORIES_ENABLED: true, // Category filters
-  MAINTENANCE_MODE: false,    // Maintenance overlay
+  MAINTENANCE_MODE: false, // Maintenance overlay
 }
 ```
 
