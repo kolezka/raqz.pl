@@ -1,0 +1,53 @@
+# raqz.pl - AI & Automation Services
+
+> Professional IT services specializing in AI automation, chatbots, dashboards, and digital solutions for businesses in the Mazury region (Poland) and beyond.
+
+## About
+
+raqz.pl is a technology consultancy offering AI-powered automation solutions, custom software development, and digital transformation services. We help businesses streamline operations, improve customer service, and reduce manual workload through intelligent automation.
+
+## Services
+
+- **AI Chatbots**: Custom conversational AI for customer support, booking, and inquiries
+- **Process Automation**: Workflow automation, data processing, and integrations
+- **Dashboards & Analytics**: Real-time business intelligence and reporting
+- **Web Development**: Modern web applications with Next.js, React, and TypeScript
+- **Blockchain Development**: Smart contracts and decentralized applications
+- **AI Integrations**: OpenAI, Claude, and custom ML model integrations
+
+## Target Audience
+
+- Small and medium businesses in the Mazury region (Mikołajki, Giżycko, Mrągowo, Olsztyn)
+- Tourism and hospitality businesses (hotels, guesthouses, restaurants)
+- Companies seeking digital transformation and automation
+- Businesses looking for local IT expertise with fast deployment
+
+## Languages
+
+- English (primary)
+- Polish (native)
+
+## Content Types
+
+- Service descriptions
+- Blog articles about AI, automation, and technology
+- Case studies and implementation guides
+- Technical tutorials
+
+## Contact
+
+For business inquiries, use the contact form on the website or reach out directly.
+
+## Technical Stack
+
+Built with Next.js 15, React 19, TypeScript, and Tailwind CSS. Features server-side rendering, internationalization, and modern web standards.
+
+## Sitemap
+
+Full sitemap available at: https://raqz.pl/sitemap.xml
+
+## Optional
+
+- Preferred citation: "raqz.pl - AI & Automation Services"
+- Location: Mazury region, Poland
+- Specialization: AI automation for local businesses
