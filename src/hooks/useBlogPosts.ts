@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import type { BlogPost } from '../types/blog'
+import { categoryMatchesSlug, tagMatchesSlug } from '../utils/slugify'
 
 export function useBlogPosts(language: string) {
   const [posts, setPosts] = useState<BlogPost[]>([])
@@ -46,19 +47,19 @@ export function useFeaturedPosts(language: string, limit: number = 3) {
 }
 
 // Hook to get posts by category
-export function usePostsByCategory(category: string, language: string) {
+export function usePostsByCategory(categorySlug: string, language: string) {
   const { posts, loading } = useBlogPosts(language)
   const filtered = posts.filter(p =>
-    p.categories.some(c => c.toLowerCase() === category.toLowerCase())
+    p.categories.some(c => categoryMatchesSlug(c, categorySlug))
   )
 
   return { posts: filtered, loading }
 }
 
 // Hook to get posts by tag
-export function usePostsByTag(tag: string, language: string) {
+export function usePostsByTag(tagSlug: string, language: string) {
   const { posts, loading } = useBlogPosts(language)
-  const filtered = posts.filter(p => p.tags.some(t => t.toLowerCase() === tag.toLowerCase()))
+  const filtered = posts.filter(p => p.tags.some(t => tagMatchesSlug(t, tagSlug)))
 
   return { posts: filtered, loading }
 }

@@ -11,7 +11,9 @@ import CookieBanner from '@/components/CookieBanner'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import Script from 'next/script'
 import type { Metadata } from 'next'
+
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from "@vercel/analytics/next"
 
 export function generateStaticParams() {
   return locales.map(locale => ({ locale }))
@@ -141,6 +143,7 @@ export default async function LocaleLayout({
         </Script>
 
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )

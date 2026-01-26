@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
 import type { BlogPost } from '@/types/blog'
+import { categoryMatchesSlug, tagMatchesSlug } from '@/utils/slugify'
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'blog')
 
@@ -80,16 +81,16 @@ export function getTags(posts: BlogPost[]): string[] {
   return Array.from(tags).sort()
 }
 
-// Get posts by category
-export function getPostsByCategory(posts: BlogPost[], category: string): BlogPost[] {
+// Get posts by category (accepts URL slug)
+export function getPostsByCategory(posts: BlogPost[], categorySlug: string): BlogPost[] {
   return posts.filter(post =>
-    post.categories.some(cat => cat.toLowerCase() === category.toLowerCase())
+    post.categories.some(cat => categoryMatchesSlug(cat, categorySlug))
   )
 }
 
-// Get posts by tag
-export function getPostsByTag(posts: BlogPost[], tag: string): BlogPost[] {
-  return posts.filter(post => post.tags.some(t => t.toLowerCase() === tag.toLowerCase()))
+// Get posts by tag (accepts URL slug)
+export function getPostsByTag(posts: BlogPost[], tagSlug: string): BlogPost[] {
+  return posts.filter(post => post.tags.some(t => tagMatchesSlug(t, tagSlug)))
 }
 
 // Get featured posts

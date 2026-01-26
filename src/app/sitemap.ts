@@ -3,6 +3,7 @@ import { locales } from '@/i18n'
 import servicesData from '@/data/services.json'
 import blogIndex from '@/data/blog-index.json'
 import { FEATURES } from '@/config/features'
+import { slugify } from '@/utils/slugify'
 
 const baseUrl = 'https://raqz.pl'
 
@@ -129,7 +130,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       // Category pages
       categories.forEach(category => {
-        const categorySlug = category.toLowerCase().replace(/\s+/g, '-')
+        const categorySlug = slugify(category)
         sitemap.push({
           url: `${baseUrl}${localePath}/blog/category/${categorySlug}`,
           lastModified: new Date(),
@@ -140,7 +141,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       // Tag pages
       tags.forEach(tag => {
-        const tagSlug = tag.toLowerCase().replace(/\s+/g, '-')
+        const tagSlug = slugify(tag)
         sitemap.push({
           url: `${baseUrl}${localePath}/blog/tag/${tagSlug}`,
           lastModified: new Date(),
