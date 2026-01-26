@@ -58,9 +58,7 @@ export default function TechStack() {
           <p className="font-bold tracking-tight text-gray-900 dark:text-white text-4xl sm:text-5xl mb-4">
             {t('techStack.heading')}
           </p>
-          <p className="text-gray-600 dark:text-gray-300 text-lg">
-            {t('techStack.description')}
-          </p>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">{t('techStack.description')}</p>
         </div>
 
         <div

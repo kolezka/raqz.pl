@@ -42,8 +42,8 @@
     "browseTag": "Przeglądaj wszystkie artykuły oznaczone jako"
   },
   "hero": {
-    "title": "IT dla rosnących firm",
-    "subtitle": "Sztuczna Inteligencja do automatyzacji procesów. Kompleksowe rozwiązania IT – od aplikacji webowych\ni mobilnych po infrastrukturę chmurową i wsparcie 24/7.",
+    "title": "IT dla Twojego Biznesu",
+    "subtitle": "AI, Chatboty, automatyzacja procesów i rozwiązania IT od aplikacji mobilnych po wsparcie 24/7",
     "getStarted": "Zobacz rozwiązania",
     "learnMore": "Poznaj nas"
   },
@@ -72,7 +72,7 @@
     "learnMore": "Dowiedz się więcej",
     "startingFrom": "Ceny od",
     "description": "Kompleksowe rozwiązania rozwoju oprogramowania i technologii wspierające rozwój Twojego biznesu.",
-    "sectionTitle": "Nowoczesne rozwiązania",
+    "sectionTitle": "",
     "sectionDescription": "Kompleksowe usługi rozwoju oprogramowania dostosowane do potrzeb biznesowych.",
     "keyFeatures": "Główne funkcje:",
     "more": "więcej"

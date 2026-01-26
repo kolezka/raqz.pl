@@ -24,8 +24,8 @@ const clients: Client[] = [
       'NestJS',
       'GraphQL',
       'PostgreSQL',
-      'CI/CD'
-    ]
+      'CI/CD',
+    ],
   },
   {
     name: 'Henry Schein',

@@ -68,7 +68,9 @@ export default memo(function BlogCard({ post, featured = false }: BlogCardProps)
           </h3>
 
           {/* Excerpt */}
-          <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{post.excerpt || post.description}</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+            {post.excerpt || post.description}
+          </p>
 
           {/* Meta Info */}
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">

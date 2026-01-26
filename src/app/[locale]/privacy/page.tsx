@@ -31,7 +31,9 @@ function PrivacyPageEN() {
         <div className="prose prose-gray dark:prose-invert max-w-none">
           {/* 1. Introduction */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">1. Introduction</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              1. Introduction
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               Welcome to raqz.pl. We are committed to protecting your personal information and your
               right to privacy. This Privacy Policy explains how we collect, use, disclose, and
@@ -46,7 +48,9 @@ function PrivacyPageEN() {
 
           {/* 2. Information We Collect */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">2. Information We Collect</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              2. Information We Collect
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               We collect information that you provide directly to us, as well as information
               automatically collected when you use our website.
@@ -117,8 +121,10 @@ function PrivacyPageEN() {
                     - Stores your cookie preferences
                   </li>
                   <li>
-                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">NEXT_LOCALE</code> -
-                    Stores your language preference (English/Polish)
+                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">
+                      NEXT_LOCALE
+                    </code>{' '}
+                    - Stores your language preference (English/Polish)
                   </li>
                 </ul>
               </div>
@@ -135,9 +141,17 @@ function PrivacyPageEN() {
                   <li>
                     <strong>Google Analytics:</strong> We use Google Analytics to analyze website
                     traffic and user behavior. This includes cookies like{' '}
-                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">_ga</code>,{' '}
-                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">_gid</code>, and{' '}
-                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">_ga_*</code>
+                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">
+                      _ga
+                    </code>
+                    ,{' '}
+                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">
+                      _gid
+                    </code>
+                    , and{' '}
+                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">
+                      _ga_*
+                    </code>
                   </li>
                   <li>
                     <strong>Duration:</strong> Google Analytics cookies are typically stored for up
@@ -171,7 +185,9 @@ function PrivacyPageEN() {
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
               4. How We Use Your Information
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">We use the collected information for:</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              We use the collected information for:
+            </p>
             <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
               <li>Responding to your inquiries and providing customer support</li>
               <li>Improving our website and services based on user feedback</li>
@@ -212,7 +228,9 @@ function PrivacyPageEN() {
 
           {/* 6. Your GDPR Rights */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">6. Your Rights Under GDPR</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              6. Your Rights Under GDPR
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               If you are a resident of the European Economic Area (EEA), you have certain data
               protection rights:
@@ -253,7 +271,9 @@ function PrivacyPageEN() {
 
           {/* 7. Third-Party Services */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">7. Third-Party Services</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              7. Third-Party Services
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               Our website uses the following third-party services:
             </p>
@@ -291,7 +311,9 @@ function PrivacyPageEN() {
 
           {/* 8. Children's Privacy */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">8. Children's Privacy</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              8. Children's Privacy
+            </h2>
             <p className="text-gray-600 dark:text-gray-300">
               Our website is not intended for children under the age of 16. We do not knowingly
               collect personal information from children under 16. If you believe we have collected
@@ -323,7 +345,9 @@ function PrivacyPageEN() {
 
           {/* 10. Contact Information */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">10. Contact Information</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              10. Contact Information
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               If you have any questions, concerns, or requests regarding this Privacy Policy or our
               data practices, please contact us:
@@ -359,7 +383,9 @@ function PrivacyPagePL() {
       <div className="mx-auto max-w-4xl px-6 py-16 lg:px-8 lg:py-24">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Polityka Prywatności</h1>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Polityka Prywatności
+          </h1>
           <p className="text-gray-500 dark:text-gray-400">Ostatnia aktualizacja: 8 grudnia 2024</p>
         </div>
 
@@ -367,7 +393,9 @@ function PrivacyPagePL() {
         <div className="prose prose-gray dark:prose-invert max-w-none">
           {/* 1. Wprowadzenie */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">1. Wprowadzenie</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              1. Wprowadzenie
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               Witamy na raqz.pl. Jesteśmy zobowiązani do ochrony Twoich danych osobowych i prawa do
               prywatności. Niniejsza Polityka Prywatności wyjaśnia, w jaki sposób zbieramy,
@@ -460,8 +488,10 @@ function PrivacyPagePL() {
                     - Przechowuje Twoje preferencje dotyczące plików cookie
                   </li>
                   <li>
-                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">NEXT_LOCALE</code> -
-                    Przechowuje Twoje preferencje językowe (angielski/polski)
+                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">
+                      NEXT_LOCALE
+                    </code>{' '}
+                    - Przechowuje Twoje preferencje językowe (angielski/polski)
                   </li>
                 </ul>
               </div>
@@ -478,9 +508,17 @@ function PrivacyPagePL() {
                   <li>
                     <strong>Google Analytics:</strong> Używamy Google Analytics do analizy ruchu na
                     stronie internetowej i zachowań użytkowników. Obejmuje to pliki cookie takie jak{' '}
-                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">_ga</code>,{' '}
-                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">_gid</code> oraz{' '}
-                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">_ga_*</code>
+                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">
+                      _ga
+                    </code>
+                    ,{' '}
+                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">
+                      _gid
+                    </code>{' '}
+                    oraz{' '}
+                    <code className="text-sm bg-gray-100 dark:bg-dark-700 px-1.5 py-0.5 rounded">
+                      _ga_*
+                    </code>
                   </li>
                   <li>
                     <strong>Czas trwania:</strong> Pliki cookie Google Analytics są zwykle
@@ -516,7 +554,9 @@ function PrivacyPagePL() {
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
               4. Jak wykorzystujemy Twoje informacje
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">Zebrane informacje wykorzystujemy do:</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
+              Zebrane informacje wykorzystujemy do:
+            </p>
             <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
               <li>Odpowiadania na Twoje zapytania i świadczenia obsługi klienta</li>
               <li>
@@ -606,7 +646,9 @@ function PrivacyPagePL() {
 
           {/* 7. Usługi stron trzecich */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">7. Usługi stron trzecich</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              7. Usługi stron trzecich
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               Nasza strona internetowa korzysta z następujących usług stron trzecich:
             </p>
@@ -645,7 +687,9 @@ function PrivacyPagePL() {
 
           {/* 8. Prywatność dzieci */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">8. Prywatność dzieci</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              8. Prywatność dzieci
+            </h2>
             <p className="text-gray-600 dark:text-gray-300">
               Nasza strona internetowa nie jest przeznaczona dla dzieci poniżej 16 roku życia. Nie
               zbieramy świadomie danych osobowych od dzieci poniżej 16 roku życia. Jeśli uważasz, że
@@ -680,7 +724,9 @@ function PrivacyPagePL() {
 
           {/* 10. Informacje kontaktowe */}
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">10. Informacje kontaktowe</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+              10. Informacje kontaktowe
+            </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               Jeśli masz jakiekolwiek pytania, wątpliwości lub prośby dotyczące niniejszej Polityki
               Prywatności lub naszych praktyk dotyczących danych, skontaktuj się z nami:

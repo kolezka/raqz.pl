@@ -74,7 +74,9 @@ export default function CookieBanner() {
                   {/* <h2 className="text-sm font-semibold text-gray-900">
                     {t('banner.title')}
                   </h2> */}
-                  <p className="text-xs text-gray-600 dark:text-gray-300 max-w-2xl">{t('banner.description')}</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-300 max-w-2xl">
+                    {t('banner.description')}
+                  </p>
                 </div>
               </div>
 

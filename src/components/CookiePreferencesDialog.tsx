@@ -66,7 +66,10 @@ export default function CookiePreferencesDialog({
   return (
     <Dialog className="relative z-50" open={open} onClose={onClose}>
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-gray-900/25 dark:bg-black/50 transition-opacity" aria-hidden="true" />
+      <div
+        className="fixed inset-0 bg-gray-900/25 dark:bg-black/50 transition-opacity"
+        aria-hidden="true"
+      />
 
       {/* Dialog Panel */}
       <div className="fixed inset-0 flex items-end sm:items-center justify-center p-0 sm:p-4">
@@ -81,7 +84,9 @@ export default function CookiePreferencesDialog({
                 <DialogTitle className="text-xl font-semibold text-gray-900 dark:text-white">
                   {t('preferences.title')}
                 </DialogTitle>
-                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{t('preferences.subtitle')}</p>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  {t('preferences.subtitle')}
+                </p>
               </div>
               <button
                 type="button"
@@ -96,7 +101,9 @@ export default function CookiePreferencesDialog({
 
           {/* Content */}
           <div className="px-6 py-6 space-y-6">
-            <p className="text-sm text-gray-600 dark:text-gray-300">{t('preferences.description')}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">
+              {t('preferences.description')}
+            </p>
 
             {/* Cookie Categories */}
             <div className="space-y-4">

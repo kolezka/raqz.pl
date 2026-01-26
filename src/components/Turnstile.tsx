@@ -20,7 +20,7 @@ export default memo(function Turnstile({ onVerify, onError, onExpire }: Turnstil
   }
 
   return (
-    <div className="flex justify-center my-4">
+    <div className="flex justify-end my-4">
       <CloudflareTurnstile
         siteKey={siteKey}
         onSuccess={onVerify}

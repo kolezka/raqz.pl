@@ -63,7 +63,10 @@ export default function ContactFormDialog({ open, onClose, onSuccess }: ContactF
   return (
     <Dialog className="relative z-50" open={open} onClose={handleClose}>
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-gray-900/25 dark:bg-black/50 transition-opacity" aria-hidden="true" />
+      <div
+        className="fixed inset-0 bg-gray-900/25 dark:bg-black/50 transition-opacity"
+        aria-hidden="true"
+      />
 
       {/* Dialog Panel */}
       <div className="fixed inset-0 flex items-end sm:items-center justify-center p-0 sm:p-4">
@@ -78,7 +81,9 @@ export default function ContactFormDialog({ open, onClose, onSuccess }: ContactF
                 <DialogTitle className="text-xl font-semibold text-gray-900 dark:text-white">
                   {t('dialog.title')}
                 </DialogTitle>
-                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{t('dialog.subtitle')}</p>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  {t('dialog.subtitle')}
+                </p>
               </div>
               <button
                 type="button"
@@ -99,13 +104,18 @@ export default function ContactFormDialog({ open, onClose, onSuccess }: ContactF
               <div className="rounded-lg bg-green-50 dark:bg-green-900/20 p-6 text-center">
                 <div className="flex justify-center mb-4">
                   <div className="rounded-full bg-green-100 dark:bg-green-900/40 p-3">
-                    <RiCheckboxCircleLine className="h-8 w-8 text-green-600 dark:text-green-400" aria-hidden="true" />
+                    <RiCheckboxCircleLine
+                      className="h-8 w-8 text-green-600 dark:text-green-400"
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
                 <h3 className="text-lg font-semibold text-green-900 dark:text-green-100 mb-2">
                   {t('dialog.success.title')}
                 </h3>
-                <p className="text-sm text-green-700 dark:text-green-300">{t('dialog.success.description')}</p>
+                <p className="text-sm text-green-700 dark:text-green-300">
+                  {t('dialog.success.description')}
+                </p>
               </div>
             ) : (
               // Form

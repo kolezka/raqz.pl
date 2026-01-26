@@ -63,7 +63,9 @@ export default async function ServiceDetailPage({
               <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 {t('serviceDetail.featuresTitle')}
               </h2>
-              <p className="mt-4 text-gray-600 dark:text-gray-300">{t('serviceDetail.featuresIntro')}</p>
+              <p className="mt-4 text-gray-600 dark:text-gray-300">
+                {t('serviceDetail.featuresIntro')}
+              </p>
               <ul role="list" className="mt-8 space-y-4">
                 {messages.serviceDetails?.[serviceId]?.features?.map(
                   (feature: string, index: number) => (
@@ -84,7 +86,9 @@ export default async function ServiceDetailPage({
               <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 {t('serviceDetail.technologiesTitle')}
               </h2>
-              <p className="mt-4 text-gray-600 dark:text-gray-300">{t('serviceDetail.technologiesIntro')}</p>
+              <p className="mt-4 text-gray-600 dark:text-gray-300">
+                {t('serviceDetail.technologiesIntro')}
+              </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {service.technologies.map((tech, index) => (
                   <span
@@ -100,7 +104,9 @@ export default async function ServiceDetailPage({
                 <h3 className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
                   {t('serviceDetail.pricingTitle')}
                 </h3>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{t('serviceDetail.pricingNote')}</p>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                  {t('serviceDetail.pricingNote')}
+                </p>
               </div>
 
               <div className="mt-8">

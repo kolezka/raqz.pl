@@ -112,89 +112,9 @@ export const ContactForm = () => {
       onSubmit={handleSubmit}
       className={`mx-auto mt-16 max-w-xl sm:mt-20 ${formAnimation.className}`}
     >
-      <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-        <div>
-          <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
-            {t('contact.name')}
-          </label>
-          <div className="mt-2.5">
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={formData.name}
-              onChange={handleChange}
-              autoComplete="name"
-              required
-              disabled={isSubmitting}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
-            />
-          </div>
-        </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
-            {t('contact.email')}
-          </label>
-          <div className="mt-2.5">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={formData.email}
-              onChange={handleChange}
-              autoComplete="email"
-              required
-              disabled={isSubmitting}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
-            />
-          </div>
-        </div>
-        <div className="sm:col-span-2">
-          <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
-            Company
-          </label>
-          <div className="mt-2.5">
-            <input
-              type="text"
-              name="company"
-              id="company"
-              value={formData.company}
-              onChange={handleChange}
-              autoComplete="organization"
-              disabled={isSubmitting}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
-            />
-          </div>
-        </div>
-        <div className="sm:col-span-2">
-          <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
-            {t('contact.message')}
-          </label>
-          <div className="mt-2.5">
-            <textarea
-              name="message"
-              id="message"
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-              required
-              disabled={isSubmitting}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
-            />
-          </div>
-        </div>
-      </div>
-      <div className="sm:col-span-2">
-        <Turnstile
-          onVerify={handleTurnstileVerify}
-          onError={handleTurnstileError}
-          onExpire={handleTurnstileExpire}
-        />
-      </div>
-
       {/* Success Message */}
       {submitStatus === 'success' && (
-        <div className="mt-6 rounded-md bg-green-50 dark:bg-green-900/30 p-4">
+        <div className="mb-6 rounded-md bg-green-50 dark:bg-green-900/30 p-4">
           <div className="flex">
             <div className="shrink-0">
               <RiCheckboxCircleLine className="h-5 w-5 text-green-400" aria-hidden="true" />
@@ -213,7 +133,7 @@ export const ContactForm = () => {
 
       {/* Error Message */}
       {errorMessage && (
-        <div className="mt-6 rounded-md bg-red-50 dark:bg-red-900/30 p-4">
+        <div className="mb-6 rounded-md bg-red-50 dark:bg-red-900/30 p-4">
           <div className="flex">
             <div className="shrink-0">
               <svg
@@ -236,6 +156,91 @@ export const ContactForm = () => {
         </div>
       )}
 
+      <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div>
+          <label
+            htmlFor="name"
+            className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100"
+          >
+            {t('contact.name')}
+          </label>
+          <div className="mt-2.5">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value={formData.name}
+              onChange={handleChange}
+              autoComplete="name"
+              required
+              disabled={isSubmitting}
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
+            />
+          </div>
+        </div>
+        <div>
+          <label
+            htmlFor="email"
+            className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100"
+          >
+            {t('contact.email')}
+          </label>
+          <div className="mt-2.5">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={formData.email}
+              onChange={handleChange}
+              autoComplete="email"
+              required
+              disabled={isSubmitting}
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
+            />
+          </div>
+        </div>
+        <div className="sm:col-span-2">
+          <label
+            htmlFor="company"
+            className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100"
+          >
+            Company
+          </label>
+          <div className="mt-2.5">
+            <input
+              type="text"
+              name="company"
+              id="company"
+              value={formData.company}
+              onChange={handleChange}
+              autoComplete="organization"
+              disabled={isSubmitting}
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
+            />
+          </div>
+        </div>
+        <div className="sm:col-span-2">
+          <label
+            htmlFor="message"
+            className="block text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100"
+          >
+            {t('contact.message')}
+          </label>
+          <div className="mt-2.5">
+            <textarea
+              name="message"
+              id="message"
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+              required
+              disabled={isSubmitting}
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 dark:text-white bg-white dark:bg-dark-800 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-primary-600 dark:focus:ring-primary-500 transition-all duration-200 focus:scale-105 sm:text-sm sm:leading-6 disabled:opacity-50 disabled:cursor-not-allowed"
+            />
+          </div>
+        </div>
+      </div>
+
       <div className="mt-10">
         <button
           type="submit"
@@ -254,6 +259,14 @@ export const ContactForm = () => {
             </>
           )}
         </button>
+      </div>
+
+      <div>
+        <Turnstile
+          onVerify={handleTurnstileVerify}
+          onError={handleTurnstileError}
+          onExpire={handleTurnstileExpire}
+        />
       </div>
     </form>
   )

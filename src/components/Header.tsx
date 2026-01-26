@@ -127,7 +127,9 @@ export default memo(function Header() {
         // Position: absolute in hero, fixed outside
         isInHeroSection ? 'absolute' : 'fixed',
         // Background styling - consistent style in hero section
-        isInHeroSection ? 'border-none' : 'bg-white/50 dark:bg-dark-900/50 backdrop-blur-sm border-gray-200/20 dark:border-gray-700/20',
+        isInHeroSection
+          ? 'border-none'
+          : 'bg-white/50 dark:bg-dark-900/50 backdrop-blur-sm border-gray-200/20 dark:border-gray-700/20',
         // Visibility - only hide when we can and when scrolling down
         !isInHeroSection && !shouldShowFixedHeader ? '-translate-y-full' : 'translate-y-0',
         // Only animate translate, not position changes
@@ -194,7 +196,10 @@ export default memo(function Header() {
         >
           <div className="flex items-center justify-between">
             <Link href={`${langPrefix}/`} className="-m-1.5 p-1.5" aria-label={t('home')}>
-              <span className="text-xl font-bold text-primary-600 dark:text-primary-400" aria-hidden="true">
+              <span
+                className="text-xl font-bold text-primary-600 dark:text-primary-400"
+                aria-hidden="true"
+              >
                 raqz.pl
               </span>
             </Link>

@@ -76,8 +76,12 @@ export default function BlogTagClient({ params }: { params: Promise<{ tag: strin
                   d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 20h.01M12 20a8 8 0 100-16 8 8 0 000 16z"
                 />
               </svg>
-              <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">{t('blog.noPosts')}</h3>
-              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{t('blog.noPostsDescription')}</p>
+              <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">
+                {t('blog.noPosts')}
+              </h3>
+              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                {t('blog.noPostsDescription')}
+              </p>
             </div>
           )}
 

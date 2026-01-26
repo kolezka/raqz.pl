@@ -140,8 +140,8 @@
     "browseTag": "Przeglądaj wszystkie artykuły z tagiem"
   },
   "hero": {
-    "title": "IT dla rosnących firm",
-    "subtitle": "Sztuczna Inteligencja do automatyzacji procesów. Kompleksowe rozwiązania IT – od aplikacji webowych\ni mobilnych po infrastrukturę chmurową i wsparcie 24/7.",
+    "title": "IT dla Twojego Biznesu",
+    "subtitle": "AI, Chatboty, automatyzacja procesów i rozwiązania IT od aplikacji mobilnych po wsparcie 24/7",
     "getStarted": "Zobacz rozwiązania",
     "learnMore": "Poznaj nas"
   },
@@ -499,7 +499,7 @@
     },
     "projects": {
       "directdental": {
-        "title": "Aplikacja mobilna DirectDental",
+        "title": "Aplikacja Android, IOS dla directdental.com - Henry Schein",
         "description": "Natywna aplikacja mobilna na iOS i Android dla platformy DirectDental Henry Schein. Aplikacja odegrała kluczową rolę w przejęciu firmy przez główną korporację branży dentystycznej w USA."
       },
       "dynamic-xyz": {

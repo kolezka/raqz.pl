@@ -61,7 +61,7 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
   return (
     <div className="min-h-screen bg-white dark:bg-dark-900">
       {/* Hero Section with Cover Image */}
-      <div className="relative bg-gray-900 h-96">
+      <div className="relative bg-gray-900 h-[500px]">
         <img
           src={metadata.coverImage}
           alt={metadata.coverImageAlt}
@@ -130,10 +130,10 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
                 </div>
               </>
             )}
-            <span>•</span>
+            {/* <span>•</span>
             <div className="flex items-center">
               <span>{t('blog.readingTime', { time: metadata.readingTime })}</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -155,7 +155,9 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
         {/* Tags */}
         {metadata.tags.length > 0 && (
           <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">{t('blog.tags')}</h3>
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
+              {t('blog.tags')}
+            </h3>
             <div className="flex flex-wrap gap-2">
               {metadata.tags.map(tag => (
                 <Link

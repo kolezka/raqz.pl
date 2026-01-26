@@ -26,7 +26,9 @@ export default function About() {
           ref={headerAnimation.ref}
           className={`mx-auto max-w-2xl lg:text-center ${headerAnimation.className}`}
         >
-          <h2 className="font-semibold text-primary-600 dark:text-primary-400 text-md mb-2">{t('about.title')}</h2>
+          <h2 className="font-semibold text-primary-600 dark:text-primary-400 text-md mb-2">
+            {t('about.title')}
+          </h2>
           <p className="font-bold tracking-tight text-gray-900 dark:text-white text-5xl mb-4">
             {t('about.description')}
           </p>

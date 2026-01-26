@@ -43,7 +43,9 @@ export default function BlogListClient() {
           {/* Featured Posts (only on main blog page) */}
           {featuredPosts.length > 0 && (
             <div className="mb-12">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('blog.featured')}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                {t('blog.featured')}
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {featuredPosts.map(post => (
                   <BlogCard key={post.slug} post={post} featured />
@@ -79,8 +81,12 @@ export default function BlogListClient() {
                   d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 20h.01M12 20a8 8 0 100-16 8 8 0 000 16z"
                 />
               </svg>
-              <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">{t('blog.noPosts')}</h3>
-              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{t('blog.noPostsDescription')}</p>
+              <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">
+                {t('blog.noPosts')}
+              </h3>
+              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                {t('blog.noPostsDescription')}
+              </p>
             </div>
           )}
 
@@ -88,7 +94,9 @@ export default function BlogListClient() {
           {FEATURES.SHOW_ALL_BLOG_POSTS && !loading && posts.length > 0 && (
             <div>
               {featuredPosts.length > 0 && (
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('blog.allPosts')}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                  {t('blog.allPosts')}
+                </h2>
               )}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {posts

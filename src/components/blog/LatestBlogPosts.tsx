@@ -31,7 +31,9 @@ export default function LatestBlogPosts() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {t('blog.latestFromBlog')}
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{t('blog.description')}</p>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            {t('blog.description')}
+          </p>
         </div>
 
         {/* Blog Cards Grid */}

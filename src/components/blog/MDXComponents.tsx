@@ -71,7 +71,10 @@ function A({
 // Custom list components
 function Ul({ children, ...props }: HTMLAttributes<HTMLUListElement>) {
   return (
-    <ul className="list-disc list-inside mb-4 space-y-2 text-gray-700 dark:text-gray-300" {...props}>
+    <ul
+      className="list-disc list-inside mb-4 space-y-2 text-gray-700 dark:text-gray-300"
+      {...props}
+    >
       {children}
     </ul>
   )
@@ -79,7 +82,10 @@ function Ul({ children, ...props }: HTMLAttributes<HTMLUListElement>) {
 
 function Ol({ children, ...props }: HTMLAttributes<HTMLOListElement>) {
   return (
-    <ol className="list-decimal list-inside mb-4 space-y-2 text-gray-700 dark:text-gray-300" {...props}>
+    <ol
+      className="list-decimal list-inside mb-4 space-y-2 text-gray-700 dark:text-gray-300"
+      {...props}
+    >
       {children}
     </ol>
   )
@@ -152,7 +158,10 @@ function Thead({ children, ...props }: HTMLAttributes<HTMLTableSectionElement>) 
 
 function Tbody({ children, ...props }: HTMLAttributes<HTMLTableSectionElement>) {
   return (
-    <tbody className="bg-white dark:bg-dark-900 divide-y divide-gray-200 dark:divide-gray-700" {...props}>
+    <tbody
+      className="bg-white dark:bg-dark-900 divide-y divide-gray-200 dark:divide-gray-700"
+      {...props}
+    >
       {children}
     </tbody>
   )

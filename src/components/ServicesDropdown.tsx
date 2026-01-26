@@ -67,11 +67,17 @@ function ServicesDropdownContent({
           {servicesData.serviceCategories.map(category => {
             const IconComponent = iconMap[category.icon as keyof typeof iconMap]
             return (
-              <div key={category.id} className="break-inside-avoid bg-white dark:bg-dark-800 overflow-hidden">
+              <div
+                key={category.id}
+                className="break-inside-avoid bg-white dark:bg-dark-800 overflow-hidden"
+              >
                 <div className="px-4 py-3 bg-linear-to-r from-primary-50/80 to-primary-100/40 dark:from-primary-900/30 dark:to-primary-800/20">
                   <div className="flex items-center text-xs font-semibold text-gray-900 dark:text-white">
                     <div className="p-1.5 bg-white/80 dark:bg-dark-700 rounded-md mr-2 shadow-sm">
-                      <IconComponent className="h-3 w-3 text-primary-600 dark:text-primary-400" aria-hidden="true" />
+                      <IconComponent
+                        className="h-3 w-3 text-primary-600 dark:text-primary-400"
+                        aria-hidden="true"
+                      />
                     </div>
                     {t(`servicesDropdown.categories.${category.id}.name`)}
                   </div>

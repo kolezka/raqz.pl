@@ -26,7 +26,9 @@ export default function NotFound() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               {t('heading')}
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-lg mx-auto">{t('description')}</p>
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-lg mx-auto">
+              {t('description')}
+            </p>
           </div>
 
           {/* Action Buttons */}

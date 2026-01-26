@@ -37,11 +37,15 @@ export default memo(function Services() {
           ref={headerAnimation.ref}
           className={`mx-auto max-w-4xl lg:text-center ${headerAnimation.className}`}
         >
-          <h2 className="font-semibold text-primary-500 dark:text-primary-400 text-md mb-2">{t('services.title')}</h2>
+          <h2 className="font-semibold text-primary-500 dark:text-primary-400 text-md mb-2">
+            {t('services.title')}
+          </h2>
           <p className="font-bold tracking-tight text-gray-900 dark:text-white text-5xl mb-4">
             {t('services.sectionTitle')}
           </p>
-          <p className="text-gray-600 dark:text-gray-300 text-lg">{t('services.sectionDescription')}</p>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">
+            {t('services.sectionDescription')}
+          </p>
         </div>
         <div className="max-w-5xl mx-auto my-8">
           <dl className="grid md:grid-cols-2 gap-8">
