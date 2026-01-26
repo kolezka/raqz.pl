@@ -27,7 +27,7 @@ const projects = [
     image: '/portfolio/raqzpl.png',
     technologies: ['Next.js', 'TypeScript', 'Tailwind', 'MDX'],
     liveUrl: 'https://raqz.pl',
-    githubUrl: 'https://github.com/kolezka/raqzpl',
+    githubUrl: 'https://github.com/kolezka/raqz.pl',
     featured: false,
   },
 ]
