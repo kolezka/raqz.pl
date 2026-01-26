@@ -83,9 +83,7 @@ export function getTags(posts: BlogPost[]): string[] {
 
 // Get posts by category (accepts URL slug)
 export function getPostsByCategory(posts: BlogPost[], categorySlug: string): BlogPost[] {
-  return posts.filter(post =>
-    post.categories.some(cat => categoryMatchesSlug(cat, categorySlug))
-  )
+  return posts.filter(post => post.categories.some(cat => categoryMatchesSlug(cat, categorySlug)))
 }
 
 // Get posts by tag (accepts URL slug)

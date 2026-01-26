@@ -49,9 +49,7 @@ export function useFeaturedPosts(language: string, limit: number = 3) {
 // Hook to get posts by category
 export function usePostsByCategory(categorySlug: string, language: string) {
   const { posts, loading } = useBlogPosts(language)
-  const filtered = posts.filter(p =>
-    p.categories.some(c => categoryMatchesSlug(c, categorySlug))
-  )
+  const filtered = posts.filter(p => p.categories.some(c => categoryMatchesSlug(c, categorySlug)))
 
   return { posts: filtered, loading }
 }
