@@ -1,7 +1,6 @@
 'use client'
 
-import { useMemo, useState, memo, useEffect } from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
+import { useMemo, useState, memo, useEffect, useRef } from 'react'
 import { RiMenuLine, RiCloseLine } from 'react-icons/ri'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -31,16 +30,12 @@ const scrollToSection = (sectionId: string) => {
 
 export default memo(function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const { scrollDirection, scrollY } = useScrollDirection(15)
+  const { scrollY } = useScrollDirection(15)
   const t = useTranslations('navigation')
   const locale = useLocale()
   const pathname = usePathname()
-
-  // Mark as mounted after hydration to avoid hydration mismatch
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const menuRef = useRef<HTMLDivElement>(null)
+  const scrollYRef = useRef(0)
 
   // Get language prefix for URLs
   const langPrefix = useMemo(() => (locale === 'en' ? '' : `/${locale}`), [locale])
@@ -56,19 +51,73 @@ export default memo(function Header() {
     }
   }, [pathname])
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMobileMenuOpen(false)
+      }
+    }
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [mobileMenuOpen])
+
+  // Close menu on escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false)
+      }
+    }
+
+    if (mobileMenuOpen) {
+      document.addEventListener('keydown', handleEscape)
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+    }
+  }, [mobileMenuOpen])
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      scrollYRef.current = window.scrollY
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollYRef.current}px`
+      document.body.style.left = '0'
+      document.body.style.right = '0'
+      document.body.style.overflow = 'hidden'
+    } else {
+      const savedScrollY = scrollYRef.current
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.left = ''
+      document.body.style.right = ''
+      document.body.style.overflow = ''
+      window.scrollTo(0, savedScrollY)
+    }
+  }, [mobileMenuOpen])
+
   const navigation = useMemo(() => {
     const items = [
-      { name: t('home'), href: `${langPrefix}/`, type: 'link' },
+      // { name: t('home'), href: `${langPrefix}/`, type: 'link' },
       {
         name: t('about'),
         href: `${langPrefix}/#about`,
         type: 'anchor',
       },
-      {
-        name: t('services'),
-        href: `${langPrefix}/services`,
-        type: 'dropdown',
-      },
+      // {
+      //   name: t('services'),
+      //   href: `${langPrefix}/services`,
+      //   type: 'dropdown',
+      // },
       ...(FEATURES.PORTFOLIO_ENABLED
         ? [
             {
@@ -100,160 +149,129 @@ export default memo(function Header() {
     return items
   }, [t, langPrefix])
 
-  // Check if user is still in the hero section
-  // Use mounted to prevent hydration mismatch - assume in hero section until mounted
-  const isInHeroSection = useMemo(
-    () => !mounted || (typeof window !== 'undefined' && scrollY < window.innerHeight),
-    [scrollY, mounted]
-  )
-
-  // Only allow hiding when we're well past the hero section (200px buffer)
-  const canHideHeader = useMemo(
-    () => mounted && typeof window !== 'undefined' && scrollY > window.innerHeight + 200,
-    [scrollY, mounted]
-  )
-
-  // Header visibility logic when fixed
-  // Show when: scrolling up, can't hide yet, or mobile menu open
-  const shouldShowFixedHeader = useMemo(
-    () => scrollDirection === 'up' || !canHideHeader || mobileMenuOpen,
-    [scrollDirection, canHideHeader, mobileMenuOpen]
-  )
-
   return (
     <header
       className={clsx(
-        'top-0 left-0 right-0 z-10 border-b',
-        // Position: absolute in hero, fixed outside
-        isInHeroSection ? 'absolute' : 'fixed',
-        // Background styling - consistent style in hero section
-        isInHeroSection
-          ? 'border-none'
-          : 'bg-white/50 dark:bg-dark-900/50 backdrop-blur-sm border-gray-200/20 dark:border-gray-700/20',
-        // Visibility - only hide when we can and when scrolling down
-        !isInHeroSection && !shouldShowFixedHeader ? '-translate-y-full' : 'translate-y-0',
-        // Only animate translate, not position changes
-        'transition-transform duration-150 ease-in-out'
+        'fixed top-0 left-0 right-0 z-10',
+        'transition-transform duration-300 ease',
+        scrollY > 100 ? 'translate-y-4' : 'translate-y-10'
       )}
     >
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-        aria-label="Global"
-      >
-        <div className="flex lg:flex-1">
-          <Link href={`${langPrefix}/`} className="-m-1.5 p-1.5 group" aria-label={t('home')}>
-            <span
-              className="text-2xl font-bold transition-all duration-300 inline-block group-hover:scale-105 group-hover:rotate-1"
-              aria-hidden="true"
-            >
-              raqz.pl
-            </span>
-          </Link>
-        </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="text-gray-700 dark:text-gray-300 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 transition-colors duration-300"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <RiMenuLine className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map(item => (
-            <div key={item.name}>
-              {item.type === 'dropdown' ? (
-                <ServicesDropdown />
-              ) : item.type === 'link' ? (
-                <Link
-                  href={item.href}
-                  className="text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary-600 dark:after:bg-primary-400 after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  {item.name}
-                </Link>
-              ) : (
-                <Link
-                  href={item.href}
-                  className="text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary-600 dark:after:bg-primary-400 after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  {item.name}
-                </Link>
-              )}
-            </div>
-          ))}
-        </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-2">
-          <ThemeToggle />
-          <LanguageSwitcher />
-        </div>
-      </nav>
-      <Dialog className="lg:hidden z-50" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-        <div className="fixed inset-0 z-10 bg-gray-900/25 dark:bg-black/50" />
-        <DialogPanel
-          transition
-          className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white dark:bg-dark-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:sm:ring-gray-700/50 transition duration-150 translate-x-0 data-closed:translate-x-full"
+      <div ref={menuRef} className="max-w-7xl mx-auto px-6">
+        <nav
+          className={clsx(
+            'flex items-center justify-between',
+            'py-3 px-4 lg:py-4 lg:px-8',
+            'border border-gray-100 dark:border-gray-700',
+            'bg-white dark:bg-dark-800/50',
+            mobileMenuOpen ? 'rounded-t-2xl' : 'rounded-xl',
+            scrollY > 100 ? 'shadow-xs' : 'shadow-lg',
+            'transition-all duration-300 linear',
+            'backdrop-blur-[12px]'
+          )}
+          aria-label="Global"
         >
-          <div className="flex items-center justify-between">
-            <Link href={`${langPrefix}/`} className="-m-1.5 p-1.5" aria-label={t('home')}>
+          <div className="flex lg:flex-1">
+            <Link href={`${langPrefix}/`} className="-m-1.5 p-1.5 group" aria-label={t('home')}>
               <span
-                className="text-xl font-bold text-primary-600 dark:text-primary-400"
+                className="tracking-wide text-2xl lg:text-3xl leading-none font-bold transition-all duration-150 inline-block group-hover:scale-105"
                 aria-hidden="true"
               >
                 raqz.pl
               </span>
             </Link>
+          </div>
+          <div className="flex lg:hidden">
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-300"
-              onClick={() => setMobileMenuOpen(false)}
+              className="text-gray-700 dark:text-gray-300 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 transition-colors duration-300"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-expanded={mobileMenuOpen}
             >
-              <span className="sr-only">Close menu</span>
-              <RiCloseLine className="h-6 w-6" aria-hidden="true" />
+              <span className="sr-only">{mobileMenuOpen ? 'Close menu' : 'Open main menu'}</span>
+              {mobileMenuOpen ? (
+                <RiCloseLine className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <RiMenuLine className="h-6 w-6" aria-hidden="true" />
+              )}
             </button>
           </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10 dark:divide-gray-700/50">
-              <div className="space-y-2 py-6">
-                {navigation.map(item =>
-                  item.type === 'link' || item.type === 'anchor' ? (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-dark-800 transition-all duration-200 hover:translate-x-1"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
-                    <Link
-                      key={item.name}
-                      href={`${langPrefix}/services`}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-dark-800 transition-all duration-200 hover:translate-x-1"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  )
+          <div className="hidden lg:flex lg:gap-x-12">
+            {navigation.map(item => (
+              <div key={item.name}>
+                {item.type === 'dropdown' ? (
+                  <ServicesDropdown />
+                ) : item.type === 'link' ? (
+                  <Link
+                    href={item.href}
+                    className="text-md font-semibold transition-colors duration-150 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="text-md font-semibold transition-colors duration-150 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative"
+                  >
+                    {item.name}
+                  </Link>
                 )}
               </div>
-              <div className="py-6">
-                <Link
-                  href={`${langPrefix}/#contact`}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-dark-800 text-left w-full"
-                >
-                  {t('getStarted')}
-                </Link>
-              </div>
-              <div className="px-4 py-3 border-t border-gray-200 dark:border-gray-700 flex items-center gap-4">
-                <ThemeToggle />
-                <LanguageSwitcher />
-              </div>
+            ))}
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-2">
+            <ThemeToggle />
+            <LanguageSwitcher />
+          </div>
+        </nav>
+
+        {/* Mobile dropdown menu */}
+        <div
+          className={clsx(
+            'lg:hidden origin-top transition-all duration-200 ease-out',
+            mobileMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'
+          )}
+        >
+          <div className="bg-white dark:bg-dark-800 border border-t-0 border-gray-100 dark:border-gray-700 rounded-b-2xl shadow-lg px-4 pb-4">
+            <div className="space-y-1 py-3">
+              {navigation.map(item =>
+                item.type === 'link' || item.type === 'anchor' ? (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-150"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={`${langPrefix}/services`}
+                    className="block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-150"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
+            </div>
+            <div className="border-t border-gray-100 dark:border-gray-700 pt-3">
+              <Link
+                href={`${langPrefix}/#contact`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block rounded-lg px-3 py-2.5 text-base font-semibold text-primary-600 dark:text-primary-400 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-150"
+              >
+                {t('getStarted')}
+              </Link>
+            </div>
+            <div className="flex items-center gap-4 pt-3 px-3 border-t border-gray-100 dark:border-gray-700 mt-3">
+              <ThemeToggle />
+              <LanguageSwitcher />
             </div>
           </div>
-        </DialogPanel>
-      </Dialog>
+        </div>
+      </div>
     </header>
   )
 })

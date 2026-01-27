@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://raqz.pl/pl/blog</id>
-    <title>Blog RaqZpl Solutions</title>
-    <updated>2025-12-05T21:31:37.156Z</updated>
+    <title>Blog raqz.pl Solutions</title>
+    <updated>2026-01-27T04:19:00.701Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>RaqZpl Solutions</name>
@@ -12,33 +12,20 @@
     <link rel="self" href="https://raqz.pl/pl/atom.xml"/>
     <subtitle>Wiedza, tutoriale i aktualności od RaqZpl Solutions</subtitle>
     <icon>https://raqz.pl/favicon.ico</icon>
-    <rights>All rights reserved 2025, RaqZpl Solutions</rights>
+    <rights>All rights reserved 2026, RaqZpl Solutions</rights>
     <entry>
-        <title type="html"><![CDATA[Nowoczesny Rozwój Web w 2025: Trendy i Najlepsze Praktyki]]></title>
-        <id>https://raqz.pl/pl/blog/nowoczesny-rozwoj-web-2025</id>
-        <link href="https://raqz.pl/pl/blog/nowoczesny-rozwoj-web-2025"/>
-        <link rel="enclosure" href="https://raqz.pl/images/blog/web-dev-2025.jpg" type="image/jpg"/>
-        <updated>2025-12-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Kompleksowy przewodnik po nowoczesnych praktykach rozwoju web, frameworkach i narzędziach kształtujących branżę w 2025 roku.]]></summary>
-        <content type="html"><![CDATA[Odkryj najnowsze trendy w rozwoju webowym na 2025 rok, w tym React 19, postępy w TypeScript i nowoczesne narzędzia budowania.]]></content>
+        <title type="html"><![CDATA[Automatyzacja AI dla Firm na Mazurach: Chatboty, Dashboardy i Inteligentne Procesy (Mikołajki, Giżycko, Mrągowo, Olsztyn)]]></title>
+        <id>https://raqz.pl/pl/blog/automatyzacja-ai-chatboty-dashboardy-mazury-mikolajki-gizycko-mragowo-olsztyn</id>
+        <link href="https://raqz.pl/pl/blog/automatyzacja-ai-chatboty-dashboardy-mazury-mikolajki-gizycko-mragowo-olsztyn"/>
+        <link rel="enclosure" href="https://raqz.pl/images/blog/ai-automation-bot-next-to-the-lakes--forests.jpg" type="image/jpg"/>
+        <updated>2026-01-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Pomagam firmom na Mazurach wdrażać chatboty AI, automatyzacje i dashboardy, które realnie oszczędzają czas, redukują koszty i poprawiają obsługę klienta — szczególnie w sezonie.]]></summary>
+        <content type="html"><![CDATA[Lokalna oferta wdrożeń: chatboty AI, automatyzacja procesów, dashboardy i integracje dla firm na Mazurach. Mikołajki, Giżycko, Mrągowo, Olsztyn — szybkie wdrożenia w 7–21 dni.]]></content>
         <author>
-            <name>Zespół RaqZpl</name>
-        </author>
-        <category label="Web Development"/>
-        <category label="Technology"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Wprowadzenie do Automatyzacji AI w Twojej Firmie]]></title>
-        <id>https://raqz.pl/pl/blog/wprowadzenie-do-automatyzacji-ai</id>
-        <link href="https://raqz.pl/pl/blog/wprowadzenie-do-automatyzacji-ai"/>
-        <link rel="enclosure" href="https://raqz.pl/images/blog/ai-automation.jpg" type="image/jpg"/>
-        <updated>2025-11-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Odkryj podstawy automatyzacji AI i zobacz, jak może przekształcić operacje biznesowe, zwiększyć efektywność i obniżyć koszty.]]></summary>
-        <content type="html"><![CDATA[Dowiedz się, jak wdrożyć automatyzację AI w procesach biznesowych Twojej firmy z praktycznymi przykładami i najlepszymi praktykami.]]></content>
-        <author>
-            <name>Zespół RaqZpl</name>
+            <name>raqz.pl</name>
         </author>
         <category label="AI & Machine Learning"/>
         <category label="Automation"/>
+        <category label="Local Business"/>
     </entry>
 </feed>

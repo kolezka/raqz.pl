@@ -130,10 +130,6 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
                 </div>
               </>
             )}
-            {/* <span>•</span>
-            <div className="flex items-center">
-              <span>{t('blog.readingTime', { time: metadata.readingTime })}</span>
-            </div> */}
           </div>
         </div>
       </div>

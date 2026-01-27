@@ -3,7 +3,7 @@
 /* eslint-disable react-hooks/refs */
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { RiCodeSSlashLine, RiCloseLine } from 'react-icons/ri'
+import { RiCodeSSlashLine } from 'react-icons/ri'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 interface Client {
@@ -69,11 +69,7 @@ function ClientCard({ client }: { client: Client }) {
       onMouseLeave={() => setIsOpen(false)}
     >
       {/* Card */}
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex flex-col items-center justify-center p-6 bg-white dark:bg-dark-800 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 hover:shadow-lg group cursor-pointer w-full text-left"
-      >
+      <div className="flex flex-col items-center justify-center p-6 bg-white dark:bg-dark-800 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 hover:shadow-lg group w-full text-left">
         <div className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors text-center">
           {client.name}
         </div>
@@ -84,29 +80,16 @@ function ClientCard({ client }: { client: Client }) {
           <RiCodeSSlashLine className="w-3.5 h-3.5" />
           <span>{client.technologies.length} tech</span>
         </div>
-      </button>
+      </div>
 
-      {/* Popover - shows on hover (desktop) or click (mobile) */}
+      {/* Popover - shows on hover (desktop only) */}
       <div
-        className={`absolute left-1/2 -translate-x-1/2 top-full z-50 mt-2 w-72 rounded-xl bg-white dark:bg-dark-800 shadow-xl ring-1 ring-gray-200/50 dark:ring-gray-700/50 p-4 transition-all duration-200 origin-top ${
+        className={`hidden md:block absolute left-1/2 -translate-x-1/2 top-full z-50 mt-2 w-72 rounded-xl bg-white dark:bg-dark-800 shadow-xl ring-1 ring-gray-200/50 dark:ring-gray-700/50 p-4 transition-all duration-200 origin-top ${
           isOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'
         }`}
       >
         {/* Arrow */}
         <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white dark:bg-dark-800 rotate-45 border-l border-t border-gray-200/50 dark:border-gray-700/50" />
-
-        {/* Close button for mobile */}
-        <button
-          type="button"
-          onClick={e => {
-            e.stopPropagation()
-            setIsOpen(false)
-          }}
-          className="absolute top-2 right-2 p-1 rounded-md text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-700 transition-colors md:hidden"
-          aria-label="Close"
-        >
-          <RiCloseLine className="w-5 h-5" />
-        </button>
 
         <div className="mb-3 relative">
           <h4 className="font-semibold text-gray-900 dark:text-white text-sm">

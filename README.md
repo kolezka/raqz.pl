@@ -166,7 +166,7 @@ NEXT_PUBLIC_GA_TRACKING_ID=G-XXXXXXXXXX
 # Start development server
 npm run dev
 
-# Build for production
+# Build for production (auto-generates blog index & RSS)
 npm run build
 
 # Start production server
@@ -186,6 +186,15 @@ npm run format:check
 
 # Analyze bundle
 npm run analyze
+
+# Generate blog index from MDX files
+npm run generate:blog-index
+
+# Generate RSS/Atom/JSON feeds
+npm run generate:rss
+
+# Generate all (blog index + RSS feeds)
+npm run generate:all
 ```
 
 The development server starts at `http://localhost:3000`
@@ -231,7 +240,7 @@ The blog uses MDX with the following features:
 
 1. Create MDX file in `content/blog/[locale]/`
 2. Add frontmatter with required fields
-3. Update `src/data/blog-index.json`
+3. Run `npm run generate:all` to update blog index and RSS feeds
 
 Example frontmatter:
 

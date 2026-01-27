@@ -113,7 +113,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className="bg-white dark:bg-dark-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+      <body className="bg-white dark:bg-dark-900 text-gray-900 dark:text-gray-100 transition-colors duration-200 ">
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <WebVitalsMonitor />

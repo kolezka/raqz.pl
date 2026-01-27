@@ -90,7 +90,7 @@ function LanguageSwitcherContent({
       <PopoverButton className="inline-flex w-full justify-center items-center text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none cursor-pointer">
         <span className="text-base mr-1">{currentLanguage.flag}</span>
         <span className="uppercase mr-2">{currentLanguage.code}</span>
-        <RiArrowDownSLine className="-mr-1 h-5 w-5" aria-hidden="true" />
+        <RiArrowDownSLine className="-mr-1 -ml-1 h-5 w-5" aria-hidden="true" />
       </PopoverButton>
 
       <PopoverPanel
@@ -103,7 +103,7 @@ function LanguageSwitcherContent({
               key={language.code}
               type="button"
               onClick={() => handleLanguageSwitch(language.code)}
-              className={`cursor flex items-center gap-3 w-full px-4 py-2 text-sm transition-all duration-200 hover:bg-primary-50/60 dark:hover:bg-primary-900/30 focus:bg-primary-50/60 dark:focus:bg-primary-900/30 focus:text-gray-900 dark:focus:text-white text-left ${
+              className={`cursor-pointer flex items-center gap-3 w-full px-4 py-2 text-sm transition-all duration-200 hover:bg-primary-50/60 dark:hover:bg-primary-900/30 focus:bg-primary-50/60 dark:focus:bg-primary-900/30 focus:text-gray-900 dark:focus:text-white text-left ${
                 locale === language.code
                   ? 'bg-primary-50/60 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 border-l-2 border-primary-300 dark:border-primary-500'
                   : 'text-gray-700 dark:text-gray-300'

@@ -9,7 +9,7 @@ const projects = [
   {
     id: 'directdental',
     image: '/portfolio/directdental.png',
-    technologies: ['React Native', 'Expo', 'TypeScript', 'Ruby on Rails'],
+    technologies: ['React Native', 'Expo', 'TypeScript', 'PostgreSQL', 'Ruby on Rails', 'CI/CD'],
     liveUrl: null,
     githubUrl: null,
     featured: true,
@@ -17,7 +17,7 @@ const projects = [
   {
     id: 'dynamic-xyz',
     image: '/portfolio/dynamic.png',
-    technologies: ['React', 'TypeScript', 'Web3', 'Ethereum', 'Solana'],
+    technologies: ['React', 'Node.JS', 'Express', 'PostgreSQL', 'Prisma', 'WalletConnect', 'Wagmi'],
     liveUrl: 'https://dynamic.xyz',
     githubUrl: null,
     featured: true,

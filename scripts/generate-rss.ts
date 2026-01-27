@@ -23,7 +23,7 @@ function generateRSSFeeds() {
 
     // Create feed instance
     const feed = new Feed({
-      title: lang === 'en' ? 'RaqZpl Solutions Blog' : 'Blog RaqZpl Solutions',
+      title: lang === 'en' ? 'raqz.pl Solutions Blog' : 'Blog raqz.pl Solutions',
       description:
         lang === 'en'
           ? 'Insights, tutorials, and updates from RaqZpl Solutions'

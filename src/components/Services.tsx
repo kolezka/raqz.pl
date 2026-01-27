@@ -32,7 +32,7 @@ export default memo(function Services() {
 
   return (
     <section id="services" className="py-24 sm:py-32">
-      <div className="mx-auto px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div
           ref={headerAnimation.ref}
           className={`mx-auto max-w-4xl lg:text-center ${headerAnimation.className}`}

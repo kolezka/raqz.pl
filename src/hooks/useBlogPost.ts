@@ -54,10 +54,10 @@ export function useBlogPost(slug: string, language: string) {
           string,
           () => Promise<{ default: React.ComponentType; frontmatter?: Record<string, unknown> }>
         > = {
-          'pl/2026-01-automatyzacja-ai-biznes-mazury-mikolajki-olsztyn': () =>
-            import('@/content/blog/pl/2026-01-automatyzacja-ai-biznes-mazury.mdx'),
-          'ai-automation-business-mazury-mikolajki-olsztyn': () =>
-            import('@/content/blog/en/2026-01-ai-automation-business-mazury.mdx'),
+          'pl/2026-01-automatyzacja-ai-chatboty-dashboardy-mazury-mikolajki-gizycko-mragowo-olsztyn':
+            () => import('@/content/blog/pl/2026-01-automatyzacja-ai-biznes-mazury.mdx'),
+          'en/2026-01-ai-automation-chatbots-dashboards-mazury-mikolajki-gizycko-mragowo-olsztyn':
+            () => import('@/content/blog/en/2026-01-ai-automation-business-mazury.mdx'),
         }
 
         const moduleKey = `${language}/${fileName}`

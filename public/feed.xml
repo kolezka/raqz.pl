@@ -1,35 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>RaqZpl Solutions Blog</title>
+        <title>raqz.pl Solutions Blog</title>
         <link>https://raqz.pl/blog</link>
         <description>Insights, tutorials, and updates from RaqZpl Solutions</description>
-        <lastBuildDate>Fri, 05 Dec 2025 21:31:37 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 27 Jan 2026 04:19:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
-        <copyright>All rights reserved 2025, RaqZpl Solutions</copyright>
+        <copyright>All rights reserved 2026, RaqZpl Solutions</copyright>
         <item>
-            <title><![CDATA[Modern Web Development in 2025: Trends and Best Practices]]></title>
-            <link>https://raqz.pl/blog/modern-web-development-2025</link>
-            <guid isPermaLink="false">https://raqz.pl/blog/modern-web-development-2025</guid>
-            <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[A comprehensive guide to modern web development practices, frameworks, and tools that are shaping the industry in 2025.]]></description>
-            <content:encoded><![CDATA[Explore the latest trends in web development for 2025, including React 19, TypeScript advances, and modern build tools.]]></content:encoded>
-            <category>Web Development</category>
-            <category>Technology</category>
-            <enclosure url="https://raqz.pl/images/blog/web-dev-2025.jpg" length="0" type="image/jpg"/>
-        </item>
-        <item>
-            <title><![CDATA[Getting Started with AI Automation in Your Business]]></title>
-            <link>https://raqz.pl/blog/getting-started-with-ai-automation</link>
-            <guid isPermaLink="false">https://raqz.pl/blog/getting-started-with-ai-automation</guid>
-            <pubDate>Sat, 15 Nov 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Discover the fundamentals of AI automation and how it can transform your business operations, increase efficiency, and reduce costs.]]></description>
-            <content:encoded><![CDATA[Learn how to implement AI automation in your business workflows with practical examples and best practices.]]></content:encoded>
+            <title><![CDATA[AI Automation for Businesses in Mazury: Chatbots, Dashboards & Smart Processes (Mikołajki, Giżycko, Mrągowo, Olsztyn)]]></title>
+            <link>https://raqz.pl/blog/ai-automation-chatbots-dashboards-mazury-mikolajki-gizycko-mragowo-olsztyn</link>
+            <guid isPermaLink="false">https://raqz.pl/blog/ai-automation-chatbots-dashboards-mazury-mikolajki-gizycko-mragowo-olsztyn</guid>
+            <pubDate>Sun, 25 Jan 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[I help Mazury businesses reduce workload and improve customer service with AI chatbots, automation and dashboards—especially valuable during the seasonal peak.]]></description>
+            <content:encoded><![CDATA[Local AI automation offer for Mazury: chatbots, process automation, dashboards and integrations for businesses in Mikołajki, Giżycko, Mrągowo and Olsztyn. Fast, practical deployments in 7–21 days.]]></content:encoded>
+            <author>raqz.pl</author>
             <category>AI &amp; Machine Learning</category>
             <category>Automation</category>
-            <enclosure url="https://raqz.pl/images/blog/ai-automation.jpg" length="0" type="image/jpg"/>
+            <category>Local Business</category>
+            <enclosure url="https://raqz.pl/images/blog/ai-automation-bot-next-to-the-lakes--forests.jpg" length="0" type="image/jpg"/>
         </item>
     </channel>
 </rss>

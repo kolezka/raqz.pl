@@ -2,7 +2,7 @@
 
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import { RiSunLine, RiMoonLine, RiComputerLine } from 'react-icons/ri'
+import { RiSunLine, RiMoonLine } from 'react-icons/ri'
 import clsx from 'clsx'
 
 interface ThemeToggleProps {
@@ -10,7 +10,7 @@ interface ThemeToggleProps {
 }
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
-  const { theme, setTheme, resolvedTheme } = useTheme()
+  const { setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   // Prevent hydration mismatch
@@ -27,20 +27,11 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     )
   }
 
-  const cycleTheme = () => {
-    if (theme === 'system') {
-      setTheme('light')
-    } else if (theme === 'light') {
-      setTheme('dark')
-    } else {
-      setTheme('system')
-    }
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
   }
 
   const getIcon = () => {
-    if (theme === 'system') {
-      return <RiComputerLine className="h-5 w-5" />
-    }
     if (resolvedTheme === 'dark') {
       return <RiMoonLine className="h-5 w-5" />
     }
@@ -48,16 +39,15 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   }
 
   const getLabel = () => {
-    if (theme === 'system') return 'System theme'
-    if (theme === 'dark') return 'Dark theme'
-    return 'Light theme'
+    return resolvedTheme === 'dark' ? 'Dark theme' : 'Light theme'
   }
 
   return (
     <button
       type="button"
-      onClick={cycleTheme}
+      onClick={toggleTheme}
       className={clsx(
+        'cursor-pointer',
         'flex items-center justify-center rounded-md p-2',
         'text-gray-700 dark:text-gray-300',
         'hover:bg-gray-100 dark:hover:bg-gray-800',
