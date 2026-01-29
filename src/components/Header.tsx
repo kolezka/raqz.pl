@@ -35,7 +35,6 @@ export default memo(function Header() {
   const locale = useLocale()
   const pathname = usePathname()
   const menuRef = useRef<HTMLDivElement>(null)
-  const scrollYRef = useRef(0)
 
   // Get language prefix for URLs
   const langPrefix = useMemo(() => (locale === 'en' ? '' : `/${locale}`), [locale])
@@ -87,22 +86,7 @@ export default memo(function Header() {
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen) {
-      scrollYRef.current = window.scrollY
-      document.body.style.position = 'fixed'
-      document.body.style.top = `-${scrollYRef.current}px`
-      document.body.style.left = '0'
-      document.body.style.right = '0'
-      document.body.style.overflow = 'hidden'
-    } else {
-      const savedScrollY = scrollYRef.current
-      document.body.style.position = ''
-      document.body.style.top = ''
-      document.body.style.left = ''
-      document.body.style.right = ''
-      document.body.style.overflow = ''
-      window.scrollTo(0, savedScrollY)
-    }
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : ''
   }, [mobileMenuOpen])
 
   const navigation = useMemo(() => {

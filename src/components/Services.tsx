@@ -7,7 +7,6 @@ import { memo } from 'react'
 import { Link } from '@/i18n/routing'
 import servicesData from '../data/services.json'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { useStaggerAnimation } from '../hooks/useStaggerAnimation'
 
 // Move iconMap outside component to prevent recreation on every render
 const iconMap = {
@@ -23,12 +22,12 @@ export default memo(function Services() {
   const tNav = useTranslations('navigation')
 
   const headerAnimation = useScrollAnimation<HTMLDivElement>('fade-up')
-  const staggerStyles = useStaggerAnimation(servicesData.serviceCategories.length, {
-    baseDelay: 0,
-    staggerDelay: 100,
-    duration: 500,
-  })
-  const ctaAnimation = useScrollAnimation<HTMLDivElement>('zoom-in', { delay: 200 })
+  const card1Animation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 100 })
+  const card2Animation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 200 })
+  const card3Animation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 300 })
+  const card4Animation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 400 })
+  const cardAnimations = [card1Animation, card2Animation, card3Animation, card4Animation]
+  const ctaAnimation = useScrollAnimation<HTMLDivElement>('zoom-in', { delay: 500 })
 
   return (
     <section id="services" className="py-24 sm:py-32">
@@ -51,12 +50,13 @@ export default memo(function Services() {
           <dl className="grid md:grid-cols-2 gap-8">
             {servicesData.serviceCategories.slice(0, 4).map((category, index) => {
               const IconComponent = iconMap[category.icon as keyof typeof iconMap]
+              const animation = cardAnimations[index]
 
               return (
                 <Link key={category.id} href="/services">
                   <div
-                    className="group relative p-4 pl-16 hover:scale-105 transition-transform"
-                    style={staggerStyles[index]}
+                    ref={animation?.ref}
+                    className={`group relative p-4 pl-16 hover:scale-105 transition-transform ${animation?.className ?? ''}`}
                   >
                     <dt className="text-base font-semibold leading-7 text-gray-900 dark:text-white">
                       <div className="absolute left-2 top-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-500 dark:bg-primary-600 transition-transform duration-300">

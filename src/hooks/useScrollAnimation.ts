@@ -100,9 +100,13 @@ export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
   }, [threshold, rootMargin, triggerOnce, disabled, prefersReducedMotion, delay, hasAnimated])
 
   // Build className based on visibility and animation variant
+  // Note: When animation is active, we don't add opacity-100 because the animation
+  // keyframes handle opacity (starting at 0, ending at 1 with forwards fill mode)
   const className = prefersReducedMotion
     ? 'opacity-100'
-    : `${isVisible ? `animate-${animation} opacity-100` : 'opacity-0'}`
+    : isVisible
+      ? `animate-${animation}`
+      : 'opacity-0 translate-y-[30px]'
 
   return {
     ref: elementRef,

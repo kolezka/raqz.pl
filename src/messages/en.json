@@ -135,7 +135,7 @@
     "loading": "Loading...",
     "backToBlog": "Back to Blog",
     "showing": "Showing",
-    "description": "Insights, tutorials, and updates from our team",
+    "description": "News and offtopic",
     "browseCategory": "Browse all articles in",
     "browseTag": "Browse all articles tagged with"
   },
@@ -146,21 +146,21 @@
     "learnMore": "Get to Know Us"
   },
   "about": {
-    "title": "About Us",
-    "description": "IT with passion for technology and excellence.",
-    "subtitle": "We create innovative software solutions that help businesses thrive in the digital age. Every project is a partnership – your success is our success.",
+    "title": "",
+    "description": "Passion for IT solutions.",
+    "subtitle": "I create innovative software solutions that help businesses thrive in the digital age.",
     "values": {
       "innovation": {
-        "title": "Innovation First",
-        "description": "We stay ahead of technology trends to deliver cutting-edge solutions that give your business a competitive advantage and future readiness."
+        "title": "From software to AI automation",
+        "description": "I create and implement practical solutions: websites and applications, client portals, process automation, dashboards, and AI chatbots/agents."
       },
       "quality": {
-        "title": "Quality Focused",
-        "description": "Every line of code is crafted with precision and attention to detail. We believe in delivering robust, scalable, and maintainable solutions that last for years."
+        "title": "Software that works in practice",
+        "description": "I deliver complete end-to-end systems. I take care of stability, security, and costs. You can rest assured that it will be maintained and developed, not abandoned after deployment."
       },
       "partnership": {
         "title": "Client Partnership",
-        "description": "We work closely with our clients as equal partners, understanding their vision, business challenges, and translating them into working technology solutions."
+        "description": "I work in a model: short audit → plan → implementation. You get a clear scope, deadlines, and priorities."
       }
     }
   },
@@ -459,8 +459,7 @@
     "stats": {
       "yearsExperience": "Years of Experience",
       "projectsDelivered": "Projects Delivered",
-      "clients": "US & EU Clients",
-      "englishLevel": "English Level"
+      "clients": "US & EU Clients"
     },
     "highlights": {
       "title": "Key Highlights",
@@ -482,7 +481,7 @@
     }
   },
   "clients": {
-    "title": "Trusted By",
+    "title": "",
     "heading": "Companies I've Worked With",
     "note": "And many more startups and enterprises across various industries",
     "technologiesUsed": "Technologies Used"

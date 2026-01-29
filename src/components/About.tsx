@@ -3,20 +3,13 @@
 /* eslint-disable react-hooks/refs */
 import { useTranslations } from 'next-intl'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { useStaggerAnimation } from '../hooks/useStaggerAnimation'
 
 export default function About() {
   const t = useTranslations()
 
   const headerAnimation = useScrollAnimation<HTMLDivElement>('fade-up')
-  const staggerStyles = useStaggerAnimation(3, {
-    baseDelay: 0,
-    staggerDelay: 150,
-    duration: 500,
-  })
-
-  const value1Animation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 0 })
-  const value2Animation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 150 })
+  const value1Animation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 100 })
+  const value2Animation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 200 })
   const value3Animation = useScrollAnimation<HTMLDivElement>('fade-up', { delay: 300 })
 
   return (
@@ -39,7 +32,6 @@ export default function About() {
             <div
               ref={value1Animation.ref}
               className={`flex flex-col ${value1Animation.className}`}
-              style={staggerStyles[0]}
             >
               <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
                 <div className="h-10 w-10 flex-none bg-primary-600 dark:bg-primary-500 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 ">
@@ -54,7 +46,6 @@ export default function About() {
             <div
               ref={value2Animation.ref}
               className={`flex flex-col ${value2Animation.className}`}
-              style={staggerStyles[1]}
             >
               <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
                 <div className="h-10 w-10 flex-none bg-primary-600 dark:bg-primary-500 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 ">
@@ -69,7 +60,6 @@ export default function About() {
             <div
               ref={value3Animation.ref}
               className={`flex flex-col ${value3Animation.className}`}
-              style={staggerStyles[2]}
             >
               <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
                 <div className="h-10 w-10 flex-none bg-primary-600 dark:bg-primary-500 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 ">
