@@ -29,10 +29,7 @@ export default function About() {
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-            <div
-              ref={value1Animation.ref}
-              className={`flex flex-col ${value1Animation.className}`}
-            >
+            <div ref={value1Animation.ref} className={`flex flex-col ${value1Animation.className}`}>
               <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
                 <div className="h-10 w-10 flex-none bg-primary-600 dark:bg-primary-500 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 ">
                   1
@@ -43,10 +40,7 @@ export default function About() {
                 <p className="flex-auto">{t('about.values.innovation.description')}</p>
               </dd>
             </div>
-            <div
-              ref={value2Animation.ref}
-              className={`flex flex-col ${value2Animation.className}`}
-            >
+            <div ref={value2Animation.ref} className={`flex flex-col ${value2Animation.className}`}>
               <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
                 <div className="h-10 w-10 flex-none bg-primary-600 dark:bg-primary-500 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 ">
                   2
@@ -57,10 +51,7 @@ export default function About() {
                 <p className="flex-auto">{t('about.values.quality.description')}</p>
               </dd>
             </div>
-            <div
-              ref={value3Animation.ref}
-              className={`flex flex-col ${value3Animation.className}`}
-            >
+            <div ref={value3Animation.ref} className={`flex flex-col ${value3Animation.className}`}>
               <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900 dark:text-white">
                 <div className="h-10 w-10 flex-none bg-primary-600 dark:bg-primary-500 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 ">
                   3

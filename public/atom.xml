@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://raqz.pl/blog</id>
     <title>raqz.pl Solutions Blog</title>
-    <updated>2026-01-27T04:19:00.700Z</updated>
+    <updated>2026-01-29T16:33:28.811Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>RaqZpl Solutions</name>
@@ -14,13 +14,13 @@
     <icon>https://raqz.pl/favicon.ico</icon>
     <rights>All rights reserved 2026, RaqZpl Solutions</rights>
     <entry>
-        <title type="html"><![CDATA[AI Automation for Businesses in Mazury: Chatbots, Dashboards & Smart Processes (Mikołajki, Giżycko, Mrągowo, Olsztyn)]]></title>
+        <title type="html"><![CDATA[AI Automation in Mazury: Chatbots & Dashboards | raqz.pl]]></title>
         <id>https://raqz.pl/blog/ai-automation-chatbots-dashboards-mazury-mikolajki-gizycko-mragowo-olsztyn</id>
         <link href="https://raqz.pl/blog/ai-automation-chatbots-dashboards-mazury-mikolajki-gizycko-mragowo-olsztyn"/>
         <link rel="enclosure" href="https://raqz.pl/images/blog/ai-automation-bot-next-to-the-lakes--forests.jpg" type="image/jpg"/>
         <updated>2026-01-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I help Mazury businesses reduce workload and improve customer service with AI chatbots, automation and dashboards—especially valuable during the seasonal peak.]]></summary>
-        <content type="html"><![CDATA[Local AI automation offer for Mazury: chatbots, process automation, dashboards and integrations for businesses in Mikołajki, Giżycko, Mrągowo and Olsztyn. Fast, practical deployments in 7–21 days.]]></content>
+        <content type="html"><![CDATA[AI chatbots, dashboards and process automation for Mazury businesses. Integrations with your tools, fast deployment in 7–21 days. raqz.pl]]></content>
         <author>
             <name>raqz.pl</name>
         </author>

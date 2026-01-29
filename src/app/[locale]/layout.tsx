@@ -9,6 +9,7 @@ import WebVitalsMonitor from '@/components/WebVitalsMonitor'
 import ViewTransitions from '@/components/ViewTransitions'
 import CookieBanner from '@/components/CookieBanner'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import SchemaScript from '@/components/SchemaScript'
 import Script from 'next/script'
 import type { Metadata } from 'next'
 
@@ -110,9 +111,13 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages()
+  const t = await getTranslations({ locale, namespace: 'meta' })
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <SchemaScript locale={locale} name={t('title')} description={t('description')} />
+      </head>
       <body className="bg-white dark:bg-dark-900 text-gray-900 dark:text-gray-100 transition-colors duration-200 ">
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>

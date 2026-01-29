@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://raqz.pl/pl/blog</id>
     <title>Blog raqz.pl Solutions</title>
-    <updated>2026-01-27T04:19:00.701Z</updated>
+    <updated>2026-01-29T16:33:28.812Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>RaqZpl Solutions</name>
@@ -14,13 +14,13 @@
     <icon>https://raqz.pl/favicon.ico</icon>
     <rights>All rights reserved 2026, RaqZpl Solutions</rights>
     <entry>
-        <title type="html"><![CDATA[Automatyzacja AI dla Firm na Mazurach: Chatboty, Dashboardy i Inteligentne Procesy (Mikołajki, Giżycko, Mrągowo, Olsztyn)]]></title>
+        <title type="html"><![CDATA[Automatyzacja AI na Mazurach: Chatboty, Dashboardy | raqz.pl]]></title>
         <id>https://raqz.pl/pl/blog/automatyzacja-ai-chatboty-dashboardy-mazury-mikolajki-gizycko-mragowo-olsztyn</id>
         <link href="https://raqz.pl/pl/blog/automatyzacja-ai-chatboty-dashboardy-mazury-mikolajki-gizycko-mragowo-olsztyn"/>
         <link rel="enclosure" href="https://raqz.pl/images/blog/ai-automation-bot-next-to-the-lakes--forests.jpg" type="image/jpg"/>
         <updated>2026-01-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Pomagam firmom na Mazurach wdrażać chatboty AI, automatyzacje i dashboardy, które realnie oszczędzają czas, redukują koszty i poprawiają obsługę klienta — szczególnie w sezonie.]]></summary>
-        <content type="html"><![CDATA[Lokalna oferta wdrożeń: chatboty AI, automatyzacja procesów, dashboardy i integracje dla firm na Mazurach. Mikołajki, Giżycko, Mrągowo, Olsztyn — szybkie wdrożenia w 7–21 dni.]]></content>
+        <content type="html"><![CDATA[Chatboty AI, dashboardy i automatyzacja procesów dla firm na Mazurach. Integracje z narzędziami, wdrożenie w 7–21 dni. raqz.pl]]></content>
         <author>
             <name>raqz.pl</name>
         </author>
