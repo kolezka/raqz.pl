@@ -548,11 +548,17 @@
     "labels": {
       "techStack": "Technologie"
     },
+    "skillLevels": {
+      "expert": "Ekspert",
+      "intermediate": "Zaawansowany",
+      "learning": "Aktywnie rozwijam"
+    },
     "data": {
       "name": "Mariusz Rakus",
       "title": "Senior Full-Stack Engineer",
       "location": "Gdańsk, Polska",
       "email": "mariusz@raqz.pl",
+      "phone": "+48 519 375 240",
       "website": "raqz.pl",
       "github": "github.com/kolezka",
       "summary": [
@@ -562,42 +568,125 @@
       ],
       "skills": {
         "core": {
-          "title": "Inżynieria Oprogramowania",
+          "title": "Core Software Engineering",
           "items": [
             {
               "category": "Języki",
-              "skills": ["TypeScript", "JavaScript", "Python", "SQL (PostgreSQL)", "LUA"]
+              "skills": [
+                { "name": "TypeScript", "level": "expert" },
+                { "name": "JavaScript", "level": "expert" },
+                "SQL",
+                "Bash",
+                { "name": "Python", "level": "learning" }
+              ]
             },
             {
               "category": "Frontend",
-              "skills": ["React", "Next.js", "React Native", "Angular", "Vue"]
+              "skills": [
+                { "name": "React", "level": "expert" },
+                { "name": "Next.js", "level": "expert" },
+                { "name": "A11y", "level": "expert" },
+                { "name": "Optymalizacja", "level": "expert" },
+                "Angular",
+                "Vue",
+                "Svelte"
+              ]
             },
             {
               "category": "Backend",
-              "skills": ["Node.js (Express, Fastify, NestJS)", "Python (FastAPI)", "REST & GraphQL"]
-            },
-            { "category": "Mobile", "skills": ["React Native", "Expo", "EAS", "Release Pipeline"] },
-            { "category": "Infrastruktura", "skills": ["Docker", "CI/CD", "IaC"] },
-            { "category": "Bazy danych", "skills": ["PostgreSQL", "Redis", "Prisma", "ORMs"] },
-            {
-              "category": "Chmura",
               "skills": [
-                "AWS (S3, EC2, Lambda, Edge, CloudFront)",
-                "Azure Container Apps",
-                "Azure Blob Storage"
+                { "name": "Node.js", "level": "expert" },
+                { "name": "Express", "level": "expert" },
+                { "name": "REST API Design", "level": "expert" },
+                "NestJS",
+                { "name": "Fastify", "level": "expert" },
+                "Apollo GraphQL",
+                { "name": "Background Jobs", "level": "expert" },
+                { "name": "Message Queues", "level": "learning" },
+                { "name": "FastAPI", "level": "learning" }
+              ]
+            },
+            {
+              "category": "Mobile",
+              "skills": [
+                { "name": "React Native", "level": "expert" },
+                { "name": "Expo", "level": "expert" },
+                { "name": "EAS", "level": "expert" },
+                { "name": "Xcode", "level": "expert" },
+                { "name": "App Store & Google Play Deployment", "level": "expert" },
+                { "name": "App Signing & Provisioning", "level": "expert" },
+                { "name": "OTA Updates", "level": "expert" },
+                "Android Studio"
+              ]
+            },
+            {
+              "category": "Architektura",
+              "skills": [
+                { "name": "Hexagonal (Ports & Adapters)", "level": "expert" },
+                { "name": "Monolith/Modular Monolith", "level": "expert" },
+                { "name": "Microservices", "level": "intermediate" },
+                "TDD",
+                "DDD",
+                { "name": "EDA", "level": "learning" }
+              ]
+            },
+            {
+              "category": "Dane",
+              "skills": [
+                { "name": "PostgreSQL", "level": "expert" },
+                { "name": "MySQL", "level": "expert" },
+                { "name": "SQLite", "level": "expert" },
+                { "name": "Redis", "level": "intermediate" },
+                { "name": "Prisma", "level": "expert" },
+                "TypeORM",
+                "Sequelize",
+                { "name": "Turso", "level": "learning" },
+                { "name": "BullMQ", "level": "learning" },
+                "Migracje"
+              ]
+            },
+            {
+              "category": "Infrastruktura",
+              "skills": [
+                { "name": "CI/CD Pipelines", "level": "expert" },
+                "Docker",
+                "Serverless Architecture",
+                "Observability (Sentry, Datadog)",
+                { "name": "Terraform", "level": "learning" },
+                { "name": "AWS (S3, EC2, Lambda, CloudFront)", "level": "learning" },
+                { "name": "Azure (Container Apps)", "level": "learning" },
+                { "name": "Google Cloud (Firebase)", "level": "learning" }
               ]
             }
           ]
         },
         "ai": {
           "title": "AI & Data Engineering",
-          "subtitle": "(rozwijający się kierunek)",
+          "subtitle": "(expanding focus)",
           "items": [
-            { "category": "Architektury", "skills": ["RAG", "Agentic Workflows"] },
             {
-              "category": "Narzędzia",
-              "skills": ["LangChain", "LlamaIndex", "OpenAI API", "Huginn", "n8n"]
+              "category": "Architektury",
+              "skills": [
+                { "name": "RAG", "level": "learning" },
+                { "name": "Agentic Workflows", "level": "learning" }
+              ]
+            },
+            {
+              "category": "Narzędzia i frameworki",
+              "skills": [
+                { "name": "LangChain", "level": "learning" },
+                { "name": "LlamaIndex", "level": "learning" },
+                { "name": "OpenAI API", "level": "learning" },
+                { "name": "Huginn", "level": "learning" },
+                { "name": "n8n", "level": "learning" }
+              ]
             }
+          ]
+        },
+        "other": {
+          "title": "Inne",
+          "items": [
+            { "category": "Narzędzia", "skills": ["Git", "GitHub", "GitLab", "Bitbucket", "Jira", "Trello", "Slack", "Zoom", "Microsoft Teams", "Google Workspace"] }
           ]
         }
       },

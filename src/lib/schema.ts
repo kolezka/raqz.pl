@@ -95,8 +95,12 @@ export function generateOrganizationSchema(options: OrganizationSchemaOptions) {
       },
     ],
     sameAs: [],
+    telephone: '+48 519 375 240',
+    email: 'mariusz@raqz.pl',
     contactPoint: {
       '@type': 'ContactPoint',
+      telephone: '+48 519 375 240',
+      email: 'mariusz@raqz.pl',
       contactType: 'customer service',
       availableLanguage: ['Polish', 'English'],
     },
@@ -162,6 +166,8 @@ export function generateLocalBusinessSchema(options: LocalBusinessSchemaOptions)
     url: BASE_URL,
     logo: `${BASE_URL}/ico.svg`,
     image: `${BASE_URL}/og-image.png`,
+    telephone: '+48 519 375 240',
+    email: 'mariusz@raqz.pl',
     description:
       locale === 'pl'
         ? 'Usługi IT dla rozwijających się firm - tworzenie aplikacji, automatyzacja AI, rozwiązania blockchain.'
@@ -259,7 +265,7 @@ export function generateServiceSchema(options: ServiceSchemaOptions) {
     availableChannel: {
       '@type': 'ServiceChannel',
       serviceUrl: `${BASE_URL}${localePath}/#contact`,
-      servicePhone: '+48',
+      servicePhone: '+48 519 375 240',
       availableLanguage: ['Polish', 'English'],
     },
   }
@@ -377,13 +383,23 @@ export function generatePersonSchema(locale: string) {
     '@type': 'Person',
     '@id': `${BASE_URL}/#person`,
     name: 'Mariusz Rakus',
-    jobTitle: 'Senior Product / Full-Stack Engineer',
+    givenName: 'Mariusz',
+    familyName: 'Rakus',
+    jobTitle: 'Senior Full-Stack Engineer',
     description:
       locale === 'pl'
-        ? 'Senior Product / Full-Stack Engineer z ponad 7-letnim doświadczeniem w budowaniu produktów webowych i mobilnych.'
-        : 'Senior Product / Full-Stack Engineer with 7+ years of experience building web and mobile products end-to-end.',
+        ? 'Senior Full-Stack Engineer z ponad 7-letnim doświadczeniem w budowaniu produktów webowych i mobilnych.'
+        : 'Senior Full-Stack Engineer with 7+ years of experience building web and mobile products end-to-end.',
     url: BASE_URL,
     image: `${BASE_URL}/og-image.png`,
+    telephone: '+48 519 375 240',
+    email: 'mariusz@raqz.pl',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Gdańsk',
+      addressCountry: 'PL',
+    },
+    sameAs: ['https://github.com/kolezka', 'https://www.linkedin.com/in/mariusz-rakus/'],
     worksFor: {
       '@id': `${BASE_URL}/#organization`,
     },
@@ -397,10 +413,16 @@ export function generatePersonSchema(locale: string) {
       'AI/ML',
       'Cloud Infrastructure',
     ],
-    alumniOf: {
-      '@type': 'Organization',
-      name: 'Various Tech Companies',
-    },
+    alumniOf: [
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Uniwersytet WSB Merito Gdańsk',
+      },
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Uniwersytet Warmińsko-Mazurski w Olsztynie',
+      },
+    ],
   }
 }
 

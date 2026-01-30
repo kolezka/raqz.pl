@@ -6,8 +6,12 @@ import { useTranslations } from 'next-intl'
 import {
   RiMapPinLine,
   RiMailLine,
+  RiPhoneLine,
   RiGlobalLine,
   RiGithubLine,
+  RiFileCopyLine,
+  RiDownloadLine,
+  RiCheckLine,
   RiBriefcaseLine,
   RiGraduationCapLine,
   RiCodeSSlashLine,
@@ -18,11 +22,49 @@ import {
   RiRocketLine,
 } from 'react-icons/ri'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import clsx from 'clsx'
 
-// Types for CV data from translations
+type SkillLevel = 'expert' | 'intermediate' | 'learning'
+
+interface SkillItem {
+  name: string
+  level?: SkillLevel
+}
+
 interface SkillGroup {
   category: string
-  skills: string[]
+  skills: (string | SkillItem)[]
+}
+
+function normalizeSkill(skill: string | SkillItem): { name: string; level: SkillLevel } {
+  if (typeof skill === 'string') {
+    return { name: skill, level: 'intermediate' }
+  }
+  return { name: skill.name, level: skill.level || 'intermediate' }
+}
+
+// Sort skills by level: Expert → Intermediate → Learning (natural gradient)
+const levelOrder: Record<SkillLevel, number> = { expert: 0, intermediate: 1, learning: 2 }
+
+function sortSkillsByLevel(skills: (string | SkillItem)[]): { name: string; level: SkillLevel }[] {
+  return skills.map(normalizeSkill).sort((a, b) => levelOrder[a.level] - levelOrder[b.level])
+}
+
+function getSkillBadgeClasses(level: SkillLevel): string {
+  // rounded-md = 6px - profesjonalny, inżynierski wygląd
+  const baseClasses = 'px-3 py-1.5 rounded-md text-sm font-medium cursor-default'
+  const levelClassMap: Record<SkillLevel, string> = {
+    // Expert: Subtelne zielone tło + jaskrawy tekst
+    // Dark: bg #064E3B, text #10B981 | Light: bg #D1FAE5, text #065F46
+    expert: 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400',
+    // Intermediate: Neutralne szare - czytelność bez narzucania się
+    // Dark: bg #1F2937, text #F3F4F6 | Light: bg #F3F4F6, text #1F2937
+    intermediate: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200',
+    // Learning: Przezroczyste + wyciszony tekst (niski kontrast, bez ramki)
+    // Dark: transparent, text #6B7280 | Light: transparent, text #9CA3AF
+    learning: 'bg-transparent text-gray-400 dark:text-gray-500',
+  }
+  return clsx(baseClasses, levelClassMap[level] || levelClassMap['intermediate'])
 }
 
 interface SkillCategory {
@@ -80,6 +122,7 @@ const navSections = [
 
 export default function CVClient() {
   const t = useTranslations('cv')
+  const [copied, setCopied] = useState(false)
   const [activeSection, setActiveSection] = useState('summary')
 
   // Get CV data from translations
@@ -88,6 +131,7 @@ export default function CVClient() {
     title: t('data.title'),
     location: t('data.location'),
     email: t('data.email'),
+    phone: t('data.phone'),
     website: t('data.website'),
     github: t('data.github'),
     summary: t.raw('data.summary') as string[],
@@ -101,6 +145,25 @@ export default function CVClient() {
     interests: t.raw('data.interests') as string[],
     languages: t.raw('data.languages') as Language[],
     references: t.raw('data.references') as Reference[],
+  }
+
+  // Copy email to clipboard
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(cvData.email)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea')
+      textArea.value = cvData.email
+      document.body.appendChild(textArea)
+      textArea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textArea)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    }
   }
 
   const heroAnimation = useScrollAnimation<HTMLDivElement>('fade-up')
@@ -170,6 +233,13 @@ export default function CVClient() {
               <span>{cvData.email}</span>
             </a>
             <a
+              href={`tel:${cvData.phone.replace(/\s/g, '')}`}
+              className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            >
+              <RiPhoneLine className="w-5 h-5 mr-2 text-primary-500" aria-hidden="true" />
+              <span>{cvData.phone}</span>
+            </a>
+            <a
               href={`https://${cvData.website}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -186,6 +256,37 @@ export default function CVClient() {
             >
               <RiGithubLine className="w-5 h-5 mr-2 text-primary-500" aria-hidden="true" />
               <span>{cvData.github}</span>
+            </a>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap justify-center gap-4">
+            <button
+              onClick={copyEmail}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gray-900 dark:bg-gray-700 text-white hover:bg-gray-800 dark:hover:bg-gray-600 transition-all duration-200 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-dark-900"
+              aria-label={t('actions.copyEmail')}
+            >
+              {copied ? (
+                <>
+                  <RiCheckLine className="w-5 h-5" aria-hidden="true" />
+                  <span>{t('actions.copied')}</span>
+                </>
+              ) : (
+                <>
+                  <RiFileCopyLine className="w-5 h-5" aria-hidden="true" />
+                  <span>{t('actions.copyEmail')}</span>
+                </>
+              )}
+            </button>
+            {/* TODO: Add actual PDF file to /public/cv/mariusz-rakus-cv.pdf */}
+            <a
+              href="/cv/mariusz-rakus-cv.pdf"
+              download
+              className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-500 dark:bg-primary-600 text-white hover:bg-primary-600 dark:hover:bg-primary-500 transition-all duration-200 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-dark-900"
+              aria-label={t('actions.downloadPdf')}
+            >
+              <RiDownloadLine className="w-5 h-5" aria-hidden="true" />
+              <span>{t('actions.downloadPdf')}</span>
             </a>
           </div>
         </header>
@@ -226,13 +327,32 @@ export default function CVClient() {
           className={`mb-12 ${skillsAnimation.className}`}
           aria-labelledby="skills-heading"
         >
-          <h2
-            id="skills-heading"
-            className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3"
-          >
-            <RiCodeSSlashLine className="w-6 h-6 text-primary-500" aria-hidden="true" />
-            {t('sections.skills')}
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <h2
+              id="skills-heading"
+              className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-3"
+            >
+              <RiCodeSSlashLine className="w-6 h-6 text-primary-500" aria-hidden="true" />
+              {t('sections.skills')}
+            </h2>
+            {/* Skill Level Legend */}
+            <div className="flex flex-wrap items-center gap-3 text-xs">
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-emerald-200 dark:bg-emerald-900" />
+                <span className="text-gray-600 dark:text-gray-400">{t('skillLevels.expert')}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-gray-200 dark:bg-gray-700" />
+                <span className="text-gray-600 dark:text-gray-400">
+                  {t('skillLevels.intermediate')}
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-gray-100 dark:bg-transparent border border-gray-300 dark:border-gray-600" />
+                <span className="text-gray-400 dark:text-gray-500">{t('skillLevels.learning')}</span>
+              </div>
+            </div>
+          </div>
 
           <div className="space-y-6">
             {/* Core Skills */}
@@ -247,12 +367,13 @@ export default function CVClient() {
                       {group.category}
                     </span>
                     <div className="flex flex-wrap gap-2">
-                      {group.skills.map(skill => (
+                      {sortSkillsByLevel(group.skills).map(({ name, level }) => (
                         <span
-                          key={skill}
-                          className="px-3 py-1.5 bg-gray-100 dark:bg-dark-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-700 dark:hover:text-primary-400 transition-colors cursor-default"
+                          key={name}
+                          className={getSkillBadgeClasses(level)}
+                          title={t(`skillLevels.${level}`)}
                         >
-                          {skill}
+                          {name}
                         </span>
                       ))}
                     </div>
@@ -262,12 +383,12 @@ export default function CVClient() {
             </div>
 
             {/* AI & Data Skills */}
-            <div className="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 rounded-2xl p-6 shadow-lg border border-primary-200 dark:border-primary-800">
+            <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                 {cvData.skills.ai.title}
               </h3>
               {cvData.skills.ai.subtitle && (
-                <p className="text-sm text-primary-600 dark:text-primary-400 mb-4">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
                   {cvData.skills.ai.subtitle}
                 </p>
               )}
@@ -278,12 +399,13 @@ export default function CVClient() {
                       {group.category}
                     </span>
                     <div className="flex flex-wrap gap-2">
-                      {group.skills.map(skill => (
+                      {sortSkillsByLevel(group.skills).map(({ name, level }) => (
                         <span
-                          key={skill}
-                          className="px-3 py-1.5 bg-white/60 dark:bg-dark-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-primary-200 dark:hover:bg-primary-900/50 hover:text-primary-800 dark:hover:text-primary-300 transition-colors cursor-default"
+                          key={name}
+                          className={getSkillBadgeClasses(level)}
+                          title={t(`skillLevels.${level}`)}
                         >
-                          {skill}
+                          {name}
                         </span>
                       ))}
                     </div>
