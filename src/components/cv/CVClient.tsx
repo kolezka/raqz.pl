@@ -9,9 +9,6 @@ import {
   RiPhoneLine,
   RiGlobalLine,
   RiGithubLine,
-  RiFileCopyLine,
-  RiDownloadLine,
-  RiCheckLine,
   RiBriefcaseLine,
   RiGraduationCapLine,
   RiCodeSSlashLine,
@@ -122,7 +119,6 @@ const navSections = [
 
 export default function CVClient() {
   const t = useTranslations('cv')
-  const [copied, setCopied] = useState(false)
   const [activeSection, setActiveSection] = useState('summary')
 
   // Get CV data from translations
@@ -145,25 +141,6 @@ export default function CVClient() {
     interests: t.raw('data.interests') as string[],
     languages: t.raw('data.languages') as Language[],
     references: t.raw('data.references') as Reference[],
-  }
-
-  // Copy email to clipboard
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(cvData.email)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch {
-      // Fallback for older browsers
-      const textArea = document.createElement('textarea')
-      textArea.value = cvData.email
-      document.body.appendChild(textArea)
-      textArea.select()
-      document.execCommand('copy')
-      document.body.removeChild(textArea)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    }
   }
 
   const heroAnimation = useScrollAnimation<HTMLDivElement>('fade-up')
@@ -256,37 +233,6 @@ export default function CVClient() {
             >
               <RiGithubLine className="w-5 h-5 mr-2 text-primary-500" aria-hidden="true" />
               <span>{cvData.github}</span>
-            </a>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <button
-              onClick={copyEmail}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gray-900 dark:bg-gray-700 text-white hover:bg-gray-800 dark:hover:bg-gray-600 transition-all duration-200 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-dark-900"
-              aria-label={t('actions.copyEmail')}
-            >
-              {copied ? (
-                <>
-                  <RiCheckLine className="w-5 h-5" aria-hidden="true" />
-                  <span>{t('actions.copied')}</span>
-                </>
-              ) : (
-                <>
-                  <RiFileCopyLine className="w-5 h-5" aria-hidden="true" />
-                  <span>{t('actions.copyEmail')}</span>
-                </>
-              )}
-            </button>
-            {/* TODO: Add actual PDF file to /public/cv/mariusz-rakus-cv.pdf */}
-            <a
-              href="/cv/mariusz-rakus-cv.pdf"
-              download
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-500 dark:bg-primary-600 text-white hover:bg-primary-600 dark:hover:bg-primary-500 transition-all duration-200 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-dark-900"
-              aria-label={t('actions.downloadPdf')}
-            >
-              <RiDownloadLine className="w-5 h-5" aria-hidden="true" />
-              <span>{t('actions.downloadPdf')}</span>
             </a>
           </div>
         </header>
