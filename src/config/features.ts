@@ -20,6 +20,12 @@ export interface FeatureFlags {
   PORTFOLIO_ENABLED: boolean
 
   /**
+   * Master toggle for the CV/Resume section
+   * When false: CV route shows feature disabled page
+   */
+  CV_ENABLED: boolean
+
+  /**
    * Controls whether the maintenance/work-in-progress overlay is displayed
    * When true: Full-page overlay blocks all interaction, users cannot access content
    * When false: Normal site operation
@@ -54,6 +60,7 @@ export const FEATURES: Readonly<FeatureFlags> = Object.freeze({
   CONTACT: true,
   BLOG_ENABLED: true,
   PORTFOLIO_ENABLED: false,
+  CV_ENABLED: true,
   SHOW_ALL_BLOG_POSTS: true,
   BLOG_SEARCH_ENABLED: true,
   BLOG_CATEGORIES_ENABLED: true,

@@ -69,7 +69,7 @@ Provides accurate English ↔ Polish translation for blog posts and UI content.
 **Use when:**
 
 - Translating blog posts between languages
-- Updating locale files (locales/en.json ↔ locales/pl.json)
+- Updating locale files (src/messages/en.json ↔ src/messages/pl.json)
 - Ensuring translation consistency
 
 **Example usage:**

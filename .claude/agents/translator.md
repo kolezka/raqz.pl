@@ -76,7 +76,7 @@ When translating blog posts:
 
 When translating locale files:
 
-1. **Read source file** (`locales/en.json` or `locales/pl.json`)
+1. **Read source file** (`src/messages/en.json` or `src/messages/pl.json`)
 2. **Maintain JSON structure** exactly
 3. **Translate values only**, keep keys unchanged
 4. **Preserve placeholders** like `{{variable}}`
@@ -211,7 +211,7 @@ Ten kod tworzy zmienną stanu o nazwie `count`.
 
 ## Locale File Translation Example
 
-**English** (`locales/en.json`):
+**English** (`src/messages/en.json`):
 ```json
 {
   "nav": {
@@ -227,7 +227,7 @@ Ten kod tworzy zmienną stanu o nazwie `count`.
 }
 ````
 
-**Polish** (`locales/pl.json`):
+**Polish** (`src/messages/pl.json`):
 
 ```json
 {

@@ -21,6 +21,7 @@
     "services": "Usługi",
     "portfolio": "Portfolio",
     "blog": "Blog",
+    "cv": "CV",
     "about": "O mnie",
     "contact": "Kontakt",
     "getStarted": "Rozpocznij",
@@ -510,6 +511,200 @@
         "title": "raqz.pl",
         "description": "Osobista strona portfolio i biznesowa zbudowana z Next.js 15, z trybem ciemnym, i18n, blogiem MDX i nowoczesnymi animacjami."
       }
+    }
+  },
+  "cv": {
+    "title": "CV",
+    "meta": {
+      "title": "CV - Mariusz Rakus | Senior Full-Stack Engineer",
+      "description": "Senior Full-Stack Engineer z 7+ latami doświadczenia. TypeScript, React, React Native, Node.js, AI Engineering. Gdańsk, Polska."
+    },
+    "navigation": {
+      "ariaLabel": "Nawigacja sekcji CV",
+      "summary": "Podsumowanie",
+      "skills": "Umiejętności",
+      "projects": "Projekty",
+      "experience": "Doświadczenie",
+      "education": "Edukacja",
+      "interests": "Zainteresowania",
+      "languages": "Języki",
+      "references": "Referencje"
+    },
+    "sections": {
+      "summary": "Podsumowanie",
+      "skills": "Umiejętności",
+      "projects": "Wybrane projekty",
+      "experience": "Doświadczenie",
+      "education": "Edukacja",
+      "interests": "Zainteresowania",
+      "languages": "Języki",
+      "references": "Referencje"
+    },
+    "actions": {
+      "copyEmail": "Kopiuj email",
+      "copied": "Skopiowano!",
+      "downloadPdf": "Pobierz PDF"
+    },
+    "labels": {
+      "techStack": "Technologie"
+    },
+    "data": {
+      "name": "Mariusz Rakus",
+      "title": "Senior Full-Stack Engineer",
+      "location": "Gdańsk, Polska",
+      "email": "mariusz@raqz.pl",
+      "website": "raqz.pl",
+      "github": "github.com/kolezka",
+      "summary": [
+        "Senior Full-Stack Engineer z 7+ latami doświadczenia w dostarczaniu produktów end-to-end.",
+        "TypeScript/JavaScript, React/Next.js, React Native, Node.js, wdrożenia produkcyjne.",
+        "Aktualnie rozwijam się w kierunku Data + AI Engineering (hands-on prototypy, nacisk na produkcyjne fundamenty)."
+      ],
+      "skills": {
+        "core": {
+          "title": "Inżynieria Oprogramowania",
+          "items": [
+            {
+              "category": "Języki",
+              "skills": ["TypeScript", "JavaScript", "Python", "SQL (PostgreSQL)", "LUA"]
+            },
+            {
+              "category": "Frontend",
+              "skills": ["React", "Next.js", "React Native", "Angular", "Vue"]
+            },
+            {
+              "category": "Backend",
+              "skills": ["Node.js (Express, Fastify, NestJS)", "Python (FastAPI)", "REST & GraphQL"]
+            },
+            { "category": "Mobile", "skills": ["React Native", "Expo", "EAS", "Release Pipeline"] },
+            { "category": "Infrastruktura", "skills": ["Docker", "CI/CD", "IaC"] },
+            { "category": "Bazy danych", "skills": ["PostgreSQL", "Redis", "Prisma", "ORMs"] },
+            {
+              "category": "Chmura",
+              "skills": [
+                "AWS (S3, EC2, Lambda, Edge, CloudFront)",
+                "Azure Container Apps",
+                "Azure Blob Storage"
+              ]
+            }
+          ]
+        },
+        "ai": {
+          "title": "AI & Data Engineering",
+          "subtitle": "(rozwijający się kierunek)",
+          "items": [
+            { "category": "Architektury", "skills": ["RAG", "Agentic Workflows"] },
+            {
+              "category": "Narzędzia",
+              "skills": ["LangChain", "LlamaIndex", "OpenAI API", "Huginn", "n8n"]
+            }
+          ]
+        }
+      },
+      "projects": [
+        {
+          "company": "Henry Schein",
+          "title": "Aplikacja Mobilna DirectDental",
+          "role": "Software Engineer",
+          "period": "Wrz 2023 – Lis 2025",
+          "description": "Zbudowałem aplikację iOS/Android od zera, integracja z istniejącym Ruby on Rails API. Pełny lifecycle mobile: architektura, implementacja, CI/CD, release'y, ulepszenia. Drobne zmiany po stronie Rails. Aplikacja stała się kluczowym assetem produktu i wsparła akwizycję firmy przez dużą korporację z USA (branża dental).",
+          "tech": ["TypeScript", "React Native", "Expo", "EAS", "Ruby on Rails", "CI/CD"]
+        },
+        {
+          "company": "Dynamic.xyz",
+          "title": "Platforma Web3 Authentication",
+          "role": "Full-Stack Developer",
+          "period": "Lis 2022 – Wrz 2023",
+          "description": "Praca nad platformą Web3 do auth i infrastruktury walletów. Tworzenie narzędzi dla developerów upraszczających flow logowania na wielu chainach. Fokus na DX i integracje z providerami walletów.",
+          "tech": [
+            "TypeScript",
+            "React",
+            "Node.js",
+            "Express",
+            "Prisma",
+            "Chain Integrations",
+            "Wallet SDKs (WalletConnect, Wagmi)"
+          ]
+        },
+        {
+          "company": "Globality.com",
+          "title": "Platforma AI-Powered Sourcing",
+          "role": "Frontend Engineer",
+          "period": "Paź 2021 – Lis 2022",
+          "description": "Budowa AI-powered UI na platformie do autonomous sourcing.",
+          "tech": ["TypeScript", "React", "GraphQL", "Unit Testing", "E2E Testing"]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Sofomo",
+          "location": "Wrocław, Polska",
+          "role": "Software Engineer",
+          "period": "Wrz 2021 – Lut 2026",
+          "description": "Współpraca z klientami z USA: projektowanie, budowa i dowożenie full-stack produktów od koncepcji do produkcji. Ownership nad feature'ami i end-to-end delivery + production support."
+        },
+        {
+          "company": "iRonin.IT",
+          "location": "Zdalnie",
+          "role": "Frontend Developer",
+          "period": "Wrz 2021 – Wrz 2023",
+          "description": "Rozwój istniejących aplikacji, współpraca zespołowa, przewidywalne delivery i jakość.",
+          "tech": ["TypeScript", "React", "Ruby on Rails", "CI/CD"]
+        },
+        {
+          "company": "ITCraftship",
+          "location": "Zdalnie",
+          "role": "Fullstack Developer",
+          "period": "Lip 2020 – Wrz 2021",
+          "description": "Utrzymanie i rozwój aplikacji Angular, budowa web/mobile od zera w Ionic/Angular, React, Next.js i Flutter.",
+          "tech": ["TypeScript", "Angular", "Ionic", "React", "Vue", "Next.js", "CI/CD"]
+        },
+        {
+          "company": "SoftwareHut",
+          "location": "Rzeszów, Polska",
+          "role": "Frontend Developer",
+          "period": "Mar 2019 – Lip 2020",
+          "description": "Vue i React dla enterprise; m.in. Vue solution dla ORLEN Laboratorium i React gamification platform dla GrowUperion.",
+          "tech": ["TypeScript", "React", "Vue", "Unit Testing"]
+        },
+        {
+          "company": "Artneo sp. z o. o.",
+          "location": "Olsztyn, Polska",
+          "role": "Frontend Developer",
+          "period": "Mar 2018 – Sty 2019",
+          "description": "Landing pages, e-commerce, fundamenty frontendu i praca z wymaganiami klientów."
+        }
+      ],
+      "education": [
+        {
+          "institution": "Uniwersytet WSB Merito Gdańsk",
+          "degree": "Informatyka Przemysłowa i Przemysłowy IoT",
+          "period": "Start 2026 (planowane ukończenie: 2030)"
+        },
+        {
+          "institution": "Uniwersytet Warmińsko-Mazurski w Olsztynie",
+          "degree": "Informatyka",
+          "period": "2017 – 2018"
+        }
+      ],
+      "interests": [
+        "Kryptowaluty",
+        "Sztuczna Inteligencja",
+        "Elektronika",
+        "Drony FPV Racing & Freestyle"
+      ],
+      "languages": [
+        { "name": "Angielski", "level": "C1 (Zaawansowany)" },
+        { "name": "Polski", "level": "Ojczysty" }
+      ],
+      "references": [
+        {
+          "name": "Frank Sandoval",
+          "title": "Development Manager w Henry Schein",
+          "contact": "(+1) 951-249-4801"
+        },
+        { "name": "Maciej Adamczyk", "title": "nursa.com", "contact": "" }
+      ]
     }
   }
 }

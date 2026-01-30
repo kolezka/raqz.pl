@@ -120,6 +120,15 @@ export default memo(function Header() {
             },
           ]
         : []),
+      ...(FEATURES.CV_ENABLED
+        ? [
+            {
+              name: t('cv'),
+              href: `${langPrefix}/cv`,
+              type: 'link' as const,
+            },
+          ]
+        : []),
       ...(FEATURES.CONTACT
         ? [
             {
@@ -138,7 +147,7 @@ export default memo(function Header() {
       className={clsx(
         'fixed top-0 left-0 right-0 z-10',
         'transition-transform duration-300 ease',
-        scrollY > 100 ? 'translate-y-4' : 'translate-y-10'
+        scrollY > 100 && !mobileMenuOpen ? 'translate-y-4' : 'translate-y-10'
       )}
     >
       <div ref={menuRef} className="max-w-7xl mx-auto px-6">
