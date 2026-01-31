@@ -40,7 +40,6 @@ function normalizeSkill(skill: string | SkillItem): { name: string; level: Skill
   return { name: skill.name, level: skill.level || 'intermediate' }
 }
 
-// Sort skills by level: Expert → Intermediate → Learning (natural gradient)
 const levelOrder: Record<SkillLevel, number> = { expert: 0, intermediate: 1, learning: 2 }
 
 function sortSkillsByLevel(skills: (string | SkillItem)[]): { name: string; level: SkillLevel }[] {
@@ -48,18 +47,11 @@ function sortSkillsByLevel(skills: (string | SkillItem)[]): { name: string; leve
 }
 
 function getSkillBadgeClasses(level: SkillLevel): string {
-  // rounded-md = 6px - profesjonalny, inżynierski wygląd
   const baseClasses = 'px-3 py-1.5 rounded-md text-sm font-medium cursor-default'
   const levelClassMap: Record<SkillLevel, string> = {
-    // Expert: Subtelne zielone tło + jaskrawy tekst
-    // Dark: bg #064E3B, text #10B981 | Light: bg #D1FAE5, text #065F46
     expert: 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400',
-    // Intermediate: Neutralne szare - czytelność bez narzucania się
-    // Dark: bg #1F2937, text #F3F4F6 | Light: bg #F3F4F6, text #1F2937
-    intermediate: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200',
-    // Learning: Przezroczyste + wyciszony tekst (niski kontrast, bez ramki)
-    // Dark: transparent, text #6B7280 | Light: transparent, text #9CA3AF
-    learning: 'bg-gray-50 text-gray-400 dark:text-gray-500',
+    intermediate: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300',
+    learning: 'bg-gray-50 dark:bg-gray-800 text-gray-400 dark:text-gray-500',
   }
   return clsx(baseClasses, levelClassMap[level] || levelClassMap['intermediate'])
 }
