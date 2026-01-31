@@ -59,7 +59,7 @@ function getSkillBadgeClasses(level: SkillLevel): string {
     intermediate: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200',
     // Learning: Przezroczyste + wyciszony tekst (niski kontrast, bez ramki)
     // Dark: transparent, text #6B7280 | Light: transparent, text #9CA3AF
-    learning: 'bg-transparent text-gray-400 dark:text-gray-500',
+    learning: 'bg-gray-50 text-gray-400 dark:text-gray-500',
   }
   return clsx(baseClasses, levelClassMap[level] || levelClassMap['intermediate'])
 }
@@ -235,6 +235,16 @@ export default function CVClient() {
               <span>{cvData.github}</span>
             </a>
           </div>
+
+          {/* Export PDF Button */}
+          {/* <button
+            onClick={handleExportPDF}
+            className="print:hidden inline-flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors shadow-xs hover:shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-dark-900"
+            aria-label={t('actions.downloadPdf')}
+          >
+            <RiDownloadLine className="w-5 h-5" aria-hidden="true" />
+            {t('actions.downloadPdf')}
+          </button> */}
         </header>
 
         {/* Summary Section */}
@@ -251,7 +261,7 @@ export default function CVClient() {
             <RiUserLine className="w-6 h-6 text-primary-500" aria-hidden="true" />
             {t('sections.summary')}
           </h2>
-          <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+          <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-xs border border-gray-100 dark:border-gray-700">
             <ul className="space-y-3">
               {cvData.summary.map((item, index) => (
                 <li key={index} className="flex items-start text-gray-600 dark:text-gray-300">
@@ -295,14 +305,16 @@ export default function CVClient() {
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-sm bg-gray-100 dark:bg-transparent border border-gray-300 dark:border-gray-600" />
-                <span className="text-gray-400 dark:text-gray-500">{t('skillLevels.learning')}</span>
+                <span className="text-gray-400 dark:text-gray-500">
+                  {t('skillLevels.learning')}
+                </span>
               </div>
             </div>
           </div>
 
           <div className="space-y-6">
             {/* Core Skills */}
-            <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+            <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-xs border border-gray-100 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 {cvData.skills.core.title}
               </h3>
@@ -329,7 +341,7 @@ export default function CVClient() {
             </div>
 
             {/* AI & Data Skills */}
-            <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+            <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-xs border border-gray-100 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                 {cvData.skills.ai.title}
               </h3>
@@ -381,7 +393,7 @@ export default function CVClient() {
             {cvData.projects.map((project, index) => (
               <article
                 key={index}
-                className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 hover:shadow-xl"
+                className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-xs border border-gray-100 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 hover:shadow-xl"
               >
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
                   <div>
@@ -448,7 +460,7 @@ export default function CVClient() {
                     aria-hidden="true"
                   />
 
-                  <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+                  <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-xs border border-gray-100 dark:border-gray-700">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2">
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -501,7 +513,7 @@ export default function CVClient() {
             {cvData.education.map((edu, index) => (
               <article
                 key={index}
-                className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700"
+                className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-xs border border-gray-100 dark:border-gray-700"
               >
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                   {edu.institution}
@@ -530,13 +542,10 @@ export default function CVClient() {
             {t('sections.interests')}
           </h2>
 
-          <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+          <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-xs border border-gray-100 dark:border-gray-700">
             <div className="flex flex-wrap gap-3">
               {cvData.interests.map(interest => (
-                <span
-                  key={interest}
-                  className="px-4 py-2 bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900/30 dark:to-primary-800/30 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium"
-                >
+                <span key={interest} className="text-sm font-medium">
                   {interest}
                 </span>
               ))}
@@ -563,7 +572,7 @@ export default function CVClient() {
             {cvData.languages.map(lang => (
               <div
                 key={lang.name}
-                className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700"
+                className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-xs border border-gray-100 dark:border-gray-700"
               >
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                   {lang.name}
@@ -593,7 +602,7 @@ export default function CVClient() {
             {cvData.references.map((ref, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700"
+                className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-xs border border-gray-100 dark:border-gray-700"
               >
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                   {ref.name}
@@ -615,7 +624,7 @@ export default function CVClient() {
 
       {/* Bottom Floating Navigation */}
       <nav
-        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-white/90 dark:bg-dark-800/90 backdrop-blur-md rounded-full border border-gray-200 dark:border-gray-700 shadow-lg px-2 py-2"
+        className="print:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-white/90 dark:bg-dark-800/90 backdrop-blur-md rounded-full border border-gray-200 dark:border-gray-700 shadow-xs px-2 py-2"
         aria-label={t('navigation.ariaLabel')}
       >
         <div className="flex items-center gap-1">
@@ -626,7 +635,7 @@ export default function CVClient() {
               className={`flex items-center justify-center p-2.5 rounded-full transition-all duration-200
                 ${
                   activeSection === id
-                    ? 'bg-primary-500 text-white shadow-md'
+                    ? 'bg-primary-500 text-white shadow-xs'
                     : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-dark-700 hover:text-gray-900 dark:hover:text-white'
                 }
                 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-dark-900`}

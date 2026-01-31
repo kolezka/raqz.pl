@@ -351,3 +351,75 @@
     }
   }
 }
+
+/* Print styles for CV export */
+@media print {
+  /* Hide site header */
+  header[role='banner'],
+  .site-header,
+  nav[aria-label*='Main'],
+  nav[aria-label*='main'] {
+    display: none !important;
+  }
+
+  /* Reset page margins and background */
+  body {
+    background: white !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Remove padding from CV container */
+  .min-h-screen {
+    padding-bottom: 0 !important;
+  }
+
+  /* Reduce top padding for print */
+  .pt-32,
+  .lg\:pt-48 {
+    padding-top: 2rem !important;
+  }
+
+  /* Ensure content fits on pages */
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Ensure cards don't break across pages */
+  article,
+  .rounded-2xl {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Hide shadows and simplify borders for print */
+  .shadow-lg,
+  .shadow-xl,
+  .shadow-md {
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+  }
+
+  /* Force light mode colors for printing */
+  .dark\:bg-dark-800,
+  .dark\:bg-dark-900,
+  .dark\:bg-dark-700 {
+    background-color: white !important;
+  }
+
+  .dark\:text-white,
+  .dark\:text-gray-200,
+  .dark\:text-gray-300,
+  .dark\:text-gray-400 {
+    color: #1f2937 !important;
+  }
+
+  .dark\:text-primary-400 {
+    color: #2db7a9 !important;
+  }
+
+  .dark\:border-gray-700 {
+    border-color: #e5e7eb !important;
+  }
+}

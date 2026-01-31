@@ -145,7 +145,7 @@ export default memo(function Header() {
   return (
     <header
       className={clsx(
-        'fixed top-0 left-0 right-0 z-10',
+        'print:hidden fixed top-0 left-0 right-0 z-10',
         'transition-transform duration-300 ease',
         scrollY > 100 && !mobileMenuOpen ? 'translate-y-4' : 'translate-y-10'
       )}

@@ -368,7 +368,6 @@
     "migrations": {
       "description": "Safe and efficient platform, database, and infrastructure migrations without application downtime. Full support at every stage – from analysis through migration to data integrity verification.",
       "features": [
-        "Cloud platform migrations (AWS, GCP, Azure, on-premise)",
         "Database migrations with full integrity preservation",
         "Application modernization and framework upgrades",
         "Legacy system upgrades without service interruption",
@@ -597,13 +596,15 @@
               "skills": [
                 { "name": "Node.js", "level": "expert" },
                 { "name": "Express", "level": "expert" },
-                { "name": "REST API Design", "level": "expert" },
                 "NestJS",
                 { "name": "Fastify", "level": "expert" },
+                "tRPC",
                 "Apollo GraphQL",
                 { "name": "Background Jobs", "level": "expert" },
-                { "name": "Message Queues", "level": "learning" },
-                { "name": "FastAPI", "level": "learning" }
+                { "name": "Message Queues (concepts)", "level": "learning" },
+                "OAuth 2.0 / OIDC",
+                "JWT",
+                "OpenAPI"
               ]
             },
             {
@@ -616,6 +617,8 @@
                 { "name": "App Store & Google Play Deployment", "level": "expert" },
                 { "name": "App Signing & Provisioning", "level": "expert" },
                 { "name": "OTA Updates", "level": "expert" },
+                { "name": "Push Notifications (FCM/APNs)", "level": "expert" },
+                { "name": "Deep Linking", "level": "expert" },
                 "Android Studio"
               ]
             },
@@ -627,48 +630,45 @@
                 { "name": "Microservices", "level": "intermediate" },
                 "TDD",
                 "DDD",
-                { "name": "EDA", "level": "learning" }
+                { "name": "EDA (concepts)", "level": "learning" }
               ]
             },
-            
+
             {
-              "category": "Data",
+              "category": "Databases (OLTP)",
               "skills": [
                 { "name": "PostgreSQL", "level": "expert" },
                 { "name": "MySQL", "level": "expert" },
-                { "name": "SQLite", "level": "expert" },
-                { "name": "Redis", "level": "intermediate" },
+                { "name": "Redis", "level": "learning" },
                 { "name": "Prisma", "level": "expert" },
+                { "name": "SQLite", "level": "expert" },
+                { "name": "Turso", "level": "intermediate" },
                 "TypeORM",
                 "Sequelize",
-                { "name": "Turso", "level": "learning" },
-                { "name": "BullMQ", "level": "learning" },
-
                 "Migrations"
               ]
             },
             {
               "category": "Infrastructure",
               "skills": [
+                { "name": "AWS (S3, Lambda)", "level": "learning" },
+                { "name": "Firebase", "level": "intermediate" },
                 { "name": "CI/CD Pipelines", "level": "expert" },
-                "Docker",
-                "Serverless Architecture",
+                { "name": "Docker", "level": "expert" },
                 "Observability (Sentry, Datadog)",
-                { "name": "Terraform", "level": "learning" },
-                { "name": "AWS (S3, EC2, Lambda, CloudFront)", "level": "learning" },
-                { "name": "Azure (Container Apps)", "level": "learning" },
-                { "name": "Google Cloud (Firebase)", "level": "learning" }
+                { "name": "Terraform (concepts)", "level": "learning" }
               ]
             }
           ]
         },
         "ai": {
-          "title": "AI & Data Engineering",
-          "subtitle": "(expanding focus)",
+          "title": "AI & Data Engineering - Learning roadmap",
+          "subtitle": "",
           "items": [
             {
-              "category": "Architectures",
+              "category": "Core",
               "skills": [
+                { "name": "AWS Bedrock", "level": "learning" },
                 { "name": "RAG", "level": "learning" },
                 { "name": "Agentic Workflows", "level": "learning" }
               ]
@@ -677,10 +677,9 @@
               "category": "Tools & Frameworks",
               "skills": [
                 { "name": "LangChain", "level": "learning" },
-                { "name": "LlamaIndex", "level": "learning" },
-                { "name": "OpenAI API", "level": "learning" },
-                { "name": "Huginn", "level": "learning" },
-                { "name": "n8n", "level": "learning" }
+                { "name": "OpenAI API", "level": "intermediate" },
+                { "name": "Huginn", "level": "intermediate" },
+                { "name": "n8n", "level": "intermediate" }
               ]
             }
           ]
@@ -688,7 +687,21 @@
         "other": {
           "title": "Other",
           "items": [
-            { "category": "Tools", "skills": ["Git", "GitHub", "GitLab", "Bitbucket", "Jira", "Trello", "Slack", "Zoom", "Microsoft Teams", "Google Workspace"] }
+            {
+              "category": "Tools",
+              "skills": [
+                "Git",
+                "GitHub",
+                "GitLab",
+                "Bitbucket",
+                "Jira",
+                "Trello",
+                "Slack",
+                "Zoom",
+                "Microsoft Teams",
+                "Google Workspace"
+              ]
+            }
           ]
         }
       },
