@@ -711,7 +711,19 @@
           "role": "Software Engineer",
           "period": "Sep 2023 – Nov 2025",
           "description": "Built iOS/Android app from scratch, integrating with existing Ruby on Rails API. Full mobile lifecycle: architecture, implementation, CI/CD, releases, improvements. Minor Rails-side changes. The app became a key product asset and supported the company's acquisition by a major US corporation (dental industry).",
-          "tech": ["TypeScript", "React Native", "Expo", "EAS", "Ruby on Rails", "CI/CD"]
+          "tech": [
+            "TypeScript",
+            "React Native",
+            "Expo",
+            "EAS",
+            "PostgreSQL",
+            "Ruby on Rails",
+            "CI/CD",
+            "Sentry",
+            "Datadog",
+            "Jest",
+            "Maestro"
+          ]
         },
         {
           "company": "Dynamic.xyz",
@@ -725,8 +737,12 @@
             "Node.js",
             "Express",
             "Prisma",
+            "PostgreSQL",
             "Chain Integrations",
-            "Wallet SDKs (WalletConnect, Wagmi)"
+            "Wallet SDKs (WalletConnect, Wagmi)",
+            "Sentry",
+            "Datadog",
+            "Jest"
           ]
         },
         {
@@ -735,7 +751,7 @@
           "role": "Frontend Engineer",
           "period": "Oct 2021 – Nov 2022",
           "description": "Built AI-powered UI for an autonomous sourcing platform.",
-          "tech": ["TypeScript", "React", "GraphQL", "Unit Testing", "E2E Testing"]
+          "tech": ["TypeScript", "React", "Apollo GraphQL", "Unit Testing", "E2E Testing", "Jest"]
         }
       ],
       "experience": [
