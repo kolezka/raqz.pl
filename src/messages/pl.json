@@ -37,12 +37,8 @@
           "description": "Rozwiązania rozwoju oprogramowania"
         },
         "messaging-bots": {
-          "name": "Boty komunikatorów",
+          "name": "Boty",
           "description": "Niestandardowe boty dla popularnych platform komunikacyjnych"
-        },
-        "infrastructure": {
-          "name": "Infrastruktura",
-          "description": "Skalowalne i niezawodne rozwiązania infrastrukturalne"
         },
         "support": {
           "name": "Wsparcie",
@@ -82,10 +78,6 @@
           "name": "Boty Telegram",
           "shortDescription": "Obsługa klienta i automatyzacji biznesowej – płatności, powiadomienia, wielojęzyczność."
         },
-        "signal-bots": {
-          "name": "Boty Signal",
-          "shortDescription": "Bez kompromisów w zakresie bezpieczeństwa."
-        },
         "website-chatbots": {
           "name": "Chatboty na strony",
           "shortDescription": "Chatboty AI do obsługi klienta 24/7, generowania leadów i zwiększania zaangażowania."
@@ -93,18 +85,6 @@
         "blockchain-development": {
           "name": "Blockchain",
           "shortDescription": "Web3, smart kontrakty i aplikacje DeFi. Wielosieciowe integracje portfeli, NFT marketplaces i zdecentralizowane platformy."
-        },
-        "hosting-solutions": {
-          "name": "Rozwiązania hostingowe",
-          "shortDescription": "Infrastruktura dopasowana do rzeczywistych potrzeb Twojej strony lub aplikacji. Optymalizacja kosztów przy zachowaniu pełnej wydajności."
-        },
-        "performance-optimization": {
-          "name": "Optymalizacja wydajności",
-          "shortDescription": "Przyspiesz swoją stronę, sklep lub aplikację. Zwiększ widoczność w Google i popraw doświadczenia użytkowników dzięki lepszym czasom ładowania."
-        },
-        "migrations": {
-          "name": "Migracje",
-          "shortDescription": "Bezpieczne migracje platform, baz danych i infrastruktury – zero downtime, pełna integralność danych i wsparcie na każdym etapie procesu."
         },
         "maintenance-support": {
           "name": "Utrzymanie i wsparcie",
@@ -211,10 +191,9 @@
   },
   "serviceCategories": {
     "development": "Rozwój oprogramowania",
-    "infrastructure": "Infrastruktura",
     "specializedSolutions": "Rozwiązania specjalistyczne",
     "specialized-solutions": "Rozwiązania specjalistyczne",
-    "messaging-bots": "Boty komunikatorów",
+    "messaging-bots": "Boty",
     "support": "Wsparcie"
   },
   "meta": {
@@ -322,18 +301,6 @@
       ],
       "pricing": "Ceny od 6 000 zł"
     },
-    "signal-bots": {
-      "description": "Budujemy bezpieczne boty Signal z najwyższym poziomem prywatności i szyfrowaniem end-to-end. Idealne do wewnętrznej komunikacji firmowej, powiadomień i automatyzacji, gdzie bezpieczeństwo danych jest priorytetem.",
-      "features": [
-        "Szyfrowanie end-to-end zachowane w każdej komunikacji",
-        "Automatyczne odpowiedzi i chatboty z regułami biznesowymi",
-        "Funkcje zarządzania grupami i administratorów",
-        "Integracje skoncentrowane na prywatności (no tracking)",
-        "Bezpieczne powiadomienia i alerty w czasie rzeczywistym",
-        "Self-hosted deployment dla pełnej kontroli"
-      ],
-      "pricing": "Ceny od 8 000 zł"
-    },
     "blockchain-development": {
       "description": "Kompleksowe usługi rozwoju blockchain – od aplikacji Web3 i integracji portfeli multi-chain po smart kontrakty i zdecentralizowane platformy DeFi. Wspieramy Ethereum, Solana, Cosmos i inne sieci blockchain.",
       "features": [
@@ -343,39 +310,6 @@
         "DeFi (staking, lending, AMM)",
         "Standardy tokenów (ERC-20, SPL) i tokenomika"
       ]
-    },
-    "hosting-solutions": {
-      "description": "Zapewniamy kompleksowe rozwiązania hostingowe dostosowane do faktycznych wymagań Twojej aplikacji – od hostingu współdzielonego po infrastrukturę chmurową enterprise. Gwarantujemy 99,9% dostępności i stałe wsparcie techniczne.",
-      "features": [
-        "Hosting w chmurze (AWS, Google Cloud, Azure) z auto-scaling",
-        "Przestrzeń hostingowa – pełna kontrola i wydajność",
-        "Implementacja CDN (Cloudflare, AWS CloudFront) dla globalnego zasięgu",
-        "Monitoring 24/7 i alerty o incydentach"
-      ]
-    },
-    "performance-optimization": {
-      "description": "Kompleksowa analiza i optymalizacja wydajności aplikacji – identyfikujemy bottlenecki, przyspieszamy ładowanie i redukujemy koszty infrastruktury. Zwiększ konwersję dzięki szybszej stronie i lepszym Core Web Vitals.",
-      "features": [
-        "Optymalizacja prędkości stron (PageSpeed, Lighthouse 90+)",
-        "Dostrajanie wydajności baz danych (indexing, query optimization)",
-        "Optymalizacja i refaktoryzacja kodu (code splitting, lazy loading)",
-        "Implementacja cache'owania (Redis, Memcached, CDN)",
-        "Konfiguracja load balancingu i horizontal scaling",
-        "Analiza Core Web Vitals i poprawa SEO"
-      ],
-      "pricing": "Ceny od 8 000 zł"
-    },
-    "migrations": {
-      "description": "Bezpieczne i wydajne migracje platform, baz danych i infrastruktury bez przestojów w działaniu aplikacji. Pełne wsparcie na każdym etapie – od analizy przez migrację po weryfikację integralności danych.",
-      "features": [
-        "Migracje platform chmurowych (AWS, GCP, Azure, on-premise)",
-        "Migracje baz danych z zachowaniem pełnej integralności",
-        "Modernizacja aplikacji i upgrade frameworków",
-        "Aktualizacje systemów legacy bez przerw w działaniu",
-        "Migracja i walidacja danych (ETL processes)",
-        "Rollback plan i disaster recovery strategy"
-      ],
-      "pricing": "Ceny od 12 000 zł"
     },
     "maintenance-support": {
       "description": "Utrzymuj swoje aplikacje w płynnym działaniu dzięki naszym kompleksowym usługom konserwacji i wsparcia.",
@@ -629,6 +563,7 @@
                 { "name": "Hexagonal", "level": "expert" },
                 { "name": "Monolith/Modular Monolith", "level": "expert" },
                 { "name": "Microservices", "level": "intermediate" },
+                { "name": "DDD", "level": "intermediate" },
                 "TDD",
                 "Design Patterns",
                 { "name": "EDA (concepts)", "level": "learning" }

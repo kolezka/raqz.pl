@@ -37,12 +37,8 @@
           "description": "Software development solutions"
         },
         "messaging-bots": {
-          "name": "Messaging Bots",
+          "name": "Bots",
           "description": "Custom bots for popular messaging platforms"
-        },
-        "infrastructure": {
-          "name": "Infrastructure",
-          "description": "Scalable and reliable infrastructure solutions"
         },
         "support": {
           "name": "Support",
@@ -82,10 +78,6 @@
           "name": "Telegram Bots",
           "shortDescription": "Customer support and business automation – payments, notifications, multi-language support."
         },
-        "signal-bots": {
-          "name": "Signal Bots",
-          "shortDescription": "No compromises on security."
-        },
         "website-chatbots": {
           "name": "Website Chatbots",
           "shortDescription": "AI-powered 24/7 customer support, lead generation, and engagement for your website."
@@ -93,18 +85,6 @@
         "blockchain-development": {
           "name": "Blockchain",
           "shortDescription": "Web3, smart contracts and DeFi apps. Multi-chain wallet integrations, NFT marketplaces and decentralized platforms."
-        },
-        "hosting-solutions": {
-          "name": "Hosting Solutions",
-          "shortDescription": "Infrastructure tailored to your website or app's actual needs. Cost optimization while maintaining full performance."
-        },
-        "performance-optimization": {
-          "name": "Performance Optimization",
-          "shortDescription": "Speed up your website, store or app. Increase Google visibility and improve user experience with better loading times."
-        },
-        "migrations": {
-          "name": "Migrations",
-          "shortDescription": "Secure platform, database and infrastructure migrations – zero downtime, full data integrity and support at every stage."
         },
         "maintenance-support": {
           "name": "Maintenance & Support",
@@ -211,10 +191,9 @@
   },
   "serviceCategories": {
     "development": "Development",
-    "infrastructure": "Infrastructure",
     "specializedSolutions": "Specialized Solutions",
     "specialized-solutions": "Specialized Solutions",
-    "messaging-bots": "Messaging Bots",
+    "messaging-bots": "Bots",
     "support": "Support"
   },
   "meta": {
@@ -322,18 +301,6 @@
       ],
       "pricing": "Starting from 6,000 PLN"
     },
-    "signal-bots": {
-      "description": "We build secure Signal bots with the highest level of privacy and end-to-end encryption. Ideal for internal corporate communication, notifications, and automation where data security is a priority.",
-      "features": [
-        "End-to-end encryption preserved in all communication",
-        "Automated responses and chatbots with business rules",
-        "Group management and administrator features",
-        "Privacy-focused integrations (no tracking)",
-        "Secure notifications and real-time alerts",
-        "Self-hosted deployment for full control"
-      ],
-      "pricing": "Starting from 8,000 PLN"
-    },
     "blockchain-development": {
       "description": "Comprehensive blockchain development services – from Web3 applications and multi-chain wallet integrations to smart contracts and decentralized DeFi platforms. We support Ethereum, Solana, Cosmos, and other blockchain networks.",
       "features": [
@@ -343,38 +310,6 @@
         "DeFi (staking, lending, AMM)",
         "Token standards (ERC-20, SPL) and tokenomics"
       ]
-    },
-    "hosting-solutions": {
-      "description": "We provide comprehensive hosting solutions tailored to your application's actual requirements – from shared hosting to enterprise cloud infrastructure. We guarantee 99.9% uptime and constant technical support.",
-      "features": [
-        "Cloud hosting (AWS, Google Cloud, Azure) with auto-scaling",
-        "Hosting space – full control and performance",
-        "CDN implementation (Cloudflare, AWS CloudFront) for global reach",
-        "24/7 monitoring and incident alerts"
-      ]
-    },
-    "performance-optimization": {
-      "description": "Comprehensive application performance analysis and optimization – we identify bottlenecks, speed up loading, and reduce infrastructure costs. Increase conversion with a faster website and better Core Web Vitals.",
-      "features": [
-        "Website speed optimization (PageSpeed, Lighthouse 90+)",
-        "Database performance tuning (indexing, query optimization)",
-        "Code optimization and refactoring (code splitting, lazy loading)",
-        "Caching implementation (Redis, Memcached, CDN)",
-        "Load balancing configuration and horizontal scaling",
-        "Core Web Vitals analysis and SEO improvement"
-      ],
-      "pricing": "Starting from 8,000 PLN"
-    },
-    "migrations": {
-      "description": "Safe and efficient platform, database, and infrastructure migrations without application downtime. Full support at every stage – from analysis through migration to data integrity verification.",
-      "features": [
-        "Database migrations with full integrity preservation",
-        "Application modernization and framework upgrades",
-        "Legacy system upgrades without service interruption",
-        "Data migration and validation (ETL processes)",
-        "Rollback plan and disaster recovery strategy"
-      ],
-      "pricing": "Starting from 12,000 PLN"
     },
     "maintenance-support": {
       "description": "Keep your applications running smoothly with our comprehensive maintenance and support services.",
@@ -627,6 +562,7 @@
                 { "name": "Hexagonal", "level": "expert" },
                 { "name": "Monolith/Modular Monolith", "level": "expert" },
                 { "name": "Microservices", "level": "intermediate" },
+                { "name": "DDD", "level": "intermediate" },
                 "TDD",
                 "Design Patterns",
                 { "name": "EDA (concepts)", "level": "learning" }

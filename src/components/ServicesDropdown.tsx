@@ -61,9 +61,9 @@ function ServicesDropdownContent({
 
       <PopoverPanel
         transition
-        className="fixed left-1/2 top-[5rem] -translate-x-1/2 z-50 max-w-5xl w-[min(100vw-2rem,64rem)] max-h-[80vh] rounded-xl bg-white/90 dark:bg-dark-800/95 backdrop-blur-xl shadow-2xl ring-1 ring-gray-200/50 dark:ring-gray-700/50 focus:outline-none overflow-y-auto overflow-x-hidden transition ease-out duration-200 data-closed:transform data-closed:opacity-0 data-closed:scale-95 data-closed:translate-y-[-16px]"
+        className="fixed left-1/2 top-[5rem] -translate-x-1/2 z-50 max-w-5xl w-[min(100vw-2rem,64rem)] max-h-[80vh] rounded-xl bg-white/90 dark:bg-dark-800/95 backdrop-blur-xl shadow-sm ring-1 ring-gray-200/50 dark:ring-gray-700/50 focus:outline-none overflow-y-auto overflow-x-hidden transition ease-out duration-200 data-closed:transform data-closed:opacity-0 data-closed:scale-95 data-closed:translate-y-[-16px]"
       >
-        <div className="columns-1 sm:columns-2 gap-0 p-4">
+        <div className="columns-1 sm:columns-2 gap-0">
           {servicesData.serviceCategories.map(category => {
             const IconComponent = iconMap[category.icon as keyof typeof iconMap]
             return (
@@ -71,7 +71,7 @@ function ServicesDropdownContent({
                 key={category.id}
                 className="break-inside-avoid bg-white dark:bg-dark-800 overflow-hidden"
               >
-                <div className="px-4 py-3 bg-linear-to-r from-primary-50/80 to-primary-100/40 dark:from-primary-900/30 dark:to-primary-800/20">
+                <div className="px-4 py-3 bg-primary-50/80 dark:bg-primary-900/30">
                   <div className="flex items-center text-xs font-semibold text-gray-900 dark:text-white">
                     <div className="p-1.5 bg-white/80 dark:bg-dark-700 rounded-md mr-2 shadow-sm">
                       <IconComponent
@@ -116,15 +116,14 @@ function ServicesDropdownContent({
             )
           })}
         </div>
-        <div className="w-full border-t border-gray-200/50 dark:border-gray-700/50 bg-linear-to-r from-primary-500 to-primary-600 dark:from-primary-600 dark:to-primary-700 mt-2">
+        <div className="w-full border-t border-gray-200/50 dark:border-gray-700/50 bg-primary-50/80 dark:bg-primary-900/30 mt-2">
           <Link
             href="/services"
             onClick={() => close()}
-            className="block px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-white/20 focus:bg-white/20"
+            className="block px-6 py-3 text-xs font-medium  text-gray-900 dark:text-white transition-all duration-200 hover:bg-white/20 focus:bg-white/20"
           >
             <div className="flex items-center justify-between">
               <span>{t('viewAll')}</span>
-              <span className="text-lg">→</span>
             </div>
           </Link>
         </div>

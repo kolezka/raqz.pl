@@ -3,6 +3,11 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Prevent layout shift when scrollbar is hidden (e.g., modals, popovers) */
+html {
+  scrollbar-gutter: stable;
+}
+
 @theme {
   /* Primary color palette - Teal/Cyan shades */
   --color-primary-50: #d7f9f6;

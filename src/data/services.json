@@ -22,14 +22,7 @@
             "Machine learning model integration",
             "Natural language processing"
           ],
-          "technologies": [
-            "Claude Agent",
-            "Huginn",
-            "Flowise",
-            "Hugging Face",
-            "LangChain",
-            "PGVector"
-          ],
+          "technologies": ["OpenAI", "Flowise", "Python", "Node.js", "Turso", "PGVector"],
           "pricing": "Starting from $5,000"
         },
         {
@@ -49,7 +42,7 @@
             "DeFi protocol implementations",
             "Token standards (ERC-20, SPL)"
           ],
-          "technologies": ["WalletConnect", "Ethereum", "Solana", "gRPC", "GO"],
+          "technologies": ["WalletConnect", "wagmi", "gRPC", "Ethereum", "Solana", "Wallet Integrations"],
           "pricing": "Starting from $8,000"
         },
         {
@@ -80,6 +73,25 @@
       "description": "Custom software development solutions",
       "icon": "CodeBracketIcon",
       "services": [
+        {
+          "id": "software-development",
+          "slug": {
+            "en": "software-development",
+            "pl": "tworzenie-oprogramowania"
+          },
+          "name": "Software Development",
+          "shortDescription": "Custom software solutions for enterprise needs",
+          "description": "Enterprise-grade software solutions tailored to your specific business requirements and workflow optimization.",
+          "features": [
+            "Desktop applications",
+            "Enterprise software systems",
+            "Workflow automation",
+            "Database design and optimization",
+            "Third-party integrations"
+          ],
+          "technologies": ["GO", "Python", "Typescript", "Node.js", "Electron", "Postgresql"],
+          "pricing": "Starting from $10,000"
+        },
         {
           "id": "web-development",
           "slug": {
@@ -136,35 +148,37 @@
           ],
           "technologies": ["Stripe", "PayPal", "Blockchain"],
           "pricing": "Starting from $7,000"
-        },
-        {
-          "id": "software-development",
-          "slug": {
-            "en": "software-development",
-            "pl": "tworzenie-oprogramowania"
-          },
-          "name": "Software Development",
-          "shortDescription": "Custom software solutions for enterprise needs",
-          "description": "Enterprise-grade software solutions tailored to your specific business requirements and workflow optimization.",
-          "features": [
-            "Desktop applications",
-            "Enterprise software systems",
-            "Workflow automation",
-            "Database design and optimization",
-            "Third-party integrations"
-          ],
-          "technologies": ["GO", "Python", "Typescript", "Node.js", "Electron", "Postgresql"],
-          "pricing": "Starting from $10,000"
         }
       ]
     },
 
     {
       "id": "messaging-bots",
-      "name": "Messaging Bots",
+      "name": "Bots",
       "description": "Custom bots for popular messaging platforms",
       "icon": "RobotIcon",
       "services": [
+        {
+          "id": "website-chatbots",
+          "slug": {
+            "en": "website-chatbots",
+            "pl": "chatboty-na-strony"
+          },
+          "name": "Website Chatbots",
+          "shortDescription": "AI-powered chatbots for customer support and lead generation",
+          "description": "Deploy intelligent AI chatbots on your website to provide 24/7 customer support, answer FAQs, qualify leads, and enhance user engagement.",
+          "features": [
+            "24/7 automated customer support",
+            "Natural language understanding",
+            "Lead qualification and capture",
+            "Integration with CRM systems",
+            "Multi-language support",
+            "Custom training on your data",
+            "Analytics and conversation insights"
+          ],
+          "technologies": ["OpenAI", "Flowise", "n8n", "Python", "Node.js"],
+          "pricing": "Starting from $3,000"
+        },
         {
           "id": "discord-bots",
           "slug": {
@@ -203,116 +217,9 @@
           ],
           "technologies": ["Telegram Bot API", "Python", "Node.js", "Webhooks", "Inline Queries"],
           "pricing": "Starting from $1,500"
-        },
-        {
-          "id": "signal-bots",
-          "slug": {
-            "en": "signal-bots",
-            "pl": "boty-signal"
-          },
-          "name": "Signal Bots",
-          "shortDescription": "Privacy-focused Signal bots for secure communication",
-          "description": "Build secure Signal bots that prioritize privacy while delivering automated messaging and communication features.",
-          "features": [
-            "End-to-end encrypted messaging",
-            "Automated responses",
-            "Group management features",
-            "Privacy-focused integrations",
-            "Secure notifications"
-          ],
-          "technologies": ["Signal API", "Python", "Signal Protocol", "Secure APIs", "Encryption"],
-          "pricing": "Starting from $2,000"
-        },
-        {
-          "id": "website-chatbots",
-          "slug": {
-            "en": "website-chatbots",
-            "pl": "chatboty-na-strony"
-          },
-          "name": "Website Chatbots",
-          "shortDescription": "AI-powered chatbots for customer support and lead generation",
-          "description": "Deploy intelligent AI chatbots on your website to provide 24/7 customer support, answer FAQs, qualify leads, and enhance user engagement.",
-          "features": [
-            "24/7 automated customer support",
-            "Natural language understanding",
-            "Lead qualification and capture",
-            "Integration with CRM systems",
-            "Multi-language support",
-            "Custom training on your data",
-            "Analytics and conversation insights"
-          ],
-          "technologies": ["Claude", "OpenAI", "LangChain", "React", "WebSocket", "RAG"],
-          "pricing": "Starting from $3,000"
         }
       ]
     },
-    {
-      "id": "infrastructure",
-      "name": "Infrastructure",
-      "description": "Scalable and reliable infrastructure solutions",
-      "icon": "ServerIcon",
-      "services": [
-        {
-          "id": "hosting-solutions",
-          "slug": {
-            "en": "hosting-solutions",
-            "pl": "rozwiazania-hostingowe"
-          },
-          "name": "Hosting Solutions",
-          "shortDescription": "Reliable and scalable hosting infrastructure",
-          "description": "Comprehensive hosting solutions from shared hosting to enterprise cloud infrastructure with 99.9% uptime guarantee.",
-          "features": [
-            "Cloud hosting (AWS, Google Cloud, Azure)",
-            "VPS and dedicated servers",
-            "CDN implementation",
-            "SSL certificate management",
-            "Automated backups"
-          ],
-          "technologies": ["AWS", "Google Cloud", "Azure", "Docker", "Kubernetes"],
-          "pricing": "Starting from $50/month"
-        },
-        {
-          "id": "performance-optimization",
-          "slug": {
-            "en": "performance-optimization",
-            "pl": "optymalizacja-wydajnosci"
-          },
-          "name": "Performance Optimization",
-          "shortDescription": "Speed up your applications and websites",
-          "description": "Comprehensive performance analysis and optimization to ensure your applications run at peak efficiency.",
-          "features": [
-            "Website speed optimization",
-            "Database performance tuning",
-            "Code optimization and refactoring",
-            "Caching implementation",
-            "Load balancing setup"
-          ],
-          "technologies": ["Redis", "Memcached", "Nginx", "Apache", "MongoDB"],
-          "pricing": "Starting from $2,000"
-        },
-        {
-          "id": "migrations",
-          "slug": {
-            "en": "migrations",
-            "pl": "migracje-platform"
-          },
-          "name": "Platform Migrations",
-          "shortDescription": "Secure platform and database migrations",
-          "description": "Safe and efficient migrations without downtime.",
-          "features": [
-            "Cloud platform migrations",
-            "Database migrations",
-            "Application modernization",
-            "Legacy system upgrades",
-            "Data migration and validation",
-            "Rollback and disaster recovery"
-          ],
-          "technologies": ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "ETL"],
-          "pricing": "Starting from $3,000"
-        }
-      ]
-    },
-
     {
       "id": "support",
       "name": "Support",

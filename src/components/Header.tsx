@@ -97,11 +97,11 @@ export default memo(function Header() {
         href: `${langPrefix}/#about`,
         type: 'anchor',
       },
-      // {
-      //   name: t('services'),
-      //   href: `${langPrefix}/services`,
-      //   type: 'dropdown',
-      // },
+      {
+        name: t('services'),
+        href: `${langPrefix}/services`,
+        type: 'dropdown',
+      },
       ...(FEATURES.PORTFOLIO_ENABLED
         ? [
             {
@@ -158,7 +158,7 @@ export default memo(function Header() {
             'border border-gray-100 dark:border-gray-700',
             'bg-white dark:bg-dark-800/50',
             mobileMenuOpen ? 'rounded-t-2xl' : 'rounded-xl',
-            scrollY > 100 ? 'shadow-xs' : 'shadow-lg',
+            'shadow-sm',
             'transition-all duration-300 linear',
             'backdrop-blur-[12px]'
           )}
