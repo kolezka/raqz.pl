@@ -4,6 +4,7 @@ import About from '@/components/About'
 import AboutMe from '@/components/AboutMe'
 import Clients from '@/components/Clients'
 import Contact from '@/components/Contact'
+import FAQ from '@/components/FAQ'
 import LatestBlogPosts from '@/components/blog/LatestBlogPosts'
 import AnimatedBackground from '@/components/AnimatedBackground'
 import { FEATURES } from '@/config/features'
@@ -24,6 +25,7 @@ export default function HomePage() {
 
       {/* <TechStack /> */}
       {FEATURES.BLOG_ENABLED && <LatestBlogPosts />}
+      {FEATURES.FAQ_ENABLED && <FAQ />}
       {FEATURES.CONTACT && <Contact />}
     </div>
   )

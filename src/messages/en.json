@@ -121,8 +121,8 @@
     "browseTag": "Browse all articles tagged with"
   },
   "hero": {
-    "title": "raqz.pl - IT for Growing Businesses",
-    "subtitle": "Artificial Intelligence for process automation. Comprehensive IT solutions – from web and mobile apps to cloud infrastructure and 24/7 support.",
+    "title": "Custom Software Development & AI Automation",
+    "subtitle": "Web & mobile apps, AI chatbots, process automation, and blockchain solutions.",
     "getStarted": "Explore Solutions",
     "learnMore": "Get to Know Us"
   },
@@ -197,9 +197,9 @@
     "support": "Support"
   },
   "meta": {
-    "title": "raqz.pl -  Professional Web Development & IT Solutions",
-    "description": "Professional web development, mobile apps, hosting, and IT infrastructure services. Custom solutions for modern businesses.",
-    "keywords": "web development, mobile development, hosting, IT solutions, software development"
+    "title": "raqz.pl - Custom Software Development & AI Automation Poland",
+    "description": "Custom web & mobile app development, AI chatbots, process automation, and blockchain solutions. React, React Native, Node.js experts serving US & EU clients from Poland.",
+    "keywords": "custom software development Poland, AI chatbot development, web application development, React Native development company, mobile app development Poland, AI automation services, chatbot for business, e-commerce development Poland, blockchain development Europe, Web3 development, process automation, SaaS development, Next.js development, TypeScript developers Poland, full-stack development services"
   },
   "serviceDetail": {
     "featuresTitle": "Features & Capabilities",
@@ -383,6 +383,36 @@
     "title": "Under Maintenance",
     "description": "We're currently working on improvements to serve you better. We'll be back online shortly.",
     "subtitle": "Thank you for your patience"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to common questions about our services",
+    "items": [
+      {
+        "question": "What services do you offer?",
+        "answer": "We offer comprehensive IT solutions including custom web and mobile app development, AI chatbots and process automation, blockchain/Web3 development, e-commerce platforms, and ongoing maintenance & support. We work with React, React Native, Node.js, Python, and modern cloud technologies."
+      },
+      {
+        "question": "What is your development process?",
+        "answer": "We follow an agile approach: 1) Short audit (15-30 min) to understand your needs, 2) Clear proposal with scope, timeline, and priorities, 3) Implementation in 7-21 day sprints with regular demos, 4) Optional ongoing support and optimization. You get transparency and measurable progress throughout."
+      },
+      {
+        "question": "How long does a typical project take?",
+        "answer": "Project timelines vary based on complexity. Simple AI chatbots can be deployed in 7-10 days, custom web applications typically take 4-8 weeks, and mobile apps range from 8-16 weeks. We provide detailed timeline estimates after the initial audit."
+      },
+      {
+        "question": "Do you work with international clients?",
+        "answer": "Yes! We serve clients from the USA, EU, and Poland. Communication is in English (C1 level) or Polish. We're experienced with remote collaboration across time zones and use tools like Slack, Zoom, and project management platforms."
+      },
+      {
+        "question": "What is the pricing for your services?",
+        "answer": "Pricing depends on project scope and complexity. Web applications start from 20,000 PLN (~$5,000), mobile apps from 32,000 PLN (~$8,000), AI chatbots from 12,000 PLN (~$3,000), and maintenance from 800 PLN/month. Contact us for a free, detailed quote."
+      },
+      {
+        "question": "Do you provide post-launch support?",
+        "answer": "Absolutely. We offer comprehensive maintenance and support packages including 24/7 monitoring, security updates, bug fixes, performance optimization, and backup solutions. Support starts from 800 PLN/month with 24-hour response time."
+      }
+    ]
   },
   "aboutMe": {
     "title": "About Me",

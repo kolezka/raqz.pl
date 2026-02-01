@@ -121,8 +121,8 @@
     "browseTag": "Przeglądaj wszystkie artykuły z tagiem"
   },
   "hero": {
-    "title": "raqz.pl - IT dla Twojego Biznesu",
-    "subtitle": "AI, Chatboty, automatyzacja procesów i rozwiązania IT od aplikacji mobilnych po wsparcie 24/7",
+    "title": "Tworzenie Oprogramowania i Automatyzacja AI",
+    "subtitle": "Aplikacje webowe i mobilne, chatboty AI, automatyzacja procesów, rozwiązania blockchain.",
     "getStarted": "Zobacz rozwiązania",
     "learnMore": "Poznaj nas"
   },
@@ -197,9 +197,9 @@
     "support": "Wsparcie"
   },
   "meta": {
-    "title": "raqz.pl -  Profesjonalny rozwój stron internetowych i rozwiązania IT",
-    "description": "Profesjonalny rozwój stron internetowych, aplikacje mobilne, hosting i usługi infrastruktury IT. Niestandardowe rozwiązania dla nowoczesnych firm.",
-    "keywords": "rozwój stron internetowych, rozwój aplikacji mobilnych, hosting, rozwiązania IT, rozwój oprogramowania"
+    "title": "raqz.pl - Tworzenie Oprogramowania i Automatyzacja AI Polska",
+    "description": "Tworzenie aplikacji webowych i mobilnych, chatboty AI, automatyzacja procesów, rozwiązania blockchain. Eksperci React, React Native, Node.js. Klienci z Polski, USA i UE.",
+    "keywords": "tworzenie oprogramowania Polska, chatbot AI dla firm, tworzenie aplikacji webowych, React Native Polska, aplikacje mobilne na zamówienie, automatyzacja procesów AI, chatbot dla biznesu, sklep internetowy na zamówienie, blockchain Polska, Web3 development, automatyzacja biznesu, aplikacje SaaS, Next.js Polska, programiści TypeScript, full-stack developer Polska, software house Mazury, IT Gdańsk, chatbot Mikołajki"
   },
   "serviceDetail": {
     "featuresTitle": "Funkcje i możliwości",
@@ -383,6 +383,36 @@
     "title": "Serwis techniczny",
     "description": "Aktualnie pracujemy nad ulepszeniami, aby lepiej Ci służyć. Wrócimy wkrótce.",
     "subtitle": "Dziękujemy za cierpliwość"
+  },
+  "faq": {
+    "title": "Najczęściej zadawane pytania",
+    "description": "Odpowiedzi na popularne pytania o nasze usługi",
+    "items": [
+      {
+        "question": "Jakie usługi oferujecie?",
+        "answer": "Oferujemy kompleksowe rozwiązania IT: tworzenie aplikacji webowych i mobilnych, chatboty AI i automatyzację procesów, rozwój blockchain/Web3, platformy e-commerce oraz wsparcie i utrzymanie. Pracujemy z React, React Native, Node.js, Python i nowoczesnymi technologiami chmurowymi."
+      },
+      {
+        "question": "Jak wygląda proces współpracy?",
+        "answer": "Działamy w modelu agile: 1) Krótki audit (15-30 min) by poznać potrzeby, 2) Konkretna propozycja z zakresem, terminami i priorytetami, 3) Wdrożenie w sprintach 7-21 dni z regularnymi demo, 4) Opcjonalne wsparcie i optymalizacja. Transparentność i mierzalny postęp na każdym etapie."
+      },
+      {
+        "question": "Ile trwa typowy projekt?",
+        "answer": "Czas realizacji zależy od złożoności. Proste chatboty AI można wdrożyć w 7-10 dni, aplikacje webowe zazwyczaj zajmują 4-8 tygodni, a aplikacje mobilne 8-16 tygodni. Szczegółowe oszacowania przekazujemy po początkowym audicie."
+      },
+      {
+        "question": "Czy pracujecie z klientami zagranicznymi?",
+        "answer": "Tak! Obsługujemy klientów z USA, UE i Polski. Komunikacja odbywa się po angielsku (C1) lub polsku. Mamy doświadczenie w zdalnej współpracy między strefami czasowymi i używamy narzędzi jak Slack, Zoom oraz platformy do zarządzania projektami."
+      },
+      {
+        "question": "Ile kosztują wasze usługi?",
+        "answer": "Ceny zależą od zakresu i złożoności projektu. Aplikacje webowe od 20 000 zł, aplikacje mobilne od 32 000 zł, chatboty AI od 12 000 zł, utrzymanie od 800 zł/miesiąc. Skontaktuj się po bezpłatną, szczegółową wycenę."
+      },
+      {
+        "question": "Czy oferujecie wsparcie po wdrożeniu?",
+        "answer": "Oczywiście. Oferujemy kompleksowe pakiety utrzymania i wsparcia: monitoring 24/7, aktualizacje bezpieczeństwa, naprawę błędów, optymalizację wydajności i backup. Wsparcie od 800 zł/miesiąc z czasem reakcji do 24 godzin."
+      }
+    ]
   },
   "aboutMe": {
     "title": "O mnie",

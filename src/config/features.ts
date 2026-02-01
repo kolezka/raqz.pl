@@ -7,6 +7,9 @@
 
 export interface FeatureFlags {
   CONTACT: boolean
+
+  FAQ_ENABLED: boolean
+
   /**
    * Master toggle for the entire blog section
    * When false: Blog routes are disabled, blog links are hidden from navigation
@@ -65,6 +68,7 @@ export const FEATURES: Readonly<FeatureFlags> = Object.freeze({
   BLOG_SEARCH_ENABLED: true,
   BLOG_CATEGORIES_ENABLED: true,
   MAINTENANCE_MODE: false,
+  FAQ_ENABLED: false,
 })
 
 /**
