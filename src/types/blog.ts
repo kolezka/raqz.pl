@@ -16,6 +16,10 @@ export interface BlogPost {
   seo: SEOMetadata
   relatedPosts?: string[]
   language: 'en' | 'pl'
+  translations?: {
+    en?: string
+    pl?: string
+  }
 }
 
 export interface SEOMetadata {

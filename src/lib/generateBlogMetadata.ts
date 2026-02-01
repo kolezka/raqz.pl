@@ -59,17 +59,27 @@ export async function generateBlogPostMetadata({
   const localePath = locale === 'en' ? '' : `/${locale}`
   const canonicalUrl = `${baseUrl}${localePath}/blog/${post.slug}`
 
+  // Use translations field for cross-locale linking if available
+  const enSlug = locale === 'en' ? post.slug : post.translations?.en
+  const plSlug = locale === 'pl' ? post.slug : post.translations?.pl
+
+  // Build language alternates - only include if translation exists
+  const languages: Record<string, string> = {}
+  if (enSlug) {
+    languages['en'] = `/blog/${enSlug}`
+    languages['x-default'] = `/blog/${enSlug}`
+  }
+  if (plSlug) {
+    languages['pl'] = `/pl/blog/${plSlug}`
+  }
+
   return {
     title: `${post.title} | ${t('meta.title')}`,
     description: post.description,
     keywords: post.seo?.keywords || post.tags.join(', '),
     alternates: {
       canonical: `${localePath}/blog/${post.slug}`,
-      languages: {
-        en: `/blog/${post.slug}`,
-        pl: `/pl/blog/${post.slug}`,
-        'x-default': `/blog/${post.slug}`,
-      },
+      languages,
     },
     openGraph: {
       title: post.title,
