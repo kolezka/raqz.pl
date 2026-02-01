@@ -587,9 +587,8 @@
                 { "name": "Next.js", "level": "expert" },
                 { "name": "A11y", "level": "expert" },
                 { "name": "Optymalizacja", "level": "expert" },
-                "Angular",
-                "Vue",
-                "Svelte"
+                { "name": "Angular", "level": "expert" },
+                { "name": "Vue", "level": "expert" }
               ]
             },
             {
@@ -605,7 +604,8 @@
                 { "name": "Message Queues (concepts)", "level": "learning" },
                 "OAuth 2.0 / OIDC",
                 "JWT",
-                "OpenAPI"
+                "OpenAPI",
+                { "name": "RabbitMQ", "level": "learning" }
               ]
             },
             {
@@ -626,11 +626,11 @@
             {
               "category": "Architektura",
               "skills": [
-                { "name": "Hexagonal (Ports & Adapters)", "level": "expert" },
+                { "name": "Hexagonal", "level": "expert" },
                 { "name": "Monolith/Modular Monolith", "level": "expert" },
                 { "name": "Microservices", "level": "intermediate" },
                 "TDD",
-                "DDD",
+                "Design Patterns",
                 { "name": "EDA (concepts)", "level": "learning" }
               ]
             },
@@ -639,7 +639,7 @@
               "skills": [
                 { "name": "PostgreSQL", "level": "expert" },
                 { "name": "MySQL", "level": "expert" },
-                { "name": "Redis (concepts)", "level": "learning" },
+                { "name": "Redis", "level": "learning" },
                 { "name": "Prisma", "level": "expert" },
                 { "name": "SQLite", "level": "expert" },
                 { "name": "Turso", "level": "intermediate" },
@@ -651,7 +651,7 @@
             {
               "category": "Infrastruktura",
               "skills": [
-                { "name": "AWS (S3, Lambda)", "level": "learning" },
+                { "name": "AWS (RDS, S3, Lambda, SQS, SNS)", "level": "learning" },
                 { "name": "Firebase", "level": "intermediate" },
                 { "name": "CI/CD Pipelines", "level": "expert" },
                 { "name": "Docker", "level": "expert" },
@@ -676,7 +676,7 @@
             {
               "category": "Narzędzia i frameworki",
               "skills": [
-                { "name": "LangChain", "level": "learning" },
+                { "name": "LangChain (concepts)", "level": "learning" },
                 { "name": "OpenAI API", "level": "intermediate" },
                 { "name": "Huginn", "level": "intermediate" },
                 { "name": "n8n", "level": "intermediate" }

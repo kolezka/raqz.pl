@@ -601,10 +601,7 @@ export default function CVClient() {
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-2">{ref.title}</p>
                 {ref.contact && (
-                  <a
-                    href={`tel:${ref.contact}`}
-                    className="block text-sm text-primary-600 dark:text-primary-400"
-                  >
+                  <a className="block text-sm text-primary-600 dark:text-primary-400">
                     {ref.contact}
                   </a>
                 )}

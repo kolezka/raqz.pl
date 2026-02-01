@@ -562,8 +562,7 @@
       "github": "github.com/kolezka",
       "summary": [
         "Senior Full-Stack Engineer with 7+ years of experience delivering end-to-end products.",
-        "Strong in: TypeScript/JavaScript, React/Next.js, React Native, Node.js, production deployments.",
-        "Currently expanding into Data + AI Engineering (hands-on prototypes, focus on production fundamentals)."
+        "TypeScript/JavaScript, React/Next.js, React Native, Node.js, production deployments."
       ],
       "skills": {
         "core": {
@@ -586,9 +585,8 @@
                 { "name": "Next.js", "level": "expert" },
                 { "name": "A11y", "level": "expert" },
                 { "name": "Optimization", "level": "expert" },
-                "Angular",
-                "Vue",
-                "Svelte"
+                { "name": "Angular", "level": "expert" },
+                { "name": "Vue", "level": "expert" }
               ]
             },
             {
@@ -604,7 +602,8 @@
                 { "name": "Message Queues (concepts)", "level": "learning" },
                 "OAuth 2.0 / OIDC",
                 "JWT",
-                "OpenAPI"
+                "OpenAPI",
+                { "name": "RabbitMQ", "level": "learning" }
               ]
             },
             {
@@ -625,11 +624,11 @@
             {
               "category": "Architecture",
               "skills": [
-                { "name": "Hexagonal (Ports & Adapters)", "level": "expert" },
+                { "name": "Hexagonal", "level": "expert" },
                 { "name": "Monolith/Modular Monolith", "level": "expert" },
                 { "name": "Microservices", "level": "intermediate" },
                 "TDD",
-                "DDD",
+                "Design Patterns",
                 { "name": "EDA (concepts)", "level": "learning" }
               ]
             },
@@ -651,7 +650,7 @@
             {
               "category": "Infrastructure",
               "skills": [
-                { "name": "AWS (S3, Lambda)", "level": "learning" },
+                { "name": "AWS (RDS, S3, Lambda, SQS, SNS)", "level": "learning" },
                 { "name": "Firebase", "level": "intermediate" },
                 { "name": "CI/CD Pipelines", "level": "expert" },
                 { "name": "Docker", "level": "expert" },
@@ -668,15 +667,15 @@
             {
               "category": "Core",
               "skills": [
-                { "name": "AWS Bedrock", "level": "learning" },
-                { "name": "RAG", "level": "learning" },
+                { "name": "AWS Bedrock (concepts)", "level": "learning" },
+                { "name": "RAG (concepts)", "level": "learning" },
                 { "name": "Agentic Workflows", "level": "learning" }
               ]
             },
             {
               "category": "Tools & Frameworks",
               "skills": [
-                { "name": "LangChain", "level": "learning" },
+                { "name": "LangChain (concepts)", "level": "learning" },
                 { "name": "OpenAI API", "level": "intermediate" },
                 { "name": "Huginn", "level": "intermediate" },
                 { "name": "n8n", "level": "intermediate" }
@@ -805,9 +804,13 @@
         {
           "name": "Frank Sandoval",
           "title": "Development Manager at Henry Schein",
-          "contact": "(+1) 951-249-4801"
+          "contact": "References available on request"
         },
-        { "name": "Maciej Adamczyk", "title": "nursa.com", "contact": "" }
+        {
+          "name": "Maciej Adamczyk",
+          "title": "nursa.com",
+          "contact": "References available on request"
+        }
       ]
     }
   }
