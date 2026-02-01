@@ -439,16 +439,16 @@ export default function CVClient() {
           <div className="relative">
             {/* Timeline line */}
             <div
-              className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700"
+              className="absolute -left-6 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700"
               aria-hidden="true"
             />
 
             <div className="space-y-8">
               {cvData.experience.map((exp, index) => (
-                <article key={index} className="relative pl-12">
+                <article key={index} className="relative">
                   {/* Timeline dot */}
                   <div
-                    className="absolute left-2 top-2 w-5 h-5 rounded-full bg-primary-500 border-4 border-white dark:border-dark-900 shadow"
+                    className="absolute -left-8 top-2 w-5 h-5 rounded-full bg-primary-500 border-4 border-white dark:border-dark-900 shadow"
                     aria-hidden="true"
                   />
 
