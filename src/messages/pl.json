@@ -826,7 +826,11 @@
           "title": "Development Manager w Henry Schein",
           "contact": "Referencje dostępne na żądanie"
         },
-        { "name": "Maciej Adamczyk", "title": "nursa.com", "contact": "Referencje dostępne na żądanie" }
+        {
+          "name": "Maciej Adamczyk",
+          "title": "nursa.com",
+          "contact": "Referencje dostępne na żądanie"
+        }
       ]
     }
   }
