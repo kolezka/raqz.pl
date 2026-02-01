@@ -94,7 +94,7 @@ export function generateOrganizationSchema(options: OrganizationSchemaOptions) {
         geoRadius: '5000',
       },
     ],
-    sameAs: [],
+    sameAs: ['https://github.com/kolezka', 'https://www.linkedin.com/in/mariusz-rakus/'],
     telephone: '+48 519 375 240',
     email: 'mariusz@raqz.pl',
     contactPoint: {
