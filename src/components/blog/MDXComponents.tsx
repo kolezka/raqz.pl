@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import type { AnchorHTMLAttributes, DetailedHTMLProps, HTMLAttributes } from 'react'
 import { createElement } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 // Custom heading components with anchor links
@@ -195,15 +196,38 @@ function Hr(props: HTMLAttributes<HTMLHRElement>) {
   return <hr className="my-8 border-gray-300 dark:border-gray-700" {...props} />
 }
 
-// Custom image component with lazy loading
+// Custom image component with lazy loading and Next.js Image optimization
 function Img({
   src,
   alt,
   ...props
 }: DetailedHTMLProps<
-  HTMLAttributes<HTMLImageElement> & { src?: string; alt?: string },
+  HTMLAttributes<HTMLImageElement> & {
+    src?: string
+    alt?: string
+    width?: number
+    height?: number
+  },
   HTMLImageElement
 >) {
+  const isLocal = src?.startsWith('/') || src?.startsWith('./') || src?.startsWith('../')
+
+  if (isLocal && src) {
+    return (
+      <span className="block relative w-full my-6">
+        <Image
+          src={src}
+          alt={alt || ''}
+          width={props.width || 800}
+          height={props.height || 450}
+          className="rounded-lg w-full h-auto"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 800px"
+        />
+      </span>
+    )
+  }
+
+  // Fallback to native img for external images
   return (
     <img
       src={src}

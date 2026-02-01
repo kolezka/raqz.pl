@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
@@ -62,13 +63,13 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
     <div className="min-h-screen bg-white dark:bg-dark-900">
       {/* Hero Section with Cover Image */}
       <div className="relative bg-gray-900 h-[500px]">
-        <img
+        <Image
           src={metadata.coverImage}
-          alt={metadata.coverImageAlt}
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
-          loading="eager"
-          width={1920}
-          height={384}
+          alt={metadata.coverImageAlt || ''}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
 

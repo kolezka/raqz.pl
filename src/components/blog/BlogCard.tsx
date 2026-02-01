@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { format } from 'date-fns'
@@ -30,14 +31,12 @@ export default memo(function BlogCard({ post, featured = false }: BlogCardProps)
       <Link href={blogUrl} className="block">
         {/* Cover Image */}
         <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-dark-700">
-          <img
+          <Image
             src={post.coverImage}
-            alt={post.coverImageAlt}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-            decoding="async"
-            width="640"
-            height="192"
+            alt={post.coverImageAlt || ''}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
           {post.featured && (
             <div className="absolute top-4 right-4">
