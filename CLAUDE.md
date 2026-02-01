@@ -13,6 +13,7 @@ Always use **bun** instead of npm for all package management and script executio
 ## Code Quality
 
 Before pushing code, ensure:
+
 1. Code is formatted with Prettier (`bun run format`)
 2. No ESLint errors (`bun run lint`)
 3. TypeScript compiles without errors (`bun run type-check`)
