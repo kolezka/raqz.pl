@@ -651,7 +651,7 @@
             {
               "category": "Infrastruktura",
               "skills": [
-                { "name": "AWS (RDS, S3, Lambda, SQS, SNS)", "level": "learning" },
+                { "name": "AWS (RDS, S3, Lambda, SQS, SNS, Cognito)", "level": "learning" },
                 { "name": "Firebase", "level": "intermediate" },
                 { "name": "CI/CD Pipelines", "level": "expert" },
                 { "name": "Docker", "level": "expert" },
