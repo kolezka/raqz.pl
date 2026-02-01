@@ -42,7 +42,14 @@
             "DeFi protocol implementations",
             "Token standards (ERC-20, SPL)"
           ],
-          "technologies": ["WalletConnect", "wagmi", "gRPC", "Ethereum", "Solana", "Wallet Integrations"],
+          "technologies": [
+            "WalletConnect",
+            "wagmi",
+            "gRPC",
+            "Ethereum",
+            "Solana",
+            "Wallet Integrations"
+          ],
           "pricing": "Starting from $8,000"
         },
         {
