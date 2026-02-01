@@ -9,7 +9,11 @@
       "excerpt": "I help Mazury businesses reduce workload and improve customer service with AI chatbots, automation and dashboards—especially valuable during the seasonal peak.",
       "coverImage": "/images/blog/ai-automation-bot-next-to-the-lakes--forests.jpg",
       "coverImageAlt": "AI automation and chatbots for businesses in the Mazury region",
-      "categories": ["AI & Machine Learning", "Automation", "Local Business"],
+      "categories": [
+        "AI & Machine Learning",
+        "Automation",
+        "Local Business"
+      ],
       "tags": [
         "ai",
         "chatbots",
@@ -29,7 +33,9 @@
       "seo": {
         "keywords": "AI automation Mazury, chatbots Mikołajki, chatbots Giżycko, chatbots Mrągowo, business automation Olsztyn, AI for tourism Mazury, hospitality chatbot Poland, automation services Warmia-Masuria, AI solutions Mikołajki, digital transformation Olsztyn, chatbot for hotel Mazury, chatbot for guesthouse Mikołajki, dashboards Mazury, ticketing portal Mazury, AI agent Mazury"
       },
-      "relatedPosts": ["getting-started-with-ai-automation"],
+      "relatedPosts": [
+        "getting-started-with-ai-automation"
+      ],
       "language": "en"
     }
   ],
@@ -43,7 +49,11 @@
       "excerpt": "Pomagam firmom na Mazurach wdrażać chatboty AI, automatyzacje i dashboardy, które realnie oszczędzają czas, redukują koszty i poprawiają obsługę klienta — szczególnie w sezonie.",
       "coverImage": "/images/blog/ai-automation-bot-next-to-the-lakes--forests.jpg",
       "coverImageAlt": "Chatboty AI i automatyzacja procesów dla firm na Mazurach",
-      "categories": ["AI & Machine Learning", "Automation", "Local Business"],
+      "categories": [
+        "AI & Machine Learning",
+        "Automation",
+        "Local Business"
+      ],
       "tags": [
         "ai",
         "chatboty",
@@ -64,7 +74,9 @@
       "seo": {
         "keywords": "automatyzacja AI Mazury, chatbot Mikołajki, chatbot Giżycko, chatbot Mrągowo, automatyzacja biznesu Olsztyn, dashboardy Mazury, automatyzacja hotelu Mazury, chatbot dla pensjonatu Mikołajki, AI dla turystyki Giżycko, automatyzacja rezerwacji Mrągowo, wsparcie IT Mazury, inteligentne rozwiązania Olsztyn, chatbot dla restauracji Mazury, portal zgłoszeń Mazury, AI lokalne firmy Mazury"
       },
-      "relatedPosts": ["wprowadzenie-do-automatyzacji-ai"],
+      "relatedPosts": [
+        "wprowadzenie-do-automatyzacji-ai"
+      ],
       "language": "pl"
     }
   ]
