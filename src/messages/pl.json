@@ -596,14 +596,14 @@
               "skills": [
                 { "name": "Node.js", "level": "expert" },
                 { "name": "Express", "level": "expert" },
-                "NestJS",
+                { "name": "NestJS", "level": "expert" },
                 { "name": "Fastify", "level": "expert" },
                 "tRPC",
-                "Apollo GraphQL",
+                { "name": "Apollo GraphQL", "level": "expert" },
                 { "name": "Background Jobs", "level": "expert" },
                 { "name": "Message Queues (concepts)", "level": "learning" },
-                "OAuth 2.0 / OIDC",
-                "JWT",
+                { "name": "OAuth 2.0 / OIDC", "level": "expert" },
+                { "name": "JWT", "level": "expert" },
                 "OpenAPI",
                 { "name": "RabbitMQ", "level": "learning" }
               ]
@@ -639,12 +639,12 @@
               "skills": [
                 { "name": "PostgreSQL", "level": "expert" },
                 { "name": "MySQL", "level": "expert" },
-                { "name": "Redis", "level": "learning" },
+                { "name": "Redis", "level": "intermediate" },
                 { "name": "Prisma", "level": "expert" },
                 { "name": "SQLite", "level": "expert" },
                 { "name": "Turso", "level": "intermediate" },
-                "TypeORM",
-                "Sequelize",
+                { "name": "TypeORM", "level": "expert" },
+                { "name": "Sequelize", "level": "expert" },
                 "Migracje"
               ]
             },
@@ -676,7 +676,7 @@
             {
               "category": "Narzędzia i frameworki",
               "skills": [
-                { "name": "LangChain (concepts)", "level": "learning" },
+                { "name": "LangChain", "level": "learning" },
                 { "name": "OpenAI API", "level": "intermediate" },
                 { "name": "Ollama", "level": "intermediate" },
                 { "name": "Flowise", "level": "intermediate" },
