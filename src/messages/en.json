@@ -677,6 +677,9 @@
               "skills": [
                 { "name": "LangChain (concepts)", "level": "learning" },
                 { "name": "OpenAI API", "level": "intermediate" },
+                { "name": "Ollama", "level": "intermediate" },
+                { "name": "Flowise", "level": "intermediate" },
+                { "name": "AnythingLLM", "level": "intermediate" },
                 { "name": "Huginn", "level": "intermediate" },
                 { "name": "n8n", "level": "intermediate" }
               ]
