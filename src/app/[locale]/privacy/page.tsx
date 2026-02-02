@@ -24,7 +24,7 @@ function PrivacyPageEN() {
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Privacy Policy</h1>
-          <p className="text-gray-500 dark:text-gray-400">Last updated: December 8, 2024</p>
+          <p className="text-gray-500 dark:text-gray-400">Last updated: February 2, 2025</p>
         </div>
 
         {/* Content */}
@@ -302,6 +302,33 @@ function PrivacyPageEN() {
                   Cloudflare Privacy Policy
                 </a>
               </li>
+              <li>
+                <strong>Vercel Analytics:</strong> For website traffic analytics and visitor
+                insights. Vercel Analytics collects anonymized data about page views, visitor
+                counts, and traffic sources without using cookies. Data is processed in compliance
+                with GDPR. Learn more at{' '}
+                <a
+                  href="https://vercel.com/docs/analytics/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-500 underline"
+                >
+                  Vercel Analytics Privacy Policy
+                </a>
+              </li>
+              <li>
+                <strong>Vercel Speed Insights:</strong> For measuring and monitoring website
+                performance metrics such as page load times and Core Web Vitals. This service
+                collects performance data anonymously without personal identifiers. Learn more at{' '}
+                <a
+                  href="https://vercel.com/docs/speed-insights/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-500 underline"
+                >
+                  Vercel Speed Insights Privacy Policy
+                </a>
+              </li>
             </ul>
             <p className="text-gray-600 dark:text-gray-300 mt-4">
               These third-party services have their own privacy policies. We recommend reviewing
@@ -386,7 +413,7 @@ function PrivacyPagePL() {
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Polityka Prywatności
           </h1>
-          <p className="text-gray-500 dark:text-gray-400">Ostatnia aktualizacja: 8 grudnia 2024</p>
+          <p className="text-gray-500 dark:text-gray-400">Ostatnia aktualizacja: 2 lutego 2025</p>
         </div>
 
         {/* Content */}
@@ -676,6 +703,34 @@ function PrivacyPagePL() {
                   className="text-primary-600 hover:text-primary-500 underline"
                 >
                   Polityka prywatności Cloudflare
+                </a>
+              </li>
+              <li>
+                <strong>Vercel Analytics:</strong> Do analityki ruchu na stronie internetowej i
+                statystyk odwiedzających. Vercel Analytics zbiera zanonimizowane dane o
+                wyświetleniach stron, liczbie odwiedzających i źródłach ruchu bez użycia plików
+                cookie. Dane są przetwarzane zgodnie z RODO. Dowiedz się więcej na{' '}
+                <a
+                  href="https://vercel.com/docs/analytics/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-500 underline"
+                >
+                  Polityka prywatności Vercel Analytics
+                </a>
+              </li>
+              <li>
+                <strong>Vercel Speed Insights:</strong> Do mierzenia i monitorowania metryk
+                wydajności strony internetowej, takich jak czas ładowania strony i Core Web Vitals.
+                Usługa ta zbiera dane o wydajności anonimowo, bez identyfikatorów osobistych.
+                Dowiedz się więcej na{' '}
+                <a
+                  href="https://vercel.com/docs/speed-insights/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-500 underline"
+                >
+                  Polityka prywatności Vercel Speed Insights
                 </a>
               </li>
             </ul>
