@@ -11,6 +11,7 @@ import { useBlogPost } from '@/hooks/useBlogPost'
 import { useBlogPostMeta } from '@/hooks/useBlogPosts'
 import { mdxComponents } from '@/components/blog/MDXComponents'
 import RelatedPosts from '@/components/blog/RelatedPosts'
+import Contact from '@/components/Contact'
 
 export default function BlogPostClient({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params)
@@ -174,6 +175,9 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
         {/* Related Posts */}
         <RelatedPosts currentPost={metadata} />
       </article>
+
+      {/* Contact Section */}
+      <Contact />
 
       {/* Back to Blog */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">

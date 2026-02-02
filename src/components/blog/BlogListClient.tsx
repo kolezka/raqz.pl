@@ -5,6 +5,7 @@ import { useBlogPosts, useFeaturedPosts } from '@/hooks/useBlogPosts'
 import BlogCard from '@/components/blog/BlogCard'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { FEATURES } from '@/config/features'
+import Contact from '@/components/Contact'
 
 export default function BlogListClient() {
   const t = useTranslations()
@@ -109,6 +110,9 @@ export default function BlogListClient() {
           )}
         </div>
       </div>
+
+      {/* Contact Section */}
+      <Contact />
     </section>
   )
 }

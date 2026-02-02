@@ -5,6 +5,7 @@ import Script from 'next/script'
 import servicesData from '@/data/services.json'
 import { generateBreadcrumbSchema, BASE_URL } from '@/lib/schema'
 import type { Locale } from '@/i18n'
+import Contact from '@/components/Contact'
 
 export { generateServicesMetadata as generateMetadata } from '@/lib/generateServicesMetadata'
 
@@ -198,30 +199,8 @@ export default async function AllServicesPage() {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="bg-primary-600">
-          <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                {t('navigation.getStarted')}
-              </h2>
-              <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-primary-50">
-                {t('contact.subtitle')}
-              </p>
-              <div className="mt-10 flex items-center justify-center gap-x-6">
-                <a
-                  href="/#contact"
-                  className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-primary-600 shadow-sm hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                >
-                  {t('navigation.contact')}
-                </a>
-                <Link href="/" className="text-sm font-semibold leading-6 text-white">
-                  {t('hero.learnMore')} <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Contact Section */}
+        <Contact />
       </div>
     </>
   )

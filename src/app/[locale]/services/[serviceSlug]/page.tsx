@@ -6,6 +6,7 @@ import { getServiceBySlug } from '@/lib/generateServiceParams'
 import { generateServiceSchema, generateBreadcrumbSchema, combineSchemas } from '@/lib/schema'
 import Script from 'next/script'
 import type { Locale } from '@/i18n'
+import Contact from '@/components/Contact'
 
 export {
   generateStaticParams,
@@ -155,7 +156,7 @@ export default async function ServiceDetailPage({
 
                 <div className="mt-8">
                   <a
-                    href="/#contact"
+                    href="#contact"
                     className="rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
                   >
                     {t('serviceDetail.getStarted')}
@@ -197,6 +198,9 @@ export default async function ServiceDetailPage({
             </div>
           </div>
         </div>
+
+        {/* Contact Section */}
+        <Contact />
       </div>
     </>
   )
