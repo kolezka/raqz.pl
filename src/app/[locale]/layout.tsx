@@ -90,6 +90,12 @@ export async function generateMetadata({
     icons: {
       icon: '/ico.svg',
     },
+    verification: {
+      google: 'TwZIiairwytqGYjXeOwwTqgszuUMimFXjD4vLD0V1o0',
+      other: {
+        me: ['mariusz@raqz.pl', 'raqz.pl'],
+      },
+    },
     other: {
       'view-transition': 'same-origin',
     },
