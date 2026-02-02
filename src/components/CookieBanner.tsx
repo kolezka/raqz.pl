@@ -55,7 +55,7 @@ export default function CookieBanner() {
     <>
       {/* Banner */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 transform transition-transform duration-300 ease-out ${
+        className={`fixed bottom-0 left-0 right-0 z-[9999] transform transition-transform duration-300 ease-out ${
           isVisible ? 'translate-y-0' : 'translate-y-full'
         }`}
         role="region"
