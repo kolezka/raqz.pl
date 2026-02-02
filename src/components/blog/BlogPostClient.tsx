@@ -70,6 +70,8 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
           priority
           sizes="100vw"
           className="object-cover opacity-60"
+          placeholder={metadata.blurDataURL ? 'blur' : 'empty'}
+          blurDataURL={metadata.blurDataURL}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
 

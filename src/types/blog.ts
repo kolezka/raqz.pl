@@ -8,6 +8,7 @@ export interface BlogPost {
   excerpt: string
   coverImage: string
   coverImageAlt: string
+  blurDataURL?: string
   categories: string[]
   tags: string[]
   featured: boolean

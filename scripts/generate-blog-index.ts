@@ -1,13 +1,36 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
+import { readFile } from 'fs/promises'
 import { join } from 'path'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
+import { getPlaiceholder } from 'plaiceholder'
 import type { BlogPost, BlogIndex } from '../src/types/blog'
 
 const CONTENT_DIR = join(process.cwd(), 'content', 'blog')
 const OUTPUT_FILE = join(process.cwd(), 'src', 'data', 'blog-index.json')
 
-function generateBlogIndex() {
+// Generate blur data URL for an image
+async function getBlurDataURL(imagePath: string): Promise<string | undefined> {
+  try {
+    // Handle local images from public folder
+    if (imagePath.startsWith('/')) {
+      const fullPath = join(process.cwd(), 'public', imagePath)
+      if (!existsSync(fullPath)) {
+        console.warn(`Image not found: ${fullPath}`)
+        return undefined
+      }
+      const buffer = await readFile(fullPath)
+      const { base64 } = await getPlaiceholder(buffer, { size: 10 })
+      return base64
+    }
+    return undefined
+  } catch (error) {
+    console.warn(`Failed to generate blur placeholder for ${imagePath}:`, error)
+    return undefined
+  }
+}
+
+async function generateBlogIndex() {
   const index: BlogIndex = {
     en: [],
     pl: [],
@@ -33,6 +56,11 @@ function generateBlogIndex() {
       // Calculate reading time
       const stats = readingTime(content)
 
+      const coverImage = data.coverImage || '/images/blog/default.jpg'
+
+      // Generate blur data URL for the cover image
+      const blurDataURL = await getBlurDataURL(coverImage)
+
       // Create blog post object
       const post: BlogPost = {
         slug: data.slug || file.replace('.mdx', ''),
@@ -42,8 +70,9 @@ function generateBlogIndex() {
         author: data.author || 'RaqZpl Team',
         description: data.description || '',
         excerpt: data.excerpt || '',
-        coverImage: data.coverImage || '/images/blog/default.jpg',
+        coverImage,
         coverImageAlt: data.coverImageAlt || data.title || '',
+        blurDataURL,
         categories: data.categories || [],
         tags: data.tags || [],
         featured: data.featured || false,

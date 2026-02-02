@@ -2,10 +2,28 @@ import { readdir, readFile } from 'fs/promises'
 import path from 'path'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
+import { getPlaiceholder } from 'plaiceholder'
 import type { BlogPost } from '@/types/blog'
 import { categoryMatchesSlug, tagMatchesSlug } from '@/utils/slugify'
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'blog')
+
+// Generate blur data URL for an image
+async function getBlurDataURL(imagePath: string): Promise<string | undefined> {
+  try {
+    // Handle local images from public folder
+    if (imagePath.startsWith('/')) {
+      const fullPath = path.join(process.cwd(), 'public', imagePath)
+      const buffer = await readFile(fullPath)
+      const { base64 } = await getPlaiceholder(buffer, { size: 10 })
+      return base64
+    }
+    return undefined
+  } catch (error) {
+    console.warn(`Failed to generate blur placeholder for ${imagePath}:`, error)
+    return undefined
+  }
+}
 
 // Get all blog posts for a locale
 export async function getBlogPosts(locale: 'en' | 'pl'): Promise<BlogPost[]> {
@@ -22,6 +40,9 @@ export async function getBlogPosts(locale: 'en' | 'pl'): Promise<BlogPost[]> {
         const { data, content } = matter(fileContent)
         const stats = readingTime(content)
 
+        const coverImage = data.coverImage || '/images/blog/default.jpg'
+        const blurDataURL = await getBlurDataURL(coverImage)
+
         return {
           slug: data.slug || file.replace('.mdx', ''),
           title: data.title || '',
@@ -30,8 +51,9 @@ export async function getBlogPosts(locale: 'en' | 'pl'): Promise<BlogPost[]> {
           author: data.author || 'RaqZpl Team',
           description: data.description || '',
           excerpt: data.excerpt || '',
-          coverImage: data.coverImage || '/images/blog/default.jpg',
+          coverImage,
           coverImageAlt: data.coverImageAlt || data.title || '',
+          blurDataURL,
           categories: data.categories || [],
           tags: data.tags || [],
           featured: data.featured || false,
