@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
+import { Link } from 'next-view-transitions'
 import { useLocale, useTranslations } from 'next-intl'
 import { MDXProvider } from '@mdx-js/react'
 import { format } from 'date-fns'
@@ -63,7 +63,10 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
   return (
     <div className="min-h-screen bg-white dark:bg-dark-900">
       {/* Hero Section with Cover Image */}
-      <div className="relative bg-gray-900 h-[500px]">
+      <div
+        className="relative bg-gray-900 h-[500px]"
+        style={{ viewTransitionName: `blog-image-${slug}` }}
+      >
         <Image
           src={metadata.coverImage}
           alt={metadata.coverImageAlt || ''}
@@ -109,7 +112,12 @@ export default function BlogPostClient({ params }: { params: Promise<{ slug: str
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{metadata.title}</h1>
+          <h1
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
+            style={{ viewTransitionName: `blog-title-${slug}` }}
+          >
+            {metadata.title}
+          </h1>
 
           {/* Meta info */}
           <div className="flex flex-wrap items-center gap-4 text-gray-300 text-sm">

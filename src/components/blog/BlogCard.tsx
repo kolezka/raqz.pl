@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from 'next-view-transitions'
 import { useLocale, useTranslations } from 'next-intl'
 import { format } from 'date-fns'
 import { memo } from 'react'
@@ -30,7 +30,10 @@ export default memo(function BlogCard({ post, featured = false }: BlogCardProps)
     >
       <Link href={blogUrl} className="block">
         {/* Cover Image */}
-        <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-dark-700">
+        <div
+          className="relative h-48 overflow-hidden bg-gray-100 dark:bg-dark-700"
+          style={{ viewTransitionName: `blog-image-${post.slug}` }}
+        >
           <Image
             src={post.coverImage}
             alt={post.coverImageAlt || ''}
@@ -64,7 +67,10 @@ export default memo(function BlogCard({ post, featured = false }: BlogCardProps)
           </div>
 
           {/* Title */}
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2">
+          <h3
+            className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2"
+            style={{ viewTransitionName: `blog-title-${post.slug}` }}
+          >
             {post.title}
           </h3>
 

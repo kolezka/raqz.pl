@@ -2,7 +2,7 @@
 
 import { useMemo, useState, memo, useEffect, useRef } from 'react'
 import { RiMenuLine, RiCloseLine } from 'react-icons/ri'
-import Link from 'next/link'
+import { Link } from 'next-view-transitions'
 import { usePathname } from 'next/navigation'
 import { useTranslations, useLocale } from 'next-intl'
 import clsx from 'clsx'
@@ -149,6 +149,7 @@ export default memo(function Header() {
         'transition-transform duration-300 ease',
         scrollY > 100 && !mobileMenuOpen ? 'translate-y-4' : 'translate-y-10'
       )}
+      // style={{ viewTransitionName: 'site-header' }}
     >
       <div ref={menuRef} className="max-w-7xl mx-auto px-6">
         <nav
@@ -156,11 +157,11 @@ export default memo(function Header() {
             'flex items-center justify-between',
             'py-3 px-4 lg:py-4 lg:px-8',
             'border border-gray-100 dark:border-gray-700',
-            'bg-white dark:bg-dark-800/50',
+            'bg-white dark:bg-dark-800/30',
             mobileMenuOpen ? 'rounded-t-2xl' : 'rounded-xl',
             'shadow-sm',
             'transition-all duration-300 linear',
-            'backdrop-blur-[12px]'
+            'backdrop-blur-2xl'
           )}
           aria-label="Global"
         >

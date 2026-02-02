@@ -1,6 +1,6 @@
 import { RiCodeLine, RiServerLine, RiCpuLine, RiToolsLine, RiRobotLine } from 'react-icons/ri'
 import { getTranslations, getMessages, getLocale } from 'next-intl/server'
-import { Link } from '@/i18n/routing'
+import I18nTransitionLink from '@/components/I18nTransitionLink'
 import Script from 'next/script'
 import servicesData from '@/data/services.json'
 import { generateBreadcrumbSchema, BASE_URL } from '@/lib/schema'
@@ -179,7 +179,7 @@ export default async function AllServicesPage() {
                           </div>
 
                           <div className="mt-6 flex items-center justify-between">
-                            <Link
+                            <I18nTransitionLink
                               href={{
                                 pathname: '/services/[serviceSlug]',
                                 params: { serviceSlug: service.slug[locale] },
@@ -187,7 +187,7 @@ export default async function AllServicesPage() {
                               className="text-sm font-semibold leading-6 text-primary-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300"
                             >
                               {t('services.learnMore')} <span aria-hidden="true">→</span>
-                            </Link>
+                            </I18nTransitionLink>
                           </div>
                         </div>
                       </div>

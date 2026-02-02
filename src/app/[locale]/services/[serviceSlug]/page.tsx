@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { RiCheckLine } from 'react-icons/ri'
 import { getTranslations, getMessages, getLocale } from 'next-intl/server'
-import { Link } from '@/i18n/routing'
+import I18nTransitionLink from '@/components/I18nTransitionLink'
 import { getServiceBySlug } from '@/lib/generateServiceParams'
 import { generateServiceSchema, generateBreadcrumbSchema, combineSchemas } from '@/lib/schema'
 import Script from 'next/script'
@@ -177,7 +177,7 @@ export default async function ServiceDetailPage({
               {category.services
                 .filter(s => s.id !== serviceId)
                 .map(relatedService => (
-                  <Link
+                  <I18nTransitionLink
                     key={relatedService.id}
                     href={{
                       pathname: '/services/[serviceSlug]',
@@ -193,7 +193,7 @@ export default async function ServiceDetailPage({
                         `navigation.servicesDropdown.services.${relatedService.id}.shortDescription`
                       )}
                     </p>
-                  </Link>
+                  </I18nTransitionLink>
                 ))}
             </div>
           </div>

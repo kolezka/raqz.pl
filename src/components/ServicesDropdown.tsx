@@ -11,7 +11,7 @@ import {
 } from 'react-icons/ri'
 import { useTranslations, useLocale } from 'next-intl'
 import { memo, useEffect } from 'react'
-import { Link } from '@/i18n/routing'
+import I18nTransitionLink from '@/components/I18nTransitionLink'
 import servicesData from '../data/services.json'
 import type { Locale } from '@/i18n'
 
@@ -88,7 +88,7 @@ function ServicesDropdownContent({
                 <div className="flex-1">
                   {category.services.map(service => {
                     return (
-                      <Link
+                      <I18nTransitionLink
                         key={service.id}
                         href={{
                           pathname: '/services/[serviceSlug]',
@@ -108,7 +108,7 @@ function ServicesDropdownContent({
                         <div className="transition-opacity duration-200 text-primary-400 text-xs opacity-0 group-hover:opacity-100 group-focus:opacity-100">
                           →
                         </div>
-                      </Link>
+                      </I18nTransitionLink>
                     )
                   })}
                 </div>
@@ -117,7 +117,7 @@ function ServicesDropdownContent({
           })}
         </div>
         <div className="w-full border-t border-gray-200/50 dark:border-gray-700/50 bg-primary-50/80 dark:bg-primary-900/30 mt-2">
-          <Link
+          <I18nTransitionLink
             href="/services"
             onClick={() => close()}
             className="block px-6 py-3 text-xs font-medium  text-gray-900 dark:text-white transition-all duration-200 hover:bg-white/20 focus:bg-white/20"
@@ -125,7 +125,7 @@ function ServicesDropdownContent({
             <div className="flex items-center justify-between">
               <span>{t('viewAll')}</span>
             </div>
-          </Link>
+          </I18nTransitionLink>
         </div>
       </PopoverPanel>
     </>

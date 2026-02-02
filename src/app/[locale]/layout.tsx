@@ -6,7 +6,7 @@ import { locales } from '@/i18n'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import WebVitalsMonitor from '@/components/WebVitalsMonitor'
-import ViewTransitions from '@/components/ViewTransitions'
+import { ViewTransitions } from 'next-view-transitions'
 import CookieBanner from '@/components/CookieBanner'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import SchemaScript from '@/components/SchemaScript'
@@ -120,42 +120,42 @@ export default async function LocaleLayout({
   const t = await getTranslations({ locale, namespace: 'meta' })
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <head>
-        <SchemaScript locale={locale} name={t('title')} description={t('description')} />
-      </head>
-      <body className="bg-white dark:bg-dark-900 text-gray-900 dark:text-gray-100 transition-colors duration-200 ">
-        <ThemeProvider>
-          <NextIntlClientProvider messages={messages}>
-            <WebVitalsMonitor />
-            <CookieBanner />
-            <ViewTransitions>
+    <ViewTransitions>
+      <html lang={locale} suppressHydrationWarning>
+        <head>
+          <SchemaScript locale={locale} name={t('title')} description={t('description')} />
+        </head>
+        <body className="bg-white dark:bg-dark-900 text-gray-900 dark:text-gray-100 transition-colors duration-200 ">
+          <ThemeProvider>
+            <NextIntlClientProvider messages={messages}>
+              <WebVitalsMonitor />
+              <CookieBanner />
               <div className="min-h-screen flex flex-col">
                 <Header />
                 <main className="flex-1">{children}</main>
                 <Footer />
               </div>
-            </ViewTransitions>
-          </NextIntlClientProvider>
-        </ThemeProvider>
-        {/* Google Analytics - Loads immediately for all users.
-            User consent is recorded for transparency and future tracking additions. */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-CXYH9FJED4"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-CXYH9FJED4');
-          `}
-        </Script>
+            </NextIntlClientProvider>
+          </ThemeProvider>
+          {/* Google Analytics - Loads immediately for all users.
+              User consent is recorded for transparency and future tracking additions. */}
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-CXYH9FJED4"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-CXYH9FJED4');
+            `}
+          </Script>
 
-        <SpeedInsights />
-        <Analytics />
-      </body>
-    </html>
+          <SpeedInsights />
+          <Analytics />
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }
