@@ -28,7 +28,7 @@ const clients: Client[] = [
     ],
   },
   {
-    name: 'Henry Schein',
+    name: 'DirectDental',
     industry: 'Healthcare',
     technologies: ['React Native', 'TypeScript', 'Node.js', 'CI/CD', 'PostgreSQL', 'Ruby on Rails'],
   },
