@@ -43,7 +43,7 @@ export default memo(function AnimatedBackground() {
   const gradients = isDark ? darkGradients : lightGradients
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ viewTransitionName: 'none' }}>
       {/* Base gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-dark-950 dark:via-dark-900 dark:to-dark-950 transition-colors duration-300" />
 
