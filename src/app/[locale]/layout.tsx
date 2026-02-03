@@ -149,6 +149,12 @@ export default async function LocaleLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-CXYH9FJED4');
+              gtag('event', 'conversion_event_page_view', {
+                page_title: '${t('title')}',
+                page_location: window.location.href,
+                page_path: window.location.pathname,
+                page_locale: '${locale}',
+              });
             `}
           </Script>
 
