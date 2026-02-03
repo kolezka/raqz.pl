@@ -553,7 +553,8 @@
                 { "name": "A11y", "level": "expert" },
                 { "name": "Optymalizacja", "level": "expert" },
                 { "name": "Angular", "level": "expert" },
-                { "name": "Vue", "level": "expert" }
+                { "name": "Vue", "level": "expert" },
+                { "name": "Astro", "level": "expert" }
               ]
             },
             {
