@@ -551,9 +551,9 @@
                 { "name": "Next.js", "level": "expert" },
                 { "name": "A11y", "level": "expert" },
                 { "name": "Optimization", "level": "expert" },
-                { "name": "Angular", "level": "expert" },
-                { "name": "Vue", "level": "expert" },
-                { "name": "Astro", "level": "expert" }
+                { "name": "Angular", "level": "intermediate" },
+                { "name": "Vue", "level": "intermediate" },
+                { "name": "Astro", "level": "intermediate" }
               ]
             },
             {
@@ -561,11 +561,11 @@
               "skills": [
                 { "name": "Node.js", "level": "expert" },
                 { "name": "Express", "level": "expert" },
-                { "name": "NestJS", "level": "expert" },
-                { "name": "Fastify", "level": "expert" },
+                { "name": "NestJS", "level": "intermediate" },
+                { "name": "Fastify", "level": "intermediate" },
                 "tRPC",
-                { "name": "Apollo GraphQL", "level": "expert" },
-                { "name": "Background Jobs", "level": "expert" },
+                { "name": "Apollo GraphQL", "level": "intermediate" },
+                { "name": "Background Jobs", "level": "intermediate" },
                 { "name": "Message Queues (concepts)", "level": "learning" },
                 { "name": "OAuth 2.0 / OIDC", "level": "expert" },
                 { "name": "JWT", "level": "expert" },
@@ -582,7 +582,7 @@
                 { "name": "Xcode", "level": "expert" },
                 { "name": "App Store & Google Play Deployment", "level": "expert" },
                 { "name": "App Signing & Provisioning", "level": "expert" },
-                { "name": "OTA Updates", "level": "expert" },
+                { "name": "OTA Updates", "level": "intermediate" },
                 { "name": "Push Notifications (FCM/APNs)", "level": "expert" },
                 { "name": "Deep Linking", "level": "expert" },
                 "Android Studio"
@@ -591,8 +591,8 @@
             {
               "category": "Architecture",
               "skills": [
-                { "name": "Hexagonal", "level": "expert" },
-                { "name": "Monolith/Modular Monolith", "level": "expert" },
+                { "name": "Hexagonal", "level": "intermediate" },
+                { "name": "Monolith/Modular Monolith", "level": "intermediate" },
                 { "name": "Microservices", "level": "intermediate" },
                 { "name": "DDD", "level": "intermediate" },
                 "TDD",
@@ -604,15 +604,14 @@
             {
               "category": "Databases (OLTP)",
               "skills": [
-                { "name": "PostgreSQL", "level": "expert" },
-                { "name": "MySQL", "level": "expert" },
+                { "name": "PostgreSQL", "level": "intermediate" },
+                { "name": "MySQL", "level": "intermediate" },
                 { "name": "Redis", "level": "intermediate" },
-                { "name": "Prisma", "level": "expert" },
-                { "name": "SQLite", "level": "expert" },
+                { "name": "Prisma", "level": "intermediate" },
+                { "name": "SQLite", "level": "intermediate" },
                 { "name": "Turso", "level": "intermediate" },
-                { "name": "TypeORM", "level": "expert" },
-                { "name": "Sequelize", "level": "expert" },
-                "Migrations"
+                { "name": "TypeORM", "level": "intermediate" },
+                { "name": "Sequelize", "level": "intermediate" }
               ]
             },
             {
