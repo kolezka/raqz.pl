@@ -223,7 +223,9 @@ export default memo(function Header() {
         <div
           className={clsx(
             'lg:hidden origin-top transition-all duration-200 ease-out',
-            mobileMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'
+            mobileMenuOpen
+              ? 'scale-y-100 opacity-100 max-h-[1000px]'
+              : 'scale-y-0 opacity-0 pointer-events-none max-h-0'
           )}
         >
           <div className="bg-white dark:bg-dark-800 border border-t-0 border-gray-100 dark:border-gray-700 rounded-b-2xl shadow-lg px-4 pb-4">
