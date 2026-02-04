@@ -34,9 +34,6 @@ export default function AboutMe() {
               <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                 {t('aboutMe.description')}
               </p>
-              <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
-                {t('aboutMe.description2')}
-              </p>
 
               {/* Contact Info */}
               <div className="flex flex-wrap gap-4 pt-4">
