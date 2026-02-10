@@ -20,7 +20,7 @@ export default function HomePage() {
       <About />
       <Services />
 
-      <Clients />
+      {/* <Clients /> */}
       <AboutMe />
 
       {/* <TechStack /> */}
