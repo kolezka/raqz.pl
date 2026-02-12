@@ -1,26 +1,30 @@
 {
-  "version": "https://jsonfeed.org/version/1",
-  "title": "raqz.pl Solutions Blog",
-  "home_page_url": "https://raqz.pl/blog",
-  "feed_url": "https://raqz.pl/feed.json",
-  "description": "Insights, tutorials, and updates from RaqZpl Solutions",
-  "author": {
-    "name": "RaqZpl Solutions",
-    "url": "https://raqz.pl"
-  },
-  "items": [
-    {
-      "id": "https://raqz.pl/blog/ai-automation-chatbots-dashboards-mazury-mikolajki-gizycko-mragowo-olsztyn",
-      "content_html": "AI chatbots, dashboards and process automation for Mazury businesses. Integrations with your tools, fast deployment in 7–21 days. raqz.pl",
-      "url": "https://raqz.pl/blog/ai-automation-chatbots-dashboards-mazury-mikolajki-gizycko-mragowo-olsztyn",
-      "title": "AI Automation in Mazury: Chatbots & Dashboards | raqz.pl",
-      "summary": "I help Mazury businesses reduce workload and improve customer service with AI chatbots, automation and dashboards—especially valuable during the seasonal peak.",
-      "image": "https://raqz.pl/images/blog/ai-automation-bot-next-to-the-lakes--forests.jpg",
-      "date_modified": "2026-01-25T00:00:00.000Z",
-      "author": {
-        "name": "raqz.pl"
-      },
-      "tags": ["AI & Machine Learning", "Automation", "Local Business"]
-    }
-  ]
+    "version": "https://jsonfeed.org/version/1",
+    "title": "raqz.pl Solutions Blog",
+    "home_page_url": "https://raqz.pl/blog",
+    "feed_url": "https://raqz.pl/feed.json",
+    "description": "Insights, tutorials, and updates from RaqZpl Solutions",
+    "author": {
+        "name": "RaqZpl Solutions",
+        "url": "https://raqz.pl"
+    },
+    "items": [
+        {
+            "id": "https://raqz.pl/blog/ai-automation-chatbots-dashboards-mazury-mikolajki-gizycko-mragowo-olsztyn",
+            "content_html": "AI chatbots, dashboards and process automation for Mazury businesses. Integrations with your tools, fast deployment in 7–21 days. raqz.pl",
+            "url": "https://raqz.pl/blog/ai-automation-chatbots-dashboards-mazury-mikolajki-gizycko-mragowo-olsztyn",
+            "title": "AI Automation in Mazury: Chatbots & Dashboards | raqz.pl",
+            "summary": "I help Mazury businesses reduce workload and improve customer service with AI chatbots, automation and dashboards—especially valuable during the seasonal peak.",
+            "image": "https://raqz.pl/images/blog/ai-automation-bot-next-to-the-lakes--forests.jpg",
+            "date_modified": "2026-01-25T00:00:00.000Z",
+            "author": {
+                "name": "raqz.pl"
+            },
+            "tags": [
+                "AI & Machine Learning",
+                "Automation",
+                "Local Business"
+            ]
+        }
+    ]
 }
