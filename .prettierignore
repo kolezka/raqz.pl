@@ -13,6 +13,7 @@ public/feed.xml
 public/pl/atom.xml
 public/pl/feed.xml
 public/sitemap.xml
+public/
 
 # Lockfiles
 package-lock.json
