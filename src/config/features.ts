@@ -63,7 +63,7 @@ export const FEATURES: Readonly<FeatureFlags> = Object.freeze({
   CONTACT: true,
   BLOG_ENABLED: true,
   PORTFOLIO_ENABLED: false,
-  CV_ENABLED: true,
+  CV_ENABLED: false,
   SHOW_ALL_BLOG_POSTS: true,
   BLOG_SEARCH_ENABLED: true,
   BLOG_CATEGORIES_ENABLED: true,
