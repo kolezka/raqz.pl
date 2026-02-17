@@ -17,6 +17,7 @@ import {
   RiTranslate2,
   RiTeamLine,
   RiRocketLine,
+  RiTerminalBoxLine,
 } from 'react-icons/ri'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import clsx from 'clsx'
@@ -122,6 +123,7 @@ export default function CVClient() {
     phone: t('data.phone'),
     website: t('data.website'),
     github: t('data.github'),
+    exercism: t('data.exercism'),
     summary: t.raw('data.summary') as string[],
     skills: {
       core: t.raw('data.skills.core') as SkillCategory,
@@ -225,6 +227,15 @@ export default function CVClient() {
             >
               <RiGithubLine className="w-5 h-5 mr-2 text-primary-500" aria-hidden="true" />
               <span>{cvData.github}</span>
+            </a>
+            <a
+              href={`https://${cvData.exercism}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            >
+              <RiTerminalBoxLine className="w-5 h-5 mr-2 text-primary-500" aria-hidden="true" />
+              <span>Exercism</span>
             </a>
           </div>
 
