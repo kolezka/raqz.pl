@@ -41,6 +41,15 @@ export default async function middleware(request: NextRequest) {
 
   // Continue with i18n middleware
   const response = intlMiddleware(request)
+
+  // Add stale-while-revalidate cache headers for HTML pages (not API routes)
+  if (response && !pathname.startsWith('/api/')) {
+    response.headers.set(
+      'Cache-Control',
+      'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400'
+    )
+  }
+
   return response
 }
 

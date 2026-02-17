@@ -6,19 +6,28 @@ import BlogCard from '@/components/blog/BlogCard'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { FEATURES } from '@/config/features'
 import Contact from '@/components/Contact'
+import type { BlogPost } from '@/types/blog'
 
-export default function BlogListClient() {
+interface BlogListClientProps {
+  initialPosts?: BlogPost[]
+  initialFeaturedPosts?: BlogPost[]
+}
+
+export default function BlogListClient({
+  initialPosts,
+  initialFeaturedPosts,
+}: BlogListClientProps = {}) {
   const t = useTranslations()
   const locale = useLocale()
   const language = locale as 'en' | 'pl'
   const { ref: titleRef } = useScrollAnimation<HTMLDivElement>('fade-up')
 
-  // Load posts
-  const { posts: allPosts, loading: allLoading } = useBlogPosts(language)
-  const { posts: featuredPosts } = useFeaturedPosts(language, 3)
+  // Load posts (use initial data if provided for SSR, otherwise fetch client-side)
+  const { posts: allPosts, loading: allLoading } = useBlogPosts(language, initialPosts)
+  const { posts: featuredPosts } = useFeaturedPosts(language, 3, initialFeaturedPosts)
 
   const posts = allPosts
-  const loading = allLoading
+  const loading = initialPosts ? false : allLoading
 
   // Page title
   const pageTitle = t('blog.title')

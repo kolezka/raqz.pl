@@ -2,11 +2,18 @@ import { useState, useEffect, useMemo } from 'react'
 import type { BlogPost } from '../types/blog'
 import { categoryMatchesSlug, tagMatchesSlug } from '../utils/slugify'
 
-export function useBlogPosts(language: string) {
-  const [posts, setPosts] = useState<BlogPost[]>([])
-  const [loading, setLoading] = useState(true)
+export function useBlogPosts(language: string, initialPosts?: BlogPost[]) {
+  const [posts, setPosts] = useState<BlogPost[]>(initialPosts || [])
+  const [loading, setLoading] = useState(!initialPosts)
 
   useEffect(() => {
+    // Skip if we already have initial data from SSR
+    if (initialPosts) {
+      setPosts(initialPosts)
+      setLoading(false)
+      return
+    }
+
     setLoading(true)
 
     // Dynamically import the blog index
@@ -22,7 +29,7 @@ export function useBlogPosts(language: string) {
       .finally(() => {
         setLoading(false)
       })
-  }, [language])
+  }, [language, initialPosts])
 
   // Memoize posts array to prevent Fuse.js recreation in useBlogSearch
   const memoizedPosts = useMemo(() => posts, [posts])
@@ -39,8 +46,8 @@ export function useBlogPostMeta(slug: string, language: string) {
 }
 
 // Hook to get featured posts
-export function useFeaturedPosts(language: string, limit: number = 3) {
-  const { posts, loading } = useBlogPosts(language)
+export function useFeaturedPosts(language: string, limit: number = 3, initialPosts?: BlogPost[]) {
+  const { posts, loading } = useBlogPosts(language, initialPosts)
   const featured = posts.filter(p => p.featured).slice(0, limit)
 
   return { posts: featured, loading }

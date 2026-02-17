@@ -7,6 +7,10 @@ import { generateBreadcrumbSchema, BASE_URL } from '@/lib/schema'
 import type { Locale } from '@/i18n'
 import Contact from '@/components/Contact'
 
+// ISR: Revalidate every 1 day
+export const revalidate = 86400
+export const dynamic = 'force-static'
+
 export { generateServicesMetadata as generateMetadata } from '@/lib/generateServicesMetadata'
 
 const iconMap = {

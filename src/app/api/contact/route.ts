@@ -31,7 +31,13 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactFo
           success: false,
           error: 'Too many requests. Please try again later.',
         },
-        { status: 429 }
+        {
+          status: 429,
+          headers: {
+            'Retry-After': '3600',
+            'Cache-Control': 'no-store, no-cache, must-revalidate',
+          },
+        }
       )
     }
 
@@ -46,7 +52,12 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactFo
           error: 'Invalid form data',
           details: validationResult.error.issues,
         },
-        { status: 400 }
+        {
+          status: 400,
+          headers: {
+            'Cache-Control': 'no-store, no-cache, must-revalidate',
+          },
+        }
       )
     }
 
@@ -60,7 +71,12 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactFo
           success: false,
           error: 'CAPTCHA verification failed. Please try again.',
         },
-        { status: 400 }
+        {
+          status: 400,
+          headers: {
+            'Cache-Control': 'no-store, no-cache, must-revalidate',
+          },
+        }
       )
     }
 
@@ -72,7 +88,12 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactFo
       {
         success: true,
       },
-      { status: 200 }
+      {
+        status: 200,
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate',
+        },
+      }
     )
   } catch (error) {
     // Log the error for debugging
@@ -84,7 +105,12 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactFo
         success: false,
         error: 'Failed to send message. Please try again later.',
       },
-      { status: 500 }
+      {
+        status: 500,
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate',
+        },
+      }
     )
   }
 }

@@ -2,6 +2,10 @@ import BlogPostClient from '@/components/blog/BlogPostClient'
 import { getBlogPost } from '@/lib/blog'
 import Script from 'next/script'
 
+// ISR: Revalidate every 15 minutes
+export const revalidate = 900
+export const dynamic = 'force-static'
+
 export {
   generateBlogPostParams as generateStaticParams,
   generateBlogPostMetadata as generateMetadata,

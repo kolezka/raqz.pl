@@ -8,6 +8,10 @@ import LatestBlogPosts from '@/components/blog/LatestBlogPosts'
 import AnimatedBackground from '@/components/AnimatedBackground'
 import { FEATURES } from '@/config/features'
 
+// ISR: Revalidate every 1 hour
+export const revalidate = 3600
+export const dynamic = 'force-static'
+
 export default function HomePage() {
   return (
     <div className="relative">

@@ -3,8 +3,10 @@ import path from 'path'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
 import { getPlaiceholder } from 'plaiceholder'
+import { unstable_cache } from 'next/cache'
 import type { BlogPost } from '@/types/blog'
 import { categoryMatchesSlug, tagMatchesSlug } from '@/utils/slugify'
+import { CACHE_REVALIDATION, CACHE_TAGS } from '@/lib/cache'
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'blog')
 
@@ -117,3 +119,27 @@ export function getPostsByTag(posts: BlogPost[], tagSlug: string): BlogPost[] {
 export function getFeaturedPosts(posts: BlogPost[], limit: number = 3): BlogPost[] {
   return posts.filter(post => post.featured).slice(0, limit)
 }
+
+// Cached version of getBlogPosts using Next.js unstable_cache
+export const getCachedBlogPosts = unstable_cache(
+  async (locale: 'en' | 'pl') => {
+    return getBlogPosts(locale)
+  },
+  [CACHE_TAGS.BLOG_POSTS],
+  {
+    revalidate: CACHE_REVALIDATION.BLOG_CONTENT,
+    tags: [CACHE_TAGS.BLOG_POSTS],
+  }
+)
+
+// Cached version of getBlogPost using Next.js unstable_cache
+export const getCachedBlogPost = unstable_cache(
+  async (slug: string, locale: 'en' | 'pl') => {
+    return getBlogPost(slug, locale)
+  },
+  [CACHE_TAGS.BLOG_POSTS],
+  {
+    revalidate: CACHE_REVALIDATION.BLOG_CONTENT,
+    tags: [CACHE_TAGS.BLOG_POSTS],
+  }
+)

@@ -19,9 +19,53 @@ const nextConfig = {
   // Disable streaming metadata for all user agents to ensure meta tags render in <head>
   // This prevents metadata from being streamed to <body> during SSR
   htmlLimitedBots: /.*/,
+
+  // Image optimization settings
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+
+  // Cache headers for static assets
+  async headers() {
+    return [
+      {
+        source: '/:all*(svg|jpg|jpeg|png|gif|webp|avif|ico)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:all*(js|css)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/feed.xml',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
+          },
+        ],
+      },
+    ]
+  },
+
   experimental: {
     mdxRs: false, // Use JS-based MDX for compatibility
     viewTransition: true,
+    optimizePackageImports: ['react-icons', '@headlessui/react'],
   },
 }
 
