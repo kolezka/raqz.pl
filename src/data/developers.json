@@ -1,0 +1,244 @@
+{
+  "specialists": [
+    {
+      "id": "react-developer",
+      "slug": { "en": "react-developer", "pl": "react" },
+      "name": "React Developers",
+      "role": "Frontend Specialists",
+      "type": "react-developer",
+      "shortDescription": "Experienced React developers building modern, performant web applications with Next.js and TypeScript.",
+      "fullDescription": "Our React specialists bring years of experience in building scalable, user-friendly web applications. From single-page applications to complex enterprise platforms, we deliver clean, maintainable code that follows best practices and industry standards.",
+      "skills": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "State Management",
+        "Performance Optimization",
+        "Testing"
+      ],
+      "technologies": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "TailwindCSS",
+        "Redux",
+        "React Query",
+        "Zustand",
+        "Jest",
+        "Vitest"
+      ],
+      "specializations": [
+        "SSR with Next.js",
+        "SSG & ISR",
+        "Performance Optimization",
+        "Accessibility (WCAG)",
+        "Component Libraries",
+        "Migration to React 18+"
+      ],
+      "exampleProjects": [
+        {
+          "name": "E-commerce Platform",
+          "description": "Full-featured online store with cart, checkout, and payment integration",
+          "technologies": ["Next.js", "React", "TypeScript", "Stripe", "Prisma"]
+        },
+        {
+          "name": "SaaS Dashboard",
+          "description": "Analytics dashboard for business intelligence with real-time data",
+          "technologies": ["React", "TypeScript", "Recharts", "React Query"]
+        }
+      ]
+    },
+    {
+      "id": "python-developer",
+      "slug": { "en": "python-developer", "pl": "python" },
+      "name": "Python Developers",
+      "role": "Backend Specialists",
+      "type": "python-developer",
+      "shortDescription": "Skilled Python developers specializing in backend systems, APIs, data processing, and automation solutions.",
+      "fullDescription": "Our Python experts build robust backend systems and data pipelines that power modern applications. With expertise in Django, FastAPI, and data processing libraries, we create efficient, scalable solutions for complex business challenges.",
+      "skills": [
+        "Python",
+        "Django",
+        "FastAPI",
+        "PostgreSQL",
+        "API Design",
+        "Data Processing",
+        "Automation"
+      ],
+      "technologies": [
+        "Python",
+        "Django",
+        "FastAPI",
+        "PostgreSQL",
+        "MySQL",
+        "Redis",
+        "Celery",
+        "Docker",
+        "Pandas",
+        "NumPy"
+      ],
+      "specializations": [
+        "RESTful APIs",
+        "GraphQL APIs",
+        "Data Pipelines",
+        "Automation Scripts",
+        "Web Scraping",
+        "Testing"
+      ],
+      "exampleProjects": [
+        {
+          "name": "REST API Platform",
+          "description": "High-performance API serving millions of requests daily",
+          "technologies": ["FastAPI", "PostgreSQL", "Redis", "Docker"]
+        },
+        {
+          "name": "Data Processing Pipeline",
+          "description": "Automated data processing and analytics system",
+          "technologies": ["Python", "Pandas", "Celery", "Redis"]
+        }
+      ]
+    },
+    {
+      "id": "react-native-developer",
+      "slug": { "en": "react-native-developer", "pl": "react-native" },
+      "name": "React Native Developers",
+      "role": "Mobile Specialists",
+      "type": "react-native-developer",
+      "shortDescription": "Mobile developers creating cross-platform applications with React Native and Expo for iOS and Android.",
+      "fullDescription": "Our React Native specialists deliver high-quality mobile applications that work seamlessly on both iOS and Android. From concept to App Store deployment, we handle the entire mobile development lifecycle with expertise in Expo, native modules, and performance optimization.",
+      "skills": [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "iOS",
+        "Android",
+        "Mobile UI/UX",
+        "Push Notifications"
+      ],
+      "technologies": [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "EAS",
+        "Redux",
+        "React Navigation",
+        "Firebase",
+        "Realm"
+      ],
+      "specializations": [
+        "Cross-platform Development",
+        "Expo Managed & Bare",
+        "Native Modules",
+        "Push Notifications",
+        "Deep Linking",
+        "OTA Updates"
+      ],
+      "exampleProjects": [
+        {
+          "name": "Fitness Tracking App",
+          "description": "Cross-platform app with workout tracking and social features",
+          "technologies": ["React Native", "Expo", "TypeScript", "Firebase"]
+        },
+        {
+          "name": "E-commerce Mobile App",
+          "description": "Full-featured shopping application with payment integration",
+          "technologies": ["React Native", "Redux", "Stripe", "React Navigation"]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-developer",
+      "slug": { "en": "nodejs-developer", "pl": "nodejs" },
+      "name": "Node.js Developers",
+      "role": "Backend Specialists",
+      "type": "nodejs-developer",
+      "shortDescription": "Backend developers building scalable microservices, APIs, and real-time systems with Node.js.",
+      "fullDescription": "Our Node.js experts design and implement robust backend systems that scale. From REST APIs to GraphQL gateways, from real-time collaboration tools to microservices architectures, we deliver high-performance solutions tailored to your needs.",
+      "skills": [
+        "Node.js",
+        "TypeScript",
+        "Express",
+        "NestJS",
+        "Databases",
+        "API Design",
+        "WebSockets"
+      ],
+      "technologies": [
+        "Node.js",
+        "TypeScript",
+        "Express",
+        "NestJS",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "GraphQL",
+        "Socket.io"
+      ],
+      "specializations": [
+        "REST APIs",
+        "GraphQL",
+        "Microservices",
+        "Real-time Systems",
+        "Event-driven Architecture",
+        "Authentication"
+      ],
+      "exampleProjects": [
+        {
+          "name": "GraphQL API Gateway",
+          "description": "Unified GraphQL gateway for multiple microservices",
+          "technologies": ["Node.js", "GraphQL", "Apollo", "Redis"]
+        },
+        {
+          "name": "Real-time Collaboration Platform",
+          "description": "WebSocket-based system for live collaboration",
+          "technologies": ["Node.js", "Socket.io", "Redis", "MongoDB"]
+        }
+      ]
+    },
+    {
+      "id": "graphics-designer",
+      "slug": { "en": "graphics-designer", "pl": "grafik" },
+      "name": "Graphics Designers",
+      "role": "Visual Design Specialists",
+      "type": "graphics-designer",
+      "shortDescription": "Creative designers specializing in illustrations, branding, visual identity, and marketing materials.",
+      "fullDescription": "Our graphics designers bring ideas to life through visual storytelling. We specialize in creating unique illustrations, memorable brand identities, and eye-catching marketing materials. Note: Our graphics designers focus on illustrations, branding, and logos – we do not provide UI/UX design services.",
+      "skills": [
+        "Illustrations",
+        "Branding",
+        "Logo Design",
+        "Print Design",
+        "Social Media Graphics",
+        "Visual Identity"
+      ],
+      "technologies": [
+        "Adobe Illustrator",
+        "Adobe Photoshop",
+        "Figma",
+        "Procreate",
+        "InDesign",
+        "After Effects"
+      ],
+      "specializations": [
+        "Illustrations",
+        "Branding",
+        "Logos",
+        "Print Design",
+        "Social Media Graphics",
+        "Marketing Materials"
+      ],
+      "exampleProjects": [
+        {
+          "name": "Brand Identity",
+          "description": "Complete visual identity for a tech startup",
+          "technologies": ["Adobe Illustrator", "Figma"]
+        },
+        {
+          "name": "Illustration Series",
+          "description": "Custom illustrations for marketing campaign",
+          "technologies": ["Procreate", "Adobe Photoshop"]
+        }
+      ]
+    }
+  ]
+}

@@ -25,7 +25,9 @@ export default function About() {
           <p className="font-bold tracking-tight text-gray-900 dark:text-white text-5xl mb-4">
             {t('about.description')}
           </p>
-          <p className="text-gray-600 dark:text-gray-300 text-lg">{t('about.subtitle')}</p>
+          <p className="text-gray-600 dark:text-gray-300 text-lg whitespace-pre-line">
+            {t('about.subtitle')}
+          </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">

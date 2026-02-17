@@ -14,6 +14,7 @@ import { memo, useEffect } from 'react'
 import I18nTransitionLink from '@/components/I18nTransitionLink'
 import servicesData from '../data/services.json'
 import type { Locale } from '@/i18n'
+import clsx from 'clsx'
 
 // Move iconMap outside component to prevent recreation on every render
 const iconMap = {
@@ -56,7 +57,13 @@ function ServicesDropdownContent({
     <>
       <PopoverButton className="inline-flex w-full justify-center items-center text-sm font-semibold leading-6 transition-colors duration-300 text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none cursor-pointer">
         {t('services')}
-        <RiArrowDownSLine className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+        <RiArrowDownSLine
+          className={clsx('-mr-1 ml-1 h-4 w-4 transition-transform', {
+            'rotate-180': open,
+            'rotate-0': !open,
+          })}
+          aria-hidden="true"
+        />
       </PopoverButton>
 
       <PopoverPanel

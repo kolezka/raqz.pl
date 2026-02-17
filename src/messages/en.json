@@ -20,6 +20,7 @@
     "home": "Home",
     "services": "Services",
     "portfolio": "Portfolio",
+    "developers": "Developers",
     "blog": "Blog",
     "cv": "CV",
     "about": "About",
@@ -121,27 +122,27 @@
     "browseTag": "Browse all articles tagged with"
   },
   "hero": {
-    "title": "Custom Software Development & AI Automation",
-    "subtitle": "Web & mobile apps, AI chatbots, process automation, and blockchain solutions.",
+    "title": "Your IT Partner",
+    "subtitle": "Dedicated IT systems – from web and mobile apps, intelligent AI chatbots, to process automation and blockchain.",
     "getStarted": "Explore Solutions",
     "learnMore": "Get to Know Us"
   },
   "about": {
-    "title": "",
-    "description": "Passion for IT solutions.",
-    "subtitle": "I create innovative software solutions that help businesses thrive in the digital age.",
+    "title": "About Us",
+    "description": "Innovation in Practice",
+    "subtitle": "We transform advanced technologies into simple and effective business tools. Specializing in web and mobile applications and IT systems.",
     "values": {
       "innovation": {
-        "title": "From software to AI automation",
-        "description": "I create and implement practical solutions: websites and applications, client portals, process automation, dashboards, and AI chatbots/agents."
+        "title": "Scalable Solutions",
+        "description": "High-quality applications and systems that grow with your business and achieve your goals."
       },
       "quality": {
-        "title": "Software that works in practice",
-        "description": "I deliver complete end-to-end systems. I take care of stability, security, and costs. You can rest assured that it will be maintained and developed, not abandoned after deployment."
+        "title": "Intelligence and Automation",
+        "description": "AI and process automation that free up your team's time."
       },
       "partnership": {
         "title": "Client Partnership",
-        "description": "I work in a model: short audit → plan → implementation. You get a clear scope, deadlines, and priorities."
+        "description": "You gain peace of mind and confidence that your systems are in expert hands."
       }
     }
   },
@@ -305,9 +306,7 @@
     "blockchain-development": {
       "description": "Comprehensive blockchain development services – from Web3 applications and multi-chain wallet integrations to smart contracts and decentralized DeFi platforms. We support Ethereum, Solana, Cosmos, and other blockchain networks.",
       "features": [
-        "Web3 authentication systems",
         "Multi-chain wallet integrations (MetaMask, Phantom, WalletConnect)",
-        "Smart contracts (Solidity, Rust)",
         "DeFi (staking, lending, AMM)",
         "Token standards (ERC-20, SPL) and tokenomics"
       ]
@@ -378,6 +377,24 @@
     },
     "success": {
       "preferencesSaved": "Your preferences have been saved."
+    }
+  },
+  "developers": {
+    "title": "Our Specialists",
+    "description": "Talented developers available for your projects through body leasing.",
+    "viewDetails": "View Details",
+    "backToList": "Back to Specialists",
+    "contact": "Contact",
+    "contactUs": "Contact Us",
+    "about": "About",
+    "skills": "Skills",
+    "technologies": "Technologies",
+    "specializations": "Specializations",
+    "exampleProjects": "Example Projects",
+    "designerNote": "Specializes in illustrations and branding — not UI design",
+    "meta": {
+      "title": "Our Specialists",
+      "description": "Talented developers available for your projects through body leasing."
     }
   },
   "maintenance": {

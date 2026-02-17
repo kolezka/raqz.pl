@@ -53,6 +53,12 @@ export interface FeatureFlags {
    * When false: Category filters are hidden on blog list page
    */
   BLOG_CATEGORIES_ENABLED: boolean
+
+  /**
+   * Master toggle for the developers/specialists section
+   * When false: Developers routes are disabled, developers links are hidden from navigation
+   */
+  DEVELOPERS_ENABLED: boolean
 }
 
 /**
@@ -69,6 +75,7 @@ export const FEATURES: Readonly<FeatureFlags> = Object.freeze({
   BLOG_CATEGORIES_ENABLED: true,
   MAINTENANCE_MODE: false,
   FAQ_ENABLED: false,
+  DEVELOPERS_ENABLED: false,
 })
 
 /**

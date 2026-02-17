@@ -129,6 +129,15 @@ export default memo(function Header() {
             },
           ]
         : []),
+      ...(FEATURES.DEVELOPERS_ENABLED
+        ? [
+            {
+              name: t('developers'),
+              href: `${langPrefix}/developers`,
+              type: 'link' as const,
+            },
+          ]
+        : []),
       ...(FEATURES.CONTACT
         ? [
             {
@@ -155,10 +164,10 @@ export default memo(function Header() {
         <nav
           className={clsx(
             'flex items-center justify-between',
-            'py-3 px-4 lg:py-4 lg:px-8',
-            'border border-gray-100 dark:border-gray-700',
+            'py-3 px-4 lg:py-4 lg:px-6',
+            'border border-gray-100 dark:border-gray-800',
             'bg-white dark:bg-dark-800/30',
-            mobileMenuOpen ? 'rounded-t-2xl' : 'rounded-xl',
+            mobileMenuOpen ? 'rounded-t-2xl' : 'rounded-lg',
             'shadow-sm',
             'transition-all duration-300 linear',
             'backdrop-blur-2xl'
@@ -198,14 +207,14 @@ export default memo(function Header() {
                 ) : item.type === 'link' ? (
                   <Link
                     href={item.href}
-                    className="text-md font-semibold transition-colors duration-150 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative"
+                    className="text-sm font-semibold transition-colors duration-150 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative"
                   >
                     {item.name}
                   </Link>
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-md font-semibold transition-colors duration-150 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative"
+                    className="text-sm font-semibold transition-colors duration-150 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative"
                   >
                     {item.name}
                   </Link>
