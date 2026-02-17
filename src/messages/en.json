@@ -561,16 +561,16 @@
               "skills": [
                 { "name": "Node.js", "level": "expert" },
                 { "name": "Express", "level": "expert" },
-                { "name": "NestJS", "level": "intermediate" },
-                { "name": "Fastify", "level": "intermediate" },
+                { "name": "NestJS", "level": "expert" },
+                { "name": "Fastify", "level": "expert" },
                 "tRPC",
                 { "name": "Apollo GraphQL", "level": "intermediate" },
                 { "name": "Background Jobs", "level": "intermediate" },
                 { "name": "Message Queues (concepts)", "level": "learning" },
                 { "name": "OAuth 2.0 / OIDC", "level": "expert" },
                 { "name": "JWT", "level": "expert" },
-                "OpenAPI",
-                { "name": "RabbitMQ", "level": "learning" }
+                { "name": "OpenAPI", "level": "expert" },
+                { "name": "BullMQ", "level": "learning" }
               ]
             },
             {
