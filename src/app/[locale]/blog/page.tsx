@@ -3,10 +3,15 @@ import Script from 'next/script'
 import { getLocale, getTranslations } from 'next-intl/server'
 import { generateBreadcrumbSchema, BASE_URL } from '@/lib/schema'
 import { getBlogPosts } from '@/lib/blog'
+import { routing } from '@/i18n/routing'
 
 // ISR: Revalidate every 15 minutes
 export const revalidate = 900
-export const dynamic = 'force-static'
+
+// Generate static params for ISR
+export function generateStaticParams() {
+  return routing.locales.map(locale => ({ locale }))
+}
 
 export { generateBlogListMetadata as generateMetadata } from '@/lib/generateBlogMetadata'
 

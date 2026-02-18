@@ -6,10 +6,15 @@ import servicesData from '@/data/services.json'
 import { generateBreadcrumbSchema, BASE_URL } from '@/lib/schema'
 import type { Locale } from '@/i18n'
 import Contact from '@/components/Contact'
+import { routing } from '@/i18n/routing'
 
 // ISR: Revalidate every 1 day
 export const revalidate = 86400
-export const dynamic = 'force-static'
+
+// Generate static params for ISR
+export function generateStaticParams() {
+  return routing.locales.map(locale => ({ locale }))
+}
 
 export { generateServicesMetadata as generateMetadata } from '@/lib/generateServicesMetadata'
 

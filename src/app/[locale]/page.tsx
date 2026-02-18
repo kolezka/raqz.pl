@@ -7,10 +7,15 @@ import FAQ from '@/components/FAQ'
 import LatestBlogPosts from '@/components/blog/LatestBlogPosts'
 import AnimatedBackground from '@/components/AnimatedBackground'
 import { FEATURES } from '@/config/features'
+import { routing } from '@/i18n/routing'
 
 // ISR: Revalidate every 1 hour
 export const revalidate = 3600
-export const dynamic = 'force-static'
+
+// Generate static params for ISR
+export function generateStaticParams() {
+  return routing.locales.map(locale => ({ locale }))
+}
 
 export default function HomePage() {
   return (

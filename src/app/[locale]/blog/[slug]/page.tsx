@@ -4,7 +4,6 @@ import Script from 'next/script'
 
 // ISR: Revalidate every 15 minutes
 export const revalidate = 900
-export const dynamic = 'force-static'
 
 export {
   generateBlogPostParams as generateStaticParams,
