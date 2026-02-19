@@ -10,6 +10,7 @@ import servicesData from '@/data/services.json'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import CookieSettingsButton from './CookieSettingsButton'
 import { FEATURES } from '../config/features'
+import ToptalBadge from './ToptalBadge'
 
 export default function Footer() {
   const t = useTranslations()
@@ -134,6 +135,9 @@ export default function Footer() {
                   </svg>
                 </a>
               </div>
+
+              {/* Toptal Badge */}
+              <ToptalBadge />
             </div>
           </div>
 
