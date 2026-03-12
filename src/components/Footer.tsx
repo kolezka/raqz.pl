@@ -84,12 +84,14 @@ export default function Footer() {
                 >
                   mariusz@raqz.pl
                 </a>
+                {!FEATURES.WIP_MODE && (
                 <Link
                   href={`${langPrefix}/#contact`}
                   className="inline-block text-sm text-primary-400 hover:text-primary-300 transition-colors duration-200"
                 >
                   {t('navigation.contact')} &rarr;
                 </Link>
+              )}
               </div>
 
               {/* Social Links */}
@@ -142,51 +144,55 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              {t('footer.quickLinks')}
-            </h3>
-            <ul className="space-y-3">
-              {quickLinks.map(link => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {!FEATURES.WIP_MODE && (
+            <div>
+              <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+                {t('footer.quickLinks')}
+              </h3>
+              <ul className="space-y-3">
+                {quickLinks.map(link => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Services */}
-          <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              {t('footer.services')}
-            </h3>
-            <div className="flex flex-col lg:flex-row gap-4">
-              {serviceCategories.map(category => (
-                <div key={category.id} className="flex-1">
-                  {/* <h4 className="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                    {category.name}
-                  </h4> */}
-                  <ul className="space-y-2">
-                    {category.services.map(service => (
-                      <li key={service.id}>
-                        <I18nLink
-                          href={service.href}
-                          className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
-                        >
-                          {service.name}
-                        </I18nLink>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+          {!FEATURES.WIP_MODE && (
+            <div>
+              <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+                {t('footer.services')}
+              </h3>
+              <div className="flex flex-col lg:flex-row gap-4">
+                {serviceCategories.map(category => (
+                  <div key={category.id} className="flex-1">
+                    {/* <h4 className="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+                      {category.name}
+                    </h4> */}
+                    <ul className="space-y-2">
+                      {category.services.map(service => (
+                        <li key={service.id}>
+                          <I18nLink
+                            href={service.href}
+                            className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
+                          >
+                            {service.name}
+                          </I18nLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Contact and Social */}
         </div>

@@ -4,6 +4,7 @@
 import { useTranslations } from 'next-intl'
 import I18nTransitionLink from './I18nTransitionLink'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { FEATURES } from '../config/features'
 
 export default function Hero() {
   const t = useTranslations()
@@ -28,23 +29,25 @@ export default function Hero() {
           >
             {t('hero.subtitle')}
           </p>
-          <div
-            ref={ctaAnimation.ref}
-            className={`mt-10 flex items-center justify-center gap-x-6 ${ctaAnimation.className}`}
-          >
-            <I18nTransitionLink
-              href="/services"
-              className="rounded-md bg-primary-500 dark:bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-600 dark:hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95"
+          {!FEATURES.WIP_MODE && (
+            <div
+              ref={ctaAnimation.ref}
+              className={`mt-10 flex items-center justify-center gap-x-6 ${ctaAnimation.className}`}
             >
-              {t('hero.getStarted')}
-            </I18nTransitionLink>
-            {/* <a
-              href="#about"
-              className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors duration-200"
-            >
-              {t('hero.learnMore')} <span aria-hidden="true">→</span>
-            </a> */}
-          </div>
+              <I18nTransitionLink
+                href="/services"
+                className="rounded-md bg-primary-500 dark:bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-600 dark:hover:bg-primary-500 hover:scale-105 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 active:scale-95"
+              >
+                {t('hero.getStarted')}
+              </I18nTransitionLink>
+              {/* <a
+                href="#about"
+                className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors duration-200"
+              >
+                {t('hero.learnMore')} <span aria-hidden="true">→</span>
+              </a> */}
+            </div>
+          )}
         </div>
       </div>
     </section>

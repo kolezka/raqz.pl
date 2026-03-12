@@ -184,44 +184,50 @@ export default memo(function Header() {
               </span>
             </Link>
           </div>
-          <div className="flex lg:hidden">
-            <button
-              type="button"
-              className="text-gray-700 dark:text-gray-300 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 transition-colors duration-300"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-expanded={mobileMenuOpen}
-            >
-              <span className="sr-only">{mobileMenuOpen ? 'Close menu' : 'Open main menu'}</span>
-              {mobileMenuOpen ? (
-                <RiCloseLine className="h-6 w-6" aria-hidden="true" />
-              ) : (
-                <RiMenuLine className="h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
-          </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map(item => (
-              <div key={item.name}>
-                {item.type === 'dropdown' ? (
-                  <ServicesDropdown />
-                ) : item.type === 'link' ? (
-                  <Link
-                    href={item.href}
-                    className="text-sm font-semibold transition-colors duration-150 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative"
-                  >
-                    {item.name}
-                  </Link>
+          {!FEATURES.WIP_MODE && (
+            <div className="flex lg:hidden">
+              <button
+                type="button"
+                className="text-gray-700 dark:text-gray-300 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 transition-colors duration-300"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-expanded={mobileMenuOpen}
+              >
+                <span className="sr-only">
+                  {mobileMenuOpen ? 'Close menu' : 'Open main menu'}
+                </span>
+                {mobileMenuOpen ? (
+                  <RiCloseLine className="h-6 w-6" aria-hidden="true" />
                 ) : (
-                  <Link
-                    href={item.href}
-                    className="text-sm font-semibold transition-colors duration-150 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative"
-                  >
-                    {item.name}
-                  </Link>
+                  <RiMenuLine className="h-6 w-6" aria-hidden="true" />
                 )}
-              </div>
-            ))}
-          </div>
+              </button>
+            </div>
+          )}
+          {!FEATURES.WIP_MODE && (
+            <div className="hidden lg:flex lg:gap-x-12">
+              {navigation.map(item => (
+                <div key={item.name}>
+                  {item.type === 'dropdown' ? (
+                    <ServicesDropdown />
+                  ) : item.type === 'link' ? (
+                    <Link
+                      href={item.href}
+                      className="text-sm font-semibold transition-colors duration-150 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative"
+                    >
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-sm font-semibold transition-colors duration-150 text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 relative"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
           <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-2">
             <ThemeToggle />
             <LanguageSwitcher />
@@ -229,53 +235,55 @@ export default memo(function Header() {
         </nav>
 
         {/* Mobile dropdown menu */}
-        <div
-          className={clsx(
-            'lg:hidden origin-top transition-all duration-200 ease-out',
-            mobileMenuOpen
-              ? 'scale-y-100 opacity-100 max-h-[1000px]'
-              : 'scale-y-0 opacity-0 pointer-events-none max-h-0'
-          )}
-        >
-          <div className="bg-white dark:bg-dark-800 border border-t-0 border-gray-100 dark:border-gray-700 rounded-b-2xl shadow-lg px-4 pb-4">
-            <div className="space-y-1 py-3">
-              {navigation.map(item =>
-                item.type === 'link' || item.type === 'anchor' ? (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-150"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <Link
-                    key={item.name}
-                    href={`${langPrefix}/services`}
-                    className="block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-150"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                )
-              )}
-            </div>
-            <div className="border-t border-gray-100 dark:border-gray-700 pt-3">
-              <Link
-                href={`${langPrefix}/#contact`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block rounded-lg px-3 py-2.5 text-base font-semibold text-primary-600 dark:text-primary-400 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-150"
-              >
-                {t('getStarted')}
-              </Link>
-            </div>
-            <div className="flex items-center gap-4 pt-3 px-3 border-t border-gray-100 dark:border-gray-700 mt-3">
-              <ThemeToggle />
-              <LanguageSwitcher />
+        {!FEATURES.WIP_MODE && (
+          <div
+            className={clsx(
+              'lg:hidden origin-top transition-all duration-200 ease-out',
+              mobileMenuOpen
+                ? 'scale-y-100 opacity-100 max-h-[1000px]'
+                : 'scale-y-0 opacity-0 pointer-events-none max-h-0'
+            )}
+          >
+            <div className="bg-white dark:bg-dark-800 border border-t-0 border-gray-100 dark:border-gray-700 rounded-b-2xl shadow-lg px-4 pb-4">
+              <div className="space-y-1 py-3">
+                {navigation.map(item =>
+                  item.type === 'link' || item.type === 'anchor' ? (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-150"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      href={`${langPrefix}/services`}
+                      className="block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-150"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                )}
+              </div>
+              <div className="border-t border-gray-100 dark:border-gray-700 pt-3">
+                <Link
+                  href={`${langPrefix}/#contact`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block rounded-lg px-3 py-2.5 text-base font-semibold text-primary-600 dark:text-primary-400 hover:bg-gray-50 dark:hover:bg-dark-700 transition-colors duration-150"
+                >
+                  {t('getStarted')}
+                </Link>
+              </div>
+              <div className="flex items-center gap-4 pt-3 px-3 border-t border-gray-100 dark:border-gray-700 mt-3">
+                <ThemeToggle />
+                <LanguageSwitcher />
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   )

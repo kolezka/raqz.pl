@@ -59,6 +59,13 @@ export interface FeatureFlags {
    * When false: Developers routes are disabled, developers links are hidden from navigation
    */
   DEVELOPERS_ENABLED: boolean
+
+  /**
+   * Work-in-progress mode
+   * When true: Hides navigation links in header, footer quick links & services,
+   * and the hero CTA button. Only the logo, hero text, and WIP section are visible.
+   */
+  WIP_MODE: boolean
 }
 
 /**
@@ -76,6 +83,7 @@ export const FEATURES: Readonly<FeatureFlags> = Object.freeze({
   MAINTENANCE_MODE: false,
   FAQ_ENABLED: false,
   DEVELOPERS_ENABLED: false,
+  WIP_MODE: true,
 })
 
 /**
