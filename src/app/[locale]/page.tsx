@@ -1,12 +1,6 @@
 import Hero from '@/components/Hero'
-import Services from '@/components/Services'
-import About from '@/components/About'
-import AboutMe from '@/components/AboutMe'
-import Contact from '@/components/Contact'
-import FAQ from '@/components/FAQ'
-import LatestBlogPosts from '@/components/blog/LatestBlogPosts'
 import AnimatedBackground from '@/components/AnimatedBackground'
-import { FEATURES } from '@/config/features'
+import WorkInProgress from '@/components/WorkInProgress'
 import { routing } from '@/i18n/routing'
 
 // ISR: Revalidate every 1 hour
@@ -24,17 +18,7 @@ export default function HomePage() {
         <AnimatedBackground />
       </div>
       <Hero />
-
-      <About />
-      <Services />
-
-      {/* <Clients /> */}
-      <AboutMe />
-
-      {/* <TechStack /> */}
-      {FEATURES.BLOG_ENABLED && <LatestBlogPosts />}
-      {FEATURES.FAQ_ENABLED && <FAQ />}
-      {FEATURES.CONTACT && <Contact />}
+      <WorkInProgress />
     </div>
   )
 }

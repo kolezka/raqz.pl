@@ -2,6 +2,10 @@
   "common": {
     "loading": "Loading..."
   },
+  "wip": {
+    "title": "Work in Progress",
+    "description": "We're building something amazing. Stay tuned — our new website is coming soon!"
+  },
   "errors": {
     "featureDisabled": {
       "title": "Feature Unavailable",

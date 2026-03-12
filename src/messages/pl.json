@@ -2,6 +2,10 @@
   "common": {
     "loading": "Ładowanie..."
   },
+  "wip": {
+    "title": "Strona w budowie",
+    "description": "Tworzymy coś wyjątkowego. Bądź na bieżąco — nowa strona już wkrótce!"
+  },
   "errors": {
     "featureDisabled": {
       "title": "Funkcja niedostępna",

@@ -10,6 +10,7 @@ import { ViewTransitions } from 'next-view-transitions'
 import CookieBanner from '@/components/CookieBanner'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import SchemaScript from '@/components/SchemaScript'
+import MaintenanceOverlay from '@/components/MaintenanceOverlay'
 import Script from 'next/script'
 import type { Metadata } from 'next'
 
@@ -128,6 +129,7 @@ export default async function LocaleLayout({
         <body className="bg-white dark:bg-dark-900 text-gray-900 dark:text-gray-100 transition-colors duration-200 ">
           <ThemeProvider>
             <NextIntlClientProvider messages={messages}>
+              <MaintenanceOverlay />
               <WebVitalsMonitor />
               <CookieBanner />
               <div className="min-h-screen flex flex-col">
